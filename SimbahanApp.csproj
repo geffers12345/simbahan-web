@@ -1,0 +1,2220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D40BD2A0-C1AC-4500-8C56-3FA62B4090D2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimbahanApp</RootNamespace>
+    <AssemblyName>SimbahanApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SimpleInjector, Version=4.0.7.0, Culture=neutral, PublicKeyToken=984cb50dea722e99, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleInjector.4.0.7\lib\net45\SimpleInjector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <Private>True</Private>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\AddPhoneNumber.aspx" />
+    <Content Include="Account\Confirm.aspx" />
+    <Content Include="Account\Forgot.aspx" />
+    <Content Include="Account\Lockout.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Manage.aspx" />
+    <Content Include="Account\ManageLogins.aspx" />
+    <Content Include="Account\ManagePassword.aspx" />
+    <Content Include="Account\OpenAuthProviders.ascx" />
+    <Content Include="Assets\Audio\Inspirations\ALL ON THE ALTAR Lyric Video  Official Planetshakers Video.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Beautiful Things - Gungor Lyric Video  purchase song in description.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Broken Vessels %28Amazing Grace%29 [Official Lyric Video] - Hillsong Worship.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Chris Tomlin - I Will Follow.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Chris Tomlin - Lord I Need You.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Closer - Bethel Live w Lyrics.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Darlene Zschech - In Jesus Name - with lyrics.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Declare Your Victory - Feast Worship.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Even When it Hurts %28Praise Song%29 Official Lyric Video -- Hillsong UNITED.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Hillsong UNITED Relentless Lyric Video.mp3" />
+    <Content Include="Assets\Audio\Inspirations\I Am Not Alone - Kari Jobe - Worship Video with lyrics.mp3" />
+    <Content Include="Assets\Audio\Inspirations\I CAME FOR YOU Lyric Video  Official Planetshakers Video.mp3" />
+    <Content Include="Assets\Audio\Inspirations\israel  new breed. i know who i am %28featuring chris tomlin%29.mp3" />
+    <Content Include="Assets\Audio\Inspirations\KZ Tandingan - Wag Ka Nang Umiyak with Lyrics.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Lead Me Lord - Gary Valenciano %28w lyrics%29.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Let There Be Light - Hillsong Worship.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Moving Ahead - Feast Worship.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Never Alone - Hillsong Young  Free.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Our God - Chris Tomlin %28with lyrics%29.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Planetshakers - This Is The Day [with Lyrics].mp3" />
+    <Content Include="Assets\Audio\Inspirations\Still - Hillsong United with Lyrics.mp3" />
+    <Content Include="Assets\Audio\Inspirations\The Afters - Lift Me Up - Official Video.mp3" />
+    <Content Include="Assets\Audio\Inspirations\The Anthem - Planetshakers.mp3" />
+    <Content Include="Assets\Audio\Inspirations\This I Believe %28The Creed%29 [Lyrics] - Hillsong Worship.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Today Is The Day %28Lincoln Brewster%29 - LYRICS.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Trading My Sorrows %28worship video w lyrics%29.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Vertical Church Band - If I Have You %28Live Performance Video%29.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Voice Of Truth - Casting Crowns.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Your Grace Finds Me %28Live From LIFT A Worship Leader Col.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Your Hands with Lyrics   JJ Heller.mp3" />
+    <Content Include="Assets\Audio\Inspirations\Your Word Lyric Video - Hillsong Worship %281%29.mp3" />
+    <Content Include="BasicCatholicPrayer.aspx" />
+    <Content Include="BasicCatholicPrayers.aspx" />
+    <Content Include="Bible-Alone.aspx" />
+    <Content Include="Bible-Bitter.aspx" />
+    <Content Include="Bible-Confused.aspx" />
+    <Content Include="Bible-Faithful.aspx" />
+    <Content Include="Bible-Financially.aspx" />
+    <Content Include="Bible-Grateful.aspx" />
+    <Content Include="Bible-Hopeful.aspx" />
+    <Content Include="Bible-Joyful.aspx" />
+    <Content Include="Bible-Love.aspx" />
+    <Content Include="Bible-Peaceful.aspx" />
+    <Content Include="Bible-Rejected.aspx" />
+    <Content Include="Bible-Tempted.aspx" />
+    <Content Include="Bible-Weak.aspx" />
+    <Content Include="Bible-Worried.aspx" />
+    <Content Include="Blog-10ChurchesInManila.aspx" />
+    <Content Include="Blogs.aspx" />
+    <Content Include="ChurchAdminPage.aspx" />
+    <Content Include="ChurchAdminPageUpdate.aspx" />
+    <Content Include="ChurchAnnouncements.aspx" />
+    <Content Include="Content\agency.min.css" />
+    <Content Include="Content\calendar-blue.css" />
+    <Content Include="Content\carousel.css" />
+    <Content Include="Content\contact.css" />
+    <Content Include="Content\demo2.css" />
+    <Content Include="Content\engine1\arrows.png" />
+    <Content Include="Content\engine1\bg.png" />
+    <Content Include="Content\engine1\bullet.png" />
+    <Content Include="Content\engine1\jquery.js" />
+    <Content Include="Content\engine1\pause.png" />
+    <Content Include="Content\engine1\play.png" />
+    <Content Include="Content\engine1\script.js" />
+    <Content Include="Content\engine1\style.css" />
+    <Content Include="Content\engine1\style.mod.css" />
+    <Content Include="Content\engine1\tooltips\ador.jpg" />
+    <Content Include="Content\engine1\tooltips\adoration.jpg" />
+    <Content Include="Content\engine1\tooltips\chapel.jpg" />
+    <Content Include="Content\engine1\triangle.png" />
+    <Content Include="Content\engine1\wowslider.js" />
+    <Content Include="Content\engine1\wowslider.mod.js" />
+    <Content Include="Content\favorites.css" />
+    <Content Include="Content\float.css" />
+    <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\magnific-popup.css" />
+    <Content Include="Content\MassScheduleStyle.css" />
+    <Content Include="Content\prayers.css" />
+    <Content Include="Content\slider.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\sweetalert.css" />
+    <Content Include="Content\textscroll.css" />
+    <Content Include="Content\timepicki.css" />
+    <Content Include="Content\video.css" />
+    <Content Include="CreditsInfo.aspx" />
+    <Content Include="Devotion.aspx" />
+    <Content Include="Devotions.aspx" />
+    <Content Include="Images\active_pointer.png" />
+    <Content Include="Images\amen-hov.png" />
+    <Content Include="Images\amen.png" />
+    <Content Include="Images\arrow_pointer.png" />
+    <Content Include="Images\Banner.jpg" />
+    <Content Include="Images\chrome.jpg" />
+    <Content Include="Images\chrome.png" />
+    <Content Include="Images\churchvid.mp4" />
+    <Content Include="Images\cover.jpg" />
+    <Content Include="Images\default-org.jpg" />
+    <Content Include="Images\default.jpg" />
+    <Content Include="Images\default_avatar.png" />
+    <Content Include="Images\Facebook.png" />
+    <Content Include="Images\flag_red_pointer.png" />
+    <Content Include="Images\flag_green_pointer.png" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\Manila Cathedral.mp4" />
+    <Content Include="Images\Organizations\1.jpg" />
+    <Content Include="Images\Organizations\10.jpg" />
+    <Content Include="Images\Organizations\11.jpg" />
+    <Content Include="Images\Organizations\12.jpg" />
+    <Content Include="Images\Organizations\13.jpg" />
+    <Content Include="Images\Organizations\14.jpg" />
+    <Content Include="Images\Organizations\14.png" />
+    <Content Include="Images\Organizations\15.jpg" />
+    <Content Include="Images\Organizations\16.jpg" />
+    <Content Include="Images\Organizations\17.jpg" />
+    <Content Include="Images\Organizations\18.jpg" />
+    <Content Include="Images\Organizations\19.jpg" />
+    <Content Include="Images\Organizations\2.png" />
+    <Content Include="Images\Organizations\20.jpg" />
+    <Content Include="Images\Organizations\21.png" />
+    <Content Include="Images\Organizations\23.jpg" />
+    <Content Include="Images\Organizations\24.png" />
+    <Content Include="Images\Organizations\25.jpg" />
+    <Content Include="Images\Organizations\27.jpg" />
+    <Content Include="Images\Organizations\28.jpg" />
+    <Content Include="Images\Organizations\29.png" />
+    <Content Include="Images\Organizations\3.1.jpg" />
+    <Content Include="Images\Organizations\30.jpg" />
+    <Content Include="Images\Organizations\4.jpg" />
+    <Content Include="Images\Organizations\5.jpg" />
+    <Content Include="Images\Organizations\6.jpg" />
+    <Content Include="Images\Organizations\7.jpg" />
+    <Content Include="Images\Organizations\8.jpg" />
+    <Content Include="Images\Organizations\9.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060001-AC-00001.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060001-AC-00002.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060001-AC-00003.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060002-AC-00004.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060002-AC-00005.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060002-AC-00006.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060003 - AC-00007.JPG" />
+    <Content Include="Images\Photos\AC_PH1358060004-AC-00008.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060042_00007.jpg" />
+    <Content Include="Images\Photos\AC_PH1358060042_00010.jpg" />
+    <Content Include="Images\Photos\AC_PH1358230136_00011.jpg" />
+    <Content Include="Images\Photos\AC_PH1358230136_00012.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050054_00073.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050054_00074.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050055_00074.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050055_00075.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050056_00074.JPG" />
+    <Content Include="Images\Photos\CH_PH1358050056_00076.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050057_00074.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050057_00077.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050058_00076.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050058_00077.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050060_00078.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050060_00079.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050060_00080.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050061_00081.JPG" />
+    <Content Include="Images\Photos\CH_PH1358050061_00082.JPG" />
+    <Content Include="Images\Photos\CH_PH1358050062_00083.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050062_00084.jpg" />
+    <Content Include="Images\Photos\CH_PH1358050063_00085.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060001_00001.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060001_00002.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060001_00003.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060002-CH-00005.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060002-CH-00006.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060002_00004.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060003-CH-00007.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060003-CH-00008.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060004-CH-00009.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060004-CH-00010.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060004-CH-00011.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060004-CH-00012.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060005-CH-00013.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060005-CH-00014.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060005-CH-00015.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060006-AC-00009.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060006-AC-00010.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060006-AC-00011.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060006-CH-00016.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060006-CH-00017.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060006-CH-00018.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060007-CH-00019.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060007-CH-00020.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060007-CH-00021.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060008-CH-00022.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060008-CH-00023.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060009-CH-00024.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060009-CH-00025.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060009-CH-00026.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060010-CH-00027.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060010-CH-00028.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060011-CH-00029.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060011-CH-00030.png" />
+    <Content Include="Images\Photos\CH_PH1358060012-CH-00030.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060012-CH-00031.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060012-CH-00032.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060014_00086.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060014_00087.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060014_00088.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060026-CH-00033.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060026-CH-00034.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060028-CH-00035.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060028-CH-00036.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060029-CH-00037.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060029-CH-00038.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060030-CH-00039.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060032-CH-00040.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060032-CH-00041.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060033-CH-00042.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060033-CH-00045.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060034-CH-00046.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060034-CH-00047.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060036-CH-00048.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060036-CH-00049.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060036-CH-00050.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060037-CH-00051.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060037-CH-00052.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060038-CH-00053.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060038-CH-00054.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060039-CH-00056.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060039-CH-00057.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060039-CH-00058.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060040_00059.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060040_00060.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060040_00061.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060041_00059.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060041_00060.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060041_00061.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060042_00059.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060043_00060.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060043_00061.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060044_00062.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060044_00063.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060045_00065.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060046_00064.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060046_00066.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060047_00067.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060047_00068.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060047_00069.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060048_00070.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060048_00071.jpg" />
+    <Content Include="Images\Photos\CH_PH1358060050_00072.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230107_00089 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00089.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00090 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00090.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00091 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00091.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00092 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00092.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00093 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00093.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00094 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00094.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00095 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00095.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00096 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00096.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00097 %282%29.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00097.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230107_00098.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230109_00099.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230109_00100.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230109_00101.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230110_00102.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230110_00103.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230110_00104.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230110_00105.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00106.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00107.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00108.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00109.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00110.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00111.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00112.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00113.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230111_00114.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00115.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00116.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00117.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00118.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00119.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00120.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00121.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00122.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00123.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00124.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00125.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230112_00126.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230113_00127.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230114_00128.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230114_00129.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230114_00130.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00131.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00132.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00133.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00134.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00135.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00136.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00137.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00138.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00139.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00140.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230115_00141.JPG" />
+    <Content Include="Images\Photos\CH_PH1358230131_00150.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230131_00151.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230131_00153.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230136_00142.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230136_00143.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230137_00144.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230137_00145.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230137_00146.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230138_00013.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230142_00147.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230142_00148.jpg" />
+    <Content Include="Images\Photos\CH_PH1358230142_00149.jpg" />
+    <Content Include="Images\Photos\CH_PH_20170120_105055_00154.jpg" />
+    <Content Include="Images\Photos\CH_PH_20170120_105055_00155.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060001-AC-00001.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060001-AC-00002.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060001-AC-00003.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060002-AC-00004.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060002-AC-00005.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060002-AC-00006.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060003 - AC-00007.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060004-AC-00008.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060042_00007.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358060042_00010.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358230136_00011.jpg" />
+    <Content Include="Images\Photos\Thumbnails\AC_PH1358230136_00012.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050054_00073.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050054_00074.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050055_00074.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050055_00075.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050056_00074.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050056_00076.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050057_00074.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050057_00077.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050058_00076.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050058_00077.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050060_00078.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050060_00079.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050060_00080.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050061_00081.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050061_00082.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050062_00083.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050062_00084.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358050063_00085.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060001_00001.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060001_00002.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060001_00003.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060002-CH-00005.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060002-CH-00006.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060002_00004.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060003-CH-00007.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060003-CH-00008.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060004-CH-00009.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060004-CH-00010.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060004-CH-00011.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060004-CH-00012.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060005-CH-00013.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060005-CH-00014.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060005-CH-00015.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060006-AC-00009.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060006-AC-00010.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060006-AC-00011.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060006-CH-00016.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060006-CH-00017.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060006-CH-00018.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060007-CH-00019.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060007-CH-00020.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060007-CH-00021.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060008-CH-00022.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060008-CH-00023.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060009-CH-00024.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060009-CH-00025.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060009-CH-00026.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060010-CH-00027.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060010-CH-00028.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060011-CH-00029.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060011-CH-00030.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060012-CH-00030.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060012-CH-00031.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060012-CH-00032.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060014_00086.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060014_00087.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060014_00088.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060026-CH-00033.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060026-CH-00034.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060028-CH-00035.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060028-CH-00036.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060029-CH-00037.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060029-CH-00038.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060030-CH-00039.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060032-CH-00040.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060032-CH-00041.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060033-CH-00042.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060033-CH-00045.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060034-CH-00046.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060034-CH-00047.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060036-CH-00048.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060036-CH-00049.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060036-CH-00050.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060037-CH-00051.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060037-CH-00052.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060038-CH-00053.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060038-CH-00054.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060039-CH-00056.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060039-CH-00057.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060039-CH-00058.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060040_00059.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060040_00060.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060040_00061.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060041_00059.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060041_00060.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060041_00061.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060042_00059.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060043_00060.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060043_00061.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060044_00062.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060044_00063.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060045_00065.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060046_00064.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060046_00066.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060047_00067.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060047_00068.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060047_00069.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060048_00070.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060048_00071.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358060050_00072.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00089 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00089.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00090 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00090.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00091 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00091.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00092 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00092.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00093 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00093.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00094 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00094.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00095 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00095.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00096 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00096.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00097 %282%29.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00097.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230107_00098.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230109_00099.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230109_00100.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230109_00101.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230110_00102.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230110_00103.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230110_00104.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230110_00105.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00106.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00107.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00108.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00109.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00110.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00111.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00112.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00113.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230111_00114.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00115.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00116.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00117.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00118.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00119.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00120.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00121.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00122.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00123.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00124.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00125.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230112_00126.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230113_00127.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230114_00128.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230114_00129.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230114_00130.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00131.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00132.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00133.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00134.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00135.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00136.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00137.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00138.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00139.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00140.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230115_00141.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230131_00150.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230131_00151.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230131_00153.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230136_00142.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230136_00143.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230137_00144.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230137_00145.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230137_00146.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230138_00013.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230142_00147.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230142_00148.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH1358230142_00149.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH_20170120_105055_00154.jpg" />
+    <Content Include="Images\Photos\Thumbnails\CH_PH_20170120_105055_00155.jpg" />
+    <Content Include="Images\pointer.png" />
+    <Content Include="Images\PrayerBG.jpg" />
+    <Content Include="Images\prayerwallbanner.jpg" />
+    <Content Include="Images\Saints\ST-001.jpg" />
+    <Content Include="Images\Saints\ST-002.jpg" />
+    <Content Include="Images\Saints\ST-003.jpg" />
+    <Content Include="Images\Saints\ST-004.jpg" />
+    <Content Include="Images\Saints\ST-005.jpg" />
+    <Content Include="Images\Saints\ST-006.jpg" />
+    <Content Include="Images\Saints\ST-007.jpg" />
+    <Content Include="Images\Saints\ST-008.jpg" />
+    <Content Include="Images\Saints\ST-009.jpg" />
+    <Content Include="Images\Saints\ST-010.jpg" />
+    <Content Include="Images\Saints\ST-011.jpg" />
+    <Content Include="Images\Saints\ST-013.jpg" />
+    <Content Include="Images\Saints\ST-014.jpg" />
+    <Content Include="Images\Saints\ST-015.jpg" />
+    <Content Include="Images\Saints\ST-016.jpg" />
+    <Content Include="Images\Saints\ST-017.jpg" />
+    <Content Include="Images\Saints\ST-018.jpg" />
+    <Content Include="Images\Saints\ST-019.jpg" />
+    <Content Include="Images\Saints\ST-020.jpg" />
+    <Content Include="Images\Saints\ST-021.jpg" />
+    <Content Include="Images\Saints\ST-022.jpg" />
+    <Content Include="Images\Saints\ST-023.jpg" />
+    <Content Include="Images\Saints\ST-024.jpg" />
+    <Content Include="Images\Saints\ST-025.jpg" />
+    <Content Include="Images\Saints\ST-026.jpg" />
+    <Content Include="Images\Saints\ST-027.jpg" />
+    <Content Include="Images\Saints\ST-028.jpg" />
+    <Content Include="Images\Saints\ST-029.jpg" />
+    <Content Include="Images\Saints\ST-030.jpg" />
+    <Content Include="Images\Saints\ST-031.jpg" />
+    <Content Include="Images\Saints\ST-032.jpg" />
+    <Content Include="Images\Saints\ST-033.jpg" />
+    <Content Include="Images\Saints\ST-034.jpg" />
+    <Content Include="Images\Saints\ST-035.jpg" />
+    <Content Include="Images\Saints\ST-036.jpg" />
+    <Content Include="Images\Saints\ST-037.jpg" />
+    <Content Include="Images\Saints\ST-038.jpg" />
+    <Content Include="Images\Saints\ST-039.jpg" />
+    <Content Include="Images\Saints\ST-040.jpg" />
+    <Content Include="Images\Saints\ST-041.jpg" />
+    <Content Include="Images\Saints\ST-042.jpg" />
+    <Content Include="Images\Saints\ST-043.jpg" />
+    <Content Include="Images\Saints\ST-044.gif" />
+    <Content Include="Images\Saints\ST-045.jpg" />
+    <Content Include="Images\Saints\ST-046.jpg" />
+    <Content Include="Images\Saints\ST-047.jpg" />
+    <Content Include="Images\Saints\ST-048.jpg" />
+    <Content Include="Images\Saints\ST-049.jpg" />
+    <Content Include="Images\Saints\ST-050.gif" />
+    <Content Include="Images\Saints\ST-052.jpg" />
+    <Content Include="Images\Saints\ST-053.jpg" />
+    <Content Include="Images\Saints\ST-054.jpg" />
+    <Content Include="Images\Saints\ST-055.jpg" />
+    <Content Include="Images\Saints\ST-056.jpg" />
+    <Content Include="Images\Saints\ST-057.jpg" />
+    <Content Include="Images\Saints\ST-058.jpg" />
+    <Content Include="Images\Saints\ST-059.jpg" />
+    <Content Include="Images\Saints\ST-060.jpg" />
+    <Content Include="Images\Saints\ST-061.jpg" />
+    <Content Include="Images\Scriptsmart.PNG" />
+    <Content Include="Images\SimbahanLogoBeta.png" />
+    <Content Include="Images\SimbahanLogoStickyBeta.png" />
+    <Content Include="Images\sprite.png" />
+    <Content Include="Images\star.png" />
+    <Content Include="Images\starcolored.png" />
+    <Content Include="Images\Twitter.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="LogOut.aspx" />
+    <Content Include="Musical-Alone.aspx" />
+    <Content Include="Musical-Anger.aspx" />
+    <Content Include="Musical-Bitter.aspx" />
+    <Content Include="Musical-Confused.aspx" />
+    <Content Include="Musical-Faithful.aspx" />
+    <Content Include="Musical-Financially.aspx" />
+    <Content Include="Musical-Grateful.aspx" />
+    <Content Include="Musical-Hopeful.aspx" />
+    <Content Include="Musical-Joyful.aspx" />
+    <Content Include="Musical-Love.aspx" />
+    <Content Include="Musical-Peaceful.aspx" />
+    <Content Include="Musical-Rejected.aspx" />
+    <Content Include="Musical-Tempted.aspx" />
+    <Content Include="Musical-Weak.aspx" />
+    <Content Include="Musical-Worried.aspx" />
+    <Content Include="OrgAnnouncements.aspx" />
+    <Content Include="OtherCatholicPrayer.aspx" />
+    <Content Include="OtherCatholicPrayers.aspx" />
+    <Content Include="PrayerWall.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Account\ResetPassword.aspx" />
+    <Content Include="Account\ResetPasswordConfirmation.aspx" />
+    <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
+    <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Bible-Anger.aspx" />
+    <Content Include="BibleVerses.aspx" />
+    <Content Include="Churches.aspx" />
+    <Content Include="church_organization.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cssslider_files\csss_engine1\cs-ctrl-basic.svg" />
+    <Content Include="Content\cssslider_files\csss_engine1\ie.css" />
+    <Content Include="Content\cssslider_files\csss_engine1\ie.js" />
+    <Content Include="Content\cssslider_files\csss_engine1\style.css" />
+    <Content Include="Content\cssslider_files\csss_images1\ador.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\adoration.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\chapel.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\mtqp1.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\mtqp2.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\mtqp3.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\Picture1.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\Picture2.jpg" />
+    <Content Include="Content\cssslider_files\csss_images1\Picture3.png" />
+    <Content Include="Content\cssslider_files\csss_tooltips1\ador.jpg" />
+    <Content Include="Content\cssslider_files\csss_tooltips1\adoration.jpg" />
+    <Content Include="Content\cssslider_files\csss_tooltips1\chapel.jpg" />
+    <Content Include="Content\cssslider_files\csss_tooltips1\mtqp1.jpg" />
+    <Content Include="Content\cssslider_files\csss_tooltips1\mtqp2.jpg" />
+    <Content Include="Content\cssslider_files\csss_tooltips1\mtqp3.jpg" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\demo.css" />
+    <Content Include="Content\normalize.css" />
+    <Content Include="Content\profile.css" />
+    <Content Include="Content\set1.css" />
+    <Content Include="Content\set2.css" />
+    <Content Include="Content\SimbahanStyle.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\tabs.css" />
+    <Content Include="DailyGospel.aspx" />
+    <Content Include="DailyReflection.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Account\Web.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Home.aspx" />
+    <Content Include="Images\android.png" />
+    <Content Include="Images\apple.png" />
+    <Content Include="Images\Background.jpg" />
+    <Content Include="Images\Background2.jpg" />
+    <Content Include="Images\Background3.jpg" />
+    <Content Include="Images\Bible Verses\Alone.jpg" />
+    <Content Include="Images\Bible Verses\Anger.jpg" />
+    <Content Include="Images\Bible Verses\Bible.jpg" />
+    <Content Include="Images\Bible Verses\Bitter.jpg" />
+    <Content Include="Images\Bible Verses\Confused.jpg" />
+    <Content Include="Images\Bible Verses\Faithful.jpg" />
+    <Content Include="Images\Bible Verses\Financially.jpg" />
+    <Content Include="Images\Bible Verses\Grateful.jpg" />
+    <Content Include="Images\Bible Verses\Hopeful.jpg" />
+    <Content Include="Images\Bible Verses\Joyful.jpg" />
+    <Content Include="Images\Bible Verses\Love.jpg" />
+    <Content Include="Images\Bible Verses\Peaceful.jpg" />
+    <Content Include="Images\Bible Verses\Rejected.jpg" />
+    <Content Include="Images\Bible Verses\Stressed.jpg" />
+    <Content Include="Images\Bible Verses\Tempted.jpg" />
+    <Content Include="Images\Bible Verses\Weak.jpg" />
+    <Content Include="Images\Bible Verses\Worried.jpg" />
+    <Content Include="Images\BibleVerseBackground.jpg" />
+    <Content Include="Images\btn-facebook-bw.png" />
+    <Content Include="Images\btn-facebook-colored.png" />
+    <Content Include="Images\btn-instagram-bw.png" />
+    <Content Include="Images\btn-instagram-colored.png" />
+    <Content Include="Images\btn-twitter-bw.png" />
+    <Content Include="Images\btn-twitter-colored.png" />
+    <Content Include="Images\btnShare.png" />
+    <Content Include="Images\church-blue-bg.jpg" />
+    <Content Include="Images\Churches\MTQP1.jpg" />
+    <Content Include="Images\Churches\MTQP2.jpg" />
+    <Content Include="Images\Churches\MTQP3.jpg" />
+    <Content Include="Images\daily-gospel-sidebar.jpg" />
+    <Content Include="Images\DailyBackground.jpg" />
+    <Content Include="Images\golden-scroll.png" />
+    <Content Include="Images\gospel-thumbnail.jpg" />
+    <Content Include="Images\Churches\mary.jpg" />
+    <Content Include="Images\InspirationsBackground.jpg" />
+    <Content Include="Images\Jesus.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\old-scroll.png" />
+    <Content Include="Images\preload_pattern.png" />
+    <Content Include="Images\ReflectionBackground.png" />
+    <Content Include="Images\ReflectionBackground1.png" />
+    <Content Include="Images\ReflectionBackground2.png" />
+    <Content Include="Images\RelQuotesBackground.jpg" />
+    <Content Include="Images\Saints\mother_teresa.jpg" />
+    <Content Include="Images\Saints\padre_pio.jpg" />
+    <Content Include="Images\Saints\st_francis_xavier.jpg" />
+    <Content Include="Images\Saints\st_jude.jpg" />
+    <Content Include="Images\sample-1.jpg" />
+    <Content Include="Images\sample-2.jpg" />
+    <Content Include="Images\sample-3.png" />
+    <Content Include="Images\sample-4.jpg" />
+    <Content Include="Images\sample-5.jpg" />
+    <Content Include="Images\sample-6.png" />
+    <Content Include="Images\st-francis-assisi.jpg" />
+    <Content Include="Inspirations.aspx" />
+    <Content Include="MusicalInspirations.aspx" />
+    <Content Include="Organizations.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="ReligiousQuotes.aspx" />
+    <Content Include="RelQuotes-Alone.aspx" />
+    <Content Include="RelQuotes-Anger.aspx" />
+    <Content Include="RelQuotes-Bitter.aspx" />
+    <Content Include="RelQuotes-Confused.aspx" />
+    <Content Include="RelQuotes-Faithful.aspx" />
+    <Content Include="RelQuotes-Financially.aspx" />
+    <Content Include="RelQuotes-Grateful.aspx" />
+    <Content Include="RelQuotes-Hopeful.aspx" />
+    <Content Include="RelQuotes-Joyful.aspx" />
+    <Content Include="RelQuotes-Love.aspx" />
+    <Content Include="RelQuotes-Peaceful.aspx" />
+    <Content Include="RelQuotes-Rejected.aspx" />
+    <Content Include="RelQuotes-Tempted.aspx" />
+    <Content Include="RelQuotes-Weak.aspx" />
+    <Content Include="RelQuotes-Worried.aspx" />
+    <Content Include="Saintlisting.aspx" />
+    <Content Include="SaintOfTheDay.aspx" />
+    <Content Include="Saints.aspx" />
+    <Content Include="Saintslisting.aspx" />
+    <Content Include="Scripts\agency.min.js" />
+    <Content Include="Scripts\bibleverse.js" />
+    <Content Include="Scripts\calendar-en.min.js" />
+    <Content Include="Scripts\clone-form-td.js" />
+    <Content Include="Scripts\creative.min.js" />
+    <Content Include="Scripts\docs.min.js" />
+    <Content Include="Scripts\float.js" />
+    <Content Include="Scripts\helpers.js" />
+    <Content Include="Scripts\html5slider.js" />
+    <Content Include="Scripts\ie10-viewport-bug-workaround.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="BibleMaster.master" />
+    <Content Include="MusicalInspiration.master" />
+    <Content Include="RelQuotesMaster.Master" />
+    <None Include="Properties\PublishProfiles\Simbahan Prod.pubxml" />
+    <None Include="Properties\PublishProfiles\staging-mycatholicportal - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\isotope.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery.dynDateTime.min.js" />
+    <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\js.js" />
+    <Content Include="Scripts\jssor.slider-22.2.10.min.js" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Scripts\jssor.slider.mini.js" />
+    <Content Include="Scripts\list.js" />
+    <Content Include="Scripts\musicplayer.js" />
+    <Content Include="Scripts\notifications.js" />
+    <Content Include="Scripts\religiousquote.js" />
+    <Content Include="Scripts\scrollreveal.min.js" />
+    <Content Include="Scripts\SearchCity.js" />
+    <Content Include="Scripts\SearchEstablishment.js" />
+    <Content Include="Scripts\share.js" />
+    <Content Include="Scripts\sweetalert.js" />
+    <Content Include="Scripts\timepicki.js" />
+    <Content Include="Scripts\validator.js" />
+    <Content Include="Scripts\video.js" />
+    <Content Include="SimbahanApp.sln" />
+    <Content Include="TrackShareProgress.png" />
+    <Content Include="VisitaIglesia.aspx" />
+    <Content Include="VisitaIglesiaProgress.aspx" />
+    <Content Include="wpStuffs\wp-admin\images\loading.gif" />
+    <Content Include="wpStuffs\wp-admin\images\w-logo-blue7a53.png" />
+    <Content Include="wpStuffs\wp-admin\images\wordpress-logo7d6b.svg" />
+    <Content Include="wpStuffs\wp-admin\load-styles13c2.css" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\css\js_composer.min972f.css" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.svg" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_icons\fonts\VC-Icons8309.svg" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\flickr.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\address-book.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\alarm-clock.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\anchor.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\application-image.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\arrow.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\asterisk.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\auction-hammer.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\balloon-buzz.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\balloon-facebook.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\balloon-twitter.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\balloon.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\battery-full.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\binocular.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\blue-document-excel.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\blue-document-image.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\blue-document-music.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\blue-document-office.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\blue-document-pdf.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\blue-document-powerpoint.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\blue-document-word.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\bookmark.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\camcorder.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\camera.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\chart-pie.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\chart.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\clock.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\control.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\fire.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\heart.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\mail.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\plus-shield.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\icons\video.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\toggle_close.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\images\toggle_open.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\js\dist\js_composer_front.min972f.js" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\lib\bower\isotope\dist\isotope.pkgd.min972f.js" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\vc\alert.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\vc\exclamation.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\vc\info.png" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\vc\tick.png" />
+    <Content Include="wpStuffs\wp-content\plugins\wp-scrollspy-menu\assets\js\scrollspy_wpe100.js" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\blog-responsive.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\blog.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\dripicons\dripiconse100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\dripicons\fonts\dripicons.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\elegant-icons\fonts\ElegantIcons.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\elegant-icons\style.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\font-awesome\css\font-awesome.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\font-awesome\fonts\fontawesome-webfont5b62.html" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\font-awesome\fonts\fontawesome-webfont5b62.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\img\desaturate.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\img\pixel-video.png" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\img\prettyPhoto\default_thumb.png" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\img\prettyPhoto\loader.gif" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\img\prettyPhoto\sprite.png" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\img\prettyPhoto\sprite_x.png" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\ion-icons\css\ionicons.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\ion-icons\fonts\ionicons28b5.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\arrows\fonts\linea-arrows-10.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic-elaboration\fonts\linea-basic-elaboration-10.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic\fonts\linea-basic-10.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\ecommerce\fonts\linea-ecommerce-10.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\music\fonts\linea-music-10.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\software\fonts\linea-software-10.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\stylee100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\weather\fonts\linea-weather-10.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linear-icons\fonts\Linearicons-Free54e9.html" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linear-icons\fonts\Linearicons-Free54e9.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linear-icons\stylee100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\listings-responsive.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\listings.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\modules-responsive.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\modules.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\plugins.mine100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\simple-line-icons\fonts\Simple-Line-Icons4c82.html" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\simple-line-icons\fonts\Simple-Line-Icons4c82.svg" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\simple-line-icons\simple-line-iconse100.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\style_dynamicc1d0.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\style_dynamic_responsivec1d0.css" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\images\prettyPhoto\facebook\default_thumbnail.html" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\img\preload_pattern.png" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\js\like.min5152.js" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\js\listings.mine100.js" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\js\modules.mine100.js" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\js\smoothPageScrolle100.js" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\js\third-party.mine100.js" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\framework\admin\assets\js\eltd-login.js" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\stylee100.css" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\BCPrayers.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\BibleVerses.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\cropped-SimbahanLogoStickyDark-180x180.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\cropped-SimbahanLogoStickyDark-192x192.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\cropped-SimbahanLogoStickyDark-32x32.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\DailyGospel.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\DailyInspirations.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\DailyReflection.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\DTraditions.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\FilterChurch.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\header.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\InputDetails.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\Musical.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\OCPrayers.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\PrayerWall.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\RelQuotes.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\SaintOfTheDay.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\SimbahanLogo.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\SimbahanLogoSticky.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\02\TrackShareProgress.png" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\contemporary-art-museum-featured-300x225.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\contemporary-art-museum-featured.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\eiffel-tower-featured-800x500.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\National-Art-Institute-featured-300x225.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\National-Art-Institute-featured.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Open-Air-Cinema-featured-300x225.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Open-Air-Cinema-featured.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Pop-Art-Gallery-featured-300x225.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Pop-Art-Gallery-featured.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Shakespeares-Globe-featured-300x225.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Shakespeares-Globe-featured.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Warehouse-Gallery-featured-300x225.jpg" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\SimbahanLogoSticky.png" />
+    <Content Include="wpStuffs\wp-includes\css\buttons.mine100.css" />
+    <Content Include="wpStuffs\wp-includes\css\dashicons.mine100.css" />
+    <Content Include="wpStuffs\wp-includes\css\media-views.mine100.css" />
+    <Content Include="wpStuffs\wp-includes\images\spinner-2x.gif" />
+    <Content Include="wpStuffs\wp-includes\images\spinner.gif" />
+    <Content Include="wpStuffs\wp-includes\images\uploader-icons-2x.png" />
+    <Content Include="wpStuffs\wp-includes\images\uploader-icons.png" />
+    <Content Include="wpStuffs\wp-includes\js\backbone.min9632.js" />
+    <Content Include="wpStuffs\wp-includes\js\comment-reply.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\imgareaselect\border-anim-h.gif" />
+    <Content Include="wpStuffs\wp-includes\js\imgareaselect\border-anim-v.gif" />
+    <Content Include="wpStuffs\wp-includes\js\imgareaselect\imgareaselect3bf4.css" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\accordion.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\autocomplete.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\core.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\datepicker.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\menu.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\mouse.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\position.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\sortable.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\tabs.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\jquery\ui\widget.mine899.js" />
+    <Content Include="wpStuffs\wp-includes\js\media-audiovideo.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\media-editor.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\media-models.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\media-views.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\background.png" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\bigplay.png" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\bigplay.svg" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\controls.png" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\controls.svg" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\jumpforward.png" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\loading.gif" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\mediaelement-and-player.min51cd.js" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\mediaelementplayer.min51cd.css" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\skipback.png" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\wp-mediaelement.mine100.css" />
+    <Content Include="wpStuffs\wp-includes\js\mediaelement\wp-mediaelement.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\plupload\plupload.full.mincc91.js" />
+    <Content Include="wpStuffs\wp-includes\js\plupload\wp-plupload.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\shortcode.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\underscore.min4511.js" />
+    <Content Include="wpStuffs\wp-includes\js\utils.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\wp-a11y.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\wp-backbone.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\wp-embed.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\js\wp-util.mine100.js" />
+    <Content Include="wpStuffs\wp-includes\wlwmanifest.xml" />
+    <Content Include="Content\cssslider_files\csss_engine1\cs-ctrl-basic.eot" />
+    <Content Include="Content\cssslider_files\csss_engine1\cs-ctrl-basic.ttf" />
+    <Content Include="Content\cssslider_files\csss_engine1\cs-ctrl-basic.woff" />
+    <None Include="Properties\PublishProfiles\simbahan - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\simbahan - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\BCPrayers.png" />
+    <Content Include="Images\BibleVerses.png" />
+    <Content Include="Images\cropped-SimbahanLogoStickyDark-180x180.png" />
+    <Content Include="Images\cropped-SimbahanLogoStickyDark-192x192.png" />
+    <Content Include="Images\cropped-SimbahanLogoStickyDark-32x32.png" />
+    <Content Include="Images\DailyGospel.png" />
+    <Content Include="Images\DailyInspirations.png" />
+    <Content Include="Images\DailyReflection.png" />
+    <Content Include="Images\DTraditions.png" />
+    <Content Include="Images\FilterChurch.png" />
+    <Content Include="Images\header.jpg" />
+    <Content Include="Images\InputDetails.png" />
+    <Content Include="Images\Musical.png" />
+    <Content Include="Images\OCPrayers.png" />
+    <Content Include="Images\PrayerWall.png" />
+    <Content Include="Images\RelQuotes.png" />
+    <Content Include="Images\SaintOfTheDay.png" />
+    <Content Include="Images\SimbahanAppLogo.png" />
+    <Content Include="Images\SimbahanLogo.png" />
+    <Content Include="Images\SimbahanLogoSticky.png" />
+    <Content Include="Images\TrackShareProgress.png" />
+    <Content Include="Scripts\jquery\jquery.mine100.js" />
+    <Content Include="Scripts\jquery\platform.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery\ui\accordion.mine899.js" />
+    <Content Include="Scripts\jquery\ui\autocomplete.mine899.js" />
+    <Content Include="Scripts\jquery\ui\core.mine899.js" />
+    <Content Include="Scripts\jquery\ui\datepicker.mine899.js" />
+    <Content Include="Scripts\jquery\ui\menu.mine899.js" />
+    <Content Include="Scripts\jquery\ui\mouse.mine899.js" />
+    <Content Include="Scripts\jquery\ui\position.mine899.js" />
+    <Content Include="Scripts\jquery\ui\sortable.mine899.js" />
+    <Content Include="Scripts\jquery\ui\tabs.mine899.js" />
+    <Content Include="Scripts\jquery\ui\widget.mine899.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Site.Master" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="wpStuffs\wp-includes\fonts\dashicons.eot" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.eot" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.ttf" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v157a1.woff" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_grid\vc_grid_v1d41d.eot" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_icons\fonts\VC-Icons8309.ttf" />
+    <Content Include="wpStuffs\wp-content\plugins\js_composer\assets\fonts\vc_icons\fonts\VC-Icons8309.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\dripicons\fonts\dripicons.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\dripicons\fonts\dripicons.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\dripicons\fonts\dripicons.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\dripicons\fonts\dripiconsd41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\elegant-icons\fonts\ElegantIcons.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\elegant-icons\fonts\ElegantIcons.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\elegant-icons\fonts\ElegantIcons.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\elegant-icons\fonts\ElegantIconsd41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\font-awesome\fonts\fontawesome-webfont5b62.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\font-awesome\fonts\fontawesome-webfont5b62.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\font-awesome\fonts\fontawesome-webfont5b62.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\font-awesome\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\ion-icons\fonts\ionicons28b5.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\ion-icons\fonts\ionicons28b5.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\ion-icons\fonts\ionicons28b5.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\arrows\fonts\linea-arrows-10.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\arrows\fonts\linea-arrows-10.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\arrows\fonts\linea-arrows-10.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\arrows\fonts\linea-arrows-10d41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic-elaboration\fonts\linea-basic-elaboration-10.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic-elaboration\fonts\linea-basic-elaboration-10.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic-elaboration\fonts\linea-basic-elaboration-10.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic-elaboration\fonts\linea-basic-elaboration-10d41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic\fonts\linea-basic-10.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic\fonts\linea-basic-10.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic\fonts\linea-basic-10.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\basic\fonts\linea-basic-10d41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\ecommerce\fonts\linea-ecommerce-10.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\ecommerce\fonts\linea-ecommerce-10.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\ecommerce\fonts\linea-ecommerce-10.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\ecommerce\fonts\linea-ecommerce-10d41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\music\fonts\linea-music-10.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\music\fonts\linea-music-10.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\music\fonts\linea-music-10.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\music\fonts\linea-music-10d41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\software\fonts\linea-software-10.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\software\fonts\linea-software-10.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\software\fonts\linea-software-10.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\software\fonts\linea-software-10d41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\weather\fonts\linea-weather-10.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\weather\fonts\linea-weather-10.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\weather\fonts\linea-weather-10.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linea-icons\weather\fonts\linea-weather-10d41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linear-icons\fonts\Linearicons-Free54e9.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linear-icons\fonts\Linearicons-Free54e9.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linear-icons\fonts\Linearicons-Free54e9.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\linear-icons\fonts\Linearicons-Freed41d.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\simple-line-icons\fonts\Simple-Line-Icons4c82.eot" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\simple-line-icons\fonts\Simple-Line-Icons4c82.ttf" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\simple-line-icons\fonts\Simple-Line-Icons4c82.woff" />
+    <Content Include="wpStuffs\wp-content\themes\search-and-go\assets\css\simple-line-icons\fonts\Simple-Line-Iconsd41d.eot" />
+    <Content Include="wpStuffs\wp-content\uploads\2016\03\Warehouse-Gallery-featured.d8.delayed" />
+    <Content Include="wpStuffs\wp-admin\load-scriptsadbd.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\AddPhoneNumber.aspx.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\AddPhoneNumber.aspx.designer.cs">
+      <DependentUpon>AddPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Confirm.aspx.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Confirm.aspx.designer.cs">
+      <DependentUpon>Confirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Forgot.aspx.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Forgot.aspx.designer.cs">
+      <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Lockout.aspx.cs">
+      <DependentUpon>Lockout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Lockout.aspx.designer.cs">
+      <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Manage.aspx.designer.cs">
+      <DependentUpon>Manage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManageLogins.aspx.cs">
+      <DependentUpon>ManageLogins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManageLogins.aspx.designer.cs">
+      <DependentUpon>ManageLogins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ManagePassword.aspx.designer.cs">
+      <DependentUpon>ManagePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BasicCatholicPrayer.aspx.cs">
+      <DependentUpon>BasicCatholicPrayer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasicCatholicPrayer.aspx.designer.cs">
+      <DependentUpon>BasicCatholicPrayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BasicCatholicPrayers.aspx.cs">
+      <DependentUpon>BasicCatholicPrayers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BasicCatholicPrayers.aspx.designer.cs">
+      <DependentUpon>BasicCatholicPrayers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Alone.aspx.cs">
+      <DependentUpon>Bible-Alone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Alone.aspx.designer.cs">
+      <DependentUpon>Bible-Alone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Bitter.aspx.cs">
+      <DependentUpon>Bible-Bitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Bitter.aspx.designer.cs">
+      <DependentUpon>Bible-Bitter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Confused.aspx.cs">
+      <DependentUpon>Bible-Confused.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Confused.aspx.designer.cs">
+      <DependentUpon>Bible-Confused.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Faithful.aspx.cs">
+      <DependentUpon>Bible-Faithful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Faithful.aspx.designer.cs">
+      <DependentUpon>Bible-Faithful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Financially.aspx.cs">
+      <DependentUpon>Bible-Financially.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Financially.aspx.designer.cs">
+      <DependentUpon>Bible-Financially.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Grateful.aspx.cs">
+      <DependentUpon>Bible-Grateful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Grateful.aspx.designer.cs">
+      <DependentUpon>Bible-Grateful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Hopeful.aspx.cs">
+      <DependentUpon>Bible-Hopeful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Hopeful.aspx.designer.cs">
+      <DependentUpon>Bible-Hopeful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Joyful.aspx.cs">
+      <DependentUpon>Bible-Joyful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Joyful.aspx.designer.cs">
+      <DependentUpon>Bible-Joyful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Love.aspx.cs">
+      <DependentUpon>Bible-Love.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Love.aspx.designer.cs">
+      <DependentUpon>Bible-Love.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Peaceful.aspx.cs">
+      <DependentUpon>Bible-Peaceful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Peaceful.aspx.designer.cs">
+      <DependentUpon>Bible-Peaceful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Rejected.aspx.cs">
+      <DependentUpon>Bible-Rejected.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Rejected.aspx.designer.cs">
+      <DependentUpon>Bible-Rejected.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Tempted.aspx.cs">
+      <DependentUpon>Bible-Tempted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Tempted.aspx.designer.cs">
+      <DependentUpon>Bible-Tempted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Weak.aspx.cs">
+      <DependentUpon>Bible-Weak.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Weak.aspx.designer.cs">
+      <DependentUpon>Bible-Weak.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bible-Worried.aspx.cs">
+      <DependentUpon>Bible-Worried.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Worried.aspx.designer.cs">
+      <DependentUpon>Bible-Worried.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BibleMaster.master.cs">
+      <DependentUpon>BibleMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BibleMaster.master.designer.cs">
+      <DependentUpon>BibleMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Blog-10ChurchesInManila.aspx.cs">
+      <DependentUpon>Blog-10ChurchesInManila.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blog-10ChurchesInManila.aspx.designer.cs">
+      <DependentUpon>Blog-10ChurchesInManila.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Blogs.aspx.cs">
+      <DependentUpon>Blogs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Blogs.aspx.designer.cs">
+      <DependentUpon>Blogs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChurchAdmin.aspx.designer.cs" />
+    <Compile Include="ChurchAdminPage.aspx.cs">
+      <DependentUpon>ChurchAdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChurchAdminPage.aspx.designer.cs">
+      <DependentUpon>ChurchAdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChurchAdminPageUpdate.aspx.cs">
+      <DependentUpon>ChurchAdminPageUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChurchAdminPageUpdate.aspx.designer.cs">
+      <DependentUpon>ChurchAdminPageUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChurchAnnouncements.aspx.cs">
+      <DependentUpon>ChurchAnnouncements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChurchAnnouncements.aspx.designer.cs">
+      <DependentUpon>ChurchAnnouncements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Announcement.cs" />
+    <Compile Include="Components\BasicCatholicPrayerItem.cs" />
+    <Compile Include="Components\BibleVerseItem.cs" />
+    <Compile Include="Components\CheckLabel.cs" />
+    <Compile Include="Components\ChurchItem.cs" />
+    <Compile Include="Components\ChurchReview.cs" />
+    <Compile Include="Components\DevotionItem.cs" />
+    <Compile Include="Components\IComponent.cs" />
+    <Compile Include="Components\ImageSlider.cs" />
+    <Compile Include="Components\NotificationItem.cs" />
+    <Compile Include="Components\OrganizationItem.cs" />
+    <Compile Include="Components\OrganizationReview.cs" />
+    <Compile Include="Components\OtherCatholicPrayerItem.cs" />
+    <Compile Include="Components\Pagination.cs" />
+    <Compile Include="Components\PaginationButton.cs" />
+    <Compile Include="Components\ReligiousQuoteItem.cs" />
+    <Compile Include="CreditsInfo.aspx.cs">
+      <DependentUpon>CreditsInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreditsInfo.aspx.designer.cs">
+      <DependentUpon>CreditsInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Devotion.aspx.cs">
+      <DependentUpon>Devotion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Devotion.aspx.designer.cs">
+      <DependentUpon>Devotion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Devotions.aspx.cs">
+      <DependentUpon>Devotions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Devotions.aspx.designer.cs">
+      <DependentUpon>Devotions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exceptions\ModelAlreadyPersistedException.cs" />
+    <Compile Include="Exceptions\ModelNotFoundException.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adoration.cs" />
+    <Compile Include="Models\AdorationChapel.cs" />
+    <Compile Include="Models\AdorationChapelModel.cs" />
+    <Compile Include="Models\Announcement.cs" />
+    <Compile Include="Models\Auth.cs" />
+    <Compile Include="Models\BasicCatholicPrayer.cs" />
+    <Compile Include="Models\BibleMoodsModel.cs" />
+    <Compile Include="Models\BibleVerse.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\ChurchInfo.cs" />
+    <Compile Include="Models\ChurchPhoto.cs" />
+    <Compile Include="Models\ChurchPhotosModel.cs" />
+    <Compile Include="Models\ChurchReview.cs" />
+    <Compile Include="Models\ChurchScheduleModel.cs" />
+    <Compile Include="Models\ChurchType.cs" />
+    <Compile Include="Models\ConfessionModel.cs" />
+    <Compile Include="Models\ConfessionSchedule.cs" />
+    <Compile Include="Models\Coordinate.cs" />
+    <Compile Include="Models\DailyGospelReflection.cs" />
+    <Compile Include="Models\DailyGospel.cs" />
+    <Compile Include="Models\DailyReflection.cs" />
+    <Compile Include="Models\DailyReflectionReflection.cs" />
+    <Compile Include="Models\Devotion.cs" />
+    <Compile Include="Models\IModel.cs" />
+    <Compile Include="Models\MassDetailsModel.cs" />
+    <Compile Include="Models\Mood.cs" />
+    <Compile Include="Models\MusicalInspiration.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationLocale.cs" />
+    <Compile Include="Models\NotificationType.cs" />
+    <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\OrganizationMass.cs" />
+    <Compile Include="Models\OrganizationReview.cs" />
+    <Compile Include="Models\OtherCatholicPrayer.cs" />
+    <Compile Include="Models\ParkingModel.cs" />
+    <Compile Include="Models\ParkingSlot.cs" />
+    <Compile Include="Models\ReligiousQuote.cs" />
+    <Compile Include="Models\Saint.cs" />
+    <Compile Include="Models\SaintReflection.cs" />
+    <Compile Include="Models\SimbahanModel.cs" />
+    <Compile Include="Models\SpamReport.cs" />
+    <Compile Include="Models\TimeStandard.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\VentilationModel.cs" />
+    <Compile Include="Models\VisitaIglesia.cs" />
+    <Compile Include="Musical-Alone.aspx.cs">
+      <DependentUpon>Musical-Alone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Alone.aspx.designer.cs">
+      <DependentUpon>Musical-Alone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Anger.aspx.cs">
+      <DependentUpon>Musical-Anger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Anger.aspx.designer.cs">
+      <DependentUpon>Musical-Anger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Bitter.aspx.cs">
+      <DependentUpon>Musical-Bitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Bitter.aspx.designer.cs">
+      <DependentUpon>Musical-Bitter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Confused.aspx.cs">
+      <DependentUpon>Musical-Confused.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Confused.aspx.designer.cs">
+      <DependentUpon>Musical-Confused.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Faithful.aspx.cs">
+      <DependentUpon>Musical-Faithful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Faithful.aspx.designer.cs">
+      <DependentUpon>Musical-Faithful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Financially.aspx.cs">
+      <DependentUpon>Musical-Financially.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Financially.aspx.designer.cs">
+      <DependentUpon>Musical-Financially.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Grateful.aspx.cs">
+      <DependentUpon>Musical-Grateful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Grateful.aspx.designer.cs">
+      <DependentUpon>Musical-Grateful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Hopeful.aspx.cs">
+      <DependentUpon>Musical-Hopeful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Hopeful.aspx.designer.cs">
+      <DependentUpon>Musical-Hopeful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Joyful.aspx.cs">
+      <DependentUpon>Musical-Joyful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Joyful.aspx.designer.cs">
+      <DependentUpon>Musical-Joyful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Love.aspx.cs">
+      <DependentUpon>Musical-Love.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Love.aspx.designer.cs">
+      <DependentUpon>Musical-Love.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Peaceful.aspx.cs">
+      <DependentUpon>Musical-Peaceful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Peaceful.aspx.designer.cs">
+      <DependentUpon>Musical-Peaceful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Rejected.aspx.cs">
+      <DependentUpon>Musical-Rejected.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Rejected.aspx.designer.cs">
+      <DependentUpon>Musical-Rejected.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Tempted.aspx.cs">
+      <DependentUpon>Musical-Tempted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Tempted.aspx.designer.cs">
+      <DependentUpon>Musical-Tempted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Weak.aspx.cs">
+      <DependentUpon>Musical-Weak.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Weak.aspx.designer.cs">
+      <DependentUpon>Musical-Weak.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Musical-Worried.aspx.cs">
+      <DependentUpon>Musical-Worried.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Musical-Worried.aspx.designer.cs">
+      <DependentUpon>Musical-Worried.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MusicalInspiration.master.cs">
+      <DependentUpon>MusicalInspiration.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MusicalInspiration.master.designer.cs">
+      <DependentUpon>MusicalInspiration.master</DependentUpon>
+    </Compile>
+    <Compile Include="Notifications\NotificationAction.cs" />
+    <Compile Include="Notifications\NotificationEventArgs.cs" />
+    <Compile Include="Notifications\NotificationLocale.cs" />
+    <Compile Include="Notifications\NotificationManager.cs" />
+    <Compile Include="OrgAnnouncements.aspx.cs">
+      <DependentUpon>OrgAnnouncements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrgAnnouncements.aspx.designer.cs">
+      <DependentUpon>OrgAnnouncements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OtherCatholicPrayer.aspx.cs">
+      <DependentUpon>OtherCatholicPrayer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherCatholicPrayer.aspx.designer.cs">
+      <DependentUpon>OtherCatholicPrayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OtherCatholicPrayers.aspx.cs">
+      <DependentUpon>OtherCatholicPrayers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OtherCatholicPrayers.aspx.designer.cs">
+      <DependentUpon>OtherCatholicPrayers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrayerWall.aspx.cs">
+      <DependentUpon>PrayerWall.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PrayerWall.aspx.designer.cs">
+      <DependentUpon>PrayerWall.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
+      <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPassword.aspx.designer.cs">
+      <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ResetPasswordConfirmation.aspx.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ResetPasswordConfirmation.aspx.designer.cs">
+      <DependentUpon>ResetPasswordConfirmation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.cs">
+      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\TwoFactorAuthenticationSignIn.aspx.designer.cs">
+      <DependentUpon>TwoFactorAuthenticationSignIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\VerifyPhoneNumber.aspx.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
+      <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Bible-Anger.aspx.cs">
+      <DependentUpon>Bible-Anger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bible-Anger.aspx.designer.cs">
+      <DependentUpon>Bible-Anger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BibleVerses.aspx.cs">
+      <DependentUpon>BibleVerses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BibleVerses.aspx.designer.cs">
+      <DependentUpon>BibleVerses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Churches.aspx.cs">
+      <DependentUpon>Churches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Churches.aspx.designer.cs">
+      <DependentUpon>Churches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="church_organization.aspx.cs">
+      <DependentUpon>church_organization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="church_organization.aspx.designer.cs">
+      <DependentUpon>church_organization.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DailyGospel.aspx.cs">
+      <DependentUpon>DailyGospel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DailyGospel.aspx.designer.cs">
+      <DependentUpon>DailyGospel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DailyReflection.aspx.cs">
+      <DependentUpon>DailyReflection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DailyReflection.aspx.designer.cs">
+      <DependentUpon>DailyReflection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inspirations.aspx.cs">
+      <DependentUpon>Inspirations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inspirations.aspx.designer.cs">
+      <DependentUpon>Inspirations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="MusicalInspirations.aspx.cs">
+      <DependentUpon>MusicalInspirations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MusicalInspirations.aspx.designer.cs">
+      <DependentUpon>MusicalInspirations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Organizations.aspx.cs">
+      <DependentUpon>Organizations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Organizations.aspx.designer.cs">
+      <DependentUpon>Organizations.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReligiousQuotes.aspx.cs">
+      <DependentUpon>ReligiousQuotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReligiousQuotes.aspx.designer.cs">
+      <DependentUpon>ReligiousQuotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Alone.aspx.cs">
+      <DependentUpon>RelQuotes-Alone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Alone.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Alone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Anger.aspx.cs">
+      <DependentUpon>RelQuotes-Anger.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Anger.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Anger.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Bitter.aspx.cs">
+      <DependentUpon>RelQuotes-Bitter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Bitter.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Bitter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Confused.aspx.cs">
+      <DependentUpon>RelQuotes-Confused.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Confused.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Confused.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Faithful.aspx.cs">
+      <DependentUpon>RelQuotes-Faithful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Faithful.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Faithful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Financially.aspx.cs">
+      <DependentUpon>RelQuotes-Financially.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Financially.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Financially.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Grateful.aspx.cs">
+      <DependentUpon>RelQuotes-Grateful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Grateful.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Grateful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Hopeful.aspx.cs">
+      <DependentUpon>RelQuotes-Hopeful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Hopeful.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Hopeful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Joyful.aspx.cs">
+      <DependentUpon>RelQuotes-Joyful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Joyful.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Joyful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Love.aspx.cs">
+      <DependentUpon>RelQuotes-Love.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Love.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Love.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Peaceful.aspx.cs">
+      <DependentUpon>RelQuotes-Peaceful.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Peaceful.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Peaceful.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Rejected.aspx.cs">
+      <DependentUpon>RelQuotes-Rejected.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Rejected.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Rejected.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Tempted.aspx.cs">
+      <DependentUpon>RelQuotes-Tempted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Tempted.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Tempted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Weak.aspx.cs">
+      <DependentUpon>RelQuotes-Weak.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Weak.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Weak.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotes-Worried.aspx.cs">
+      <DependentUpon>RelQuotes-Worried.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotes-Worried.aspx.designer.cs">
+      <DependentUpon>RelQuotes-Worried.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RelQuotesMaster.Master.cs">
+      <DependentUpon>RelQuotesMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RelQuotesMaster.Master.designer.cs">
+      <DependentUpon>RelQuotesMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Saintlisting.aspx.cs">
+      <DependentUpon>Saintlisting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Saintlisting.aspx.designer.cs">
+      <DependentUpon>Saintlisting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SaintOfTheDay.aspx.cs">
+      <DependentUpon>SaintOfTheDay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SaintOfTheDay.aspx.designer.cs">
+      <DependentUpon>SaintOfTheDay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Saints.aspx.cs">
+      <DependentUpon>Saints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Saints.aspx.designer.cs">
+      <DependentUpon>Saints.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Saintslisting.aspx.cs">
+      <DependentUpon>Saintslisting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Saintslisting.aspx.designer.cs">
+      <DependentUpon>Saintslisting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AdorationService.cs" />
+    <Compile Include="Services\AnnouncementService.cs" />
+    <Compile Include="Services\BasicCatholicPrayerService.cs" />
+    <Compile Include="Services\BibleVerseService.cs" />
+    <Compile Include="Services\ChurchReviewService.cs" />
+    <Compile Include="Services\ChurchService.cs" />
+    <Compile Include="Services\DailyGospelReflectionService.cs" />
+    <Compile Include="Services\DailyGospelService.cs" />
+    <Compile Include="Services\DailyReflectionReflectionService.cs" />
+    <Compile Include="Services\DailyReflectionService.cs" />
+    <Compile Include="Services\DevotionService.cs" />
+    <Compile Include="Services\FavoritesService.cs" />
+    <Compile Include="Services\IBasicService.cs" />
+    <Compile Include="Services\MusicalInspirationService.cs" />
+    <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\OrganizationReviewService.cs" />
+    <Compile Include="Services\OrganizationService.cs" />
+    <Compile Include="Services\OtherCatholicPrayerServices.cs" />
+    <Compile Include="Services\ReligiousQuoteService.cs" />
+    <Compile Include="Services\SaintReflectionService.cs" />
+    <Compile Include="Services\SaintService.cs" />
+    <Compile Include="Services\SpamReportService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\VisitaIglesiaService.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="Transformers\AnnouncementTransformer.cs" />
+    <Compile Include="Transformers\BasicCatholicPrayerTransformer.cs" />
+    <Compile Include="Transformers\BibleVerseTransformer.cs" />
+    <Compile Include="Transformers\ChurchReviewTransformer.cs" />
+    <Compile Include="Transformers\ChurchTransformer.cs" />
+    <Compile Include="Transformers\DailyGospelTransformer.cs" />
+    <Compile Include="Transformers\DailyReflectionTransformer.cs" />
+    <Compile Include="Transformers\DevotionTransformer.cs" />
+    <Compile Include="Transformers\GospelReflectionTransformer.cs" />
+    <Compile Include="Transformers\InspirationalMusicTransformer.cs" />
+    <Compile Include="Transformers\MassDetailTransformer.cs" />
+    <Compile Include="Transformers\NotificationTransformer.cs" />
+    <Compile Include="Transformers\OrganizationReviewTransformer.cs" />
+    <Compile Include="Transformers\OrganizationTransformer.cs" />
+    <Compile Include="Transformers\OtherCatholicPrayerTransformer.cs" />
+    <Compile Include="Transformers\ReflectionReflectionTransformer.cs" />
+    <Compile Include="Transformers\ReligiousQuoteTransformer.cs" />
+    <Compile Include="Transformers\SaintReflectionTransformer.cs" />
+    <Compile Include="Transformers\SaintTransformer.cs" />
+    <Compile Include="Transformers\SpamReportTransformer.cs" />
+    <Compile Include="Transformers\Transformer.cs" />
+    <Compile Include="Transformers\UserTransformer.cs" />
+    <Compile Include="Transformers\VisitaIglesiaTransformer.cs" />
+    <Compile Include="VisitaIglesia.aspx.cs">
+      <DependentUpon>VisitaIglesia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisitaIglesia.aspx.designer.cs">
+      <DependentUpon>VisitaIglesia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VisitaIglesiaProgress.aspx.cs">
+      <DependentUpon>VisitaIglesiaProgress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VisitaIglesiaProgress.aspx.designer.cs">
+      <DependentUpon>VisitaIglesiaProgress.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Blogs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50845</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50845/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

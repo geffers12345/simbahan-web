@@ -1,0 +1,16 @@
+bin/
+
+obj/
+obj/Debug/
+obj/Release/
+Properties/PublishProfiles/
+Assets/Audio/Inspirations
+Images/
+Images/Adoration/
+Images/Bible Verses/
+Images/Churches/
+Images/Org/
+Images/Organizations/
+Images/Photos/
+Images/Photos/Thumbnails/
+Images/Saints/

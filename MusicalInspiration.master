@@ -1,0 +1,254 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MusicalInspiration.master.cs" Inherits="SimbahanApp.MusicalInspiration" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
+    <link href='<%= ResolveUrl("Content/float.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/Site.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/bootstrap.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/font-awesome-4.7.0/css/font-awesome.min.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/style.css") %>' rel="stylesheet"/>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<div class="box-body" style="background-image: url(Images/Background.jpg);">
+
+<div class="row">
+<div class="col-lg-1">
+    <center>
+        <strong>CHOOSE YOUR MOOD</strong>
+    </center>
+    <nav class="navbar navbar-right navbar-minimal animate" role="navigation">
+        <div class="navbar-toggler animate">
+            <span class="menu-icon"></span>
+        </div>
+        <ul class="navbar-menu animate">
+            <li>
+                <a data-mood="anger" href="Musical-Anger.aspx" class="mood animate">
+                    <span class="desc animate">Angry </span>
+                    <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="alone" href="Musical-Alone.aspx" class="mood animate">
+                    <span class="desc animate">Alone </span>
+                    <i class="fa fa-street-view" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="confused" href="Musical-Confused.aspx" class="mood animate">
+                    <span class="desc animate">Confused </span>
+                    <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="financially stressed" href="Musical-Financially.aspx" class="mood animate">
+                    <span class="desc animate">Financially Stressed </span>
+                    <i class="fa fa-money" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="rejected" href="Musical-Rejected.aspx" class="mood animate">
+                    <span class="desc animate">Rejected </span>
+                    <i class="fa fa-user-times" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="worried" href="Musical-Worried.aspx" class="mood animate">
+                    <span class="desc animate">Worried </span>
+                    <i class="fa fa-low-vision" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="weak" href="Musical-Weak.aspx" class="mood animate">
+                    <span class="desc animate">Weak </span>
+                    <i class="fa fa-ambulance" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="bitter" href="Musical-Bitter.aspx" class="mood animate">
+                    <span class="desc animate">Bitter </span>
+                    <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="tempted" href="Musical-Tempted.aspx" class="animate">
+                    <span class="desc animate">Tempted </span>
+                    <i class="fa fa-blind" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="grateful" href="Musical-Grateful.aspx" class="animate">
+                    <span class="desc animate">Grateful </span>
+                    <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="peace" href="Musical-Peaceful.aspx" class="mood animate">
+                    <span class="desc animate">Peaceful </span>
+                    <i class="fa fa-sign-language" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="joyful" href="Musical-Joyful.aspx" class="mood animate">
+                    <span class="desc animate">Joyful </span>
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="faithful" href="Musical-Faithful.aspx" class="mood animate">
+                    <span class="desc animate">Faithful </span>
+                    <i class="fa fa-medkit" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="hopeful" href="Musical-Hopeful.aspx" class="mood animate">
+                    <span class="desc animate">Hopeful </span>
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a data-mood="love" href="Musical-Love.aspx" class="mood animate">
+                    <span class="desc animate">In Love </span>
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+
+        <div class="row">
+
+            <div class="col-md-1"></div>
+
+            <div class="col-md-3">
+                <img class="polaroid" src="Images/Bible%20Verses/<%= Page.Title.Split('-')[1].ToUpper() %>.jpg" alt="<%= Page.Title.Split('-')[1].ToUpper() %>" style="width: 100%">
+            </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                <h1 style="font-family: 'Sounds Eroded';"><%= Page.Title.Split('-')[1].ToUpper() %></h1>
+                <h5 id="LastUpdate">Last Updated on March 2015</h5>
+                <br/>
+
+            </div>
+          
+               <div class="col-md-2">
+                <div class="col-md-4">
+                    <a href="#" id="buttonAddToFavorite" >
+                        <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="col-md-4">                  
+                    <button  id="btnShareTwitter" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                            <span aria-hidden="true"></span>
+                        </button>
+                     
+                </div>
+                
+                <div class="col-md-4">
+                    <button id="btnShareFacebok" data-show-count="false"  class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                         <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                         <span aria-hidden="true"></span>
+                    </button>
+                </div>
+           </div>
+            <div class="eltd-listing-search-submit-holder">
+                <div class="eltd-listing-search-submit-holder">
+                    <button type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chor" data-toggle="modal" data-target="#myModal" data-hover-color="#000" data-hover-border-color="#000">
+                        <span class="eltd-btn-text">VIEW LYRICS</span><span aria-hidden="true"></span>
+                    </button>
+                    <div id="myModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">LYRICS</h4>
+                                </div>
+                                <div class="modal-body">
+
+                                    <ul class="scrolling-div-content">
+                                        <li>
+                                            <h1 id="MusicTitle"></h1>
+                                        </li>
+                                        <li>
+                                            <h3 id="MusicArtist"></h3>
+                                        </li>
+                                    </ul>
+                                    <br/>
+                                    <section id="MusicLyrics" style="text-align: left; white-space: pre-line; line-height: 2; font-size: 16px;"></section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <div class="row">
+                <section id="CurrentSong">
+                    <center>
+                         <div id="nowPlay">
+                            <span class="right" id="npTitle"></span>
+                       </div>
+                    </center>
+                </section>
+            </div>
+                <br />
+                <br />
+                <center>
+                    <div class="column add-bottom">
+                        <div id="mainwrap">
+
+                            <div id="audiowrap">
+                                <div id="audio0">
+                                    <audio preload="auto" id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+                                </div>
+                                <div id="tracks">
+                                    <a id="btnPrev">&laquo;</a>
+                                    <a id="btnNext">&raquo;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="datacontentAngry" class="row">
+                        <div class="col-md-12">
+                            <table id="plwrap" class="table table-fixed table-bordered">
+                                <thead>
+                                <tr class="bg-aqua-active color-palette">
+                                    <th class="CenterTable">SONG</th>
+                                    <th class="CenterTable">ARTIST</th>
+                                    <th class="CenterTable">
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody id="plList" class="CenterTable">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </center>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="col-md-2">
+        <!--Insert Ads Here-->
+    </div>
+
+</div>
+</div>
+</div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
+    <script src="Scripts/musicplayer.js"></script>
+</asp:Content>

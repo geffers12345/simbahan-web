@@ -1,0 +1,9 @@
+﻿.scrolling-div{
+  height:100px;
+  overflow:hidden;
+  position:relative;
+  border:1px solid #333;
+}
+.scrolling-div-content{
+  position:relative;
+}

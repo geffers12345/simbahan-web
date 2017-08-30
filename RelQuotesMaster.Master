@@ -1,0 +1,138 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RelQuotesMaster.master.cs" Inherits="SimbahanApp.RelQuotesMaster" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
+    <link href='<%= ResolveUrl("Content/float.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/Site.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/bootstrap.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/font-awesome-4.7.0/css/font-awesome.min.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/favorites.css") %>' rel="stylesheet"/>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+        <div class="row">
+            <h1 class="moods">
+                <%= Page.Title.Split('-')[1].ToUpper() %>
+            </h1>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1">
+                <center>
+                    <strong>CHOOSE YOUR MOOD</strong>
+                </center>
+                <nav class="navbar navbar-right navbar-minimal animate" role="navigation">
+                    <div class="navbar-toggler animate">
+                        <span class="menu-icon"></span>
+                    </div>
+                    <ul class="navbar-menu animate">
+                        <li>
+                            <a data-mood="angry" href="RelQuotes-Anger.aspx" class="mood animate">
+                                <span class="desc animate">Angry </span>
+                                <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="alone" href="RelQuotes-Alone.aspx" class="mood animate">
+                                <span class="desc animate">Alone </span>
+                                <i class="fa fa-street-view" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="confused" href="RelQuotes-Confused.aspx" class="mood animate">
+                                <span class="desc animate">Confused </span>
+                                <i class="fa fa-question-circle-o" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="financially stressed" href="RelQuotes-Financially.aspx" class="mood animate">
+                                <span class="desc animate">Financially Stressed </span>
+                                <i class="fa fa-money" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="rejected" href="RelQuotes-Rejected.aspx" class="mood animate">
+                                <span class="desc animate">Rejected </span>
+                                <i class="fa fa-user-times" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="worried" href="RelQuotes-Worried.aspx" class="mood animate">
+                                <span class="desc animate">Worried </span>
+                                <i class="fa fa-low-vision" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="weak" href="RelQuotes-Weak.aspx" class="mood animate">
+                                <span class="desc animate">Weak </span>
+                                <i class="fa fa-ambulance" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="bitter" href="RelQuotes-Bitter.aspx" class="mood animate">
+                                <span class="desc animate">Bitter </span>
+                                <i class="fa fa-assistive-listening-systems" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="tempted" href="RelQuotes-Tempted.aspx" class="animate">
+                                <span class="desc animate">Tempted </span>
+                                <i class="fa fa-blind" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="grateful" href="RelQuotes-Grateful.aspx" class="animate">
+                                <span class="desc animate">Grateful </span>
+                                <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="peace" href="RelQuotes-Peaceful.aspx" class="mood animate">
+                                <span class="desc animate">Peaceful </span>
+                                <i class="fa fa-sign-language" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="joyful" href="RelQuotes-Joyful.aspx" class="mood animate">
+                                <span class="desc animate">Joyful </span>
+                                <i class="fa fa-smile-o" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="faithful" href="RelQuotes-Faithful.aspx" class="mood animate">
+                                <span class="desc animate">Faithful </span>
+                                <i class="fa fa-medkit" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="hopeful" href="RelQuotes-Hopeful.aspx" class="mood animate">
+                                <span class="desc animate">Hopeful </span>
+                                <i class="fa fa-plus-square" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-mood="love" href="RelQuotes-Love.aspx" class="mood animate">
+                                <span class="desc animate">Love </span>
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="col-lg-9">
+                <h3 id="toppage" class="quote"></h3>
+            </div>
+            <div class="col-lg-2">
+                <!--Insert Ads Here-->
+            </div>
+        </div>
+    </div>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
+    <script src='<%= ResolveUrl("Scripts/religiousquote.js") %>'></script>
+    <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

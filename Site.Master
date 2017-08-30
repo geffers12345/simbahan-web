@@ -1,0 +1,890 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="SimbahanApp.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - MyCatholicPortal</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <meta property="og:site_name" content="My Catholic Portal">    <meta property="og:type" content="website">    <meta property="fb:app_id" content="431222653910082">
+
+    <asp:PlaceHolder runat="server">    <%: Scripts.Render("~/bundles/modernizr") %>    <meta property="og:title" content="<%= MetaTitle %>">    <meta property="og:description" content="<%= MetaDescription %>">    <meta property="og:url" content="<%= MetaUrl %>">    <meta property="og:image" content="<%= MetaImage %>">    <meta name="description" content="<%= GoogleMetaDescription %>">    <meta name="google-site-verification" content="sGQbU5TMAtd4B949g5RG2Q2yyVxHu7V86GDRx7QPMOw" /></asp:PlaceHolder>
+
+    <script type='text/javascript' src='../../../apis.google.com/js/platform.js' async defer></script>
+    <link rel='dns-prefetch' href='http://maps.googleapis.com/' />
+    <link rel='dns-prefetch' href='http://apis.google.com/' />
+    <link rel='dns-prefetch' href='http://ajax.googleapis.com/' />
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+    <link rel='dns-prefetch' href='http://s.w.org/' />
+    <link href="Content/sweetalert.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "http:\/\/localhost:8080\/wordpress\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.2" } };
+        !function (a, b, c) { function d(a) { var b, c, d, e, f = String.fromCharCode; if (!k || !k.fillText) return !1; switch (k.clearRect(0, 0, j.width, j.height), k.textBaseline = "top", k.font = "600 32px Arial", a) { case "flag": return k.fillText(f(55356, 56826, 55356, 56819), 0, 0), !(j.toDataURL().length < 3e3) && (k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 65039, 8205, 55356, 57096), 0, 0), b = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55356, 57331, 55356, 57096), 0, 0), c = j.toDataURL(), b !== c); case "emoji4": return k.fillText(f(55357, 56425, 55356, 57341, 8205, 55357, 56507), 0, 0), d = j.toDataURL(), k.clearRect(0, 0, j.width, j.height), k.fillText(f(55357, 56425, 55356, 57341, 55357, 56507), 0, 0), e = j.toDataURL(), d !== e } return !1 } function e(a) { var c = b.createElement("script"); c.src = a, c.defer = c.type = "text/javascript", b.getElementsByTagName("head")[0].appendChild(c) } var f, g, h, i, j = b.createElement("canvas"), k = j.getContext && j.getContext("2d"); for (i = Array("flag", "emoji4"), c.supports = { everything: !0, everythingExceptFlag: !0 }, h = 0; h < i.length; h++) c.supports[i[h]] = d(i[h]), c.supports.everything = c.supports.everything && c.supports[i[h]], "flag" !== i[h] && (c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && c.supports[i[h]]); c.supports.everythingExceptFlag = c.supports.everythingExceptFlag && !c.supports.flag, c.DOMReady = !1, c.readyCallback = function () { c.DOMReady = !0 }, c.supports.everything || (g = function () { c.readyCallback() }, b.addEventListener ? (b.addEventListener("DOMContentLoaded", g, !1), a.addEventListener("load", g, !1)) : (a.attachEvent("onload", g), b.attachEvent("onreadystatechange", function () { "complete" === b.readyState && c.readyCallback() })), f = c.source || {}, f.concatemoji ? e(f.concatemoji) : f.wpemoji && f.twemoji && (e(f.twemoji), e(f.wpemoji))) }(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' href='wpStuffs/wp-includes/css/buttons.mine100.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-includes/css/dashicons.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-includes/js/mediaelement/mediaelementplayer.min51cd.css?ver=2.22.0' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-includes/js/mediaelement/wp-mediaelement.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-includes/css/media-views.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-includes/js/imgareaselect/imgareaselect3bf4.css?ver=0.9.8' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/stylee100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/plugins.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/modules.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <style type='text/css'>
+        .textwidget #lang_sel {
+            display: inline-block;
+        }
+
+        .eltd-three-columns-inner .eltd-column .textwidget {
+            text-align: center;
+        }
+
+        .eltd-three-columns-inner .eltd-column .widget_search form {
+            width: 72.2%;
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+       @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+
+            .eltd-three-columns-inner .eltd-column .widget_search form {
+                width: 50%;
+                margin: 0 auto;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .eltd-three-columns-inner .eltd-column .widget_search form {
+                width: 75%;
+            }
+        }
+    </style>
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/font-awesome/css/font-awesome.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/elegant-icons/style.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/ion-icons/css/ionicons.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/linea-icons/stylee100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/simple-line-icons/simple-line-iconse100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/dripicons/dripiconse100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/linear-icons/stylee100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/modules-responsive.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/blog-responsive.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/style_dynamic_responsivec1d0.css?ver=1486919227' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/listings.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/listings-responsive.mine100.css?ver=4.7.2' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/style_dynamicc1d0.css?ver=1486919227' type='text/css' media='all' />
+    <link rel='stylesheet' href='wpStuffs/wp-content/plugins/js_composer/assets/css/js_composer.min972f.css?ver=5.0.1' type='text/css' media='all' />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CCourgette%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=latin%2Clatin-ext&amp;ver=1.0.0' type='text/css' media='all' />
+    <script type='text/javascript' src='ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var userSettings = { "url": "\/wordpress\/", "uid": "0", "time": "1487218315", "secure": "" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/utils.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/plupload/plupload.full.mincc91.js?ver=2.1.8'></script>
+    <!--[if lt IE 8]>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/json2.min.js?ver=2015-05-03'></script>
+    <![endif]-->
+    
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wpStuffs/wp-includes/wlwmanifest.xml" />
+    <style type="text/css">
+        /* generated in C:\xampp\htdocs\wordpress\wp-content\themes\search-and-go\functions.php search_and_go_elated_archive_header_content_position function */
+        body.post-type-archive-listing-item .eltd-page-header {
+            top: 34px;
+        }
+
+        /* generated in C:\xampp\htdocs\wordpress\wp-content\themes\search-and-go\functions.php search_and_go_elated_archive_header_content_position function */
+        body.post-type-archive-listing-item .eltd-content {
+            margin-top: 114px;
+        }
+    </style>
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+    <meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress." />
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="wpStuffs/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <link rel="icon" href="wpStuffs/wp-content/uploads/2016/02/cropped-SimbahanLogoStickyDark-32x32.png" sizes="32x32" />
+    <link rel="icon" href="wpStuffs/wp-content/uploads/2016/02/cropped-SimbahanLogoStickyDark-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="wpStuffs/wp-content/uploads/2016/02/cropped-SimbahanLogoStickyDark-180x180.png" />
+    <meta name="msapplication-TileImage" content="wpStuffs/wp-content/uploads/2016/02/cropped-SimbahanLogoStickyDark-270x270.png" />
+    <style type="text/css" id="wp-custom-css">
+        .eltd-main-menu.eltd-sticky-nav > ul > li > a span.item_inner {
+            padding: 0 5px;
+        }
+
+        .eltd-page-header {
+            background-color: #000;
+        }
+
+        .eltd-main-menu > ul > li > a span.item_inner {
+            padding: 0px 5px;
+        }
+
+        .eltd-main-menu ul li.eltd-active-item a, .eltd-main-menu ul li:hover a, .eltd-main-menu > ul > li.eltd-active-item > a, body:not(.eltd-menu-item-first-level-bg-color) .eltd-main-menu > ul > li:hover > a {
+            color: #fff;
+        }
+    </style>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }
+        </style>
+    </noscript>
+    <link rel='stylesheet' href='Content/custom.css' type='text/css' media='all' />
+    <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="home page-template page-template-full-width page-template-full-width-php page page-id-6 eltd-booking-1.1.1 eltd-core-1.2 eltd-core-1.1.3 eltd-overlapping-content-enabled search and go-ver-1.7 eltd-smooth-scroll  eltd-ajax eltd-top-bar-enabled eltd-header-standard eltd-sticky-header-on-scroll-down-up eltd-default-mobile-header eltd-sticky-up-mobile-header eltd-dropdown-default eltd-light-header wpb-js-composer js-comp-ver-5.0.1 vc_responsive">
+    <form runat="server" id="MainForm">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+            <Services>
+                <asp:ServiceReference Path="~/SimbahanWebService.asmx" />
+            </Services>
+        </asp:ScriptManager>
+
+        <%--<div class="eltd-top-bar">
+            <div class="eltd-vertical-align-containers eltd-50-50">
+                <div class="eltd-position-left">
+                    <div class="eltd-position-left-inner">
+
+                        <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #b5b4b2; font-size: 11px; margin: 0 20px 0 0" href="http://instagram.com/" target="_blank">
+                            <span class="eltd-social-icon-widget social_instagram"></span>
+                        </a>
+
+                        <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #b5b4b2; font-size: 11px; margin: 0 20px 0 0" href="http://twitter.com/" target="_blank">
+                            <span class="eltd-social-icon-widget social_twitter"></span>
+                        </a>
+
+                        <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #b5b4b2; font-size: 11px" href="http://www.facebook.com/" target="_blank">
+                            <span class="eltd-social-icon-widget social_facebook"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="eltd-position-right">
+                    <div class="eltd-position-right-inner">
+
+                        <div id="text-3" class="widget widget_text eltd-top-bar-widget">
+                            <div class="textwidget">
+                                <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle btn-circular" data-toggle="dropdown" data-dpmaxz-eid="2"><i class="fa fa-envelope-o"></i></button>
+                                    <span id="UnreadNotificationCount" class="badge notification-count">0</span>
+                                    <ul class="dropdown-menu notification-menu">
+                                        <div id="NotificationItemContainer" class="notification-scrollable">
+                                        </div>
+                                        <div class="notification-footer">
+                                            <button class="btn btn-default btn-block" data-dpmaxz-eid="3">
+                                                See all notifications
+                                            </button>
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <div id="text-6" class="widget widget_text eltd-top-bar-widget">
+                            <div class="textwidget">
+                                <span class="eltd-icon-shortcode normal" data-color="#1ab5c1">
+
+                                    <i class="eltd-icon-linear-icon lnr lnr-plus-circle eltd-icon-element" style="color: #1ab5c1; font-size: 12px"></i>
+                                </span>
+
+
+                                <a href="/">Add Listing</a>
+                            </div>
+                        </div>
+
+                        <div id="text-7" class="widget widget_text eltd-top-bar-widget">
+                            <div class="textwidget">
+                                <span class="eltd-icon-shortcode normal" data-color="#1ab5c1">
+
+                                    <i class="eltd-icon-linear-icon lnr lnr lnr-pie-chart eltd-icon-element" style="color: #1ab5c1; font-size: 12px"></i>
+                                </span>
+
+
+                                <a href="/">Donate</a>
+                            </div>
+                        </div>
+
+                        <div id="text-8" class="widget widget_text eltd-top-bar-widget">
+                            <div class="textwidget">
+                                <span class="eltd-icon-shortcode normal" data-color="#1ab5c1">
+
+                                    <i class="eltd-icon-linear-icon lnr lnr lnr-book eltd-icon-element" style="color: #1ab5c1; font-size: 12px"></i>
+                                </span>
+
+
+                                <div id="lang_sel">
+                                    <a href="#" class="lang_sel_sel icl-en">About Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --%>
+
+        <header class="eltd-page-header">
+            <div class="eltd-menu-area">
+               <%-- <div class="eltd-vertical-align-containers">
+                    <div class="eltd-position-left">
+                        <div class="eltd-position-left-inner">
+
+                            <div class="eltd-logo-wrapper">
+                                <a href="Default.aspx" style="height: 52px;">
+                                    <img class="eltd-normal-logo" src="../wpStuffs/wp-content/uploads/2016/02/SimbahanLogoBeta.png" alt="logo" />
+                                    <img class="eltd-dark-logo" src="../wpStuffs/wp-content/uploads/2016/02/SimbahanLogoBeta.png" alt="dark logoo" />
+                                    <img class="eltd-light-logo" src="../wpStuffs/wp-content/uploads/2016/02/SimbahanLogoBeta.png" alt="light logo" />
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="eltd-position-right">
+                        <div class="eltd-position-right-inner">
+
+                            <nav class="eltd-main-menu eltd-drop-down eltd-default-nav">
+                                <ul id="menu-other-menu" class="clearfix">
+                                    <li id="nav-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  narrow"><a href="Default.aspx" class="home"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-home fa"></i></span><span class="item_text">Home</span></span><span class="plus"></span></span></a></li>
+                                    <li id="nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Church &#038; Organizations</span></span><span class="plus"></span></span></a></li>
+                                    <li id="nav-menu-item-1467" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                        <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-newspaper-o fa"></i></span><span class="item_text">Daily Readings</span></span><span class="plus"></span></span></a>
+                                        <div class="second">
+                                            <div class="inner">
+                                                <ul>
+                                                    <li id="nav-menu-item-1468" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyGospel.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Gospel Reading</span></span><span class="plus"></span></span></a></li>
+                                                    <li id="nav-menu-item-1469" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyReflection.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Daily Reflections</span></span><span class="plus"></span></span></a></li>
+                                                    <li id="nav-menu-item-1470" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="SaintOfTheDay.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Saint of the Day</span></span><span class="plus"></span></span></a></li> 
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="nav-menu-item-1472" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="Saints.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-male fa"></i></span><span class="item_text">Saints</span></span><span class="plus"></span></span></a></li>
+                                    <li id="nav-menu-item-1473" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                        <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-book fa"></i></span><span class="item_text">Prayer &#038; Devotions</span></span><span class="plus"></span></span></a>
+                                        <div class="second">
+                                            <div class="inner">
+                                                <ul>
+                                                    <li id="nav-menu-item-1474" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BasicCatholicPrayers.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Basic Catholic Prayers</span></span><span class="plus"></span></span></a></li>
+                                                    <li id="nav-menu-item-1475" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="OtherCatholicPrayers.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Other Catholic Prayers</span></span><span class="plus"></span></span></a></li>
+                                                    <li id="nav-menu-item-1476" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="Devotions.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Devotions</span></span><span class="plus"></span></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="nav-menu-item-1477" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="PrayerWall.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-sticky-note fa"></i></span><span class="item_text">Prayer Wall</span></span><span class="plus"></span></span></a></li>
+                                    <li id="nav-menu-item-1478" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                        <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-cloud fa"></i></span><span class="item_text">Inspirations</span></span><span class="plus"></span></span></a>
+                                        <div class="second">
+                                            <div class="inner">
+                                                <ul>
+                                                    <li id="nav-menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BibleVerses.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Bible Verses</span></span><span class="plus"></span></span></a></li>
+                                                    <li id="nav-menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="ReligiousQuotes.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Religious Quotes</span></span><span class="plus"></span></span></a></li>
+                                                    <li id="nav-menu-item-1481" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="MusicalInspirations.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Musical Inspirations</span></span><span class="plus"></span></span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="nav-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="Blogs.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-map-signs fa"></i></span><span class="item_text">Blogs</span></span><span class="plus"></span></span></a></li>
+                                    <li id="nav-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="VisitaIglesia.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-map-marker fa"></i></span><span class="item_text">Visita Iglesia</span></span><span class="plus"></span></span></a></li>
+                                </ul>
+                            </nav>
+                            
+                             <% if (SimbahanApp.Models.Auth.Check()) { %>
+                            <% SimbahanApp.Models.User user = SimbahanApp.Models.Auth.user(); %>
+                            <div class="widget eltd-login-register-widget">
+                                <div class="eltd-logged-in-user">
+                                    <span>
+                                        <span class="eltd-logged-in-user-name"> <%=user.FirstName %></span>
+                                        <span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-down "></span>
+                                        <img alt="" src="http://0.gravatar.com/avatar/9201a856a600d823ab59fc88319ef17a?s=28&amp;d=mm&amp;r=g" class="avatar avatar-28 photo" height="28" width="28">
+                                    </span>
+                                </div>
+                                <ul class="eltd-login-dropdown">
+                                    <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                    <li>
+                                        <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <%} else {%>
+                            <div class="widget eltd-login-register-widget">
+                                <a href="Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
+                                <span class="eltd-mobile-login-icon"><i class="eltd-icon-linear-icon lnr lnr-users "></i></span>
+                            </div>
+                            <%} %>
+                        </div>
+                    </div>
+                </div>--%>
+                <div class=" eltd-vertical-align-containers">
+                        <div class="eltd-position-left">
+                            <div class="eltd-position-left-inner">
+
+                                <div class="eltd-logo-wrapper">
+                                    <a href="Default.aspx" style="height: 37px;">
+                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="dark logoo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="light logo" />
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="eltd-position-right">
+                            <div class="eltd-position-right-inner">
+
+                                <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
+                                    <ul id="menu-other-menu-1" class="clearfix">
+                                        <li id="sticky-nav-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  narrow"><a href="Default.aspx" class="home"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-home fa"></i></span><span class="item_text">Home</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Church &#038; Organizations</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1467" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                            <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-newspaper-o fa"></i></span><span class="item_text">Daily Readings</span></span><span class="plus"></span></span></a>
+                                            <div class="second">
+                                                <div class="inner">
+                                                    <ul>
+                                                        <li id="sticky-nav-menu-item-1468" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyGospel.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Gospel Reading</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1469" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyReflection.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Daily Reflections</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1470" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="SaintOfTheDay.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Saint of the Day</span></span><span class="plus"></span></span></a></li>
+                                                        <!-- <li id="sticky-nav-menu-item-1471" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="/" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Daily Inspirations</span></span><span class="plus"></span></span></a></li> -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="sticky-nav-menu-item-1472" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="Saints.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-male fa"></i></span><span class="item_text">Saints</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1473" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                            <a  class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-book fa"></i></span><span class="item_text">Prayer &#038; Devotions</span></span><span class="plus"></span></span></a>
+                                            <div class="second">
+                                                <div class="inner">
+                                                    <ul>
+                                                        <li id="sticky-nav-menu-item-1474" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BasicCatholicPrayers.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Basic Catholic Prayers</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1475" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="OtherCatholicPrayers.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Other Catholic Prayers</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1476" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="Devotions.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Devotions</span></span><span class="plus"></span></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <%--<li id="sticky-nav-menu-item-1477" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="PrayerWall.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-sticky-note fa"></i></span><span class="item_text">Prayer Wall</span></span><span class="plus"></span></span></a></li>--%>
+                                        <li id="sticky-nav-menu-item-1478" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                            <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-cloud fa"></i></span><span class="item_text">Inspirations</span></span><span class="plus"></span></span></a>
+                                            <div class="second">
+                                                <div class="inner">
+                                                    <ul>
+                                                        <li id="sticky-nav-menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BibleVerses.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Bible Verses</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="ReligiousQuotes.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Religious Quotes</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1481" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="MusicalInspirations.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Musical Inspirations</span></span><span class="plus"></span></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="sticky-nav-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="Blogs.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-map-signs fa"></i></span><span class="item_text">Blog</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="VisitaIglesia.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-map-marker fa"></i></span><span class="item_text">Visita Iglesia</span></span><span class="plus"></span></span></a></li>
+                                    </ul>
+                                </nav>
+                                <% if (SimbahanApp.Models.Auth.Check()) { %>
+                                <% SimbahanApp.Models.User user = SimbahanApp.Models.Auth.user(); %>
+                                <div class="widget eltd-login-register-widget">
+                                    <div class="eltd-logged-in-user">
+                                        <span>
+                                            <span class="eltd-logged-in-user-name"> <%=user.FirstName %></span>
+                                            <span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-down "></span>
+                                            <%--<img alt="" src="http://0.gravatar.com/avatar/9201a856a600d823ab59fc88319ef17a?s=28&amp;d=mm&amp;r=g" class="avatar avatar-28 photo" height="28" width="28">--%>
+                                        </span>
+                                    </div>
+                                    <ul class="eltd-login-dropdown">
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li>
+                                            <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <%} else {%>
+                                <div class="widget eltd-login-register-widget">
+                                    <a href="Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
+                                    <span class="eltd-mobile-login-icon">
+                                        <a href="Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users"></i></a>
+                                    </span>
+                                </div>
+                                <%} %>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="eltd-sticky-header">
+                <div class="eltd-sticky-holder">
+                    <div class=" eltd-vertical-align-containers">
+                        <div class="eltd-position-left">
+                            <div class="eltd-position-left-inner">
+
+                                <div class="eltd-logo-wrapper">
+                                    <a href="Default.aspx" style="height: 37px;">
+                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="dark logoo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="light logo" />
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="eltd-position-right">
+                            <div class="eltd-position-right-inner">
+
+                                <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
+                                    <ul id="menu-other-menu-1" class="clearfix">
+                                        <li id="sticky-nav-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  narrow"><a href="Default.aspx" class="home"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-home fa"></i></span><span class="item_text">Home</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Church &#038; Organizations</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1467" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                            <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-newspaper-o fa"></i></span><span class="item_text">Daily Readings</span></span><span class="plus"></span></span></a>
+                                            <div class="second">
+                                                <div class="inner">
+                                                    <ul>
+                                                        <li id="sticky-nav-menu-item-1468" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyGospel.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Gospel Reading</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1469" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyReflection.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Daily Reflections</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1470" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="SaintOfTheDay.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Saint of the Day</span></span><span class="plus"></span></span></a></li>
+                                                        <!-- <li id="sticky-nav-menu-item-1471" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="/" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-bookmark fa"></i></span><span class="item_text">Daily Inspirations</span></span><span class="plus"></span></span></a></li> -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="sticky-nav-menu-item-1472" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="Saints.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-male fa"></i></span><span class="item_text">Saints</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1473" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                            <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-book fa"></i></span><span class="item_text">Prayer &#038; Devotions</span></span><span class="plus"></span></span></a>
+                                            <div class="second">
+                                                <div class="inner">
+                                                    <ul>
+                                                        <li id="sticky-nav-menu-item-1474" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BasicCatholicPrayers.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Basic Catholic Prayers</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1475" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="OtherCatholicPrayers.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Other Catholic Prayers</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1476" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="Devotions.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-stethoscope fa"></i></span><span class="item_text">Devotions</span></span><span class="plus"></span></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <%--<li id="sticky-nav-menu-item-1477" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="PrayerWall.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-sticky-note fa"></i></span><span class="item_text">Prayer Wall</span></span><span class="plus"></span></span></a></li>--%>
+                                        <li id="sticky-nav-menu-item-1478" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
+                                            <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-cloud fa"></i></span><span class="item_text">Inspirations</span></span><span class="plus"></span></span></a>
+                                            <div class="second">
+                                                <div class="inner">
+                                                    <ul>
+                                                        <li id="sticky-nav-menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BibleVerses.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Bible Verses</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="ReligiousQuotes.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Religious Quotes</span></span><span class="plus"></span></span></a></li>
+                                                        <li id="sticky-nav-menu-item-1481" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="MusicalInspirations.aspx" class=""><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-heartbeat fa"></i></span><span class="item_text">Musical Inspirations</span></span><span class="plus"></span></span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li id="sticky-nav-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="Blogs.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-map-signs fa"></i></span><span class="item_text">Blog</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="VisitaIglesia.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-map-marker fa"></i></span><span class="item_text">Visita Iglesia</span></span><span class="plus"></span></span></a></li>
+                                    </ul>
+                                </nav>
+                                <% if (SimbahanApp.Models.Auth.Check()) { %>
+                                <% SimbahanApp.Models.User user = SimbahanApp.Models.Auth.user(); %>
+                                <div class="widget eltd-login-register-widget">
+                                    <div class="eltd-logged-in-user">
+                                        <span>
+                                            <span class="eltd-logged-in-user-name"> <%=user.FirstName %></span>
+                                            <span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-down "></span>
+                                            <%--<img alt="" src="http://0.gravatar.com/avatar/9201a856a600d823ab59fc88319ef17a?s=28&amp;d=mm&amp;r=g" class="avatar avatar-28 photo" height="28" width="28">--%>
+                                        </span>
+                                    </div>
+                                    <ul class="eltd-login-dropdown">
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li>
+                                            <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <%} else {%>
+                                <div class="widget eltd-login-register-widget">
+                                    <a href="Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
+                                    <span class="eltd-mobile-login-icon">
+                                    <a href="Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a></span>
+                                </div>
+                                <%} %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+
+
+        <header class="eltd-mobile-header">
+            <div class="eltd-mobile-header-inner">
+                <div class="eltd-mobile-header-holder">
+                    <div class="eltd-grid">
+                        <div class="eltd-vertical-align-containers">
+                            <div class="eltd-mobile-menu-opener">
+                                <a href="javascript:void(0)">
+                                    <span class="eltd-mobile-opener-icon-holder">
+                                        <span aria-hidden="true" class="eltd-icon-font-elegant icon_menu "></span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="eltd-position-center">
+                                <div class="eltd-position-center-inner">
+
+                                    <div class="eltd-mobile-logo-wrapper">
+                                        <a href="Default.aspx" style="height: 52px">
+                                            <img src="Images/SimbahanLogoBeta.png" alt="mobile logo" />
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="eltd-position-right">
+                                <div class="eltd-position-right-inner">
+                                <%if (SimbahanApp.Models.Auth.Check()) { %>
+                                <div class="widget eltd-login-register-widget">
+                                    <div class="eltd-logged-in-user">
+                                        <span>
+                                            <span class="eltd-logged-in-user-name"> <%=SimbahanApp.Models.Auth.user().FirstName %></span>
+                                            <span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-down "></span>
+                                            <%--<img alt="" src="http://0.gravatar.com/avatar/9201a856a600d823ab59fc88319ef17a?s=28&amp;d=mm&amp;r=g" class="avatar avatar-28 photo" height="28" width="28">--%>
+                                        </span>
+                                    </div>
+                                    <ul class="eltd-login-dropdown">
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li>
+                                            <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <%} else {%>
+                                <div class="widget eltd-login-register-widget">
+                                    <a href="Login.aspx" style="border-color: #1ab5c1;" class="eltd-mobile-login-icon"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a>
+                                </div>
+                                <%} %>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- close .eltd-vertical-align-containers -->
+                    </div>
+                </div>
+
+                <nav class="eltd-mobile-nav">
+                    <div class="eltd-grid">
+                        <ul id="menu-other-menu-2" class="">
+                            <li id="mobile-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home "><a href="Default.aspx" class="home"><span>Home</span></a></li>
+                            <li id="mobile-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item"><a href="church_organization.aspx" class=" current "><span>Church &#038; Organizations</span></a></li>
+                            <li id="mobile-menu-item-1467" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub">
+                                <a class=" current "><span>Daily Readings</span></a><span class="mobile_arrow">
+                                    <i class="eltd-sub-arrow fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span>
+                                <ul class="sub_menu">
+                                    <li id="mobile-menu-item-1468" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyGospel.aspx" class=""><span>Gospel Reading</span></a></li>
+                                    <li id="mobile-menu-item-1469" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="DailyReflection.aspx" class=""><span>Daily Reflections</span></a></li>
+                                    <li id="mobile-menu-item-1470" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="SaintOfTheDay.aspx" class=""><span>Saint of the Day</span></a></li>
+                                     <!--<li id="mobile-menu-item-1471" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="index.html" class=""><span>Daily Inspirations</span></a></li> -->
+                                </ul>
+                            </li>
+                            <li id="mobile-menu-item-1472" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item"><a href="Saints.aspx" class=" current "><span>Saints</span></a></li>
+                            <li id="mobile-menu-item-1473" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub">
+                                <a class=" current "><span>Prayer &#038; Devotions</span></a><span class="mobile_arrow">
+                                    <i class="eltd-sub-arrow fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span>
+                                <ul class="sub_menu">
+                                    <li id="mobile-menu-item-1474" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BasicCatholicPrayers.aspx" class=""><span>Basic Catholic Prayers</span></a></li>
+                                    <li id="mobile-menu-item-1475" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="OtherCatholicPrayers.aspx" class=""><span>Other Catholic Prayers</span></a></li>
+                                    <li id="mobile-menu-item-1476" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="Devotions.aspx" class=""><span>Devotions &#038; Traditions</span></a></li>
+                                </ul>
+                            </li>
+                            <%--<li id="mobile-menu-item-1477" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item"><a href="PrayerWall.aspx" class=" current "><span>Prayer Wall</span></a></li>--%>
+                            <li id="mobile-menu-item-1478" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub">
+                                <a class=" current "><span>Inspirations</span></a><span class="mobile_arrow">
+                                    <i class="eltd-sub-arrow fa fa-angle-right"></i><i class="fa fa-angle-down"></i></span>
+                                <ul class="sub_menu">
+                                    <li id="mobile-menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="BibleVerses.aspx" class=""><span>Bible Verses</span></a></li>
+                                    <li id="mobile-menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="ReligiousQuotes.aspx" class=""><span>Religious Quotes</span></a></li>
+                                    <li id="mobile-menu-item-1481" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item "><a href="MusicalInspirations.aspx" class=""><span>Musical Inspirations</span></a></li>
+                                </ul>
+                            </li>
+                            <li id="mobile-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item"><a href="Blogs.aspx" class=" current "><span>Blogs</span></a></li>
+                            <li id="mobile-menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item"><a href="VisitaIglesia.aspx" class=" current "><span>Visita Iglesia</span></a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </header>
+        <!-- close .eltd-mobile-header -->
+
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+            <footer style="background-image: url(~/searchandgo.elated-themes.com/wp-content/uploads/2016/02/footer-background.jpg);">
+                <div class="eltd-footer-inner clearfix">
+                    <div class="eltd-footer-top-holder">
+                        <div class="eltd-footer-top eltd-footer-top-aligment-left">
+
+                            <div class="row">
+                                <div class="col-xs-4"></div>
+                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
+                                    <div class="widget eltd-footer-column widget_text">
+                                        <div class="textwidget">
+                                            <h5 style="color: snow;">COMPANY</h5>
+                                            <p>
+                                                <a href="About.aspx">About Us
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <a href="Contact.aspx">Contact Us
+                                                </a>
+                                            </p>
+                                            <%--<p>
+                                                <a href="#">Donation
+                                                </a>
+                                            </p>--%>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%--<div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
+                                    <div class="widget eltd-footer-column widget_text">
+                                        <div class="textwidget">
+                                            <h5 style="color: snow;">ADD LISTING</h5>
+                                            <p>
+                                                <a href="#">Catholic Churches
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <a href="#">Catholic Organizations
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>--%>
+                                 <!--<div class="col-lg-2  col-md-2 col-sm-6 col-xs-12 ">
+                                    <div id="text-4" class="widget eltd-footer-column widget_text">
+                                        <div class="textwidget">
+                                            <h5 style="color: snow;">OTHERS</h5>
+                                            <p>
+                                                <a href="#">Privacy Policy
+                                                </a>
+                                            </p>
+                                             <p>
+                                                <a href="#">Terms of Use
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                 <div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
+                                    <h5 style="color: snow;">FOLLOW US</h5>
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://instagram.com/simbahanappofficial" target="_blank">
+                                        <span class="eltd-social-icon-widget social_instagram"></span></a>
+
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://twitter.com/SimbahanApp" target="_blank">
+                                        <span class="eltd-social-icon-widget social_twitter"></span></a>
+
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px" href="https://www.facebook.com/SimbahanApp/" target="_blank">
+                                        <span class="eltd-social-icon-widget social_facebook"></span></a>
+                                </div>
+                            <%--  <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12 ">
+                                   <h5 style="color: snow;">GET FREE MOBILE APP VERSION</h5>
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="#" target="_blank">
+                                        <img src="Images/android.png" /></a>
+                                 
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="http://twitter.com/" target="_blank">
+                                        <img src="Images/apple.png" /></a>
+                                </div>--%>
+                                <div class="col-xs-4"></div>
+                            </div>
+
+                            <div class="eltd-footer-bottom-holder">
+                                <div class="eltd-footer-bottom-holder-inner">
+                                    <div class="eltd-container">
+                                        <div class="eltd-container-inner">
+                                            <div class="eltd-column-inner">
+                                                <div class="textwidget">
+                                                    <div class="col-lg-10">
+                                                        <a href="Default.aspx">
+                                                        <img src="Images/SimbahanLogoBeta.png" alt="logo" />
+                                                    </a>
+                                                        <div id="text-5" class="widget eltd-footer-text widget_text">
+                                                    <div class="textwidget">&copy; <%: DateTime.Now.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
+                                                </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <img class="img-responsive chrome" src="Images/chrome.png" alt="chrome"/>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!-- close div.eltd-wrapper-inner  -->
+    </form>
+
+    <script src="Scripts/sweetalert.js"></script>
+    <script src='<%= ResolveUrl("Scripts/share.js") %>'></script>
+    <script type='text/javascript' src="Scripts/Default-JQ.js"></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/core.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/datepicker.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript'>
+        jQuery(document).ready(function (jQuery) { jQuery.datepicker.setDefaults({ "closeText": "Close", "currentText": "Today", "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "monthNamesShort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "nextText": "Next", "prevText": "Previous", "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"], "dateFormat": "MM d, yy", "firstDay": 1, "isRTL": false }); });
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/underscore.min4511.js?ver=1.8.3'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/shortcode.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/backbone.min9632.js?ver=1.2.3'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var _wpUtilSettings = { "ajax": { "url": "\/wordpress\/wp-admin\/admin-ajax.php" } };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/wp-util.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/wp-backbone.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var _wpMediaModelsL10n = { "settings": { "ajaxurl": "\/wordpress\/wp-admin\/admin-ajax.php", "post": { "id": 0 } } };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/media-models.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var pluploadL10n = { "queue_limit_exceeded": "You have attempted to queue too many files.", "file_exceeds_size_limit": "%s exceeds the maximum upload size for this site.", "zero_byte_file": "This file is empty. Please try another.", "invalid_filetype": "This file type is not allowed. Please try another.", "not_an_image": "This file is not an image. Please try another.", "image_memory_exceeded": "Memory exceeded. Please try another smaller file.", "image_dimensions_exceeded": "This is larger than the maximum size. Please try another.", "default_error": "An error occurred in the upload. Please try again later.", "missing_upload_url": "There was a configuration error. Please contact the server administrator.", "upload_limit_exceeded": "You may only upload 1 file.", "http_error": "HTTP error.", "upload_failed": "Upload failed.", "big_upload_failed": "Please try uploading this file with the %1$sbrowser uploader%2$s.", "big_upload_queued": "%s exceeds the maximum upload size for the multi-file uploader when used in your browser.", "io_error": "IO error.", "security_error": "Security error.", "file_cancelled": "File canceled.", "upload_stopped": "Upload stopped.", "dismiss": "Dismiss", "crunching": "Crunching\u2026", "deleted": "moved to the trash.", "error_uploading": "\u201c%s\u201d has failed to upload." };
+        var _wpPluploadSettings = { "defaults": { "runtimes": "html5,flash,silverlight,html4", "file_data_name": "async-upload", "url": "\/wordpress\/wp-admin\/async-upload.php", "flash_swf_url": "http:\/\/localhost:8080\/wordpress\/wp-includes\/js\/plupload\/plupload.flash.swf", "silverlight_xap_url": "http:\/\/localhost:8080\/wordpress\/wp-includes\/js\/plupload\/plupload.silverlight.xap", "filters": { "max_file_size": "838860800b", "mime_types": [{ "extensions": "jpg,jpeg,jpe,gif,png,bmp,tiff,tif,ico,asf,asx,wmv,wmx,wm,avi,divx,flv,mov,qt,mpeg,mpg,mpe,mp4,m4v,ogv,webm,mkv,3gp,3gpp,3g2,3gp2,txt,asc,c,cc,h,srt,csv,tsv,ics,rtx,css,vtt,dfxp,mp3,m4a,m4b,ra,ram,wav,ogg,oga,mid,midi,wma,wax,mka,rtf,js,pdf,class,tar,zip,gz,gzip,rar,7z,psd,xcf,doc,pot,pps,ppt,wri,xla,xls,xlt,xlw,mdb,mpp,docx,docm,dotx,dotm,xlsx,xlsm,xlsb,xltx,xltm,xlam,pptx,pptm,ppsx,ppsm,potx,potm,ppam,sldx,sldm,onetoc,onetoc2,onetmp,onepkg,oxps,xps,odt,odp,ods,odg,odc,odb,odf,wp,wpd,key,numbers,pages" }] }, "multipart_params": { "action": "upload-attachment", "_wpnonce": "3c270fc920" } }, "browser": { "mobile": false, "supported": true }, "limitExceeded": false };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/plupload/wp-plupload.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/widget.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/mouse.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/sortable.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var mejsL10n = { "language": "en-US", "strings": { "Close": "Close", "Fullscreen": "Fullscreen", "Turn off Fullscreen": "Turn off Fullscreen", "Go Fullscreen": "Go Fullscreen", "Download File": "Download File", "Download Video": "Download Video", "Play": "Play", "Pause": "Pause", "Captions\/Subtitles": "Captions\/Subtitles", "None": "None", "Time Slider": "Time Slider", "Skip back %1 seconds": "Skip back %1 seconds", "Video Player": "Video Player", "Audio Player": "Audio Player", "Volume Slider": "Volume Slider", "Mute Toggle": "Mute Toggle", "Unmute": "Unmute", "Mute": "Mute", "Use Up\/Down Arrow keys to increase or decrease volume.": "Use Up\/Down Arrow keys to increase or decrease volume.", "Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.": "Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds." } };
+        var _wpmejsSettings = { "pluginPath": "\/wordpress\/wp-includes\/js\/mediaelement\/" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/mediaelement/mediaelement-and-player.min51cd.js?ver=2.22.0'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/mediaelement/wp-mediaelement.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var _wpMediaViewsL10n = { "url": "URL", "addMedia": "Add Media", "search": "Search", "select": "Select", "cancel": "Cancel", "update": "Update", "replace": "Replace", "remove": "Remove", "back": "Back", "selected": "%d selected", "dragInfo": "Drag and drop to reorder media files.", "uploadFilesTitle": "Upload Files", "uploadImagesTitle": "Upload Images", "mediaLibraryTitle": "Media Library", "insertMediaTitle": "Insert Media", "createNewGallery": "Create a new gallery", "createNewPlaylist": "Create a new playlist", "createNewVideoPlaylist": "Create a new video playlist", "returnToLibrary": "\u2190 Return to library", "allMediaItems": "All media items", "allDates": "All dates", "noItemsFound": "No items found.", "insertIntoPost": "Insert into post", "unattached": "Unattached", "trash": "Trash", "uploadedToThisPost": "Uploaded to this post", "warnDelete": "You are about to permanently delete this item.\n  'Cancel' to stop, 'OK' to delete.", "warnBulkDelete": "You are about to permanently delete these items.\n  'Cancel' to stop, 'OK' to delete.", "warnBulkTrash": "You are about to trash these items.\n  'Cancel' to stop, 'OK' to delete.", "bulkSelect": "Bulk Select", "cancelSelection": "Cancel Selection", "trashSelected": "Trash Selected", "untrashSelected": "Untrash Selected", "deleteSelected": "Delete Selected", "deletePermanently": "Delete Permanently", "apply": "Apply", "filterByDate": "Filter by date", "filterByType": "Filter by type", "searchMediaLabel": "Search Media", "searchMediaPlaceholder": "Search media items...", "noMedia": "No media files found.", "attachmentDetails": "Attachment Details", "insertFromUrlTitle": "Insert from URL", "setFeaturedImageTitle": "Featured Image", "setFeaturedImage": "Set featured image", "createGalleryTitle": "Create Gallery", "editGalleryTitle": "Edit Gallery", "cancelGalleryTitle": "\u2190 Cancel Gallery", "insertGallery": "Insert gallery", "updateGallery": "Update gallery", "addToGallery": "Add to gallery", "addToGalleryTitle": "Add to Gallery", "reverseOrder": "Reverse order", "imageDetailsTitle": "Image Details", "imageReplaceTitle": "Replace Image", "imageDetailsCancel": "Cancel Edit", "editImage": "Edit Image", "chooseImage": "Choose Image", "selectAndCrop": "Select and Crop", "skipCropping": "Skip Cropping", "cropImage": "Crop Image", "cropYourImage": "Crop your image", "cropping": "Cropping\u2026", "suggestedDimensions": "Suggested image dimensions:", "cropError": "There has been an error cropping your image.", "audioDetailsTitle": "Audio Details", "audioReplaceTitle": "Replace Audio", "audioAddSourceTitle": "Add Audio Source", "audioDetailsCancel": "Cancel Edit", "videoDetailsTitle": "Video Details", "videoReplaceTitle": "Replace Video", "videoAddSourceTitle": "Add Video Source", "videoDetailsCancel": "Cancel Edit", "videoSelectPosterImageTitle": "Select Poster Image", "videoAddTrackTitle": "Add Subtitles", "playlistDragInfo": "Drag and drop to reorder tracks.", "createPlaylistTitle": "Create Audio Playlist", "editPlaylistTitle": "Edit Audio Playlist", "cancelPlaylistTitle": "\u2190 Cancel Audio Playlist", "insertPlaylist": "Insert audio playlist", "updatePlaylist": "Update audio playlist", "addToPlaylist": "Add to audio playlist", "addToPlaylistTitle": "Add to Audio Playlist", "videoPlaylistDragInfo": "Drag and drop to reorder videos.", "createVideoPlaylistTitle": "Create Video Playlist", "editVideoPlaylistTitle": "Edit Video Playlist", "cancelVideoPlaylistTitle": "\u2190 Cancel Video Playlist", "insertVideoPlaylist": "Insert video playlist", "updateVideoPlaylist": "Update video playlist", "addToVideoPlaylist": "Add to video playlist", "addToVideoPlaylistTitle": "Add to Video Playlist", "settings": { "tabs": [], "tabUrl": "http:\/\/localhost:8080\/wordpress\/wp-admin\/media-upload.php?chromeless=1", "mimeTypes": { "image": "Images", "audio": "Audio", "video": "Video" }, "captions": true, "nonce": { "sendToEditor": "92fb733fed" }, "post": { "id": 0 }, "defaultProps": { "link": "none", "align": "", "size": "" }, "attachmentCounts": { "audio": 1, "video": 0 }, "embedExts": ["mp3", "ogg", "wma", "m4a", "wav", "mp4", "m4v", "webm", "ogv", "wmv", "flv"], "embedMimes": { "mp3": "audio\/mpeg", "ogg": "audio\/ogg", "wma": "audio\/x-ms-wma", "m4a": "audio\/mpeg", "wav": "audio\/wav", "mp4": "video\/mp4", "m4v": "video\/mp4", "webm": "video\/webm", "ogv": "video\/ogg", "wmv": "video\/x-ms-wmv", "flv": "video\/x-flv" }, "contentWidth": 1060, "months": [{ "year": "2017", "month": "2", "text": "February 2017" }, { "year": "2016", "month": "5", "text": "May 2016" }, { "year": "2016", "month": "4", "text": "April 2016" }, { "year": "2016", "month": "3", "text": "March 2016" }, { "year": "2016", "month": "2", "text": "February 2016" }], "mediaTrash": 0 } };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/media-views.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/media-editor.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/media-audiovideo.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/tabs.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/accordion.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-content/themes/search-and-go/assets/js/third-party.mine100.js?ver=4.7.2'></script>
+    <%--<script type='text/javascript' src='wpStuffs/wp-content/plugins/js_composer/assets/lib/bower/isotope/dist/isotope.pkgd.min972f.js?ver=5.0.1'></script>--%>
+    <script type='text/javascript' src='wpStuffs/wp-content/themes/search-and-go/assets/js/smoothPageScrolle100.js?ver=4.7.2'></script>
+    <%--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsVYLfi5agUedOS6A6k71vkONt5dR-pBA"></script>--%>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWGq_DSsFLKGAqIZyguSqBHCqGQxypS8Q&libraries=places&callback=initMap"></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var eltdGlobalVars = { "vars": { "eltdAddForAdminBar": 0, "eltdElementAppearAmount": -150, "eltdFinishedMessage": "No more posts", "eltdMessage": "Loading new posts...", "eltdTopBarHeight": 34, "eltdStickyHeaderHeight": 0, "eltdStickyHeaderTransparencyHeight": 60, "postTitles": ["Blue Jeans", "Vintage Apparel", "Miss Sugar", "Power Footwear", "Concept", "Organic Corner", "Fresh Garden", "The Embassy", "Club Apex", "Utopia", "Horse & Crown", "The Lion\u2019s Den", "Liberty Shop", "Red Valley", "Inferno", "The Flower Room", "The Fresh Buzz", "The Basement", "Roy\u2019s Motel", "Briarfield Bed & Breakfast", "Traveler\u2019s Hostel", "Skyline Apartments", "Goldenoak Apartments", "Parkview Apartments", "The Sunrise B&B", "Sandstone Hostel", "Sanctum Hotel", "Warehouse Gallery", "Pop Art Gallery", "National Art Institute", "Modern Art Museum", "Open Air Cinema", "Shakespeare\u2019s Globe", "The Eiffel Tower", "The Taj Mahal", "Dynamic Studio", "Hill Winery", "Il Banchetto", "The Snack Stop", "Bread & Bagels", "Morning Kitchen", "Noodle Shack", "Hinata Cantina", "The Dining Hall", "The Bar & Beef"], "eltdLogoAreaHeight": 0, "eltdMenuAreaHeight": 114, "eltdMobileHeaderHeight": 100 } };
+        var eltdPerPageVars = { "vars": { "eltdStickyScrollAmount": 0, "eltdHeaderTransparencyHeight": 0 } };
+        var eltdSocialVars = { "social": { "facebookAppId": "1319717271387665", "googleClientId": "319906893855-kq9sre682ev2usgqniea7hjif1rb0leu.apps.googleusercontent.com" } };
+        var eltdMapsVars = { "global": { "mapStyle": [{ "featureType": "administrative", "elementType": "labels.text.fill", "stylers": [{ "color": "#6195a0" }] }, { "featureType": "administrative.province", "elementType": "geometry.stroke", "stylers": [{ "visibility": "off" }] }, { "featureType": "landscape", "elementType": "geometry", "stylers": [{ "lightness": "0" }, { "saturation": "0" }, { "color": "#f5f5f2" }, { "gamma": "1" }] }, { "featureType": "landscape.man_made", "elementType": "all", "stylers": [{ "lightness": "-3" }, { "gamma": "1.00" }] }, { "featureType": "landscape.natural.terrain", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi", "elementType": "all", "stylers": [{ "visibility": "off" }] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [{ "color": "#bae5ce" }, { "visibility": "on" }] }, { "featureType": "road", "elementType": "all", "stylers": [{ "saturation": -100 }, { "lightness": 45 }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "geometry.fill", "stylers": [{ "color": "#fac9a9" }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "elementType": "labels.text", "stylers": [{ "color": "#4e4e4e" }] }, { "featureType": "road.arterial", "elementType": "labels.text.fill", "stylers": [{ "color": "#787878" }] }, { "featureType": "road.arterial", "elementType": "labels.icon", "stylers": [{ "visibility": "off" }] }, { "featureType": "transit", "elementType": "all", "stylers": [{ "visibility": "simplified" }] }, { "featureType": "transit.station.airport", "elementType": "labels.icon", "stylers": [{ "hue": "#0a00ff" }, { "saturation": "-77" }, { "gamma": "0.57" }, { "lightness": "0" }] }, { "featureType": "transit.station.rail", "elementType": "labels.text.fill", "stylers": [{ "color": "#43321e" }] }, { "featureType": "transit.station.rail", "elementType": "labels.icon", "stylers": [{ "hue": "#ff6c00" }, { "lightness": "4" }, { "gamma": "0.75" }, { "saturation": "-68" }] }, { "featureType": "water", "elementType": "all", "stylers": [{ "color": "#eaf6f8" }, { "visibility": "on" }] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [{ "color": "#c7eced" }] }, { "featureType": "water", "elementType": "labels.text.fill", "stylers": [{ "lightness": "-49" }, { "saturation": "-53" }, { "gamma": "0.79" }] }], "scrollable": false, "draggable": true, "streetViewControl": true, "zoomControl": true, "mapTypeControl": true } };
+        var eltdSingleMapVars = { "single": [] };
+        var eltdMultipleMapVars = { "multiple": [] };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-content/themes/search-and-go/assets/js/modules.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/comment-reply.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min972f.js?ver=5.0.1'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var eltdLike = { "ajaxurl": "http:\/\/localhost:8080\/wordpress\/wp-admin\/admin-ajax.php" };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-content/themes/search-and-go/assets/js/like.min5152.js?ver=1.0'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/position.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/menu.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/wp-a11y.mine100.js?ver=4.7.2'></script>
+    <script src="Scripts/jssor.slider-22.2.10.min.js"></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var uiAutocompleteL10n = { "noResults": "No results found.", "oneResult": "1 result found. Use up and down arrow keys to navigate.", "manyResults": "%d results found. Use up and down arrow keys to navigate.", "itemSelected": "Item selected." };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/autocomplete.mine899.js?ver=1.11.4'></script>
+    <script type='text/javascript' src='wpStuffs/wp-content/themes/search-and-go/assets/js/listings.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/wp-embed.mine100.js?ver=4.7.2'></script>
+    <script type='text/javascript' src='wpStuffs/wp-content/plugins/wp-scrollspy-menu/assets/js/scrollspy_wpe100.js?ver=4.7.2'></script>
+    <script type="text/javascript">
+        var $ = jQuery;
+        var mainFormName = $("#<%= MainForm.ClientID %>");
+        var isAuth = <%= SimbahanApp.Models.Auth.Check() ? "true" : "false" %>;
+        var currentPage = '<%= HttpContext.Current.Request.Url.AbsolutePath %>';
+    </script>
+    <script type='text/javascript' src='Scripts/bootstrap.min.js'></script>
+    <script src="Scripts/jssor.slider-22.2.10.min.js"></script>
+    <script src="Scripts/validator.js"></script>
+    <script src="Scripts/list.js"></script>
+    <script src="Scripts/helpers.js"></script>
+    <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
+        <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/595c9febe9c6d324a4738e03/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+    </asp:ContentPlaceHolder>
+
+</body>
+</html>
