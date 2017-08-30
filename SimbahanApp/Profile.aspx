@@ -119,7 +119,7 @@
 <div class="tab-pane fade in" id="tab1">
 <section>
 <div class="container">
-<div class="row">
+<div class="rows">
 <div class="board">
 <div class="board-inner">
 <!-- Favorites Tab Header -->
@@ -175,8 +175,6 @@
             </span>
         </a>
     </li>
-
-
 </ul>
 <!-- Favorites Tab Contents -->
 <div class="tab-content">
