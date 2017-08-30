@@ -14,6 +14,9 @@
         </div>
         <div class="col-sm-7 tab-bg" style="padding: 60px">
             <div class="row">
+                <h1 class="moods">VISITA IGLESIA</h1>
+                <h6 style="text-align: center;">(Spanish for "Church Visit") is a Holy Week devotion among Filipino Roman Catholics of visiting seven or fourteen churches in order to pray and meditate on the Passion of Jesus Christ. It commences in the late afternoon or early evening of Holy Thursday after the Mass of the Last Supper when the Blessed Sacrament is already reserved at the Altar of Repose for adoration inside the Church until midnight when it is concluded without solemnity since liturgically, the day of the Lord's Passion has already begun.</h6>
+                <br />
                 <h2>Churches Near You</h2>
                 <div class="row">
                     <div class="col-md-1">
