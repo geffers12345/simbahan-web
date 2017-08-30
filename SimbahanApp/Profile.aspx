@@ -117,7 +117,7 @@
 <div class="tab-content">
 <!-- Tab for Favorites -->
 <div class="tab-pane fade in" id="tab1">
-<section style="background: #efefe9;">
+<section>
 <div class="container">
 <div class="row">
 <div class="board">
