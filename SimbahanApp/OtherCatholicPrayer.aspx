@@ -22,9 +22,9 @@
                     <div class="col-md-2">
                         <center>
                             <br/> <br/>
-                            <input type="Image" id="btnAddToFave" runat="server" title="Add to Favorites!" width="45" height="45"/>
-                            <input type="Image" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>
-                            <input type="Image" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/>
+                            <a><input type="Image" id="btnAddToFave" runat="server" title="Add to Favorites!" width="45" height="45"/></a>
+                            <a><input type="Image" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/></a>
+                            <a><input type="Image" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/></a>
                         </center>
                     </div>
 

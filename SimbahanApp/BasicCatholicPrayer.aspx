@@ -23,8 +23,8 @@
                         <center>
                             <br/> <br/>
                             <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" width="45" height="45"/>
-                            <img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>
-                            <img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/>
+                            <a><img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/></a>
+                            <a><img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/></a>
                         </center>
                     </div>
 
