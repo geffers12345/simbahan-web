@@ -5358,7 +5358,7 @@ a.list-group-item:focus {
 
 
 .panel-body {
-  padding: 0;
+  padding: 20px;
 }
 
 .panel-body-churches.tab-bg {
