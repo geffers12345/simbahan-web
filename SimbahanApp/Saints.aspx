@@ -24,35 +24,24 @@
 				<div>
                     <img u="image" src="Images/Saints/mother_teresa.jpg" />
 				</div>
-					<header class="codrops-header">
-						<nav class="codrops-demos">
-							<a href="Saintslisting.aspx">Know More About Saints<span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-right "></span></a>
-						</nav>
-					</header>
+					
                 <div>
                     <img u="image" src="Images/Saints/padre_pio.jpg" />
-					<header class="codrops-header">
-						<nav class="codrops-demos">
-							<a href="Saintslisting.aspx">Know More About Saints<span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-right "></span></a>
-						</nav>
-					</header>
+					
 				</div>
                 <div>
                     <img u="image" src="Images/Saints/st_jude.jpg" />
-					<header class="codrops-header">
-						<nav class="codrops-demos">
-							<a href="Saintslisting.aspx">Know More About Saints<span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-right "></span></a>
-						</nav>
-					</header>
+					
 				</div>
 				 <div>
                     <img u="image" src="Images/Saints/st_francis_xavier.jpg" />
-					<header class="codrops-header">
+					
+				</div>
+                <header class="codrops-header">
 						<nav class="codrops-demos">
 							<a href="Saintslisting.aspx">Know More About Saints<span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-right "></span></a>
 						</nav>
 					</header>
-				</div>
             </div>
             
             <!--#region Bullet Navigator Skin Begin -->

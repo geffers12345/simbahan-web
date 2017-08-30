@@ -448,6 +448,11 @@
                         </div>
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                     </div>
+                    <div class="row" style="background-color: #fafafa;">
+                          <center><div class="eltd-listing-search-submit-holder">
+                              <a href="VisitaIglesia.aspx" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon" data-hover-color="#000" data-hover-border-color="#000"><span class="eltd-btn-text">Take a Visit </span><span aria-hidden="true" class="eltd-icon-font-elegant arrow_carrot-right"></span></a>
+                          </div></center>
+                    </div>
 
                     <div class="vc_empty_space" style="height: 100px; background-color: #fafafa;"><span class="vc_empty_space_inner"></span></div>
                 </div>

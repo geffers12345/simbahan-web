@@ -1,4 +1,4 @@
-﻿<%@ Page Title="RelQuotes-Alone Page" Language="C#" MasterPageFile="~/RelQuotesMaster.master"  AutoEventWireup="true" CodeBehind="RelQuotes-Alone.aspx.cs" Inherits="SimbahanApp.RelQuotes_Alone" %>
+﻿<%@ Page Title="RelQuotes-Alone" Language="C#" MasterPageFile="~/RelQuotesMaster.master"  AutoEventWireup="true" CodeBehind="RelQuotes-Alone.aspx.cs" Inherits="SimbahanApp.RelQuotes_Alone" %>
 
 <asp:Content runat="server"  ContentPlaceHolderID="ScriptsPlaceHolder">
     <script>
