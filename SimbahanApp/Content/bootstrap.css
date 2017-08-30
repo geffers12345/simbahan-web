@@ -5361,6 +5361,10 @@ a.list-group-item:focus {
   padding: 0;
 }
 
+.panel-body-churches.tab-bg {
+    padding: 25px;
+}
+
 .panel-body:before,
 .panel-body:after {
   display: table;

@@ -26,7 +26,7 @@
                         <li><a href="#organizations-pane" data-toggle="tab" class="no-margin"><strong>ORGANIZATIONS</strong></a></li>
                     </ul>
                 </div>
-                <div class="panel-body tab-bg">
+                <div class="panel-body-churches tab-bg">
                     <div class="tab-content">
                         <div class="tab-pane fade in active" id="churches-pane">
                             <br />
