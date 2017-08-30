@@ -320,7 +320,7 @@
         <h3 class="moods">Prayers & Devotions</h3>
 
 
-        <ul class="nav nav-tabs" id="myTab" style="width: 600px;">
+        <ul class="nav nav-tabs widthpd" id="myTab">
             <!-- Basic Catholic Prayer Tab -->
             <center>
                 <li>
@@ -339,7 +339,7 @@
                     <!-- Devotion Tab -->
 
                     <button class="button2" data-toggle="modal" data-hover-color="#000" data-hover-border-color="#000">
-                        <a href="#devotionPrayers" data-toggle="tab" title="Devotion!" style="width: 1500px;"> Devotions </a>
+                        <a href="#devotionPrayers" data-toggle="tab" title="Devotion!"> Devotions </a>
                     </button>
 
                 </li>
