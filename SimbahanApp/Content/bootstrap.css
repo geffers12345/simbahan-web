@@ -4011,8 +4011,10 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .tab-content > .tab-pane,
+
 .pill-content > .pill-pane {
   display: none;
+  padding-top: 0px;
 }
 
 .tab-content > .active,
@@ -5356,7 +5358,11 @@ a.list-group-item:focus {
 
 
 .panel-body {
-  padding: 0;
+  padding: 20px;
+}
+
+.panel-body-churches.tab-bg {
+    padding: 25px;
 }
 
 .panel-body:before,
@@ -6194,6 +6200,10 @@ button.close {
     margin-left: -15px;
     font-size: 30px;
   }
+   .tab-pane{
+   position: relative;
+   padding-top: 0;
+    }
    .menu-other-menu-1 {
     display: none;
     }
@@ -6257,6 +6267,10 @@ button.close {
   @-ms-viewport {
     width: 320px;
   }
+
+  .tab-content>.tab-pane {
+    margin: 0px 0px;
+}
 }
 
 .hidden {

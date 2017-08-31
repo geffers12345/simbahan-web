@@ -135,7 +135,7 @@
     <meta name="msapplication-TileImage" content="wpStuffs/wp-content/uploads/2016/02/cropped-SimbahanLogoStickyDark-270x270.png" />
     <style type="text/css" id="wp-custom-css">
         .eltd-main-menu.eltd-sticky-nav > ul > li > a span.item_inner {
-            padding: 0 5px;
+            padding: 0 8px;
         }
 
         .eltd-page-header {
@@ -143,7 +143,7 @@
         }
 
         .eltd-main-menu > ul > li > a span.item_inner {
-            padding: 0px 5px;
+            padding: 0px 8px;
         }
 
         .eltd-main-menu ul li.eltd-active-item a, .eltd-main-menu ul li:hover a, .eltd-main-menu > ul > li.eltd-active-item > a, body:not(.eltd-menu-item-first-level-bg-color) .eltd-main-menu > ul > li:hover > a {
@@ -159,6 +159,7 @@
     </noscript>
     <link rel='stylesheet' href='Content/custom.css' type='text/css' media='all' />
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
+
     </asp:ContentPlaceHolder>
 </head>
 <body class="home page-template page-template-full-width page-template-full-width-php page page-id-6 eltd-booking-1.1.1 eltd-core-1.2 eltd-core-1.1.3 eltd-overlapping-content-enabled search and go-ver-1.7 eltd-smooth-scroll  eltd-ajax eltd-top-bar-enabled eltd-header-standard eltd-sticky-header-on-scroll-down-up eltd-default-mobile-header eltd-sticky-up-mobile-header eltd-dropdown-default eltd-light-header wpb-js-composer js-comp-ver-5.0.1 vc_responsive">
@@ -369,9 +370,9 @@
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="dark logoo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="light logo" />
+                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogo.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogo.png" alt="dark logoo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogo.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -465,9 +466,9 @@
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="dark logoo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoStickyBeta.png" alt="light logo" />
+                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogo.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogo.png" alt="dark logo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogo.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -573,7 +574,7 @@
 
                                     <div class="eltd-mobile-logo-wrapper">
                                         <a href="Default.aspx" style="height: 52px">
-                                            <img src="Images/SimbahanLogoBeta.png" alt="mobile logo" />
+                                            <img src="Images/SimbahanLogo.png" alt="mobile logo" />
                                         </a>
                                     </div>
 
@@ -745,7 +746,7 @@
                                                 <div class="textwidget">
                                                     <div class="col-lg-10">
                                                         <a href="Default.aspx">
-                                                        <img src="Images/SimbahanLogoBeta.png" alt="logo" />
+                                                        <img src="Images/SimbahanLogo.png" alt="logo" />
                                                     </a>
                                                         <div id="text-5" class="widget eltd-footer-text widget_text">
                                                     <div class="textwidget">&copy; <%: DateTime.Now.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
