@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Web.Services;
 using System.Web.UI;
+using SimbahanApp.Models;
 using SimbahanApp.Services;
 
 namespace SimbahanApp
@@ -32,6 +34,42 @@ namespace SimbahanApp
             SaintBio.InnerHtml = saintlist.Biography;
             CanonizedDate.InnerHtml = saintlist.CanonizeDate;
             ImagePath.Src = saintlist.ImagePath;
+
+            if (Auth.Check())
+            {
+                var service = new FavoritesService();
+
+                if (service.IsSaintAlreadyInFavorites(Auth.user().Id, saintId))
+                {
+                    AddFav.Attributes.Add("style", "display: none;");
+                    RemoveFav.Attributes.Add("style", "display: block;");
+                }
+                else
+                {
+                    AddFav.Attributes.Add("style", "display: block;");
+                    RemoveFav.Attributes.Add("style", "display: none;");
+                }
+            }
+            else
+            {
+                RemoveFav.Attributes.Add("style", "display: none;");
+            }
+        }
+
+        [WebMethod]
+        public static bool AddSaintToFavorite(int saintId)
+        {
+            var service = new FavoritesService();
+
+            return service.AddSaint(Auth.user().Id, saintId);
+        }
+
+        [WebMethod]
+        public static bool RemoveSaintFromFavorite(int saintId)
+        {
+            var service = new FavoritesService();
+
+            return service.RemoveSaint(Auth.user().Id, saintId);
         }
     }
 }

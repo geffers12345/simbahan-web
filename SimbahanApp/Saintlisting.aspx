@@ -97,9 +97,12 @@
                                 </div>
                                 
                 
-                    <button id="AddFav" runat="server" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
-                        <span class="eltd-btn-text">ADD TO FAVORITES</span><span aria-hidden="true"></span>
-                    </button>
+                                <button id="AddFav" runat="server" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                                    <span class="eltd-btn-text">ADD TO FAVORITES</span><span aria-hidden="true"></span>
+                                </button>
+                                <button id="RemoveFav" runat="server" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                                    <span class="eltd-btn-text">REMOVE FROM FAVORITES</span><span aria-hidden="true"></span>
+                                </button>
                   
                 
                             </div>
@@ -170,20 +173,53 @@
                     return;
                 }
 
-                (new http).post('Churches.aspx/AddChurchToFavorite',
+                (new http).post('Saintlisting.aspx/AddSaintToFavorite',
                     {
-                        simbahanId: $("#<%= simbahanID.ClientID %>").val()
+                        saintId: $("#<%= SaintID.ClientID %>").val()
                     }).then(function(data) {
                     if (data.d) {
                         Control.hide('<%= AddFav.ClientID %>');
-                      
+                        Control.show('<%= RemoveFav.ClientID %>');
 
                         swal('Success!',
-                            'Church has been added to your favorites!',
+                            'Saint has been added to your favorites!',
                             'success');
                     } else {
+                        Control.show('<%= AddFav.ClientID %>');
+                        Control.hide('<%= RemoveFav.ClientID %>');
                         swal('Oops!',
-                            'This church is already in your favorite list',
+                            'This saint is already in your favorite list',
+                            'error');
+                    }
+                }).run();
+            });
+        $(document).on('click',
+            '#<%= RemoveFav.ClientID %>',
+            function(e) {
+                e.preventDefault();
+
+                if (!isAuth) {
+                    document.cookie = "intendedRedirect=" + currentPage + ";";
+                    window.location.href = "Login.aspx";
+                    return;
+                }
+
+                (new http).post('Saintlisting.aspx/RemoveSaintFromFavorite',
+                    {
+                        saintId: $("#<%= SaintID.ClientID %>").val()
+                    }).then(function(data) {
+                    if (data.d) {
+                        Control.show('<%= AddFav.ClientID %>');
+                        Control.hide('<%= RemoveFav.ClientID %>');
+
+                        swal('Success!',
+                            'Saint has been removed from your favorites!',
+                            'success');
+                    } else {
+                        Control.hide('<%= AddFav.ClientID %>');
+                        Control.show('<%= RemoveFav.ClientID %>');
+                        swal('Oops!',
+                            'This Saint is already in your favorite list',
                             'error');
                     }
                 }).run();
