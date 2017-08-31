@@ -76,7 +76,19 @@ input[type="select"] {
 .moods {
     text-align: center;
     color: #000;
-    font-family: 'Sounds Eroded'; 
+    font-family: 'Roboto', sans-serif;
+}
+
+.sub-mood {
+    text-align: center;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+}
+
+.visit {
+    text-align: justify;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
 }
 
 .devotion-moods {

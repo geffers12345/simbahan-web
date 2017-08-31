@@ -20,8 +20,8 @@ Modified by:
 <div class="row">
     <br/>
     <h1 class="moods">BIBLE VERSES</h1>
+    <h3 class="sub-mood">How are you feeling today?</h3>
     <br />
-    <h2 class="moods">How are you feeling today?</h2>
 </div>
 <div class="content">
 <div class="row">

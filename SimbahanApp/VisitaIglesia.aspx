@@ -15,9 +15,16 @@
         <div class="col-sm-7 tab-bg" style="padding: 60px">
             <div class="row">
                 <h1 class="moods">VISITA IGLESIA</h1>
-                <h6 style="text-align: center;">(Spanish for "Church Visit") is a Holy Week devotion among Filipino Roman Catholics of visiting seven or fourteen churches in order to pray and meditate on the Passion of Jesus Christ. It commences in the late afternoon or early evening of Holy Thursday after the Mass of the Last Supper when the Blessed Sacrament is already reserved at the Altar of Repose for adoration inside the Church until midnight when it is concluded without solemnity since liturgically, the day of the Lord's Passion has already begun.</h6>
+                <h6 class="visit">(Spanish for "Church Visit") is a Holy Week devotion among Filipino Roman Catholics of visiting seven or fourteen churches in order to pray and meditate on the Passion of Jesus Christ. It commences in the late afternoon or early evening of Holy Thursday after the Mass of the Last Supper when the Blessed Sacrament is already reserved at the Altar of Repose for adoration inside the Church until midnight when it is concluded without solemnity since liturgically, the day of the Lord's Passion has already begun.</h6>
                 <br />
-                <h2>Churches Near You</h2>
+                <h5 class="visit"><strong>Steps on How To Use Visita Iglesia Module:</strong></h5>
+                <h6 class="visit">1. Enter the location of the place that you want to start in the "From:" field.</h6> 
+                <h6 class="visit">2. In the "Show" field, Enter the number of churches that you want the system to show.</h6> 
+                <h6 class="visit">3. Click the "Find" button.</h6> 
+                <h6 class="visit">4. The system will generate the list of churches that is near the place that you entered on the find button.</h6> 
+                <br />
+                <h3>Churches Near You</h3>
+                <p></p>
                 <div class="row">
                     <div class="col-md-1">
                         <label>From: </label>
