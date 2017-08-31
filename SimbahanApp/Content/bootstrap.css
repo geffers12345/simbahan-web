@@ -818,6 +818,31 @@ pre code {
   clear: both;
 }
 
+.rows {
+  margin-right: -30px;
+  margin-left: -30px;
+}
+
+.rows:before,
+.rows:after {
+  display: table;
+  content: " ";
+}
+
+.rows:after {
+  clear: both;
+}
+
+.rows:before,
+.rows:after {
+  display: table;
+  content: " ";
+}
+
+.rows:after {
+  clear: both;
+}
+
 .col-lg-2.col-md-2.col-sm-6.col-xs-6.prayer {
     margin-left: -25px;
 }
@@ -3400,6 +3425,7 @@ input[type="button"].btn-block {
   position: relative;
   display: inline-block;
   vertical-align: middle;
+
 }
 
 .btn-group > .btn,
@@ -6263,11 +6289,62 @@ button.close {
   width: device-width;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px)  {
+    .nav-tabs > li {
+   width: 35px;
+   margin-left: 2px;
+   line-height: 0px;
+   height: 50px;
+}
+    .table-responsive {
+        margin-bottom: 15px;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        border: 1px solid #dddddd;
+        width: 280px;
+    }
+
+     .button2 {   
+      height:50px;
+      width: 10% !important; 
+    border: 2px solid !important;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    padding-left: 10px;
+}
+    .fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 24px;
+    }
+    span.round-tabs {
+        font-size: 10px;
+        width: 30px;
+        height: 30px;
+        line-height: 28px;
+    }
+    .nav-tabs > li > a {
+  margin-right: 95px;
+  line-height: 1.428571429;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+  width: 10px;
+}
   @-ms-viewport {
     width: 320px;
   }
 
+    audio,
+    canvas,
+    video {
+        display: inline-block;
+        width: 180px;
+    }
   .tab-content>.tab-pane {
     margin: 0px 0px;
 }
