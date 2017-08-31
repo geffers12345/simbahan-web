@@ -845,7 +845,7 @@ Modified by:
                             review.UserId == 0 ? review.Name : review.User.FullName,
                             review.FormattedDate);
 
-                        $("#<%= churchReviewsContainer.ClientID %>").prepend(reviewControl.render());
+                        $("#<%= churchReviewsContainer.ClientID %>").append(reviewControl.render());
 
                         $("#title").val('');
                         $("#comment").val('');
