@@ -51,6 +51,7 @@ namespace SimbahanApp
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Religious Quote";
                 MetaUrl = "http://www.mycatholicportal.org/ReligiousQuote/" + religiousQuote.Id;
+                MetaImage = "http://www.mycatholicportal.org/Images/RelQuotes.png";
             }
 
             if (Page.RouteData.Values["music-id"] != null)
@@ -63,7 +64,7 @@ namespace SimbahanApp
                 MetaDescription = "Currently playing " + music.SongTitle + " by " + music.Artist;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Musical Inspiration";
-                MetaUrl = "http://www.mycatholicportal.org/MusicalInspiration/" + music.Id;
+                MetaImage = "http://www.mycatholicportal.org/Images/Musical.png";
             }
 
             if (Page.RouteData.Values["church-id"] != null)
@@ -171,8 +172,8 @@ namespace SimbahanApp
                 MetaDescription = gospel.FirstReadingContent;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Daily Gospel";
-                MetaImage = "http://www.mycatholicportal.org/Images/default.jpg";
                 MetaUrl = "http://www.mycatholicportal.org/Gospel/" + gospel.Id;
+                MetaImage = "http://www.mycatholicportal.org/Images/default.jpg";
             }
 
             if (Page.RouteData.Values["daily-reflection-id"] != null)
