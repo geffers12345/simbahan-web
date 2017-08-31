@@ -917,6 +917,40 @@ namespace SimbahanApp.Services
             return devotion;
         }
 
+        public List<Models.Saint> GetFavoriteSaint(int userId)
+        {
+            var saints = new List<Models.Saint>();
+            var saintTransformer = new SaintTransformer();
+
+            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                    dbconn.Close();
+                dbconn.Open();
+
+                using (var cmd = new SqlCommand("spGetFavoriteSaint", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@userID", userId);
+
+
+                        var reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                            saints.Add(saintTransformer.Transform(reader));
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+
+            return saints;
+        }
+
         public List<Models.Announcement> GetFavoriteAnnouncements(int userID)
         {
             var announcement = new List<Models.Announcement>();
@@ -1002,6 +1036,40 @@ namespace SimbahanApp.Services
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@devotionID", devotionId);
+                        cmd.Parameters.AddWithValue("@userID", userId);
+
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool AddSaint(int userId, int saintId)
+        {
+            if (IsSaintAlreadyInFavorites(userId, saintId)) return false;
+
+            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"]
+                .ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                    dbconn.Close();
+                dbconn.Open();
+
+                using (var cmd = new SqlCommand("spInsertFavoriteSaint", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@saintID", saintId);
                         cmd.Parameters.AddWithValue("@userID", userId);
 
 
@@ -1151,6 +1219,38 @@ namespace SimbahanApp.Services
             return true;
         }
 
+        public bool IsSaintAlreadyInFavorites(int userId, int saintId)
+        {
+            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                    dbconn.Close();
+                dbconn.Open();
+
+                using (var cmd = new SqlCommand("spIsDevotionInFavorite", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@saintID", saintId);
+                        cmd.Parameters.AddWithValue("@userID", userId);
+
+
+                        var reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                            return Convert.ToInt32(reader["result"]) == 1;
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+
+            return true;
+        }
+
         public bool IsOtherCatholicPrayerAlreadyInFavorites(int userId, int othecatholicprayerId)
         {
             using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
@@ -1234,6 +1334,40 @@ namespace SimbahanApp.Services
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@devotionID", devotionId);
+                        cmd.Parameters.AddWithValue("@userID", userId);
+
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool RemoveSaint(int userId, int saintId)
+        {
+            if (!IsSaintAlreadyInFavorites(userId, saintId)) return false;
+
+            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"]
+                .ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                    dbconn.Close();
+                dbconn.Open();
+
+                using (var cmd = new SqlCommand("spRemoveSaintFavorite", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@saintID", saintId);
                         cmd.Parameters.AddWithValue("@userID", userId);
 
 
