@@ -17,11 +17,11 @@ namespace SimbahanApp
 
             routes.MapPageRoute("BibleVerse",
                 "BibleVerse/{bible-verse-id}",
-                "~/Default.aspx");
+                "~/BibleVerses.aspx");
 
             routes.MapPageRoute("ReligiousQuote",
                 "ReligiousQuote/{religious-quote-id}",
-                "~/Default.aspx");
+                "~/ReligiousQuotes.aspx");
 
             routes.MapPageRoute("Church",
                 "Church/{church-id}",
