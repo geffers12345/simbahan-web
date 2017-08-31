@@ -13,30 +13,7 @@ var Walkman = {
         index: -1
     },
     tracks: [
-//        {
-//            title: 'No Promises',
-//            artist: 'Shayne Ward',
-//            album: 'Closer',
-//            lyrics: 'This is the lyrics for No Promises',
-//            isFavorite: false,
-//            url: 'https://1drv.ms/u/s!AmiDZoW7KgGrtx41-5LufL3Zerf8'
-//        },
-//        {
-//            title: 'Take a Chance',
-//            artist: 'Marion Aunor',
-//            album: 'Marion',
-//            lyrics: 'This lyrics is for Take A Chance',
-//            isFavorite: false,
-//            url: 'https://gdasz.yt-downloader.org/download.php?id=2f86bec8f702cff457877f0f66ddf4d2&v=lsN-UlJhLt8'
-//        },
-//        {
-//            title: 'Amazed',
-//            artist: 'Lonestar',
-//            album: 'The Greatest Hits',
-//            lyrics: 'Brought to you by someone',
-//            isFavorite: false,
-//            url: 'https://fzaqn.yt-downloader.org/download.php?id=398a71257c899ad4c73bf61047d7e444&v=x-skFgrV59A'
-//        }
+
     ],
 
     play: function (index) {
@@ -152,7 +129,7 @@ $(document).ready(function () {
 
 
     walkmanVM.render();
-    var mood = localStorage.getItem("moodContainer");
+    //var mood = localStorage.getItem("moodContainer");
 
     (new http).post('MusicalInspirations.aspx/GetMusic', { moods: mood })
         .then(function (response) {
