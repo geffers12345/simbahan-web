@@ -251,4 +251,6 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
     <script src="Scripts/musicplayer.js"></script>
+    <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
 </asp:Content>
