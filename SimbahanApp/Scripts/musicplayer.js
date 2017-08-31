@@ -152,7 +152,7 @@ $(document).ready(function () {
 
 
     walkmanVM.render();
-    var mood = localStorage.getItem("moodContainer");
+    
 
     (new http).post('MusicalInspirations.aspx/GetMusic', { moods: mood })
         .then(function (response) {

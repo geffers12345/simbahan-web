@@ -171,6 +171,7 @@ namespace SimbahanApp
                 MetaDescription = gospel.FirstReadingContent;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Daily Gospel";
+                MetaImage = "http://www.mycatholicportal.org/Images/default.jpg";
                 MetaUrl = "http://www.mycatholicportal.org/Gospel/" + gospel.Id;
             }
 
@@ -197,6 +198,7 @@ namespace SimbahanApp
                 MetaDescription = reflection.FirstContentTitle;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Daily Reflection";
+                MetaImage = "http://www.mycatholicportal.org/Images/default.jpg";
                 MetaUrl = "http://www.mycatholicportal.org/Reflection/" + reflection.Id;
             }
 
