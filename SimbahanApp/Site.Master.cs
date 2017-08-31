@@ -36,7 +36,7 @@ namespace SimbahanApp
                 MetaDescription = verse.BibleVerseContent;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Bible Verse";
-                MetaUrl = "http://www.mycatholicportal.org/BibleVerse/" + verse.Id;
+                MetaUrl = "http://www.mycatholicportal.org/BibleVerse.aspx";
                 MetaImage = "http://www.mycatholicportal.org/Images/BibleVerse.png";
             }
 
@@ -50,7 +50,7 @@ namespace SimbahanApp
                 MetaDescription = religiousQuote.Quote;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Religious Quote";
-                MetaUrl = "http://www.mycatholicportal.org/ReligiousQuote/" + religiousQuote.Id;
+                MetaUrl = "http://www.mycatholicportal.org/ReligiousQuote.aspx";
                 MetaImage = "http://www.mycatholicportal.org/Images/RelQuotes.png";
             }
 
@@ -64,6 +64,7 @@ namespace SimbahanApp
                 MetaDescription = "Currently playing " + music.SongTitle + " by " + music.Artist;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Musical Inspiration";
+                MetaUrl = "http://www.mycatholicportal.org/MusicalInspirations.aspx";
                 MetaImage = "http://www.mycatholicportal.org/Images/Musical.png";
             }
 
@@ -173,7 +174,7 @@ namespace SimbahanApp
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Daily Gospel";
                 MetaUrl = "http://www.mycatholicportal.org/Gospel/" + gospel.Id;
-                MetaImage = "http://www.mycatholicportal.org/Images/default.jpg";
+                MetaImage = "http://www.mycatholicportal.org/Images/dailyreadings.jpg";
             }
 
             if (Page.RouteData.Values["daily-reflection-id"] != null)
@@ -199,7 +200,7 @@ namespace SimbahanApp
                 MetaDescription = reflection.FirstContentTitle;
                 GoogleMetaDescription = MetaDescription;
                 MetaTitle = "Daily Reflection";
-                MetaImage = "http://www.mycatholicportal.org/Images/default.jpg";
+                MetaImage = "http://www.mycatholicportal.org/Images/dailyreadings.jpg";
                 MetaUrl = "http://www.mycatholicportal.org/Reflection/" + reflection.Id;
             }
 
