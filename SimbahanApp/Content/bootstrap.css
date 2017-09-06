@@ -795,7 +795,7 @@ pre code {
 
 .row {
   margin-right: -15px;
-  margin-left: -15px;
+  margin-left: 75px;
 }
 
 .row:before,
@@ -5370,11 +5370,12 @@ a.list-group-item:focus {
 
 .panel {
   margin-bottom: 20px;
-  background-color: #ffffff;
+  background-color: whitesmoke;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding-bottom: 13px;
 }
 
 .panel.with-nav-tabs.panel-primary.prayer {
@@ -6115,23 +6116,15 @@ button.close {
 }
 
 .carousel-control.left {
-  background-image: -webkit-gradient(linear, 0 top, 100% top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.0001)));
-  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
 }
 
 .carousel-control.right {
   right: 0;
   left: auto;
-  background-image: -webkit-gradient(linear, 0 top, 100% top, from(rgba(0, 0, 0, 0.0001)), to(rgba(0, 0, 0, 0.5)));
-  background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+    background-repeat: repeat-x;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
 }
 
 .carousel-control:hover,
@@ -6290,6 +6283,33 @@ button.close {
 }
 
 @media screen and (max-width: 600px)  {
+
+    .widthpd {
+        width: 100%;
+        margin-left: 0px;
+        font-size: 11px;
+        line-height: 19px;
+    }
+    .codrops-demos a {
+        display: inline-block !important;
+        margin-top: 400px !important;
+        padding: 0.7em 1.1em;
+        outline: none;
+        border: 2px solid #1ab5c1;
+        border-radius: 60px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: 329px !important;
+        background-color: #1ab5c1;
+        height: 103px !important;
+        font-size: 25px !important;
+    }
+    .row {
+  margin-right: -10px;
+  margin-left: 3px;
+}
+
     .nav-tabs > li {
    width: 35px;
    margin-left: 2px;
@@ -6306,12 +6326,11 @@ button.close {
 
      .button2 {   
       height:50px;
-      width: 10% !important; 
     border: 2px solid !important;
     background-color: white; 
     color: black; 
     border: 2px solid #008CBA;
-    padding-left: 10px;
+    padding: 0px 9px 44px 3px
 }
     .fa {
     display: inline-block;
