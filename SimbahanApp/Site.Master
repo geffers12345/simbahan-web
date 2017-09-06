@@ -371,9 +371,9 @@
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogo.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogo.png" alt="dark logoo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogo.png" alt="light logo" />
+                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoBeta.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logoo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -467,9 +467,9 @@
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogo.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogo.png" alt="dark logo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogo.png" alt="light logo" />
+                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoBeta.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -575,7 +575,7 @@
 
                                     <div class="eltd-mobile-logo-wrapper">
                                         <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 52px">
-                                            <img src="Images/SimbahanLogo.png" alt="mobile logo" />
+                                            <img src="Images/SimbahanLogoBeta.png" alt="mobile logo" />
                                         </a>
                                     </div>
 
@@ -747,7 +747,7 @@
                                                 <div class="textwidget">
                                                     <div class="col-lg-10">
                                                         <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx">
-                                                        <img src="Images/SimbahanLogo.png" alt="logo" />
+                                                        <img src="Images/SimbahanLogoBeta.png" alt="logo" />
                                                     </a>
                                                         <div id="text-5" class="widget eltd-footer-text widget_text">
                                                     <div class="textwidget">&copy; <%: DateTime.Now.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
