@@ -34,7 +34,7 @@ Modified by:
             </p>
         <br/>
             <p class="church-label">
-                Worship Schedules:
+                Worship Schedule Today:
             </p>
         <br/>
             <p class="church-sublabel">

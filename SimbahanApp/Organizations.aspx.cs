@@ -35,8 +35,9 @@ namespace SimbahanApp
             OrganizationAbout.InnerHtml = organization.About;
             OrganizationAddress.InnerHtml = organization.Address;
             OrgAddress.InnerHtml = organization.Address;
-            WorshipScheduleToday.InnerHtml = DateTime.Now.DayOfWeek + " " +
-                                             string.Join(", ", todayMass.Select(mass => mass.Time));
+            var worshipScheduleString = todayMass.Count < 0 ? "No Worship Schedule Available for This Day"
+                : DateTime.Now.DayOfWeek + " " + string.Join(", ", todayMass.Select(mass => mass.Time));
+            WorshipScheduleToday.InnerHtml = worshipScheduleString;
             ParentOrganization.InnerHtml = organization.ParentOrganization;
             LastUpdated.InnerHtml = organization.LastUpdate.ToString("MMMM dd, yyyy");
             Location.InnerHtml = organization.Branch;
