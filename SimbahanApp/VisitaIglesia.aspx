@@ -8,8 +8,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row  tab-bg" style="min-height: 600px;">
         <div class="col-sm-5">
-            <div style="position: fixed; width: 41%; top: 60px;">
-                <div id="mapContainer" style="height: 610px;"></div>
+            <div class="mapvisita">
+                <div id="mapContainer" class="height"></div>
             </div>
         </div>
         <div class="col-sm-7 tab-bg" style="padding: 60px">

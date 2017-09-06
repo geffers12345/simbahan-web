@@ -380,7 +380,9 @@
                             </div>
                         </div>
                         <div class="eltd-position-right">
-                            <div class="eltd-position-right-inner">
+                            <div class="eltd-position-right-inner" style="
+    padding-right: 101px;
+">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
                                     <ul id="menu-other-menu-1" class="clearfix">
