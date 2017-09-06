@@ -60,7 +60,11 @@ namespace SimbahanApp.Services
 
                             var photos = dr["AdorationPhotos"].ToString().Split(separator, StringSplitOptions.None);
                             foreach (var photo in photos)
-                                adoration.Images.Add(photo == string.Empty ? "" : @"Images\Photos\" + photo);
+                                if (photo != string.Empty)
+                                    adoration.Images.Add(@"Images\Photos\" + photo);
+
+                            if (photos.Length == 0)
+                                adoration.Images.Add(@"Images\Photos\default.jpg");
 
                             var masses = dr["Masses"].ToString().Split(separator, StringSplitOptions.None);
 
