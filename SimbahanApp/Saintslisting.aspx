@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-</div>
+</div></div>
 </asp:content>
 
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">

@@ -8,9 +8,11 @@
     <link href='<%= ResolveUrl("Content/magnific-popup.css") %>' rel="stylesheet" />
     <link href='<%= ResolveUrl("Content/agency.min.css") %>' rel="stylesheet" />
 
-    <div class="box-body-main" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" style="background-image: url(Images/Background.jpg)">
         <div class="row">
             <h1 class="moods">CONTACT US</h1>
+            <br />
+            <br />
             <h2 class="text-center">We would love to connnect with you</h2>
            </div>
             <%--<div class="container second-portion">
@@ -80,14 +82,11 @@
                 </div>
             </div>--%>
         <section id="services">
-        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <hr class="primary">
                 </div>
             </div>
-        </div>
-        <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
@@ -131,7 +130,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </section>
         <%-- <section id="contact">
         <div class="container">

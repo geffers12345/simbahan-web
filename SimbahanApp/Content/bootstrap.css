@@ -795,7 +795,7 @@ pre code {
 
 .row {
   margin-right: -15px;
-  margin-left: 75px;
+  margin-left: -15px;
 }
 
 .row:before,
@@ -3923,7 +3923,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:focus {
   color: #555555;
   cursor: default;
-  background-color: #ffffff;
+  background-color: #fff;
   border-bottom-color: transparent;
 }
 
@@ -6287,8 +6287,8 @@ button.close {
     .widthpd {
         width: 100%;
         margin-left: 0px;
-        font-size: 11px;
-        line-height: 19px;
+        font-size: 12px;
+        line-height: 24px;
     }
     .codrops-demos a {
         display: inline-block !important;
@@ -6305,9 +6305,9 @@ button.close {
         height: 103px !important;
         font-size: 25px !important;
     }
-    .row {
+    .row-music {
   margin-right: -10px;
-  margin-left: 3px;
+  margin-left: -9px;
 }
 
     .nav-tabs > li {

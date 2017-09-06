@@ -255,7 +255,7 @@ header {
 }
 
 section {
-    padding: 100px 0;
+    padding: 10px 0;
 }
 
     section h2.section-heading {
@@ -273,7 +273,7 @@ section {
 
 @media (min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 40px 0;
     }
 }
 

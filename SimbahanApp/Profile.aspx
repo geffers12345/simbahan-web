@@ -67,7 +67,7 @@
     </div>
 </div>
 
-<div class="box-body-churches">
+<div>
 <div class="col-lg-12 col-sm-12">
 <div class="card hovercard">
     <div class="card-background">
@@ -229,12 +229,12 @@
         <h3 class="moods">Musical Inspiration</h3>
 
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="row">
-                    <h1 id="npTitle" style="font-family: 'Sounds Eroded';"></h1>
+                    <h1 id="npTitle" style="text-align: center; font-family: 'Roboto';"></h1>
 
                     <!-- Button container for View Lyrics -->
-                    <div class="eltd-listing-search-submit-holder">
+                    <center><div class="eltd-listing-search-submit-holder">
                         <div class="eltd-listing-search-submit-holder">
                             <button type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chor" data-toggle="modal" data-target="#myModal" data-hover-color="#000" data-hover-border-color="#000">
                                 <span class="eltd-btn-text">VIEW LYRICS</span><span aria-hidden="true"></span>
@@ -268,7 +268,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div></center>
                 </div>
                 <hr/>
                 <div class="row">
@@ -291,7 +291,7 @@
                         </div>
 
                         <!-- Playing track info -->
-                        <div id="datacontentAngry" class="row">
+                        <div id="datacontentAngry" class="row-music">
                             <div class="table-responsive ">
                                 <table id="plwrap" class="table table-fixed table-bordered">
                                     <thead>

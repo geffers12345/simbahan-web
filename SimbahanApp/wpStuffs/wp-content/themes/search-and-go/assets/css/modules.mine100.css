@@ -37,6 +37,11 @@ a, abbr, acronym, address, applet, b, big, blockquote, body, caption, center, ci
     padding: 20px 15px;
 }
 
+ .box-body-saints {
+     background-color: white;
+    padding: 45px;
+ }
+
 .eltd-listing-search-field.category {
     width: 280px;
 }

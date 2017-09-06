@@ -209,7 +209,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-2  col-md-2 col-sm-6 col-xs-6">
+                <%--<div class="col-lg-2  col-md-2 col-sm-6 col-xs-6">
                     <div class="eltd-listing-search-submit-holder">
                         <button id="ShareFaceb" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                             <i class="fa fa-facebook-square" aria-hidden="true"></i>
@@ -224,7 +224,7 @@
                             <span aria-hidden="true"></span>
                         </button>
                     </div>
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>

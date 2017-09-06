@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body-saints" style="background-image: url(Images/Background.jpg)">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h1 runat="server" class="moods" id="Title"></h1>
