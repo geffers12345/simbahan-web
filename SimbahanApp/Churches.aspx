@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
+﻿          <%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
 <%@ Import Namespace="SimbahanApp.Models" %>
 <%@ MasterType virtualpath="~/Site.Master" %>
 
@@ -35,7 +35,7 @@ Modified by:
                         <label for="announcementTitle">Announcement Title</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="announcementTitle"/>
+                        <input type="text" class="form-control" id="announcementTitle" runat="server"/>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +43,7 @@ Modified by:
                         <label for="announcementVenue">Venue</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="announcementVenue"/>
+                        <input type="text" class="form-control" id="announcementVenue" runat="server" />
                     </div>
                 </div>
                 <div class="row">
@@ -51,13 +51,13 @@ Modified by:
                         <label for="announcementStartDate">Start Date: </label>
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" type="date" id="announcementStartDate"/>
+                        <input class="form-control" type="date" id="announcementStartDate" runat="server" />
                     </div>
                     <div class="col-md-3">
                         <label for="announcementStartTime">Start Time: </label>
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" type="time" id="announcementStartTime"/>
+                        <input class="form-control" type="time" id="announcementStartTime" runat="server" />
                     </div>
                 </div>
                 <div class="row">
@@ -65,13 +65,18 @@ Modified by:
                         <label for="announcementEndDate">End Date: </label>
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" type="date" id="announcementEndDate"/>
+                        <input class="form-control" type="date" id="announcementEndDate" runat="server" />
                     </div>
                     <div class="col-md-3">
                         <label for="announcementEndTime">End Time: </label>
                     </div>
                     <div class="col-md-3">
-                        <input class="form-control" type="time" id="announcementEndTime"/>
+                        <input class="form-control" type="time" id="announcementEndTime" runat="server" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <asp:FileUpload runat="server" ID="AnnouncementImage" />
                     </div>
                 </div>
                 <div class="row">
@@ -79,13 +84,13 @@ Modified by:
                         <label for="announcementContent">Description</label>
                     </div>
                     <div class="col-md-9">
-                        <textarea class="form-control" id="announcementContent"></textarea>
+                        <textarea class="form-control" id="announcementContent" runat="server"></textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btnSaveAnnouncement">Save changes</button>
+                <asp:Button ID="btnSaveAnnouncement" CssClass="btn btn-primary" runat="server" OnClick="btnAddAnnouncement_Click" Text="Save Announcement"></asp:Button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -372,6 +377,12 @@ Modified by:
                     <button type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chor" data-toggle="modal" data-target="#myModal" data-hover-color="#000" data-hover-border-color="#000">
                         <span class="eltd-btn-text">VIEW CHAPEL PHOTOS</span><span aria-hidden="true"></span>
                     </button>
+                    <% if (Auth.Check()) { %>
+                    <% if (Auth.user().RoleID == 1 || Auth.user().RoleID == 3) { %>
+                    <button type="submit" id="btnCreateAnnouncement" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chor" data-hover-color="#000" data-hover-border-color="#000">
+                        <span class="eltd-btn-text">CREATE A NEW ANNOUNCEMENT</span><span aria-hidden="true"></span>
+                    </button>
+                    <% } } %>
                     <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
 
@@ -793,28 +804,7 @@ Modified by:
             }
         });
 
-        $(document).on('click',
-            '#btnSaveAnnouncement',
-            function(e) {
-                e.preventDefault();
-
-                (new http).post('Churches.aspx/PublishAnnouncement',
-                    {
-                        simbahanId: $("#<%= simbahanID.ClientID %>").val(),
-                        title: $("#announcementTitle").val(),
-                        content: $("#announcementContent").val(),
-                        venue: $("#announcementVenue").val(),
-                        startDate: $("#announcementStartDate").val(),
-                        startTime: $("#announcementStartTime").val(),
-                        endDate: $("#announcementEndDate").val(),
-                        endTime: $("#announcementEndTime").val()
-                    }).then(function(data) {
-                    swal('Announcement published!',
-                        'Your announcement has been published!',
-                        'success');
-                }).run();
-            });
-
+        
         $(document).on('click',
             '#btnPublishReview',
             function(e) {
@@ -829,13 +819,16 @@ Modified by:
                 var starCount = $("#eltd-rating").val();
 
                 if (commentReviewPassed) {
+                    var d = new Date()
+                    var dd = d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear();
                     (new http).post('Churches.aspx/PublishReview',
                         {
                             simbahanId: $("#<%= simbahanID.ClientID %>").val(),
                             rate: starCount,
                             title: $("#title").val(),
                             content: $("#comment").val(),
-                            name: $("#reviewerName").val()
+                            name: $("#reviewerName").val(),
+
                         }).then(function(data) {
                         var review = data.d;
 
@@ -843,11 +836,10 @@ Modified by:
                             review.Title,
                             review.Comment,
                             review.UserId == 0 ? review.Name : review.User.FullName,
-                            review.FormattedDate);
+                            dd);
 
                         $("#<%= churchReviewsContainer.ClientID %>").prepend(reviewControl.render());
 
-                        $("#title").val('');
                         $("#comment").val('');
 
                         swal('Success!',
@@ -1167,6 +1159,21 @@ Modified by:
             alert('Updated');
             window.location.reload();
         }).run();
+    });
+
+    $(document).on('click', '#btnCreateAnnouncement', function(e) {
+        e.preventDefault();
+
+        $("#<%= announcementTitle.ClientID %>").val('');
+        $("#<%= announcementContent.ClientID %>").val('');
+        $("#<%= announcementVenue.ClientID %>").val('');
+        $("#<%= AnnouncementImage.ClientID %>").val('');
+        $("#<%= announcementStartDate.ClientID %>").val('');
+        $("#<%= announcementStartTime.ClientID %>").val('');
+        $("#<%= announcementEndDate.ClientID %>").val('');
+        $("#<%= announcementEndTime.ClientID %>").val('');
+
+        $("#create-announcement-modal").modal('show');
     });
 </script>
 </asp:Content>

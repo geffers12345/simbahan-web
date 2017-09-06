@@ -12,24 +12,28 @@ namespace SimbahanApp
         protected void Page_Load(object sender, EventArgs e)
         {
 
+
+        }
+
+        [WebMethod]
+        public static List<Category> GetCategories()
+        {
             var otherCatholicPrayerService = new OtherCatholicPrayerService();
 
             var categories = otherCatholicPrayerService.GetCategories();
+            var filteredCategories = new List<Category>();
 
             foreach (string category in categories)
             {
                 if (string.IsNullOrWhiteSpace(category))
-                {
                     continue;
-                }
+
                 var catgr = category.Replace(' ', '-').ToLower();
 
-                var list = new HtmlGenericControl("li");
-                list.InnerHtml = @"<button class=""button"" data-filter=""" + catgr + @""">" + category + "</button>";
-
-
-                ButtonContainer.Controls.Add(list);
+                filteredCategories.Add(new Category(category, catgr));
             }
+
+            return filteredCategories;
         }
 
         [WebMethod]
@@ -38,6 +42,18 @@ namespace SimbahanApp
             var otherCatholicPrayerService = new OtherCatholicPrayerService();
 
             return otherCatholicPrayerService.Get();
+        }
+        public class Category
+        {
+            public string Name { get; set; }
+            public string Class { get; set; }
+
+            public Category(string name, string classx)
+
+            {
+                Name = name;
+                Class = classx;
+            }
         }
     }
 }

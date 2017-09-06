@@ -12,24 +12,29 @@ namespace SimbahanApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        [WebMethod]
+        public static List<Category> GetCategories()
+        {
+            var catgr = new List<Category>();
             var SaintService = new SaintService();
 
             var patron = SaintService.GetPatron();
 
             foreach (string Patron in patron)
             {
-               if (string.IsNullOrWhiteSpace(Patron))
-                {
+                if (string.IsNullOrWhiteSpace(Patron))
                     continue;
-                }
+
+
                 var patr = Patron.Replace(' ', '-').ToLower();
 
-                var list = new HtmlGenericControl("li");
-                list.InnerHtml = @"<button class=""button"" data-filter=""" + patr + @""">" + Patron + "</button>";
-
-
-                ButtonContainer.Controls.Add(list);
+                catgr.Add(new Category(Patron, patr));
             }
+
+            return catgr;
         }
 
         [WebMethod]
@@ -38,6 +43,18 @@ namespace SimbahanApp
             var saintList = new SaintService();
 
             return saintList.Get();
+        }
+
+        public class Category
+        {
+            public string Name { get; set; }
+            public string Class { get; set; }
+
+            public Category(string name, string classx)
+            {
+                Name = name;
+                Class = classx;
+            }
         }
     }
 }

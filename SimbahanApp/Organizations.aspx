@@ -322,10 +322,6 @@ Modified by:
                             </span>
                         </div>
                     </div>
-                    <div class="eltd-comment-input-title">
-                        <input id="title" name="eltd_comment_title" class="eltd-input-field" type="text" placeholder="Title of your Review"/>
-                        <label id="errorTitle" class="text-danger" style="display: none"></label>
-                    </div>
                     <textarea id="comment" placeholder="Your Experience" name="comment" cols="45" rows="8" aria-required="true"></textarea>
                     <input id="reviewerName" name="author" placeholder="Your full name" type="text" value="" aria-required="true" <%= Auth.Check() ? @"style: ""display: none;""" : "" %> />
                     <label id="errorComment" class="text-danger" style="display: none"></label>
@@ -578,9 +574,6 @@ Modified by:
             function(e) {
                 e.preventDefault();
 
-                var titleReviewPassed = $("#title").validate(['required', 'min:3'])
-                    .displayErrorOn('#errorTitle');
-
                 var commentReviewPassed = $("#comment").validate(['required', 'min:3'])
                     .displayErrorOn('#errorComment');
 
@@ -591,21 +584,19 @@ Modified by:
                         {
                             organizationId: $("#<%= OrganizationId.ClientID %>").val(),
                             rate: starCount,
-                            title: $("#title").val(),
+                            title: '',
                             content: $("#comment").val(),
                             name: $("#reviewerName").val()
                         }).then(function(data) {
                         var review = data.d;
 
                         var reviewControl = new OrganizationReview(review.StarCount,
-                            review.Title,
                             review.Comment,
                             review.UserId == 0 ? review.Name : review.User.FullName,
                             review.FormattedDate);
 
                         $("#<%= organizationReviewsContainer.ClientID %>").append(reviewControl.render());
 
-                        $("#title").val('');
                         $("#comment").val('');
 
                         swal('Success!',
@@ -618,7 +609,6 @@ Modified by:
 
     function OrganizationReview(rate, title, comment, name, date) {
         this.rate = rate;
-        this.title = title;
         this.comment = comment;
         this.name = name;
         this.date = date;

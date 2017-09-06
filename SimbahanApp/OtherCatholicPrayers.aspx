@@ -16,7 +16,7 @@
     <link href="Content/prayers.css" rel="stylesheet"/>
     <script src ="Scripts/isotope.js"></script>
 
-    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" id="app" style="background-image: url(Images/Background.jpg)">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -28,28 +28,24 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                        <ul class="btn-categories" runat="server" id="ButtonContainer">
-                            <li><button class="button is-checked" data-filter="*">show all</button></li>
+                        <ul class="btn-categories">
+                            <li>
+                                <category-button category="*" @category-clicked="OnCategoryClicked"></category-button>
+                            </li>
+                            <li v-for="category in categories">
+                                <category-button :category="category" @category-clicked="OnCategoryClicked"></category-button>
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-9">
                         <div id="container">
                         <div class="row">
                             <div class="col-md-3 col-md-offset-8">
-                                <input type="text" class="fuzzy-search form-control" placeholder="Search . . ."/>
+                                <input v-model="search" @input="OnSearchChanged" type="text" class="form-control" placeholder="Search . . ."/>
                             </div>
                         </div>
 
-                        <div class="content" style="overflow-y: hidden;">
-                            <div id="tablex">
-
-                                <br/><br/><br/>
-
-                                <div class="list">
-
-                                </div>
-                            </div>
-                        </div>
+                        <prayer-item v-for="prayer in prayers" :key="prayer.Id" :prayer="prayer"></prayer-item>
                     </div>
                     </div>
                 </div>
@@ -61,82 +57,72 @@
 
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
     <script>
-
-        var $grid;
-        var prayers;
-
-        (new http).post('OtherCatholicPrayers.aspx/GetOtherCatholicPrayers').then(function(response) {
-            prayers = new Map();
-            var items = [];
-
-            $.each(response.d,
-                function(key, prayer) {
-                    prayers.set(prayer.Id, prayer);
-
-                    items.push({
-                        prayer: prayer.Title,
-                        aLink: 'OtherCatholicPrayer.aspx?id=' + prayer.Id,
-                        category: prayer.ClassName,
-                        prayers: 'col-md-3 prayers',
-                        criteria: prayer.ClassName
-                    });
-                });
-
-            var options = {
-                valueNames: [
-                    'prayer',
-                    {
-                        name: 'aLink',
-                        attr: 'href'
-                    },
-                    {
-                        data: ['category']
-                    },
-                    {
-                        data: ['criteria']
+        Vue.component('prayer-item',
+            {
+                props: ['prayer'],
+                template: '<div class="col-md-3 prayers"><a class="aLink prayer" :href="getUrl(prayer.Id)">{{ prayer.Title }}</a></div>',
+                methods: {
+                    getUrl: function (id) {
+                        return 'OtherCatholicPrayer.aspx?id=' + id;
                     }
-                ],
-                item: '<div class="col-md-3 prayers" data-criteria="" data-category=""><a class="aLink prayer" href=""></a></div>'
-            };
-            var list = new List('container', options, items);
-
-            $grid = $('.list').isotope({
-                itemSelector: '.prayers',
-                layoutMode: 'fitRows'
+                }
             });
-        }).run();
 
-        // external js: isotope.pkgd.js
+        Vue.component('category-button',
+            {
+                props: ['category'],
+                template: '<button @click.prevent="OnCategoryClicked" class="button">{{ category.Name }}</button>',
+                methods: {
+                    OnCategoryClicked: function() {
+                        this.$emit('category-clicked', this.category.Class);
+                    }
+                }
+            });
 
-        // init Isotope
-        // bind filter button click
-        $('.btn-categories').on('click', 'button', function (e) {
-            e.preventDefault();
+        var app = new Vue({
+            el: "#app",
+            data: {
+                allPrayers: [],
+                prayers: [],
+                categories: [],
+                search: ''
+            },
+            created: function () {
+                var self = this;
+                (new http).post('OtherCatholicPrayers.aspx/GetOtherCatholicPrayers').then(function(response) {
+                    self.prayers = response.d;
+                    self.allPrayers = response.d;
+                }).run();
 
-            var filterValue = $(this).attr('data-filter');
-            // use filterFn if matches value
-            filterValue = filterValue;
-            $grid.isotope({ filter: filterValue });
+                (new http).post('OtherCatholicPrayers.aspx/GetCategories').then(function (response) {
+                    self.categories = response.d;
+                }).run();
+            },
+            computed: {
 
-            if (filterValue == '*') {
-                // show search box
-                $(".fuzzy-search").css('display', 'block');
-            } else {
-                // hide search box
-                $(".fuzzy-search").css('display', 'none');
+            },
+            methods: {
+                OnSearchChanged: function(e) {
+                    e.preventDefault();
+
+                    var self = this;
+
+                    self.prayers = _(self.allPrayers).filter(function (prayer) {
+                        var title = prayer.Title.toLowerCase();
+                        return title.match(new RegExp(self.search.toLowerCase()));
+                    });
+                },
+                OnCategoryClicked: function(category) {
+                    var self = this;
+
+                    if (category == "*")
+                        return self.prayers = self.allPrayers;
+
+                    self.prayers = _(self.allPrayers).filter(function(prayer) {
+                        return prayer.ClassName == category;
+                    });
+                }
             }
         });
-        // change is-checked class on buttons
-        $('.btn-categories').each(function (i, buttonGroup) {
-            var $buttonGroup = $(buttonGroup);
-            $buttonGroup.on('click', 'button', function () {
-                $buttonGroup.find('.is-checked').removeClass('is-checked');
-                $(this).addClass('is-checked');
-            });
-
-            // If the filter is all *
-           
-        });
-
     </script>
 </asp:Content>

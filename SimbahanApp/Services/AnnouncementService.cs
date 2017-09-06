@@ -38,6 +38,7 @@ namespace SimbahanApp.Services
                         cmd.Parameters.AddWithValue("@startTime", model.StartTime);
                         cmd.Parameters.AddWithValue("@endDate", model.EndDate);
                         cmd.Parameters.AddWithValue("@endTime", model.EndTime);
+                        cmd.Parameters.AddWithValue("@imagePath", model.ImagePath);
 
 
                         var reader = cmd.ExecuteReader();

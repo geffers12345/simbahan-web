@@ -8,7 +8,7 @@
     <script src ="Scripts/isotope.js"></script>
 
     <div class="box-body" style="background-image: url(Images/Background.jpg)">
-        <div class="row">
+        <div class="row" id="app">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
                 <div class="row">
@@ -22,29 +22,24 @@
                 </div>
                     <div class="row">
                     <div class="col-md-3">
-                        <ul class="btn-categories" runat="server" id="ButtonContainer">
-                            <li><button class="button is-checked" data-filter="*">show all</button></li>
+                        <ul class="btn-categories">
+                            <li>
+                                <category-button category="*" @category-clicked="OnCategoryClicked"></category-button>
+                            </li>
+                            <li v-for="category in categories">
+                                <category-button :category="category" @category-clicked="OnCategoryClicked"></category-button>
+                            </li>
                         </ul>
                     </div>
                         <div class="col-md-9">
                 <div id="container">
                     <div class="row">
                         <div class="col-md-3 col-md-offset-8">
-                            <input type="text" class="fuzzy-search form-control" placeholder="Search . . ."/>
+                            <input v-model="search" @input="OnSearchChanged" type="text" class="fuzzy-search form-control" placeholder="Search . . ."/>
                         </div>
                     </div>
 
-                     <div class="content" style="overflow-y: hidden;">
-                        <div id="tablex">
-
-                            <br/><br/><br/>
-
-                            <div class="list">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <saint-item v-for="saint in saints" :key="saint.Id" :saint="saint"></saint-item>
                 </div>
             </div>
         </div>
@@ -54,82 +49,80 @@
 
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
     <script>
-
-        var $grid;
-        var prayers;
-
-        (new http).post('Saintslisting.aspx/GetSaints', {}).then(function(response) {
-            prayers = new Map();
-            var items = [];
-
-            $.each(response.d,
-               function (key, prayer) {
-                   prayers.set(prayer.Id, prayer);
-
-                   items.push({
-                       prayer: prayer.Name,
-                       aLink: 'Saintlisting.aspx?id=' + prayer.Id,
-                       category: prayer.ClassName,
-                       prayers: 'col-md-3 prayers',
-                       criteria: prayer.ClassName
-                   });
-               });
-
-            var options = {
-                valueNames: [
-                    'prayer',
-                    {
-                        name: 'aLink',
-                        attr: 'href'
-                    },
-                    {
-                        data: ['category']
-                    },
-                    {
-                        data: ['criteria']
-                    }
-                ],
-                item: '<div class="col-md-3 prayers" data-criteria="" data-category=""><a class="aLink prayer" href=""></a></div>'
-            };
-            var list = new List('container', options, items);
-
-            $grid = $('.list').isotope({
-                itemSelector: '.prayers',
-                layoutMode: 'fitRows'
-            });
-        }).run();
-
-        // external js: isotope.pkgd.js
-
-        // init Isotope
-        // bind filter button click
-        $('.btn-categories').on('click', 'button', function (e) {
-            e.preventDefault();
-
-            var filterValue = $(this).attr('data-filter');
-            // use filterFn if matches value
-            filterValue = filterValue;
-            $grid.isotope({ filter: filterValue });
-
-            // If the filter is all *
-            if (filterValue == '*')
+        Vue.component('saint-item',
             {
-                // show search box
-                $(".fuzzy-search").css('display', 'block');
-            } else {
-                // hide search box
-                $(".fuzzy-search").css('display', 'none');
-            }
-        });
-
-        
-        // change is-checked class on buttons
-        $('.btn-categories').each(function (i, buttonGroup) {
-            var $buttonGroup = $(buttonGroup);
-            $buttonGroup.on('click', 'button', function () {
-                $buttonGroup.find('.is-checked').removeClass('is-checked');
-                $(this).addClass('is-checked');
+                props: ['saint'],
+                template: '<div class="col-md-3 prayers"><a class="aLink prayer" :href="getUrl(saint.Id)">{{ saint.Name }}</a></div>',
+                methods: {
+                    getUrl: function (id) {
+                        return 'Saintlisting.aspx?id=' + id;
+                    }
+                }
             });
+
+        Vue.component('category-button',
+            {
+                props: ['category'],
+                computed: {
+                    name: function() {
+                        return this.category instanceof Object ? this.category.Name : "All";
+                    },
+                    mclass: function() {
+                        return this.category instanceof Object ? this.category.Class : "*";
+                    }
+                },
+                template: '<button @click.prevent="OnCategoryClicked" class="button">{{ name }}</button>',
+                methods: {
+                    OnCategoryClicked: function () {
+                        this.$emit('category-clicked', this.mclass);
+                    }
+                }
+            });
+
+        var app = new Vue({
+            el: "#app",
+            data: {
+                allSaints: [],
+                saints: [],
+                categories: [],
+                search: ''
+            },
+            created: function () {
+                var self = this;
+                (new http).post('Saintslisting.aspx/GetSaints').then(function (response) {
+                    self.saints = response.d;
+                    self.allSaints = response.d;
+                }).run();
+
+                (new http).post('Saintslisting.aspx/GetCategories').then(function (response) {
+                    self.categories = response.d;
+                }).run();
+            },
+            computed: {
+
+            },
+            methods: {
+                OnSearchChanged: function (e) {
+                    e.preventDefault();
+
+                    var self = this;
+
+                    self.saints = _(self.allSaints).filter(function (saint) {
+                        var title = saint.Name.toLowerCase();
+                        return title.match(new RegExp(self.search.toLowerCase()));
+                    });
+                },
+                OnCategoryClicked: function (category) {
+                    var self = this;
+
+                    if (category == "*")
+                        return self.saints = self.allSaints;
+
+                    self.saints = _(self.allSaints).filter(function (saint) {
+                        return saint.ClassName == category;
+                    });
+                }
+            }
         });
     </script>
 </asp:Content>

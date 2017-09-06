@@ -131,7 +131,13 @@ namespace SimbahanApp
                 massSchedules.Add(mass.Time);
             }
 
-            var massDate = "No Mass Schedule for " + DateTime.Now.DayOfWeek;            churchMassLanguages.Attributes.Add("style", "display: none;");            if (massSchedules.Count > 0)            {                massDate = DateTime.Now.DayOfWeek + " - " + string.Join(", ", massSchedules);                churchMassLanguages.Attributes.Add("style", "display: block;");            }
+            var massDate = "No Mass Schedule for " + DateTime.Now.DayOfWeek;
+            churchMassLanguages.Attributes.Add("style", "display: none;");
+            if (massSchedules.Count > 0)
+            {
+                massDate = DateTime.Now.DayOfWeek + " - " + string.Join(", ", massSchedules);
+                churchMassLanguages.Attributes.Add("style", "display: block;");
+            }
 
             churchMassDates.InnerHtml = massDate;
             churchMassLanguages.InnerHtml = string.Join(", ", languages);
@@ -303,25 +309,6 @@ namespace SimbahanApp
         }
 
         [WebMethod]
-        public static Announcement PublishAnnouncement(int simbahanId, string title, string content, string venue,
-            DateTime startDate, string startTime, DateTime endDate, string endTime)
-        {
-            var announcement = new Announcement()
-            {
-                SimbahanId = simbahanId,
-                Title = title,
-                Description = content,
-                Venue = venue,
-                StartDate = startDate,
-                StartTime = startTime,
-                EndDate = endDate,
-                EndTime = endTime
-            };
-
-            return announcement.Create();
-        }
-
-        [WebMethod]
         public static bool AddChurchToFavorite(int simbahanId)
         {
             var service = new FavoritesService();
@@ -378,6 +365,29 @@ namespace SimbahanApp
                 CommentId = commentId,
                 ReporterId = Auth.user().Id
             });
+        }
+
+        protected void btnAddAnnouncement_Click(object sender, EventArgs e)
+        {
+            if (AnnouncementImage.PostedFile != null && AnnouncementImage.PostedFile.FileName != "")
+            {
+                AnnouncementImage.SaveAs(Server.MapPath("Images/Churches/" + AnnouncementImage.FileName.ToString()));
+            }
+
+            var announcement = new Announcement()
+            {
+                SimbahanId = Convert.ToInt32(simbahanID.Value),
+                Title = announcementTitle.Value,
+                Description = announcementContent.Value,
+                Venue = announcementVenue.Value,
+                StartDate = DateTime.Parse(announcementStartDate.Value),
+                StartTime = announcementStartTime.Value,
+                EndDate = DateTime.Parse(announcementEndDate.Value),
+                EndTime = announcementEndTime.Value,
+                ImagePath = "Images/Churches/" + AnnouncementImage.FileName.ToString()
+            };
+
+            announcement.Create();
         }
     }
 }
