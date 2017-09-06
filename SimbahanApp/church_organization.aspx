@@ -1288,7 +1288,7 @@
                                 'ventilations': adoration.Ventilations.join(", "),
                                 'comments': '...',
                                 'id': adoration.SimbahanID,
-                                'img-responsive': adoration.Images[0]
+                                'img-responsive': adoration.Images[0] == undefined ? 'Images\Photos\default.jpg' : adoration.Images[0]
                             });
 
                             adorationMap.AddMarker(adoration.SimbahanID.toString(), {

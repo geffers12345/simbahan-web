@@ -71,10 +71,18 @@
         Vue.component('category-button',
             {
                 props: ['category'],
-                template: '<button @click.prevent="OnCategoryClicked" class="button">{{ category.Name }}</button>',
+                computed: {
+                    name: function () {
+                        return this.category instanceof Object ? this.category.Name : "All";
+                    },
+                    mclass: function () {
+                        return this.category instanceof Object ? this.category.Class : "*";
+                    }
+                },
+                template: '<button @click.prevent="OnCategoryClicked" class="button">{{ name }}</button>',
                 methods: {
-                    OnCategoryClicked: function() {
-                        this.$emit('category-clicked', this.category.Class);
+                    OnCategoryClicked: function () {
+                        this.$emit('category-clicked', this.mclass);
                     }
                 }
             });
