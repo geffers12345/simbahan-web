@@ -164,7 +164,7 @@ namespace SimbahanApp
             string selectChurchConfessionTime, bool churchHasAirConditioned, bool churchHasCeilingFan,
             bool churchHasOrdinaryFan, string churchType, string churchLocationId,
             bool churchHasStreetParking, bool churchHasMallParking, bool churchHasPrivateParking,
-            double latitude, double longitude, int limit, int page)
+            double latitude, double longitude, int limit, int page, int radius)
         {
             var service = new ChurchService();
 
@@ -254,9 +254,18 @@ namespace SimbahanApp
                 return churches;
 
             return churches
-                .OrderBy(coordinate => NearDistance(new Coordinate {Latitude = latitude, Longitude = longitude},
-                    new Coordinate {Latitude = coordinate.Latitude, Longitude = coordinate.Longitude}))
+                .Where(coordinate => WithinRadius(NearDistance(new Coordinate { Latitude = latitude, Longitude = longitude },
+                    new Coordinate { Latitude = coordinate.Latitude, Longitude = coordinate.Longitude }), radius))
+                .OrderBy(coordinate => NearDistance(new Coordinate { Latitude = latitude, Longitude = longitude },
+                    new Coordinate { Latitude = coordinate.Latitude, Longitude = coordinate.Longitude }))
                 .ToList();
+        }
+
+        private static bool WithinRadius(double distance, int radius)
+        {
+            double kilometer = distance / 111;
+
+            return kilometer <= radius;
         }
 
         private static double NearDistance(Coordinate source, Coordinate target)

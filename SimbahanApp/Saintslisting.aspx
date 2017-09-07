@@ -35,7 +35,7 @@
                 <div id="container">
                     <div class="row">
                         <div class="col-md-3 col-md-offset-8">
-                            <input v-model="search" @input="OnSearchChanged" type="text" class="fuzzy-search form-control" placeholder="Search . . ."/>
+                            <input v-model="search" @keyup.enter="OnSearchChanged" @input="OnSearchChanged" type="text" class="fuzzy-search form-control" placeholder="Search . . ."/>
                         </div>
                     </div>
 

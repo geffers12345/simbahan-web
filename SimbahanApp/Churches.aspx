@@ -377,12 +377,6 @@ Modified by:
                     <button type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chor" data-toggle="modal" data-target="#myModal" data-hover-color="#000" data-hover-border-color="#000">
                         <span class="eltd-btn-text">VIEW CHAPEL PHOTOS</span><span aria-hidden="true"></span>
                     </button>
-                    <% if (Auth.Check()) { %>
-                    <% if (Auth.user().RoleID == 1 || Auth.user().RoleID == 3) { %>
-                    <button type="submit" id="btnCreateAnnouncement" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chor" data-hover-color="#000" data-hover-border-color="#000">
-                        <span class="eltd-btn-text">CREATE A NEW ANNOUNCEMENT</span><span aria-hidden="true"></span>
-                    </button>
-                    <% } } %>
                     <div id="myModal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
 
@@ -558,6 +552,17 @@ Modified by:
     </p>
     <br/>
     <div runat="server" id="churchAnnouncementContainer">
+    </div>
+    <br />
+    <div class="eltd-listing-search-submit-holder">
+        <div class="eltd-listing-search-submit-holder">
+            <% if (Auth.Check()) { %>
+                <% if (Auth.user().RoleID == 1 || Auth.user().RoleID == 3) { %>
+                    <button type="submit" id="btnCreateAnnouncement" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chor" data-hover-color="#000" data-hover-border-color="#000">
+                        <span class="eltd-btn-text">CREATE A NEW ANNOUNCEMENT</span><span aria-hidden="true"></span>
+                    </button>
+            <% } } %>
+        </div>
     </div>
 </div>
 <div class="tab-pane fade" id="review">

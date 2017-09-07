@@ -1288,7 +1288,7 @@
                                 'ventilations': adoration.Ventilations.join(", "),
                                 'comments': '...',
                                 'id': adoration.SimbahanID,
-                                'img-responsive': adoration.Images[0] == undefined ? 'Images\Photos\default.jpg' : adoration.Images[0]
+                                'img-responsive': adoration.Images[0] == undefined ? 'Images\default.jpg' : adoration.Images[0]
                             });
 
                             adorationMap.AddMarker(adoration.SimbahanID.toString(), {
@@ -1326,7 +1326,8 @@
                         longitude: coordinate.Longitude,
                         latitude: coordinate.Latitude,
                         limit: $("#churchDisplayLimit").val(),
-                        page: 1
+                        page: 1,
+                        radius: 10
                     });
                 }
 
@@ -1454,7 +1455,8 @@
                     latitude: coordinate == null ? 0 : coordinate.Latitude,
                     longitude: coordinate == null ? 0 : coordinate.Longitude,
                     limit: $("#churchDisplayLimit").val(),
-                    page: 1
+                    page: 1,
+                    radius: 10
                 });
             });
 
@@ -1484,7 +1486,8 @@
                 limit: $("#churchDisplayLimit").val(),
                 //latitude: coordinate == null ? 0 : coordinate.Latitude,
                 //longitude: coordinate == null ? 0 : coordinate.Latitude,
-                page: 1
+                page: 1,
+                radius: 10
             });
             //}
         }, true);
@@ -1791,7 +1794,8 @@
                     limit: $("#churchDisplayLimit").val(),
                     latitude: coordinate == null ? 0 : coordinate.Latitude,
                     longitude: coordinate == null ? 0 : coordinate.Latitude,
-                    page: 1
+                    page: 1,
+                    radius: 10
                 });
             });
         });

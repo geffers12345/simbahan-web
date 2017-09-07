@@ -6,6 +6,7 @@ using System.Web.UI.HtmlControls;
 using SimbahanApp.Components;
 using SimbahanApp.Models;
 using SimbahanApp.Services;
+using Announcement = SimbahanApp.Models.Announcement;
 using OrganizationReview = SimbahanApp.Models.OrganizationReview;
 
 namespace SimbahanApp
@@ -160,6 +161,29 @@ namespace SimbahanApp
             };
 
             return review.Create();
+        }
+
+        protected void btnAddAnnouncement_Click(object sender, EventArgs e)
+        {
+            if (AnnouncementImage.PostedFile != null && AnnouncementImage.PostedFile.FileName != "")
+            {
+                AnnouncementImage.SaveAs(Server.MapPath("Images/Organizations/" + AnnouncementImage.FileName.ToString()));
+            }
+
+            var announcement = new OrganizationAnnouncement()
+            {
+                OrganizationId = Convert.ToInt32(OrganizationId.Value),
+                Title = announcementTitle.Value,
+                Description = announcementContent.Value,
+                Venue = announcementVenue.Value,
+                StartDate = DateTime.Parse(announcementStartDate.Value),
+                StartTime = announcementStartTime.Value,
+                EndDate = DateTime.Parse(announcementEndDate.Value),
+                EndTime = announcementEndTime.Value,
+                ImagePath = "Images/Organizations/" + AnnouncementImage.FileName.ToString()
+            };
+
+            announcement.Create();
         }
     }
 }
