@@ -411,7 +411,7 @@ Modified by:
         <strong>ANNOUNCEMENTS:</strong>
     </p>
     <br/>
-    <div id="resultContainer">
+    <div runat="server" id="announcementContainer">
         
     </div>
     <br />
@@ -483,7 +483,7 @@ Modified by:
 <hr/>
 <div class="row">
     <div class="col-lg-12">
-       <center><strong>DISCLAIMER: Information above may not be accurate or updated.  Please help us update the information above by emailing us your update or corrections to <a class="contact" href="mailto:organizationinfo@mycatholicportal.org">organizationinfo@mycatholicportal.org</a> or directly message us in our Facebook Page: <a class="contact" href="https://www.facebook.com/SimbahanApp/">https://www.facebook.com/SimbahanApp/</a>.  Thank you in advance. God bless.</strong>
+       <center><strong>DISCLAIMER: Information above may not be accurate or updated.  Please help us update the information above by emailing us your update or corrections to <a class="contact" href="mailto:organizationinfo@mycatholicportal.org">organizationinfo@mycatholicportal.org</a> or directly message us in our Facebook Page: <a class="contact" href="https://www.facebook.com/SimbahanApp/">https://www.facebook.com/SimbahanApp/</a>.  Thank you in advance. God bless.</strong></center>
         <br/>
         <%--<div class="row">
             <div class="col-lg-5">
@@ -823,6 +823,21 @@ Modified by:
         $("#<%= announcementEndTime.ClientID %>").val('');
 
         $("#create-announcement-modal").modal('show');
+    });
+
+    $(document).on('click', '#annoucementItem', function (e) {
+        e.preventDefault();
+
+        $("#viewAnnouncementImage").attr('src', $(this).data('image'));
+        $("#viewAnnouncementTitle").text($(this).data('title'));
+        $("#viewAnnouncementVenue").text($(this).data('venue'));
+        $("#viewAnnouncementStartDate").text($(this).data('start-date'));
+        $("#viewAnnouncementStartTime").text($(this).data('start-time'));
+        $("#viewAnnouncementEndDate").text($(this).data('end-date'));
+        $("#viewAnnouncementEndTime").text($(this).data('end-time'));
+        $("#viewAnnouncementContent").text($(this).data('content'));
+
+        $("#view-announcement-modal").modal('show');
     });
 </script>
 

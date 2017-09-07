@@ -1048,21 +1048,6 @@ Modified by:
         $("#view-announcement-modal").modal('show');
     });
 
-    $(document).on('click', '#annoucementItem', function (e) {
-        e.preventDefault();
-
-        $("#viewAnnouncementImage").attr('src', $(this).data('image'));
-        $("#viewAnnouncementTitle").text($(this).data('title'));
-        $("#viewAnnouncementVenue").text($(this).data('venue'));
-        $("#viewAnnouncementStartDate").text($(this).data('start-date'));
-        $("#viewAnnouncementStartTime").text($(this).data('start-time'));
-        $("#viewAnnouncementEndDate").text($(this).data('end-date'));
-        $("#viewAnnouncementEndTime").text($(this).data('end-time'));
-        $("#viewAnnouncementContent").text($(this).data('content'));
-
-        $("#view-announcement-modal").modal('show');
-    });
-
     $(document).on('click',
             '#<%= btnAddToFav.ClientID %>',
             function (e) {

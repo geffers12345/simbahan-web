@@ -6,7 +6,6 @@ using System.Web.UI.HtmlControls;
 using SimbahanApp.Components;
 using SimbahanApp.Models;
 using SimbahanApp.Services;
-using Announcement = SimbahanApp.Models.Announcement;
 using OrganizationReview = SimbahanApp.Models.OrganizationReview;
 
 namespace SimbahanApp
@@ -128,6 +127,16 @@ namespace SimbahanApp
             {
                 RemoveFav.Attributes.Add("style", "display: none");
             }
+
+            var announcementService = new OrganizationAnnouncementService();
+            var announcements = announcementService.Get(organization.Id);
+
+            foreach (Models.OrganizationAnnouncement announcement in announcements)
+            {
+                var component = new Components.OrganizationAnnouncement(announcement);
+
+                announcementContainer.InnerHtml += component.ToHtml();
+            }
         }
 
         [WebMethod]
@@ -170,7 +179,7 @@ namespace SimbahanApp
                 AnnouncementImage.SaveAs(Server.MapPath("Images/Organizations/" + AnnouncementImage.FileName.ToString()));
             }
 
-            var announcement = new OrganizationAnnouncement()
+            var announcement = new Models.OrganizationAnnouncement()
             {
                 OrganizationId = Convert.ToInt32(OrganizationId.Value),
                 Title = announcementTitle.Value,

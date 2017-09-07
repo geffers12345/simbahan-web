@@ -169,12 +169,12 @@ namespace SimbahanApp.Services
                     dbconn.Close();
                 dbconn.Open();
 
-                using (var cmd = new SqlCommand("spGetOrgAnnouncement", dbconn))
+                using (var cmd = new SqlCommand("spGetOrgAnnouncements", dbconn))
                 {
                     try
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@simbahanID", relationId);
+                        cmd.Parameters.AddWithValue("@organizationID", relationId);
 
 
                         var reader = cmd.ExecuteReader();
