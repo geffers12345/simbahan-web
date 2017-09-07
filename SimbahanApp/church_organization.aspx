@@ -525,15 +525,7 @@
                                 <p class="text-muted" id="adorationPaginationText"></p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <%--<ul class="pagination" id="adorationPagination">
-                                            <li class="disabled"><a href="#">&laquo;</a></li>
-                                            <li class="active"><a>1 <span class="sr-only">(current)</span></a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li class="disabled"><a>...<span class="sr-only">(current)</span></a></li>
-                                            <li><a href="#">17</a></li>
-                                            <li><a href="#">&raquo;</a></li>
-                                        </ul>--%>
+                                        
                                     </div>
                                     <div class="col-md-3">
 
@@ -736,7 +728,7 @@
                                             <button id="btnResetOrganizationFilter" class="btn btn-lg btn-primary compress-horizontal shadow"><i class="fa fa-remove"></i> Clear Form</button>
                                         </div>
                                         <div class="col-sm-4">
-                                            <button id="btnSearchOrganization" class="btn btn-lg btn-primary compress-horizontal shadow"><i class="fa fa-search"></i> Search</button>
+                                            <button @click.prevent="OnSearchButtonClicked" id="btnSearchOrganization" class="btn btn-lg btn-primary compress-horizontal shadow"><i class="fa fa-search"></i> Search</button>
                                         </div>
                                         <div class="col-sm-4">
                                             <button id="btnShowMoreFilterOrganization" class="btn btn-lg btn-primary compress-horizontal shadow">More Filters</button>
@@ -948,26 +940,25 @@
                                 </div>
                                 <hr />
                                 <div id="organizationResultContainer">
-                                    <%--<div class="row church-result">
-                                        <div class="col-md-4">
-                                            <img class="img-responsive" src="Images/sample-6.png" />
-                                        </div>
-                                        <div class="col-md-8">
-                                            <h4 class="church-name text-danger">THE FEAST MANILA</h4>
-                                            <p class="church-location text-muted">Cinema 4, SM Manila, Natividad Lopez St, Ermita, Manila, Metro Manila</p>
-                                            <div class="church-details">
-                                                <p>Organization Name: Light of Jesus Family</p>
-                                                <p>Mass Schedule: <strong>Friday 3:00 – 5:00 PM, 5:30 – 7:30 PM, 8:00 – 10:00 PM (Every sessions starts with a holy mass)</strong></p>
-                                                <p>Language: <strong>English, Filipino</strong></p>
-                                            </div>
-                                        </div>
-                                    </div>--%>
+                                    <organization-item v-for="organization in organizations" :organization="organization" :key="organization.Id"></organization-item>
                                 </div>
                                 <hr />
                                 <p class="text-muted"></p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        
+                                        <paginate
+                                            :page-count="pages"
+                                            :margin-pages="2"
+                                            :page-range="3"
+                                            :initial-page="0"
+                                            :container-class="'pagination'"
+                                            :page-class="'page-item'"
+                                            :page-link-class="'page-link-item'"
+                                            :prev-class="'prev-item'"
+                                            :prev-link-class="'prev-link-item'"
+                                            :next-class="'next-item'"
+                                            :next-link-class="'next-link-item'"
+                                            :click-handler="OnPageClicked"></paginate>
                                     </div>
                                     <div class="col-md-3">
 
@@ -976,7 +967,7 @@
                                         <p>Show: </p>
                                     </div>
                                     <div class="col-sm-2 show-filter-field">
-                                        <select class="form-control" id="organizationDisplayLimit">
+                                        <select class="form-control" v-model="limit" @change="OnLimitChanged" id="organizationDisplayLimit">
                                             <option value="5">5</option>
                                             <option value="10">10</option>
                                             <option value="20">20</option>
@@ -994,6 +985,65 @@
     </div>
 </asp:Content>
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
+    <script>
+        Vue.component('paginate', VuejsPaginate)
+        Vue.component('organization-item',
+            {
+                props: ['organization'],
+                template: '<a href="#" target="_blank" id="churchItem" :data-id="organization.Id" class="organizationItem">' +
+                    '<div class="row church-result">' +
+                    '<div class="col-md-4">' +
+                    '<img class="img-responsive" :src="organization.Photos[0]">' +
+                    '</div>' +
+                    '<div class="col-md-8">' +
+                    '<h4 class="church-name text-danger">{{ organization.Name }}</h4>' +
+                    '<p class="church-location text-muted">{{ organization.Address }}</p>' +
+                    '<div class="church-details">' +
+                    '<p>Organization Name: <strong class="name">{{ organization.ParentOrganization }}</strong></p>' +
+                    '<p>Organization Schedule: <strong class="mass">{{ (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : "" }}</strong></p>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</a>'
+                
+            });
+
+        var orgVM = new Vue({
+            el: '#organizations-pane',
+            data: {
+                allOrganizations: [],
+                organizations: [],
+                limit: 5,
+                pages: 1,
+                page: 1
+            },
+            computed: {
+            },
+            methods: {
+                OnSearchButtonClicked: function() {
+
+                },
+                OnLimitChanged: function () {
+                    this.pages = Math.ceil(this.allOrganizations.length / this.limit);
+                    this.organizations = _(this.allOrganizations).first(this.limit);
+                },
+                OnPageClicked: function (page) {
+                    this.page = page;
+                    var orgs = Object.assign([], this.allOrganizations);
+
+                    this.organizations = orgs.splice(this.getFirstItem(page) - 1, this.limit);
+                },
+                getFirstItem: function (page) {
+                    return (page - 1) * this.limit + 1;
+                }
+            },
+            watch: {
+                allOrganizations: function(value) {
+                    this.pages = Math.ceil(value.length / this.limit);
+                }
+            }
+        });
+    </script>
     <script type="text/javascript">
         var clientLocation = User.CurrentPosition();
 
@@ -1056,63 +1106,63 @@
             var target = $(e.target).attr("href");
             
             switch (target) {
-                case '#churches-pane':
-                    if (churchMap == null) {
-                        setTimeout(function() {
-                            churchMap = new GMap(document.getElementById("churchMap"), {
-                                center: clientLocation == null ? new google.maps.LatLng(14.651129, 121.029536) : clientLocation,
-                                zoom: 14,
-                                scrollwheel: false,
-                                mapTypeId: google.maps.MapTypeId.TERRAIN
-                            });
+            case '#churches-pane':
+                if (churchMap == null) {
+                    setTimeout(function() {
+                        churchMap = new GMap(document.getElementById("churchMap"), {
+                            center: clientLocation == null ? new google.maps.LatLng(14.651129, 121.029536) : clientLocation,
+                            zoom: 14,
+                            scrollwheel: false,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                        });
 
-                            churchMap.Create();
+                        churchMap.Create();
 
-                            churchMap.AddMarker(0, {
-                                position: clientLocation == null ? new google.maps.LatLng(28.39404819, -91.38743867) : clientLocation,
-                                title: 'You\'re here!'
-                            });
-                        }, 500);
-                    }
-                    break;
-                case '#adorations-pane':
-                    if (adorationMap == null) {
-                        setTimeout(function() {
-                            adorationMap = new GMap(document.getElementById("adorationMap"), {
-                                center: clientLocation == null ? new google.maps.LatLng(14.651129, 121.029536) : clientLocation,
-                                zoom: 14,
-                                scrollwheel: false,
-                                mapTypeId: google.maps.MapTypeId.TERRAIN
-                            });
+                        churchMap.AddMarker(0, {
+                            position: clientLocation == null ? new google.maps.LatLng(28.39404819, -91.38743867) : clientLocation,
+                            title: 'You\'re here!'
+                        });
+                    }, 500);
+                }
+                break;
+            case '#adorations-pane':
+                if (adorationMap == null) {
+                    setTimeout(function() {
+                        adorationMap = new GMap(document.getElementById("adorationMap"), {
+                            center: clientLocation == null ? new google.maps.LatLng(14.651129, 121.029536) : clientLocation,
+                            zoom: 14,
+                            scrollwheel: false,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                        });
 
-                            adorationMap.Create();
+                        adorationMap.Create();
 
-                            adorationMap.AddMarker(0, {
-                                position: clientLocation == null ? new google.maps.LatLng(28.39404819, -91.38743867) : clientLocation,
-                                title: 'You\'re here!'
-                            });
-                        }, 500);
-                    }
-                    break;
-                case '#organizations-pane':
-                    if (organizationMap == null) {
-                        setTimeout(function() {
-                            organizationMap = new GMap(document.getElementById("organizationMap"), {
-                                center: clientLocation == null ? new google.maps.LatLng(14.651129, 121.029536) : clientLocation,
-                                zoom: 14,
-                                scrollwheel: false,
-                                mapTypeId: google.maps.MapTypeId.TERRAIN
-                            });
+                        adorationMap.AddMarker(0, {
+                            position: clientLocation == null ? new google.maps.LatLng(28.39404819, -91.38743867) : clientLocation,
+                            title: 'You\'re here!'
+                        });
+                    }, 500);
+                }
+                break;
+            case '#organizations-pane':
+                if (organizationMap == null) {
+                    setTimeout(function() {
+                        organizationMap = new GMap(document.getElementById("organizationMap"), {
+                            center: clientLocation == null ? new google.maps.LatLng(14.651129, 121.029536) : clientLocation,
+                            zoom: 14,
+                            scrollwheel: false,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                        });
 
-                            organizationMap.Create();
+                        organizationMap.Create();
 
-                            organizationMap.AddMarker(0, {
-                                position: clientLocation == null ? new google.maps.LatLng(28.39404819, -91.38743867) : clientLocation,
-                                title: 'You\'re here!'
-                            });
-                        }, 500);
-                    }
-                    break;
+                        organizationMap.AddMarker(0, {
+                            position: clientLocation == null ? new google.maps.LatLng(28.39404819, -91.38743867) : clientLocation,
+                            title: 'You\'re here!'
+                        });
+                    }, 500);
+                }
+                break;
             }
         });
 
@@ -1178,16 +1228,19 @@
             $.each(data, function(value, organizations) {
                 $("#organizationResultsCount").text(organizations.length + " Results Found");
                 if (organizations.length > 0) {
+                    orgVM.organizations = _(organizations).first(orgVM.limit);
+                    orgVM.allOrganizations = organizations;
+
                     $.each(organizations, function(key, organization) {
 
-                        organizationItems.push({
-                            'church-name': organization.Name,
-                            'church-location': organization.Address,
-                            'name': organization.ParentOrganization,
-                            'mass': (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : '',
-                            'id': organization.Id,
-                            'img-responsive': organization.Photos[0]
-                        });
+//                        organizationItems.push({
+//                            'church-name': organization.Name,
+//                            'church-location': organization.Address,
+//                            'name': organization.ParentOrganization,
+//                            'mass': (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : '',
+//                            'id': organization.Id,
+//                            'img-responsive': organization.Photos[0]
+//                        });
                         
                         organizationMap.AddMarker(organization.Id.toString(), {
                             position: new google.maps.LatLng(organization.Latitude, organization.Longitude),
@@ -1344,7 +1397,7 @@
                         hasElectricFan: $("#adorationHasElectricFan").is(":checked"),
                         latitude: coordinate.Latitude,
                         longitude: coordinate.Longitude
-                });
+                    });
                 }
             }, 3000);
         }

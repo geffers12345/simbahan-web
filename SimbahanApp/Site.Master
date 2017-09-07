@@ -776,6 +776,7 @@
     <script src='<%= ResolveUrl("Scripts/share.js") %>'></script>
     <script type='text/javascript' src="Scripts/Default-JQ.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="https://unpkg.com/vuejs-paginate@latest"></script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/core.mine899.js?ver=1.11.4'></script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/datepicker.mine899.js?ver=1.11.4'></script>
     <script type='text/javascript'>
