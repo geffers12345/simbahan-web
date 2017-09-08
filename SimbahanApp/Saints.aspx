@@ -22,19 +22,19 @@
 		   <!-- Slides Container -->
             <div u="slides" class = "slider-con">
 				<div>
-                    <img u="image" src="Images/Saints/mother_teresa.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/mother_teresa.jpg" /></a>
 				</div>
 					
                 <div>
-                    <img u="image" src="Images/Saints/padre_pio.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/padre_pio.jpg" /></a>
 					
 				</div>
                 <div>
-                    <img u="image" src="Images/Saints/st_jude.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/st_jude.jpg" /></a>
 					
 				</div>
 				 <div>
-                    <img u="image" src="Images/Saints/st_francis_xavier.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/st_francis_xavier.jpg" /></a>
 					
 				</div>
                 <header class="codrops-header">

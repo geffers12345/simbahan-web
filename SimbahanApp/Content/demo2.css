@@ -83,7 +83,7 @@
 
 .codrops-demos a {
 	display: inline-block;
-	margin-top: 400px;
+	margin-top: 480px;
 	padding: 0.7em 1.1em;
 	outline: none;
 	border: 2px solid #1ab5c1;
@@ -93,6 +93,7 @@
 	letter-spacing: 1px;
 	width: 265px;
     background-color: #1ab5c1;
+    height: 75px;
 }
 
 .codrops-demos a:hover,

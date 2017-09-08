@@ -116,7 +116,7 @@
                         <br />
                         <h3 class="text-center">Phone</h3>
                         <br />
-                        <p class="text-center black">+63 2 283 82 40</p>
+                        <p class="text-center black">+63 2 356 74 89</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
