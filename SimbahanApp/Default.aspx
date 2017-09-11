@@ -23,6 +23,7 @@
                              <video autoplay loop muted>
                             <source src='<%= ResolveUrl("Images/churchvid.mp4") %>' type="video/mp4">
                         </video>
+                        <img src="Images/quaipochurch.jpg" id="imgBG"/>
                             <div class="clearfix eltd-section-inner">
                                 <div class="eltd-section-inner-margin clearfix">
                                     <div class="wpb_column vc_column_container vc_col-sm-12 vc_col-xs-12 vc_col-md-12 vc_col-lg-12 ">
