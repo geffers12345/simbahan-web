@@ -52,7 +52,7 @@
         Vue.component('saint-item',
             {
                 props: ['saint'],
-                template: '<div class="col-md-3 prayers"><a class="aLink prayer" :href="getUrl(saint.Id)">{{ saint.Name }}</a></div>',
+                template: '<div class="col-md-3 prayers-ocp"><a class="aLink prayer" :href="getUrl(saint.Id)">{{ saint.Name }}</a></div>',
                 methods: {
                     getUrl: function (id) {
                         return 'Saintlisting.aspx?id=' + id;

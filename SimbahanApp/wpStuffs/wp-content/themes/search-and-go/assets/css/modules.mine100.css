@@ -30,16 +30,22 @@ a, abbr, acronym, address, applet, b, big, blockquote, body, caption, center, ci
 .box-body {
     background-color: white;
     padding: 30px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
  .box-body-churches {
     background-color: white;
     padding: 20px 15px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
  .box-body-saints {
-     background-color: white;
+    background-color: white;
     padding: 45px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
  }
 
 .eltd-listing-search-field.category {
@@ -759,6 +765,14 @@ body.woocommerce.woocommerce-page .full_width .eltd-two-columns-25-75.woocommerc
     /*display: table;*/
     width: calc(100% + 30px);
     padding-top: 200px;
+}
+
+@media only screen and (max-width: 600px) {
+    .eltd-parallax-section-holder.eltd-vertical-middle-align {
+    /*display: table;*/
+    width: calc(100% + 30px);
+    padding-top: 75px;
+}
 }
 
 .eltd-parallax-section-holder .eltd-parallax-content-outer {
