@@ -63,15 +63,19 @@ namespace SimbahanApp.Account
 
                     var churches = favoriteService.GetFavoriteChurches(Auth.user().Id);
 
+                    favoriteChurches.InnerHtml = "";
+
                     foreach (var church in churches)
                     {
                         var churchItem = new ChurchItem(church.SimbahanID, church.Parish, church.CompleteAddress,
                             church.ChurchPhotos[0].ChurchPhotos);
-
+                        
                         favoriteChurches.InnerHtml += churchItem.ToHtml();
                     }
 
                     var organizations = favoriteService.GetFavoriteOrganizations(Auth.user().Id);
+
+                    favoriteOrganizations.InnerHtml = "";
 
                     foreach (var organization in organizations)
                     {
@@ -83,6 +87,8 @@ namespace SimbahanApp.Account
 
                     var verses = favoriteService.GetFavoriteBibleVerses(Auth.user().Id);
 
+                    favoriteBibleVerses.InnerHtml = "";
+
                     foreach (var verse in verses)
                     {
                         var verseItem = new BibleVerseItem(verse);
@@ -91,6 +97,8 @@ namespace SimbahanApp.Account
                     }
 
                     var quotes = favoriteService.GetFavoriteReligiousQuotes(Auth.user().Id);
+
+                    favoriteReligiousQuotes.InnerHtml = "";
 
                     foreach (var quote in quotes)
                     {
@@ -101,6 +109,8 @@ namespace SimbahanApp.Account
 
                     var prayers = favoriteService.GetFavoriteBasicCatholicPrayer(Auth.user().Id);
 
+                    favoriteBasicCatholicPrayers.InnerHtml = "";
+
                     foreach (var prayer in prayers)
                     {
                         var prayerItem = new BasicCatholicPrayerItem(prayer);
@@ -109,6 +119,8 @@ namespace SimbahanApp.Account
                     }
 
                     var devotes = favoriteService.GetFavoriteDevotion(Auth.user().Id);
+
+                    favoriteDevotions.InnerHtml = "";
 
                     foreach (var devote in devotes)
                     {
@@ -119,11 +131,24 @@ namespace SimbahanApp.Account
 
                     var otps = favoriteService.GetFavoriteOtherCatholicPrayer(Auth.user().Id);
 
+                    favoriteOtherCatholicPrayers.InnerHtml = "";
+
                     foreach (var otp in otps)
                     {
                         var otpItem = new OtherCatholicPrayerItem(otp);
 
                         favoriteOtherCatholicPrayers.InnerHtml += otpItem.ToHtml();
+                    }
+
+                    var saints = favoriteService.GetFavoriteSaint(Auth.user().Id);
+
+                    favoriteSaints.InnerHtml = "";
+
+                    foreach (var saint in saints)
+                    {
+                        var saintItem = new SaintItem(saint);
+
+                        favoriteSaints.InnerHtml += saintItem.ToHtml();
                     }
                 }
                 else
