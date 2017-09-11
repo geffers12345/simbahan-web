@@ -807,6 +807,14 @@
         });
 
     $(document).on('click',
+        '#btnViewSaintDetail',
+        function (e) {
+            e.preventDefault();
+
+            window.open('Saintlisting.aspx?id=' + $(this).data('id'), '_blank');
+        });
+    
+    $(document).on('click',
         '#btnViewOrganizationDetail',
         function (e) {
             e.preventDefault();
