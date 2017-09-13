@@ -63,8 +63,8 @@ namespace SimbahanApp.Services
                                 if (photo != string.Empty)
                                     adoration.Images.Add(@"Images\Photos\" + photo);
 
-                            if (photos.Length == 0)
-                                adoration.Images.Add(@"Images\Photos\default.jpg");
+                            if (adoration.Images.Count == 0)
+                                adoration.Images.Add(@"Images\default.jpg");
 
                             var masses = dr["Masses"].ToString().Split(separator, StringSplitOptions.None);
 

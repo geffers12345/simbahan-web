@@ -90,7 +90,7 @@
     <div class="btn-group" role="group">
         <a type="button" id="stars" class="btn btn-default" href="#tab1" data-toggle="tab">
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-            <div class="hidden-xs">Favorties</div>
+            <div class="hidden-xs">Favorites</div>
         </a>
     </div>
     <div class="btn-group" role="group">
@@ -806,6 +806,14 @@
             window.open('Churches.aspx?id=' + $(this).data('id'), '_blank');
         });
 
+    $(document).on('click',
+        '#btnViewSaintDetail',
+        function (e) {
+            e.preventDefault();
+
+            window.open('Saintlisting.aspx?id=' + $(this).data('id'), '_blank');
+        });
+    
     $(document).on('click',
         '#btnViewOrganizationDetail',
         function (e) {

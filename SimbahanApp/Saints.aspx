@@ -22,19 +22,19 @@
 		   <!-- Slides Container -->
             <div u="slides" class = "slider-con">
 				<div>
-                    <img u="image" src="Images/Saints/mother_teresa.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/mother_teresa.jpg" /></a>
 				</div>
 					
                 <div>
-                    <img u="image" src="Images/Saints/padre_pio.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/padre_pio.jpg" /></a>
 					
 				</div>
                 <div>
-                    <img u="image" src="Images/Saints/st_jude.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/st_jude.jpg" /></a>
 					
 				</div>
 				 <div>
-                    <img u="image" src="Images/Saints/st_francis_xavier.jpg" />
+                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/st_francis_xavier.jpg" /></a>
 					
 				</div>
                 <header class="codrops-header">
@@ -46,6 +46,12 @@
             
             <!--#region Bullet Navigator Skin Begin -->
             <style>
+
+                @media only screen and (max-width: 600px){
+                    .jssorb21 {
+                        left: 73px;
+                    }
+                }
                 /* jssor slider bullet navigator skin 21 css */
                 /*
                 .jssorb21 div           (normal)
@@ -54,11 +60,11 @@
                 .jssorb21 .av:hover     (active mouseover)
                 .jssorb21 .dn           (mousedown)
                 */
-                .jssorb21 {
+                /*.jssorb21 {
                     position: absolute;
-                }
+                }*/
                 .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
-                    position: absolute;
+                    /*position: absolute;*/
                     /* size of bullet elment */
                     width: 19px;
                     height: 19px;
@@ -67,7 +73,7 @@
                     color: white;
                     font-size: 12px;
                     background: url(../img/b21.png) no-repeat;
-                    overflow: hidden;
+                    /*overflow: hidden;*/
                     cursor: pointer;
                 }
                 .jssorb21 div { background-position: -5px -5px; }
@@ -88,7 +94,7 @@
                 /* jssor slider arrow navigator skin 21 css */
                 .jssora21l, .jssora21r {
                     display: block;
-                    position: absolute;
+                    /*position: absolute;*/
                     /* size of arrow element */
                     width: 55px;
                     height: 55px;

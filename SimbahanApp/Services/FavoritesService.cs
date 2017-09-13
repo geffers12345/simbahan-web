@@ -1227,7 +1227,7 @@ namespace SimbahanApp.Services
                     dbconn.Close();
                 dbconn.Open();
 
-                using (var cmd = new SqlCommand("spIsDevotionInFavorite", dbconn))
+                using (var cmd = new SqlCommand("spIsSaintInFavorite", dbconn))
                 {
                     try
                     {
