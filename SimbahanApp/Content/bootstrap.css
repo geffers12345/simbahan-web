@@ -6305,6 +6305,17 @@ button.close {
         height: 610px;
 }
 @media screen and (max-width: 600px)  {
+    .mgatf {
+        margin-bottom: -51px;
+}
+.mgst {
+        margin-bottom: -58px;
+        margin-left: 181px;
+}
+.mgfb {
+        margin-left: 224px;
+}
+
     .about {
         font-size: 8px;
     }
