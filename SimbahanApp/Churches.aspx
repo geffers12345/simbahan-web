@@ -100,6 +100,7 @@ Modified by:
 <div id="view-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <input type="hidden" id="viewAnnouncementId" />
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -1035,10 +1036,10 @@ Modified by:
 
     $(document).on('click', '#annoucementItem', function (e) {
         e.preventDefault();
-
+        
+        $("#viewAnnouncementId").val($(this).data('id'));
         $("#viewAnnouncementImage").attr('src', $(this).data('image'));
         $("#viewAnnouncementTitle").text($(this).data('title'));
-        $("#viewAnnouncementVenue").text($(this).data('venue'));
         $("#viewAnnouncementStartDate").text($(this).data('start-date'));
         $("#viewAnnouncementStartTime").text($(this).data('start-time'));
         $("#viewAnnouncementEndDate").text($(this).data('end-date'));
@@ -1117,20 +1118,10 @@ Modified by:
                     e.preventDefault();
 
                     var message = '';
-                    var id = window.location.href.includes('?')
-                        ? window.location.href.split('=')[1]
-                        : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
                     window.open(
                         'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Announcement/' +
-                        id +
-                        '&caption=' +
-                        encodeURI(message) +
-                        '&description=' +
-                        encodeURI(message) +
-                        '&properties={text' +
-                        encodeURI(message),
-                        '}',
+                        $("#viewAnnouncementId").val(),
                         'Share To Facebook',
                         'width=500,height=300');
 

@@ -213,6 +213,7 @@ namespace SimbahanApp
                 char[] separator = { ',' };
                 MetaTitle = announcement.Title;
                 MetaDescription = announcement.Description;
+                MetaImage = announcement.ImagePath;
                 GoogleMetaDescription = MetaDescription;
                 MetaUrl = "http://www.mycatholicportal.org/Announcement/" + announcement.Id;
                 //MetaImage = church.ChurchPhotos.Count > 0 ? "http://www.mycatholicportal.org/Images/" + church.ChurchPhotos[0].ChurchPhotos : "";
