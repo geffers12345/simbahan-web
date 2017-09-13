@@ -3,16 +3,16 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row">
         <div class="col-sm-5">
-            <div class="map">
-                <div id="churchMap" class="height"></div>
+            <div style="position: fixed; width: 42%; top: 60px;">
+                <div id="churchMap" style="height: 610px;"></div>
             </div>
 
-            <div class="map1">
-                <div id="adorationMap" class="height"></div>
+            <div style="position: fixed; width: 42%; top: 60px;">
+                <div id="adorationMap" style="height: 610px;"></div>
             </div>
             
-            <div class="map2">
-                <div id="organizationMap" class="height"></div>
+            <div style="position: fixed; width: 42%; top: 60px;">
+                <div id="organizationMap" style="height: 610px;"></div>
             </div>
         </div>
         <div class="col-sm-7 bg-white">
@@ -20,10 +20,10 @@
             <br />        
             <div class="panel with-nav-tabs panel-primary">
                 <div class="panel-heading">
-                    <ul class="nav nav-tabs colorTabs blue">
-                        <li><a href="#churches-pane" data-toggle="tab" class="no-margin c sss"><strong>CHURCHES</strong></a></li>
-                        <li><a href="#adorations-pane" data-toggle="tab" class="no-margin ac ssss"><strong>ADORATION CHAPELS</strong></a></li>
-                        <li><a href="#organizations-pane" data-toggle="tab" class="no-margin org sssss"><strong>ORGANIZATIONS</strong></a></li>
+                    <ul class="nav nav-tabs colorTabs">
+                        <li><a href="#churches-pane" data-toggle="tab" class="no-margin"><strong>CHURCHES</strong></a></li>
+                        <li><a href="#adorations-pane" data-toggle="tab" class="no-margin"><strong>ADORATION CHAPELS</strong></a></li>
+                        <li><a href="#organizations-pane" data-toggle="tab" class="no-margin"><strong>ORGANIZATIONS</strong></a></li>
                     </ul>
                 </div>
                 <div class="panel-body-churches tab-bg">
