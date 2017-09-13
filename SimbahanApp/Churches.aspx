@@ -127,7 +127,7 @@ Modified by:
             <div class="modal-footer">
                 <div style="display:-webkit-inline-box; margin-right:100%;">
                     <div class="col-lg-3">
-                    <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" width="45" height="45"/>
+                    <%--<input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" width="45" height="45"/>--%>
                             <%--<img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>--%>
                     </div>
                     <div class="col-lg-3">
@@ -1049,7 +1049,7 @@ Modified by:
         $("#view-announcement-modal").modal('show');
     });
 
-    $(document).on('click',
+    <%--$(document).on('click',
             '#<%= btnAddToFav.ClientID %>',
             function (e) {
                 e.preventDefault();
@@ -1091,7 +1091,7 @@ Modified by:
                         }
                         
                     }).run();
-            });
+            });--%>
 
     $(document).on('click',
    '#btnShareSocialTwit',
