@@ -90,14 +90,14 @@
 
             <br/>
             <div class="row">
-                <div class="col-lg-6 col-md-3 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-3 col-sm-12 col-xs-12 mgatf2">
                     <div class="eltd-listing-search-submit-holder">
-                        <a href="Saintslisting.aspx" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                        <a href="Saintslisting.aspx" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg pads" data-hover-color="#000" data-hover-border-color="#000">
                             <span class="eltd-btn-text">SEE LIFE OF OTHER SAINTS</span><span aria-hidden="true"></span>
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-1  col-md-1 col-sm-6 col-xs-6 pull-right">
+                <div class="col-lg-1  col-md-1 col-sm-6 col-xs-6 pull-right mgst2">
                     <div class="eltd-listing-search-submit-holder">
                         <button id="ShareTw" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                             <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
@@ -105,7 +105,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="col-lg-1  col-md-1 col-sm-6 col-xs-6 pull-right">
+                <div class="col-lg-1  col-md-1 col-sm-6 col-xs-6 pull-right mgfb2">
                     <div class="eltd-listing-search-submit-holder">
                         <button id="ShareFb" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                             <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>

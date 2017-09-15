@@ -6278,6 +6278,7 @@ button.close {
   position: fixed;
 }
 
+
 @-ms-viewport {
   width: device-width;
 }
@@ -6304,18 +6305,55 @@ button.close {
 .height {
         height: 610px !important;
 }
+.mm {
+    font-size: 20px !important;
+    background-color: black !important;
+    margin: -18px !important;
+}
+
 @media screen and (max-width: 600px)  {
-    .mgatf {
+
+.fs {
+    font-size: 31px;
+}
+
+#icon2 {
+        display: none;
+}
+
+.mm {
+    font-size: 20px !important;
+    background-color: black !important;
+	margin: -18px !important;
+}
+
+.mgatf {
         margin-bottom: -51px;
+}
+.mgatf2 {
+        margin-bottom: -51px;
+        margin-left: -25px;
+        margin-right: -25px;
+}
+.pads {
+        padding: 13px 6px !important;
 }
 .mgst {
         margin-bottom: -58px;
         margin-left: 181px;
 }
+.mgst2 {
+        margin-bottom: -58px;
+        margin-top: -5px;
+        padding-left: 37px;
+}
 .mgfb {
         margin-left: 224px;
 }
-
+.mgfb2 {
+        padding-left: 101px;
+        margin-top: -4px;
+}
     .about {
         font-size: 8px;
     }
@@ -6484,10 +6522,12 @@ button.close {
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 1px;
-        width: 329px !important;
+        width: 650px !important;
         background-color: #1ab5c1;
         height: 103px !important;
-        font-size: 25px !important;
+        font-size: 30px !important;
+        line-height: 55px;
+        margin-left: -11%;
     }
     .row-music {
   margin-right: -10px;
