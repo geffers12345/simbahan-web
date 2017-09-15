@@ -49,7 +49,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4 form-group">
-					<span class="text-danger">*</span><label class="font-large" for="city">City:</label>
+					<%--<span class="text-danger">*</span>--%><label class="font-large" for="city">City:</label>
 					<input type="text" runat="server" class="form-control input-lg" id="city" placeholder="City" data-name="City" />
 					<label id="errorChurchCity" class="text-danger" style="display: none;"></label>
 				</div>
@@ -64,7 +64,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<span class="text-danger">*</span><label class="font-large" for="vicariate">Vicariate:</label>
+					<%--<span class="text-danger">*</span>--%><label class="font-large" for="vicariate">Vicariate:</label>
 					<input type="text" runat="server" class="form-control input-lg" id="vicariate" placeholder="Vicariate" data-name="Vicariate" />
 					<label id="errorVicariate" class="text-danger" style="display: none;"></label>
 				</div>
@@ -75,7 +75,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<span class="text-danger">*</span><label class="font-large" for="parishPriest">Parish Priest:</label>
+					<%--<span class="text-danger">*</span>--%><label class="font-large" for="parishPriest">Parish Priest:</label>
 					<input type="text" runat="server" class="form-control input-lg" id="parishPriest" placeholder="Parish Priest" data-name="Parish Priest" />
 					<label id="errorPriest" class="text-danger" style="display: none;"></label>
 				</div>
@@ -86,7 +86,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<span class="text-danger">*</span><label class="font-large" for="diocese">Diocese:</label>
+					<%--<span class="text-danger">*</span>--%><label class="font-large" for="diocese">Diocese:</label>
 					<input type="text" runat="server" class="form-control input-lg" id="diocese" placeholder="Diocese" data-name="Diocese"/>
 					<label id="errorDiocese" class="text-danger" style="display: none;"></label>
 				</div>
@@ -97,12 +97,12 @@
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<span class="text-danger">*</span><label class="font-large" for="phoneNo">Phone No.:</label>
+					<%--<span class="text-danger">*</span>--%><label class="font-large" for="phoneNo">Phone No.:</label>
 					<input type="text" runat="server" class="form-control input-lg" id="phoneNo" placeholder="Phone No." data-name="Phone Number" />
 					<label id="errorPhone" class="text-danger" style="display: none;"></label>
 				</div>
 				<div class="col-md-4">
-					<span class="text-danger">*</span><label class="font-large" for="emailAdd">Email:</label>
+					<%--<span class="text-danger">*</span>--%><label class="font-large" for="emailAdd">Email:</label>
 					<input type="text" runat="server" class="form-control input-lg" id="emailAdd" placeholder="Email" data-name="email" />
 					<label id="errorEmail" class="text-danger" style="display: none;"></label>
 				</div>
@@ -110,11 +110,22 @@
 					<label class="font-large" for="website">Website:</label>
 					<input type="text" runat="server" class="form-control input-lg" id="website" placeholder="Website" />
 				</div>
+                <div class="row">
+				<div class="col-md-6">
+					<%--<span class="text-danger">*</span>--%><label class="font-large" for="">Longitude:</label>
+					<input type="text" runat="server" class="form-control input-lg" id="Longitude" placeholder="Longitude" data-name="" />
+					<%--<label id="errorVicariate" class="text-danger" style="display: none;"></label>--%>
+				</div>
+				<div class="col-md-6">
+					<label class="font-large" for="">Latitude:</label>
+					<input type="text" runat="server" class="form-control input-lg" id="Latitude" placeholder="Latitude" />
+				</div>
+			    </div>
 			</div>
 
 			<h3>FACILITIES</h3>
 			<div id="category-list">
-				<h4><span class="text-danger">*</span>CHURCH FACILITIES:</h4>
+				<h4><%--<span class="text-danger">*</span>--%>CHURCH FACILITIES:</h4>
 				<div class="row">
 					<div class="col-md-3">
 						<div class="row">
@@ -157,7 +168,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<h4><span class="text-danger">*</span>CHURCH LOCATION:</h4>
+				<h4><%--<span class="text-danger">*</span>--%>CHURCH LOCATION:</h4>
 
 				<div class="col-md-3">
 					<div class="row">
@@ -213,7 +224,7 @@
 			</div>
 
 			<hr>
-			<h4><span class="text-danger">*</span>CHURCH PARKING:</h4>
+			<h4><%--<span class="text-danger">*</span>--%>CHURCH PARKING:</h4>
 			<div class="row">
 				<div class="col-md-3">
 					<div class="row">
@@ -524,7 +535,7 @@
 			<div class="col-md-12">
 				<form action="#" method="post" id="confessionschedule" role="form">
 					<div id="entryConfess" class="clonedInputMass">
-						<h4 id="referenceConfess" name="referenceConfess" class="heading-reference"><span class="text-danger">*</span>Confession Schedule</h4>
+						<h4 id="referenceConfess" name="referenceConfess" class="heading-reference"><%--<span class="text-danger">*</span>--%>Confession Schedule</h4>
 						<label id="errorConfession" class="text-danger" style="display: none;"></label>
 						<fieldset>
 							<!-- Multiple Checkboxes (inline) -->
@@ -661,7 +672,7 @@
 					</tbody>
 				</table><br />
 			<div class="col-md-3">
-				<label class="font-large"><span class="text-danger">*</span>DISPLAY TEXT FOR YOUR CONFESSION SCHEDULES:</label>
+				<label class="font-large"><%--<span class="text-danger">*</span>--%>DISPLAY TEXT FOR YOUR CONFESSION SCHEDULES:</label>
 			   
 		   </div>
 		   <div class="col-md-9">
@@ -818,7 +829,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3">
-				<span class="text-danger">*</span><label class="font-large">OFFICE SCHEDULE/S:</label>
+				<%--<span class="text-danger">*</span>--%><label class="font-large">OFFICE SCHEDULE/S:</label>
 			</div>
 			<div class="col-md-9">
 				<textarea type="textarea" runat="server" class="form-control input-lg" id="OfficeSchedule" data-name="Office Schedules"></textarea>
@@ -837,7 +848,7 @@
 
 		<div class="row">
 			<div class="col-md-3">
-			   <span class="text-danger">*</span> <label class="font-large">BAPTISM SCHEDULE/S:</label>
+			   <%--<span class="text-danger">*</span> --%><label class="font-large">BAPTISM SCHEDULE/S:</label>
 			</div>
 			<div class="col-md-9">
 				<textarea type="textarea" runat="server" class="form-control input-lg" id="BaptismSched" data-name="Baptism Schedules"></textarea>
@@ -847,7 +858,7 @@
 
 		<div class="row">
 			<div class="col-md-3">
-				<span class="text-danger">*</span><label class="font-large">WEDDING SCHEDULE/S:</label>
+				<%--<span class="text-danger">*</span>--%><label class="font-large">WEDDING SCHEDULE/S:</label>
 			</div>
 			<div class="col-md-9">
 				<textarea type="textarea" runat="server" class="form-control input-lg" id="WeddingSchedule" data-name="Wedding Schedules"></textarea>
@@ -905,7 +916,7 @@
 			<br />
 			<div class="row">
 		<div class="col-md-5">
-			<span class="text-danger">*</span><label class="font-large">ADD CHURCH PHOTOS</label>
+			<%--<span class="text-danger">*</span>--%><label class="font-large">ADD CHURCH PHOTOS</label>
 		<div style="padding: 40px;">
 		<asp:FileUpload ID="FileUpload1" runat="server" data-name="Church Photo"/><br />
 		<asp:FileUpload ID="FileUpload2" runat="server" /><br />
@@ -1214,21 +1225,21 @@
 				{
 					var isChurchNameValid = $("#<%= churchName.ClientID%>").validate(['required']).displayErrorOn($("#errorChurchName"));
 					var isChurchAddressValid = $("#<%= address.ClientID%>").validate(['required']).displayErrorOn($("#errorChurchAddress"));
-					var isChurchVicariateValid = $("#<%= vicariate.ClientID%>").validate(['required']).displayErrorOn($("#errorVicariate"));
+					<%--var isChurchVicariateValid = $("#<%= vicariate.ClientID%>").validate(['required']).displayErrorOn($("#errorVicariate"));
 					var isChurchDioceseValid = $("#<%= diocese.ClientID%>").validate(['required']).displayErrorOn($("#errorDiocese"));
 					var isChurchPriestValid = $("#<%= parishPriest.ClientID%>").validate(['required']).displayErrorOn($("#errorPriest"));
 					var isChurchPhoneValid = $("#<%= phoneNo.ClientID%>").validate(['required']).displayErrorOn($("#errorPhone"));
 					var isChurchCity = $("#<%= city.ClientID%>").validate(['required']).displayErrorOn($("#errorChurchCity"));
-					var isEmailValid = $("#<%= emailAdd.ClientID%>").validate(['required','email']).displayErrorOn($("#errorEmail"));
+					var isEmailValid = $("#<%= emailAdd.ClientID%>").validate(['required','email']).displayErrorOn($("#errorEmail"));--%>
 					var hasMassSchedule = $("#<%= MassSchedules.ClientID%>").validate(['required']).displayErrorOn($("#errorMassSchedule"));
-					var hasConfession = $("#<%= ConfessionSchedules.ClientID%>").validate(['required']).displayErrorOn($("#errorConfession"));
+					<%--var hasConfession = $("#<%= ConfessionSchedules.ClientID%>").validate(['required']).displayErrorOn($("#errorConfession"));
 					var isConfessionvalid = $("#<%= confessionText.ClientID%>").validate(['required']).displayErrorOn($("#errorDisplayTextConfession"));
 					var isOfficeValid = $("#<%= OfficeSchedule.ClientID%>").validate(['required']).displayErrorOn($("#errorOfficeSchedules"));
 					var isBaptismValid = $("#<%= BaptismSched.ClientID%>").validate(['required']).displayErrorOn($("#errorBaptism"));
 					var isWeddingValid = $("#<%= WeddingSchedule.ClientID%>").validate(['required']).displayErrorOn($("#errorWedding"));
-					var hasChurchPhoto = $('#<%= FileUpload1.ClientID%>').validate(['required']).displayErrorOn($("#errorPhoto"));
+					var hasChurchPhoto = $('#<%= FileUpload1.ClientID%>').validate(['required']).displayErrorOn($("#errorPhoto"));--%>
 
-					return isChurchNameValid && isChurchAddressValid && isChurchVicariateValid && isChurchDioceseValid && isChurchPriestValid && isChurchPhoneValid && isChurchCity && isEmailValid && hasMassSchedule && hasConfession && isConfessionvalid && isOfficeValid && isBaptismValid && isWeddingValid && hasChurchPhoto;
+					return isChurchNameValid && isChurchAddressValid && hasMassSchedule;
 				}
 			
 				//insert simbahan info
@@ -1249,12 +1260,12 @@
 
 				if (isInputValid()) {
 
-					if (checked == 0) {
-						$('#errorCheckbox').show();
-						return false;
-					}
-					else {
-						$('#errorCheckbox').hide();
+					//if (checked == 0) {
+					//	$('#errorCheckbox').show();
+					//	return false;
+					//}
+					//else {
+					//	$('#errorCheckbox').hide();
 
 					(new http).post('ChurchAdminPage.aspx/CreateChurch', {
 						name: $("#<%= churchName.ClientID %>").val(),
@@ -1272,6 +1283,8 @@
 						website: $("#<%= website.ClientID%>").val(),
 						administeredBy: "someone",
 						activated: "0",
+						Long: $("#<%= Longitude.ClientID%>").val(),
+						Lat: $("#<%= Latitude.ClientID%>").val(),
 						OfficeHours: $("#<%= OfficeSchedule.ClientID%>").val(),
 						DevotionSchedule: $("#<%= SchedOfDevotion.ClientID%>").val(),
 						textBapt: $("#<%= BaptismSched.ClientID%>").val(),
@@ -1287,10 +1300,11 @@
 						HasCeilingFan: $("#<%= ventCeilingFan.ClientID%>").is(':checked'),
 						HasOrdinaryFan: $("#<%= ventOrdinaryFan.ClientID%>").is(':checked')
 					}).then(function (response) {
-						var church = response.d;
+					    var church = response.d;
+
 						var _id = church.SimbahanID;
 						console.log(AdorationID);
-				
+						alert('Successfully Added!');
 						AdorationID.forEach(function (adoration) {
 							console.log(adoration);
 							$.each(adoration.day, function (key, day) {
@@ -1419,7 +1433,7 @@
 					}).run();
 
 						
-					}
+					//}
 
 				} else {
 					// Either one or all of the validation has failed.

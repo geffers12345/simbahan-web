@@ -43,7 +43,7 @@ namespace SimbahanApp
 
         
         [WebMethod]
-        public static ChurchInfo CreateChurch(string name, string address, string city, string province, string country, string vicariate, string feastday, string parishPriest, string administeredBy, string diocese, string dateEstablished, string phoneNumber, string email, string website, int activated, int LocationID, int HasAdorationChapel, int IsOpen24By7, string DisplayText, bool HasAircon, bool HasCeilingFan, bool HasOrdinaryFan, string OfficeHours, string DevotionSchedule, string textBapt, string DateCreatedBapt, string textWedd, string DateCreatedWedd)
+        public static ChurchInfo CreateChurch(string name, string address, string city, string province, string country, string vicariate, string feastday, string parishPriest, string administeredBy, string diocese, string dateEstablished, string phoneNumber, string email, string website, int activated, int LocationID, int HasAdorationChapel, int IsOpen24By7, string DisplayText, bool HasAircon, bool HasCeilingFan, bool HasOrdinaryFan, string OfficeHours, string DevotionSchedule, string textBapt, string DateCreatedBapt, string textWedd, string DateCreatedWedd, float Long, float Lat)
         {
             
             ChurchTransformer churchTransformer = new ChurchTransformer();
@@ -81,12 +81,25 @@ namespace SimbahanApp
                         cmd.Parameters.AddWithValue("@HasAdorationChapel", HasAdorationChapel);
                         cmd.Parameters.AddWithValue("@OfficeHours", OfficeHours);
                         cmd.Parameters.AddWithValue("@DevotionSchedule", DevotionSchedule);
+
+                        cmd.Parameters.AddWithValue("@StreetNo", 0);
+                        cmd.Parameters.AddWithValue("@StreetName", "");
+                        cmd.Parameters.AddWithValue("@Barangay", "");
+                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@LastUpdate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@churchType", 1);
+                        cmd.Parameters.AddWithValue("@Long", Long);
+                        cmd.Parameters.AddWithValue("@Lat", Lat);
+                        cmd.Parameters.AddWithValue("@churchCode", "");
+                        cmd.Parameters.AddWithValue("@churchHistory", "");
                         cmd.Parameters.Add("@SimbahanAutoID", SqlDbType.BigInt).Direction = ParameterDirection.Output;
 
                         var reader = cmd.ExecuteReader();
 
                         HttpContext.Current.Session["sid"] = Convert.ToInt32(cmd.Parameters["@SimbahanAutoID"].Value.ToString());
                         church.SimbahanID = Convert.ToInt32(HttpContext.Current.Session["sid"]);
+
+                        //this.ClearFields();
 
                         while (reader.Read()) {
                             church = churchTransformer.Transform(reader);
@@ -322,6 +335,7 @@ namespace SimbahanApp
 
                 ExecuteInsert(SimbahanID, FileUpload3.FileName.ToString());
             }
+            
         }
 
         private void ExecuteInsert(int SimbahanID, string path)
