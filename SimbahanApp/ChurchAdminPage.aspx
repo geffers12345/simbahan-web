@@ -1441,7 +1441,7 @@
 					// Either one or all of the validation has failed.
 					// alert('Please provide a valid data');
 				}
-			    window.location.reload();
+			    
 			});
 
 				function removeZeroPrefix(value)
