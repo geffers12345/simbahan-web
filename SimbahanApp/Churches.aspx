@@ -258,7 +258,7 @@ Modified by:
 <div class="panel-heading">
     <ul class="nav nav-tabs">
         <li class="active">
-            <a href="#history" data-toggle="tab" class="about abouttabs">ABOUT THE ORG</a>
+            <a href="#history" data-toggle="tab" class="about abouttabs">HISTORY</a>
         </li>
         <li>
             <a href="#info" data-toggle="tab" class="gen gentabs">GENERAL INFORMATION</a>
