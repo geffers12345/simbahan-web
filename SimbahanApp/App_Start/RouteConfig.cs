@@ -61,7 +61,7 @@ namespace SimbahanApp
 
             routes.MapPageRoute("Announcement",
              "Announcement/{announcement-id}",
-             "~/Churches.aspx");
+             "~/ChurchesAnnouncements.aspx");
         }
     }
 }

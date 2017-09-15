@@ -60,7 +60,7 @@
         Vue.component('prayer-item',
             {
                 props: ['prayer'],
-                template: '<div class="col-md-3 prayers"><a class="aLink prayer" :href="getUrl(prayer.Id)">{{ prayer.Title }}</a></div>',
+                template: '<div class="col-md-3 prayers-ocp"><a class="aLink prayer" :href="getUrl(prayer.Id)">{{ prayer.Title }}</a></div>',
                 methods: {
                     getUrl: function (id) {
                         return 'OtherCatholicPrayer.aspx?id=' + id;

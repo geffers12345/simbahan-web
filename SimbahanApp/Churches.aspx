@@ -100,6 +100,7 @@ Modified by:
 <div id="view-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
+            <input type="hidden" id="viewAnnouncementId" />
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -124,9 +125,9 @@ Modified by:
                 <p id="viewAnnouncementContent"></p>
             </div>
             <div class="modal-footer">
-                <div style="display:-webkit-inline-box; margin-right:100%;">
+                <div style="display:-webkit-inline-box;">
                     <div class="col-lg-3">
-                    <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" width="45" height="45"/>
+                    <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!"/>
                             <%--<img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>--%>
                     </div>
                     <div class="col-lg-3">
@@ -200,7 +201,7 @@ Modified by:
         <div class="row">
             
             <div class="col-md-5">
-                <div class="eltd-listing-search-submit-holder">
+                <div class="eltd-listing-search-submit-holder mgatf">
                     <button id="AddFav" runat="server" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                         <span class="eltd-btn-text">ADD TO FAVORITES</span><span aria-hidden="true"></span>
                     </button>
@@ -211,7 +212,7 @@ Modified by:
             </div>
 
             <div class="col-md-1 col-md-offset-3 col-xs-12">
-                <div class="eltd-listing-search-submit-holder">
+                <div class="eltd-listing-search-submit-holder mgst">
                     <button id="ShareTw" type="submit" class="btn-Twitter-share eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                         <i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>
                         <span aria-hidden="true"></span>
@@ -219,7 +220,7 @@ Modified by:
                 </div>
             </div>
             <div class="col-md-1 col-xs-12">
-                <div class="eltd-listing-search-submit-holder">
+                <div class="eltd-listing-search-submit-holder mgfb">
                     <button id="ShareFb" type="submit" class="btn-facebook-share eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                         <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
                         <span aria-hidden="true"></span>
@@ -257,7 +258,7 @@ Modified by:
 <div class="panel-heading">
     <ul class="nav nav-tabs">
         <li class="active">
-            <a href="#history" data-toggle="tab" class="about abouttabs">ABOUT THE ORG</a>
+            <a href="#history" data-toggle="tab" class="about abouttabs">HISTORY</a>
         </li>
         <li>
             <a href="#info" data-toggle="tab" class="gen gentabs">GENERAL INFORMATION</a>
@@ -1035,10 +1036,10 @@ Modified by:
 
     $(document).on('click', '#annoucementItem', function (e) {
         e.preventDefault();
-
+        
+        $("#viewAnnouncementId").val($(this).data('id'));
         $("#viewAnnouncementImage").attr('src', $(this).data('image'));
         $("#viewAnnouncementTitle").text($(this).data('title'));
-        $("#viewAnnouncementVenue").text($(this).data('venue'));
         $("#viewAnnouncementStartDate").text($(this).data('start-date'));
         $("#viewAnnouncementStartTime").text($(this).data('start-time'));
         $("#viewAnnouncementEndDate").text($(this).data('end-date'));
@@ -1117,20 +1118,10 @@ Modified by:
                     e.preventDefault();
 
                     var message = '';
-                    var id = window.location.href.includes('?')
-                        ? window.location.href.split('=')[1]
-                        : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
                     window.open(
                         'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Announcement/' +
-                        id +
-                        '&caption=' +
-                        encodeURI(message) +
-                        '&description=' +
-                        encodeURI(message) +
-                        '&properties={text' +
-                        encodeURI(message),
-                        '}',
+                        $("#viewAnnouncementId").val(),
                         'Share To Facebook',
                         'width=500,height=300');
 

@@ -14,7 +14,7 @@
             <div class="map2">
                 <div id="organizationMap" class="height"></div>
             </div>
-        </div>
+            </div>
         <div class="col-sm-7 bg-white">
             <input type="hidden" id="selectedCategory" runat="server" />
             <br />        
