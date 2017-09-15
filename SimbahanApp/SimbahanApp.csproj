@@ -1457,6 +1457,7 @@
     <Compile Include="Components\IComponent.cs" />
     <Compile Include="Components\ImageSlider.cs" />
     <Compile Include="Components\NotificationItem.cs" />
+    <Compile Include="Components\OrganizationAnnouncement.cs" />
     <Compile Include="Components\OrganizationItem.cs" />
     <Compile Include="Components\OrganizationReview.cs" />
     <Compile Include="Components\OtherCatholicPrayerItem.cs" />
@@ -1531,6 +1532,7 @@
     <Compile Include="Models\NotificationLocale.cs" />
     <Compile Include="Models\NotificationType.cs" />
     <Compile Include="Models\Organization.cs" />
+    <Compile Include="Models\OrganizationAnnouncement.cs" />
     <Compile Include="Models\OrganizationMass.cs" />
     <Compile Include="Models\OrganizationReview.cs" />
     <Compile Include="Models\OtherCatholicPrayer.cs" />
@@ -1965,6 +1967,7 @@
     <Compile Include="Services\IBasicService.cs" />
     <Compile Include="Services\MusicalInspirationService.cs" />
     <Compile Include="Services\NotificationService.cs" />
+    <Compile Include="Services\OrganizationAnnouncementService.cs" />
     <Compile Include="Services\OrganizationReviewService.cs" />
     <Compile Include="Services\OrganizationService.cs" />
     <Compile Include="Services\OtherCatholicPrayerServices.cs" />
@@ -1994,6 +1997,7 @@
     <Compile Include="Transformers\InspirationalMusicTransformer.cs" />
     <Compile Include="Transformers\MassDetailTransformer.cs" />
     <Compile Include="Transformers\NotificationTransformer.cs" />
+    <Compile Include="Transformers\OrganizationAnnouncementTransformer.cs" />
     <Compile Include="Transformers\OrganizationReviewTransformer.cs" />
     <Compile Include="Transformers\OrganizationTransformer.cs" />
     <Compile Include="Transformers\OtherCatholicPrayerTransformer.cs" />
