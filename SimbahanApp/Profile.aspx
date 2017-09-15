@@ -394,7 +394,7 @@
                         <ul class="nav nav-tabs" id="myTab">
                             <div class="liner"></div>
                             <li class="active">
-                                <a href="#gospelReflection" data-toggle="tab" title="gosple">
+                                <a href="#gospelReflection" data-toggle="tab" title="gospel">
                                     <span class="round-tabs seven">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                     </span>
