@@ -33,7 +33,7 @@
               <a href="#">MyCatholicPortal.org</a>
             </div>
           </div>
-            <br />
+
           <!-- Blog Post -->
           <div class="card mb-4">
             <img class="card-img-top" src="Images/ManilaCathedralCover.png" alt="Card image cap">
@@ -47,7 +47,7 @@
               <a class="mylink" href="#">MyCatholicPortal.org</a>
             </div>
           </div>
-            <br />
+
           <!-- Blog Post -->
           <div class="card mb-4">
             <img class="card-img-top" src="Images/MakatiCover.png" alt="Card image cap">
@@ -61,7 +61,7 @@
               <a class="mylink" href="#">MyCatholicPortal.org</a>
             </div>
           </div>
-           <br />
+
           <%--<!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">

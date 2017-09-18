@@ -12,21 +12,10 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
-    <meta property="og:site_name" content="My Catholic Portal">
-    <meta property="og:type" content="website">
-
-    <meta property="fb:app_id" content="431222653910082">
+    <meta property="og:site_name" content="My Catholic Portal">    <meta property="og:type" content="website">    <meta property="fb:app_id" content="431222653910082">
     <meta name="propeller" content="4511983ceb40cd9586bb0e2a3423efc4" />
 
-    <asp:PlaceHolder runat="server">
-    <%: Scripts.Render("~/bundles/modernizr") %>
-    <meta property="og:title" content="<%= MetaTitle %>">
-    <meta property="og:description" content="<%= MetaDescription %>">
-    <meta property="og:url" content="<%= MetaUrl %>">
-    <meta property="og:image" content="<%= MetaImage %>">
-    <meta name="description" content="<%= GoogleMetaDescription %>">
-    <meta name="google-site-verification" content="sGQbU5TMAtd4B949g5RG2Q2yyVxHu7V86GDRx7QPMOw" />
-</asp:PlaceHolder>
+    <asp:PlaceHolder runat="server">    <%: Scripts.Render("~/bundles/modernizr") %>    <meta property="og:title" content="<%= MetaTitle %>">    <meta property="og:description" content="<%= MetaDescription %>">    <meta property="og:url" content="<%= MetaUrl %>">    <meta property="og:image" content="<%= MetaImage %>">    <meta name="description" content="<%= GoogleMetaDescription %>">    <meta name="google-site-verification" content="sGQbU5TMAtd4B949g5RG2Q2yyVxHu7V86GDRx7QPMOw" /></asp:PlaceHolder>
 
     <script type='text/javascript' src='../../../apis.google.com/js/platform.js' async defer></script>
     <link rel='dns-prefetch' href='http://maps.googleapis.com/' />
@@ -36,19 +25,11 @@
     <link rel='dns-prefetch' href='http://s.w.org/' />
     <link href="Content/sweetalert.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Roboto|Bungee+Inline|Vast+Shadow" rel="stylesheet">
-    <style>
-        @media only screen and (max-width:600px){
-            #icon2{
-                display:none;
-            }
-        }
-    </style>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
-
     $(document).ready(function(){
-   
-  
+        $("#icon2").hide();
         $("#icon").click(function(){
             $(".animate").hide();
             $("#icon").hide();
