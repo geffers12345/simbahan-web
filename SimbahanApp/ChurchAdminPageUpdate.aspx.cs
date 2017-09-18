@@ -56,6 +56,8 @@ namespace SimbahanApp
                         website.Value = church.Website;
                         OfficeSchedule.Value = church.OfficeHours;
                         SchedOfDevotion.Value = church.DevotionSchedule;
+                        Longitude.Value = church.Longitude.ToString();
+                        Latitude.Value = church.Latitude.ToString();
 
                         int locID;
 
@@ -829,7 +831,7 @@ namespace SimbahanApp
                     hasAdo = 0;
                 }
 
-                string query = String.Format("UPDATE Simbahan SET Parish = '" + churchName.Value + "', CompleteAddress = '" + address.Value + "', City = '" + city.Value + "', StateOrProvince = '" + province.Value + "', Vicariate = '" + vicariate.Value + "', FeastDay = '" + feastDay.Value + "', ParishPriest = '" + parishPriest.Value + "', Diocese = '" + diocese.Value + "', DateEstablished = '" + dateEstablished.Value + "', ContactNo = '" + phoneNo.Value + "', EmailAddress = '" + emailAdd.Value + "', Website = '" + website.Value + "', LocationID = '" + locID + "', HasAdorationChapel = '" + hasAdo + "', OfficeHours = '" + OfficeSchedule.Value + "', DevotionSchedule = '" + SchedOfDevotion.Value + "' FROM Simbahan where SimbahanID = " + simbahanId);
+                string query = String.Format("UPDATE Simbahan SET Parish = '" + churchName.Value + "', CompleteAddress = '" + address.Value + "', City = '" + city.Value + "', StateOrProvince = '" + province.Value + "', Vicariate = '" + vicariate.Value + "', FeastDay = '" + feastDay.Value + "', ParishPriest = '" + parishPriest.Value + "', Diocese = '" + diocese.Value + "', DateEstablished = '" + dateEstablished.Value + "', ContactNo = '" + phoneNo.Value + "', EmailAddress = '" + emailAdd.Value + "', Website = '" + website.Value + "', LocationID = '" + locID + "', HasAdorationChapel = '" + hasAdo + "', OfficeHours = '" + OfficeSchedule.Value + "', DevotionSchedule = '" + SchedOfDevotion.Value + "', Latitude = '" + Latitude.Value + "', Longitude = '" + Longitude.Value + "', LastUpdate = '" + DateTime.Now + "' FROM Simbahan where SimbahanID = " + simbahanId);
 
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 

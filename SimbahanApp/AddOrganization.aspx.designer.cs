@@ -10,7 +10,7 @@
 namespace SimbahanApp {
     
     
-    public partial class ChurchAdminPage {
+    public partial class AddOrganization {
         
         /// <summary>
         /// MassSchedules control.
@@ -49,13 +49,13 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlInputText EventSchedules;
         
         /// <summary>
-        /// churchName control.
+        /// organizationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText churchName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText organizationName;
         
         /// <summary>
         /// address control.
@@ -85,58 +85,31 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlInputText province;
         
         /// <summary>
-        /// country control.
+        /// branch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText country;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText branch;
         
         /// <summary>
-        /// vicariate control.
+        /// preacher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText vicariate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText preacher;
         
         /// <summary>
-        /// feastDay control.
+        /// parentOrganization control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText feastDay;
-        
-        /// <summary>
-        /// parishPriest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText parishPriest;
-        
-        /// <summary>
-        /// administeredBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText administeredBy;
-        
-        /// <summary>
-        /// diocese control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText diocese;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText parentOrganization;
         
         /// <summary>
         /// dateEstablished control.
@@ -148,13 +121,13 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlInputText dateEstablished;
         
         /// <summary>
-        /// phoneNo control.
+        /// telephoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText phoneNo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText telephoneNumber;
         
         /// <summary>
         /// emailAdd control.
@@ -175,76 +148,229 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlInputText website;
         
         /// <summary>
-        /// Longitude control.
+        /// worship control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Longitude;
+        protected global::System.Web.UI.WebControls.CheckBox worship;
         
         /// <summary>
-        /// Latitude control.
+        /// bibleStudy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Latitude;
+        protected global::System.Web.UI.WebControls.CheckBox bibleStudy;
         
         /// <summary>
-        /// facAirCon control.
+        /// mass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox facAirCon;
+        protected global::System.Web.UI.WebControls.CheckBox mass;
         
         /// <summary>
-        /// facCeilingFan control.
+        /// retreats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox facCeilingFan;
+        protected global::System.Web.UI.WebControls.CheckBox retreats;
         
         /// <summary>
-        /// facOrdinaryFan control.
+        /// recollection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox facOrdinaryFan;
+        protected global::System.Web.UI.WebControls.CheckBox recollection;
         
         /// <summary>
-        /// locSeparate control.
+        /// volunteerWorks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locSeparate;
+        protected global::System.Web.UI.WebControls.CheckBox volunteerWorks;
         
         /// <summary>
-        /// locMall control.
+        /// talks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locMall;
+        protected global::System.Web.UI.WebControls.CheckBox talks;
         
         /// <summary>
-        /// locHospital control.
+        /// camps control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locHospital;
+        protected global::System.Web.UI.WebControls.CheckBox camps;
+        
+        /// <summary>
+        /// men control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox men;
+        
+        /// <summary>
+        /// women control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox women;
+        
+        /// <summary>
+        /// singles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox singles;
+        
+        /// <summary>
+        /// couples control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox couples;
+        
+        /// <summary>
+        /// professionals control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox professionals;
+        
+        /// <summary>
+        /// students control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox students;
+        
+        /// <summary>
+        /// missionaries control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox missionaries;
+        
+        /// <summary>
+        /// nonCatholic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox nonCatholic;
+        
+        /// <summary>
+        /// aircon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox aircon;
+        
+        /// <summary>
+        /// ceiling control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox ceiling;
+        
+        /// <summary>
+        /// wallfan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox wallfan;
+        
+        /// <summary>
+        /// stdfan control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox stdfan;
+        
+        /// <summary>
+        /// streetPark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox streetPark;
+        
+        /// <summary>
+        /// mallPark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox mallPark;
+        
+        /// <summary>
+        /// separatePark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox separatePark;
+        
+        /// <summary>
+        /// otherPark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox otherPark;
+        
+        /// <summary>
+        /// locChurch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locChurch;
         
         /// <summary>
         /// locSchool control.
@@ -256,175 +382,85 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locSchool;
         
         /// <summary>
-        /// locConvent control.
+        /// locPublic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locConvent;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locPublic;
         
         /// <summary>
-        /// parkStreet control.
+        /// locMall control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox parkStreet;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locMall;
         
         /// <summary>
-        /// parkMall control.
+        /// locPrivate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox parkMall;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locPrivate;
         
         /// <summary>
-        /// parkPrivate control.
+        /// affiliatedSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox parkPrivate;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea affiliatedSched;
         
         /// <summary>
-        /// parkOther control.
+        /// retreatSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox parkOther;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea retreatSched;
         
         /// <summary>
-        /// yes control.
+        /// recollectionSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton yes;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea recollectionSched;
         
         /// <summary>
-        /// no control.
+        /// talkSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton no;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea talkSched;
         
         /// <summary>
-        /// displayText control.
+        /// campSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea displayText;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea campSched;
         
         /// <summary>
-        /// openYes control.
+        /// volunterSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton openYes;
-        
-        /// <summary>
-        /// openNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton openNo;
-        
-        /// <summary>
-        /// ventAirCon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ventAirCon;
-        
-        /// <summary>
-        /// ventCeilingFan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ventCeilingFan;
-        
-        /// <summary>
-        /// ventOrdinaryFan control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox ventOrdinaryFan;
-        
-        /// <summary>
-        /// SelectLanguage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect SelectLanguage;
-        
-        /// <summary>
-        /// confessionText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea confessionText;
-        
-        /// <summary>
-        /// OfficeSchedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea OfficeSchedule;
-        
-        /// <summary>
-        /// SchedOfDevotion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea SchedOfDevotion;
-        
-        /// <summary>
-        /// BaptismSched control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea BaptismSched;
-        
-        /// <summary>
-        /// WeddingSchedule control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea WeddingSchedule;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea volunterSched;
         
         /// <summary>
         /// FileUpload1 control.
@@ -461,24 +497,6 @@ namespace SimbahanApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
-        
-        /// <summary>
-        /// FileUpload6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload6;
-        
-        /// <summary>
-        /// btnAddThumbnail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddThumbnail;
         
         /// <summary>
         /// btnSubmit control.

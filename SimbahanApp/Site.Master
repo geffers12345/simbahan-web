@@ -29,7 +29,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
-        $("#icon2").hide();
         $("#icon").click(function(){
             $(".animate").hide();
             $("#icon").hide();
@@ -384,7 +383,7 @@
                     </div>
                 </div>--%>
                 <div class=" eltd-vertical-align-containers">
-                        <div class="eltd-position-left">
+                        <div class="eltd-position-left" style="width: 8%;">
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
@@ -397,7 +396,7 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right">
+                        <div class="eltd-position-right" style="width: 92%;">
                             <div class="eltd-position-right-inner">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
@@ -480,7 +479,7 @@
             <div class="eltd-sticky-header">
                 <div class="eltd-sticky-holder">
                     <div class=" eltd-vertical-align-containers">
-                        <div class="eltd-position-left">
+                        <div class="eltd-position-left" style="width: 8%;">
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
@@ -493,7 +492,7 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right">
+                        <div class="eltd-position-right" style="width: 92%;">
                             <div class="eltd-position-right-inner">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">

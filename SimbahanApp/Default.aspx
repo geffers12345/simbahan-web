@@ -123,7 +123,7 @@
                     <div class="vc_empty_space" style="background-color: white; height: 30px"><span class="vc_empty_space_inner"></span></div>
                    
 
-                    <div class="row" style="background-color: white;"> 
+                    <div class="row" style="background-color: white; padding-left: 80px;"> 
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-2 col-xs-12">
                             <div class="grid">
@@ -211,7 +211,7 @@
                     </div>
                     <div class="vc_empty_space" style="height: 30px; background-color: #fafafa;"><span class="vc_empty_space_inner"></span></div>
                   
-                    <div class="row" style="background-color: #fafafa;">
+                    <div class="row" style="background-color: #fafafa; padding-left: 80px;">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
@@ -225,7 +225,7 @@
                                             <a href="#"><span class="icon-eye"></span></a>
                                             <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                         </p>
-                                        <p class="description" style="font-size: 20px; background-color: black;">Revisit the Traditional Prayers of our Catholic Religion.</p></figcaption></a>
+                                        <p class="description mm">Revisit the Traditional Prayers of our Catholic Religion.</p></figcaption></a>
                           </figure>
                                 </div></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
@@ -239,7 +239,7 @@
                                             <a href="#"><span class="icon-eye"></span></a>
                                             <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                         </p>
-                                        <p class="description" style="font-size: 20px; background-color: black;">Discover Other Prayers Listed per Intention and per Title to help you through each phase of your life.</p></figcaption></a>
+                                        <p class="description mm">Discover Other Prayers Listed per Intention and per Title to help you through each phase of your life.</p></figcaption></a>
                                 </figure>
                             </div>
                         </div>
@@ -254,7 +254,7 @@
                                         <a href="#"><span class="icon-eye"></span></a>
                                         <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                     </p> 
-                                    <p class="description" style="font-size: 20px; background-color: black;">Discover the Traditional Prayers of our Catholic Religion.</p></figcaption></a>
+                                    <p class="description mm" style="font-size: 20px; background-color: black;">Discover the Traditional Prayers of our Catholic Religion.</p></figcaption></a>
                             </figure>
                             </div>
                         </div>
@@ -333,7 +333,7 @@
                     </div>
                     <div class="vc_empty_space" style="height: 30px; background-color: white;"><span class="vc_empty_space_inner" style="background-color: white;"></span></div>
                    
-                     <div class="row" style="background-color: white;">
+                     <div class="row" style="background-color: white; padding-left: 80px;">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="grid">
@@ -346,7 +346,7 @@
                                             <a href="#"><span class="icon-eye"></span></a>
                                             <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                         </p>
-                                        <p class="description" style="font-size: 20px; background-color: black;">Verses from the Bible categorized according to your mood to inspire you.</p>
+                                        <p class="description mm" style="font-size: 20px; background-color: black;">Verses from the Bible categorized according to your mood to inspire you.</p>
                                     </figcaption></a>
                                 </figure>
                             </div>
@@ -362,7 +362,7 @@
                                             <a href="#"><span class="icon-eye"></span></a>
                                             <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                         </p>
-                                        <p class="description" style="font-size: 20px; background-color: black;">Let religious quotes categorized per mood motivate you forward.</p>
+                                        <p class="description mm" style="font-size: 20px; background-color: black;">Let religious quotes categorized per mood motivate you forward.</p>
                                     </figcaption></a>
                                 </figure>
                             </div>
@@ -378,7 +378,7 @@
                                         <a href="#"><span class="icon-eye"></span></a>
                                         <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                     </p>
-                                    <p class="description" style="font-size: 20px; background-color: black;">Listen and be inspired by Religious Songs organized just for you.</p>
+                                    <p class="description mm" style="font-size: 20px; background-color: black;">Listen and be inspired by Religious Songs organized just for you.</p>
                                 </figcaption></a>
                             </figure>
                             </div>
@@ -423,8 +423,7 @@
                     </div>
                     <div class="vc_empty_space" style="height: 30px; background-color: #fafafa;"><span class="vc_empty_space_inner"></span></div>
                     
-                      <div class="row" style="background-color: #fafafa;"></div>
-                      <div class="row" style="background-color: #fafafa;">
+                      <div class="row" style="background-color: #fafafa; padding-left: 100px;">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="grid">

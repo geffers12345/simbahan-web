@@ -20,7 +20,7 @@
 	 <div class="bible" style="background-image: url(Images/Background.jpg)">
 		<div class="row">
 			<br />
-			<h1 class="moods">MUSICAL INSPIRATION</h1>
+			<h1 class="moods fs">MUSICAL INSPIRATION</h1>
             <h3 class="sub-mood">How are you feeling today?</h3>
     <br />
 		</div>
