@@ -3,6 +3,7 @@
 <%@ MasterType virtualpath="~/Site.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
+    
     <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
     <link rel="stylesheet" href='<%= ResolveUrl("Content/cssslider_files/csss_engine1/style.css") %>'>
     <link rel="stylesheet" type="text/css" href='<%= ResolveUrl("Content/engine1/style.css") %>'/>
@@ -18,6 +19,8 @@ Date Created: 02/22/2017
 Date Modified:
 Modified by:
 --------------------------->
+
+    
 
 <div id="create-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -126,10 +129,10 @@ Modified by:
             </div>
             <div class="modal-footer">
                 <div style="display:-webkit-inline-box;">
-                    <div class="col-lg-3">
+                    <%--<div class="col-lg-3">
                     <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!"/>
-                            <%--<img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>--%>
-                    </div>
+                            <img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>
+                    </div>--%>
                     <div class="col-lg-3">
                         <button id="btnShareSocialTwit" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="2" style="color: rgb(255, 255, 255); border-color: rgb(26, 181, 193);">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
@@ -1050,7 +1053,7 @@ Modified by:
         $("#view-announcement-modal").modal('show');
     });
 
-    $(document).on('click',
+    <%--$(document).on('click',
             '#<%= btnAddToFav.ClientID %>',
             function (e) {
                 e.preventDefault();
@@ -1092,7 +1095,7 @@ Modified by:
                         }
                         
                     }).run();
-            });
+            });--%>
 
     $(document).on('click',
    '#btnShareSocialTwit',
