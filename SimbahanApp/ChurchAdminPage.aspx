@@ -112,13 +112,14 @@
 				</div>
                 <div class="row">
 				<div class="col-md-6">
-					<%--<span class="text-danger">*</span>--%><label class="font-large" for="">Longitude:</label>
-					<input type="text" runat="server" class="form-control input-lg" id="Longitude" placeholder="Longitude" data-name="" />
-					<%--<label id="errorVicariate" class="text-danger" style="display: none;"></label>--%>
+					<span class="text-danger">*</span><label class="font-large" for="">Longitude:</label>
+					<input type="text" runat="server" class="form-control input-lg" id="Longitude" placeholder="Longitude" data-name="Longitude" />
+					<label id="errorLong" class="text-danger" style="display: none;"></label>
 				</div>
 				<div class="col-md-6">
-					<label class="font-large" for="">Latitude:</label>
-					<input type="text" runat="server" class="form-control input-lg" id="Latitude" placeholder="Latitude" />
+					<span class="text-danger">*</span><label class="font-large" for="">Latitude:</label>
+					<input type="text" runat="server" class="form-control input-lg" id="Latitude" placeholder="Latitude" data-name="Latitude" />
+                    <label id="errorLat" class="text-danger" style="display: none;"></label>
 				</div>
 			    </div>
 			</div>
@@ -1235,11 +1236,11 @@
 					<%--var hasConfession = $("#<%= ConfessionSchedules.ClientID%>").validate(['required']).displayErrorOn($("#errorConfession"));
 					var isConfessionvalid = $("#<%= confessionText.ClientID%>").validate(['required']).displayErrorOn($("#errorDisplayTextConfession"));
 					var isOfficeValid = $("#<%= OfficeSchedule.ClientID%>").validate(['required']).displayErrorOn($("#errorOfficeSchedules"));
-					var isBaptismValid = $("#<%= BaptismSched.ClientID%>").validate(['required']).displayErrorOn($("#errorBaptism"));
-					var isWeddingValid = $("#<%= WeddingSchedule.ClientID%>").validate(['required']).displayErrorOn($("#errorWedding"));
-					var hasChurchPhoto = $('#<%= FileUpload1.ClientID%>').validate(['required']).displayErrorOn($("#errorPhoto"));--%>
+					var isBaptismValid = $("#<%= BaptismSched.ClientID%>").validate(['required']).displayErrorOn($("#errorBaptism"));--%>
+					var isLongitudeValid = $("#<%= Latitude.ClientID%>").validate(['required']).displayErrorOn($("#errorLong"));
+					var isLatitudeValid = $('#<%= Longitude.ClientID%>').validate(['required']).displayErrorOn($("#errorLat"));
 
-					return isChurchNameValid && isChurchAddressValid && hasMassSchedule;
+				    return isChurchNameValid && isChurchAddressValid && hasMassSchedule && isLongitudeValid && isLatitudeValid;
 				}
 			
 				//insert simbahan info
@@ -1305,6 +1306,7 @@
 						var _id = church.SimbahanID;
 						console.log(AdorationID);
 						alert('Successfully Added!');
+						
 						AdorationID.forEach(function (adoration) {
 							console.log(adoration);
 							$.each(adoration.day, function (key, day) {
@@ -1439,6 +1441,7 @@
 					// Either one or all of the validation has failed.
 					// alert('Please provide a valid data');
 				}
+			    
 			});
 
 				function removeZeroPrefix(value)
