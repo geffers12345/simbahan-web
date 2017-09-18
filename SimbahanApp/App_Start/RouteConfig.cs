@@ -10,10 +10,10 @@ namespace SimbahanApp
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            var settings = new FriendlyUrlSettings();
-            settings.AutoRedirectMode = RedirectMode.Off;
-            routes.EnableFriendlyUrls(settings);
-            //routes.Ignore("{assets}", new { assets = @".*\.(css|js|gif|jpg)(/.)?" });
+            //var settings = new FriendlyUrlSettings();
+            //settings.AutoRedirectMode = RedirectMode.Off;
+            //routes.EnableFriendlyUrls(settings);
+            ////routes.Ignore("{assets}", new { assets = @".*\.(css|js|gif|jpg)(/.)?" });
 
             routes.MapPageRoute("BibleVerse",
                 "BibleVerse/{bible-verse-id}",
