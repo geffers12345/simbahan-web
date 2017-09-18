@@ -383,7 +383,7 @@
                     </div>
                 </div>--%>
                 <div class=" eltd-vertical-align-containers">
-                        <div class="eltd-position-left">
+                        <div class="eltd-position-left" style="width: 8%;">
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
@@ -396,7 +396,7 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right">
+                        <div class="eltd-position-right" style="width: 92%;">
                             <div class="eltd-position-right-inner">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
@@ -479,7 +479,7 @@
             <div class="eltd-sticky-header">
                 <div class="eltd-sticky-holder">
                     <div class=" eltd-vertical-align-containers">
-                        <div class="eltd-position-left">
+                        <div class="eltd-position-left" style="width: 8%;">
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
@@ -492,7 +492,7 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right">
+                        <div class="eltd-position-right" style="width: 92%;">
                             <div class="eltd-position-right-inner">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
