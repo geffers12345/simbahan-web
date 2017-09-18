@@ -132,14 +132,14 @@
         </a>
     </li>
     <li>
-        <a href="#profile" data-toggle="tab" title="profile">
+        <a href="#profile" data-toggle="tab" title="Profile">
             <span class="round-tabs two">
                 <i class="fa fa-group"></i>
             </span>
         </a>
     </li>
     <li>
-        <a href="#saints" data-toggle="tab" title="saints">
+        <a href="#saints" data-toggle="tab" title="Saints">
             <span class="round-tabs seven">
                 <i class="fa fa-male"></i>
             </span>
@@ -153,7 +153,7 @@
         </a>
     </li>
     <li>
-        <a href="#bibleVerses" data-toggle="tab" title="bootsnipp goodies">
+        <a href="#bibleVerses" data-toggle="tab" title="Bootsnipp Goodies">
             <span class="round-tabs three">
                 <i class="fa fa-book"></i>
             </span>
