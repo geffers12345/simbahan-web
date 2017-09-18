@@ -265,7 +265,7 @@ Modified by:
             <a href="#info" data-toggle="tab" class="gen gentabs">GENERAL INFORMATION</a>
         </li>
         <li>
-            <a href="#sched" data-toggle="tab" class="sched schedtabs">SCHEDULES</a>
+            <a id="ads" href="#sched" data-toggle="tab" class="sched schedtabs">SCHEDULES</a>
         </li>
         <li>
             <a href="#announce" data-toggle="tab" class="announce announcetabs">ANNOUNCEMENTS</a>
