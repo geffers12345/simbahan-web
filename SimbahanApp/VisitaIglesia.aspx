@@ -6,7 +6,7 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="row  tab-bg" style="min-height: 500px;">
+    <div class="row  tab-bg" style="min-height: 600px;">
         <div class="col-sm-5">
             <div class="mapvisita">
                 <div id="mapContainer" class="height"></div>
