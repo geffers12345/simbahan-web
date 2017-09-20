@@ -24,7 +24,7 @@
 
     <asp:PlaceHolder runat="server">    <%: Scripts.Render("~/bundles/modernizr") %>    <meta property="og:title" content="<%= MetaTitle %>">    <meta property="og:description" content="<%= MetaDescription %>">    <meta property="og:url" content="<%= MetaUrl %>">    <meta property="og:image" content="<%= MetaImage %>">    <meta name="description" content="<%= GoogleMetaDescription %>">    <meta name="google-site-verification" content="sGQbU5TMAtd4B949g5RG2Q2yyVxHu7V86GDRx7QPMOw" /></asp:PlaceHolder>
 
-    <script type='text/javascript' src='../../../apis.google.com/js/platform.js' async defer></script>
+    <script type='text/javascript' src='https://apis.google.com/js/platform.js' async defer></script>
     <link rel='dns-prefetch' href='http://maps.googleapis.com/' />
     <link rel='dns-prefetch' href='http://apis.google.com/' />
     <link rel='dns-prefetch' href='http://ajax.googleapis.com/' />
@@ -697,7 +697,7 @@
             </asp:ContentPlaceHolder>
 
 
-            <footer style="background-image: url(~/searchandgo.elated-themes.com/wp-content/uploads/2016/02/footer-background.jpg);">
+            <footer <%--style="background-image: url(~/searchandgo.elated-themes.com/wp-content/uploads/2016/02/footer-background.jpg);"--%>>
                 <div class="eltd-footer-inner clearfix">
                     <div class="eltd-footer-top-holder">
                         <div class="eltd-footer-top eltd-footer-top-aligment-left">
