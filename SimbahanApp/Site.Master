@@ -412,10 +412,10 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right style="width: 90%;"">
+                        <div class="eltd-position-right" style="width: 90%;">
                             <div class="eltd-position-right-inner">
 
-                                <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
+                                <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav" >
                                     <ul id="menu-other-menu-1" class="clearfix">
                                         <li id="sticky-nav-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" class="home"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-home fa"></i></span><span class="item_text">Home</span></span><span class="plus"></span></span></a></li>
                                         <li id="sticky-nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Church &#038; Organizations</span></span><span class="plus"></span></span></a></li>
@@ -508,7 +508,7 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right style="width: 90%;"">
+                        <div class="eltd-position-right" style="width: 90%;">
                             <div class="eltd-position-right-inner">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
