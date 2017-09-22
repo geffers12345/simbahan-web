@@ -6313,6 +6313,13 @@ button.close {
 
 @media screen and (max-width: 600px)  {
 
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    display: block !important;
+    max-width: 100% !important;
+    line-height: 1 !important;
+    width: 600px !important;
+}
+
 .fs {
     font-size: 31px;
 }

@@ -54,7 +54,7 @@ namespace SimbahanApp
             churchVicariate.InnerHtml = churches.Vicariate;
             churchDiocese.InnerHtml = churches.Diocese;
             churchContact.InnerHtml = churches.ContactNo;
-            churchWebsite.InnerHtml = "Website: " + churches.Website;
+            churchWebsite.InnerHtml = churches.Website;
             adorationSchedule.InnerHtml = churches.AdorationDisplayText;
             churchMapAddress.InnerHtml = churches.CompleteAddress;
             churchMapDestination.Value = churches.CompleteAddress;

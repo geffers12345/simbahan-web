@@ -29,6 +29,7 @@ namespace SimbahanApp.Components
 
         public string ToHtml()
         {
+            
             string pagination = "<ul class=\"pagination\" id=\"churchPagination\">";
 
             pagination += (new PaginationButton("<a href=\"#\">«</a>", CurrentPage == FirstPage)).ToHtml();
