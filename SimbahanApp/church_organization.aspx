@@ -1696,6 +1696,7 @@
             }
 
             adorationList = new List('adorationResultContainer', options, adorationItems);
+            $("#adorationPaginationText").text($(".adorationItem").length + ' of ' + adorationItems.length + ' Adorations');
         }
 
         $(document).on('mouseenter', '.churchItem', function (e) {
