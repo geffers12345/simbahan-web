@@ -534,7 +534,7 @@ namespace SimbahanApp
                 }
                 dbconn.Open();
 
-                SqlCommand cmd = new SqlCommand("SELECT AdChapelID, AdorationID, ScheduleID, Time, TimeStandardID from [AdorationChapel] where AdorationID = " + Convert.ToInt16(adoID.Text), dbconn);
+                SqlCommand cmd = new SqlCommand("SELECT AdChapelID, AdorationID, ScheduleID, Time, TimeStandardID from [AdorationChapel] where AdorationID = " + SimbahanId.Value, dbconn);
 
                 var reader = cmd.ExecuteReader();
 
@@ -1223,6 +1223,69 @@ namespace SimbahanApp
                 var filename = FileUpload6.FileName.Split('.')[FileUpload6.FileName.Split('.').Length - 1];
 
                 FileUpload6.SaveAs(Server.MapPath("Images/Photos/Thumbnails/" + simbahanId + "." + filename));
+            }
+        }
+
+        [WebMethod]
+        public static void addNewMass(int day, string massStart, string massEnd, string lang, int timestandard, int simbahanID)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var massDateTime = massStart + " - " + massEnd;
+                //var ImgPath = "Images/Churches/" + path;
+                string query = String.Format("Insert Into MassDetails values('" + DateTime.Now + "', '" + day + "', '" + lang + "', '" + massDateTime + "', '" + simbahanID + "', '" + timestandard + "')");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        [WebMethod]
+        public static void addNewConfession(int conday, string conStart, string conEnd, string display, int timestandard, int simbahanID)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var confessionDateTime = conStart + " - " + conEnd;
+                //var ImgPath = "Images/Churches/" + path;
+                string query = String.Format("Insert Into [ConfessionDetails] values('" + confessionDateTime + "', '" + simbahanID + "', '" + conday + "', '" + DateTime.Now + "', '" + display + "', '" + timestandard + "')");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        [WebMethod]
+        public static void addNewAdoration(int adoday, string adoStart, string adoEnd, int timestandard, int simbahanID)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var adoDateTime = adoStart + " - " + adoEnd;
+                //var ImgPath = "Images/Churches/" + path;
+                string query = String.Format("Insert Into [AdorationChapel] values('" + simbahanID + "', '" + adoday + "', '" + adoDateTime + "', '" + timestandard + "')");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
             }
         }
     }
