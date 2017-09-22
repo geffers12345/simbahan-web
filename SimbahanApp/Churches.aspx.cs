@@ -24,7 +24,7 @@ namespace SimbahanApp
 
             var churchId = 0;
 
-            if (Request["id"] == null && Page.RouteData.Values["church-id"] == null)
+            if (Request["id"] == null && Page.RouteData.Values["church-id"] == null && Page.RouteData.Values["church-id"] == null)
                 return;
 
             if (Request["id"] != null)

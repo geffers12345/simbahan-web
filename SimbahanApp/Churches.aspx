@@ -1119,13 +1119,16 @@ Modified by:
                     e.preventDefault();
 
                     var message = '';
-
+                    
+                   
                     window.open(
-                        'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Announcement/' +
-                        $("#viewAnnouncementId").val(),
+                        'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Church/' +
+                    $("#<%= simbahanID.ClientID %>").val() + "/" + $("#viewAnnouncementId").val(),
                         'Share To Facebook',
                         'width=500,height=300');
 
+
+                  
                 });
     $(document).on('click', '#editHistory', function () {
         var history = $('#<%= churchHistory.ClientID%>').val();
