@@ -225,7 +225,7 @@
                                             <a href="#"><span class="icon-eye"></span></a>
                                             <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                         </p>
-                                        <p class="description mm">Revisit the Traditional Prayers of our Catholic Religion.</p></figcaption></a>
+                                        <p class="description mm" style="font-size: 20px; background-color: black;">Revisit the Traditional Prayers of our Catholic Religion.</p></figcaption></a>
                           </figure>
                                 </div></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
@@ -239,7 +239,7 @@
                                             <a href="#"><span class="icon-eye"></span></a>
                                             <a href="#"><span class="icon-paper-clip"></span></a>--%>
                                         </p>
-                                        <p class="description mm">Discover Other Prayers Listed per Intention and per Title to help you through each phase of your life.</p></figcaption></a>
+                                        <p class="description mm" style="font-size: 20px; background-color: black;">Discover Other Prayers Listed per Intention and per Title to help you through each phase of your life.</p></figcaption></a>
                                 </figure>
                             </div>
                         </div>

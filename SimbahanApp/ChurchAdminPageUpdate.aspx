@@ -100,7 +100,17 @@
         <input type="text" runat="server" class="form-control input-lg" id="website" placeholder="Website" />
     </div>
 </div>
-
+<div class="row">
+	<div class="col-md-6">
+		<%--<span class="text-danger">*</span>--%><label class="font-large" for="">Longitude:</label>
+		<input type="text" runat="server" class="form-control input-lg" id="Longitude" placeholder="Longitude" data-name="" />
+		<%--<label id="errorVicariate" class="text-danger" style="display: none;"></label>--%>
+	</div>
+	<div class="col-md-6">
+		<label class="font-large" for="">Latitude:</label>
+		<input type="text" runat="server" class="form-control input-lg" id="Latitude" placeholder="Latitude" />
+	</div>
+	</div>
 <h3>FACILITIES</h3>
 <div id="category-list">
 <h4>CHURCH FACILITIES:</h4>

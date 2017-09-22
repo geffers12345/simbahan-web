@@ -10,459 +10,582 @@
 namespace SimbahanApp {
     
     
-    public partial class Churches {
+    public partial class AddOrganization {
         
         /// <summary>
-        /// announcementTitle control.
+        /// MassSchedules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText announcementTitle;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MassSchedules;
         
         /// <summary>
-        /// announcementVenue control.
+        /// ConfessionSchedules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText announcementVenue;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ConfessionSchedules;
         
         /// <summary>
-        /// announcementStartDate control.
+        /// AdorationSchedules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl announcementStartDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText AdorationSchedules;
         
         /// <summary>
-        /// announcementStartTime control.
+        /// EventSchedules control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl announcementStartTime;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText EventSchedules;
         
         /// <summary>
-        /// announcementEndDate control.
+        /// organizationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl announcementEndDate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText organizationName;
         
         /// <summary>
-        /// announcementEndTime control.
+        /// address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl announcementEndTime;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText address;
         
         /// <summary>
-        /// AnnouncementImage control.
+        /// city control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload AnnouncementImage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText city;
         
         /// <summary>
-        /// announcementContent control.
+        /// province control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea announcementContent;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText province;
         
         /// <summary>
-        /// btnSaveAnnouncement control.
+        /// branch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveAnnouncement;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText branch;
         
         /// <summary>
-        /// latitude control.
+        /// preacher control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden latitude;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText preacher;
         
         /// <summary>
-        /// longitude control.
+        /// parentOrganization control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden longitude;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText parentOrganization;
         
         /// <summary>
-        /// simbahanID control.
+        /// dateEstablished control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden simbahanID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText dateEstablished;
         
         /// <summary>
-        /// churchName control.
+        /// telephoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText telephoneNumber;
         
         /// <summary>
-        /// churchAddress control.
+        /// emailAdd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchAddress;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText emailAdd;
         
         /// <summary>
-        /// churchMassDates control.
+        /// website control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchMassDates;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText website;
         
         /// <summary>
-        /// churchMassLanguages control.
+        /// worship control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchMassLanguages;
+        protected global::System.Web.UI.WebControls.CheckBox worship;
         
         /// <summary>
-        /// churchLastUpdate control.
+        /// bibleStudy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchLastUpdate;
+        protected global::System.Web.UI.WebControls.CheckBox bibleStudy;
         
         /// <summary>
-        /// AddFav control.
+        /// mass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton AddFav;
+        protected global::System.Web.UI.WebControls.CheckBox mass;
         
         /// <summary>
-        /// RemoveFav control.
+        /// retreats control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton RemoveFav;
+        protected global::System.Web.UI.WebControls.CheckBox retreats;
         
         /// <summary>
-        /// cssSlider control.
+        /// recollection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cssSlider;
+        protected global::System.Web.UI.WebControls.CheckBox recollection;
         
         /// <summary>
-        /// churchHistory control.
+        /// volunteerWorks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchHistory;
+        protected global::System.Web.UI.WebControls.CheckBox volunteerWorks;
         
         /// <summary>
-        /// editChurchHistory control.
+        /// talks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea editChurchHistory;
+        protected global::System.Web.UI.WebControls.CheckBox talks;
         
         /// <summary>
-        /// churchType control.
+        /// camps control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchType;
+        protected global::System.Web.UI.WebControls.CheckBox camps;
         
         /// <summary>
-        /// churchEstablished control.
+        /// men control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchEstablished;
+        protected global::System.Web.UI.WebControls.CheckBox men;
         
         /// <summary>
-        /// churchFeastDay control.
+        /// women control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchFeastDay;
+        protected global::System.Web.UI.WebControls.CheckBox women;
         
         /// <summary>
-        /// churchPriest control.
+        /// singles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchPriest;
+        protected global::System.Web.UI.WebControls.CheckBox singles;
         
         /// <summary>
-        /// churchVicariate control.
+        /// couples control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchVicariate;
+        protected global::System.Web.UI.WebControls.CheckBox couples;
         
         /// <summary>
-        /// churchDiocese control.
+        /// professionals control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchDiocese;
+        protected global::System.Web.UI.WebControls.CheckBox professionals;
         
         /// <summary>
-        /// churchContact control.
+        /// students control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchContact;
+        protected global::System.Web.UI.WebControls.CheckBox students;
         
         /// <summary>
-        /// churchWebsite control.
+        /// missionaries control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchWebsite;
+        protected global::System.Web.UI.WebControls.CheckBox missionaries;
         
         /// <summary>
-        /// churchLocation control.
+        /// nonCatholic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchLocation;
+        protected global::System.Web.UI.WebControls.CheckBox nonCatholic;
         
         /// <summary>
-        /// churchVentilations control.
+        /// aircon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchVentilations;
+        protected global::System.Web.UI.WebControls.CheckBox aircon;
         
         /// <summary>
-        /// churchParking control.
+        /// ceiling control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchParking;
+        protected global::System.Web.UI.WebControls.CheckBox ceiling;
         
         /// <summary>
-        /// adorationSchedule control.
+        /// wallfan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adorationSchedule;
+        protected global::System.Web.UI.WebControls.CheckBox wallfan;
         
         /// <summary>
-        /// adorationVentilations control.
+        /// stdfan control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adorationVentilations;
+        protected global::System.Web.UI.WebControls.CheckBox stdfan;
         
         /// <summary>
-        /// adorationImageContainer control.
+        /// streetPark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adorationImageContainer;
+        protected global::System.Web.UI.WebControls.CheckBox streetPark;
         
         /// <summary>
-        /// adorationImageList control.
+        /// mallPark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adorationImageList;
+        protected global::System.Web.UI.WebControls.CheckBox mallPark;
         
         /// <summary>
-        /// adorationLinkList control.
+        /// separatePark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adorationLinkList;
+        protected global::System.Web.UI.WebControls.CheckBox separatePark;
         
         /// <summary>
-        /// churchMapAddress control.
+        /// otherPark control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchMapAddress;
+        protected global::System.Web.UI.WebControls.CheckBox otherPark;
         
         /// <summary>
-        /// churchMapDestination control.
+        /// locChurch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText churchMapDestination;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locChurch;
         
         /// <summary>
-        /// massScheduleTable control.
+        /// locSchool control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTable massScheduleTable;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locSchool;
         
         /// <summary>
-        /// confessionSchedule control.
+        /// locPublic control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl confessionSchedule;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locPublic;
         
         /// <summary>
-        /// baptismSchedule control.
+        /// locMall control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl baptismSchedule;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locMall;
         
         /// <summary>
-        /// weddingSchedule control.
+        /// locPrivate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl weddingSchedule;
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton locPrivate;
         
         /// <summary>
-        /// adorationChapelSchedule control.
+        /// affiliatedSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adorationChapelSchedule;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea affiliatedSched;
         
         /// <summary>
-        /// officeHours control.
+        /// retreatSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl officeHours;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea retreatSched;
         
         /// <summary>
-        /// devotionSchedule control.
+        /// recollectionSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl devotionSchedule;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea recollectionSched;
         
         /// <summary>
-        /// churchAnnouncementContainer control.
+        /// talkSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchAnnouncementContainer;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea talkSched;
         
         /// <summary>
-        /// churchReviewsContainer control.
+        /// campSched control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchReviewsContainer;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea campSched;
         
         /// <summary>
-        /// Master property.
+        /// volunterSched control.
         /// </summary>
         /// <remarks>
-        /// Auto-generated property.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public new SimbahanApp.SiteMaster Master {
-            get {
-                return ((SimbahanApp.SiteMaster)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea volunterSched;
+        
+        /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        
+        /// <summary>
+        /// FileUpload2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
+        
+        /// <summary>
+        /// FileUpload3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload3;
+        
+        /// <summary>
+        /// btnUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpload;
+        
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        
+        /// <summary>
+        /// eventName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText eventName;
+        
+        /// <summary>
+        /// eventVenue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText eventVenue;
+        
+        /// <summary>
+        /// eventDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea eventDesc;
+        
+        /// <summary>
+        /// FileUpload4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload4;
+        
+        /// <summary>
+        /// eventDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventDate;
+        
+        /// <summary>
+        /// eventTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventTime;
+        
+        /// <summary>
+        /// eventEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndDate;
+        
+        /// <summary>
+        /// eventEndTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndTime;
+        
+        /// <summary>
+        /// btnAddEvent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddEvent;
     }
 }

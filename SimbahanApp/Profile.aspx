@@ -125,35 +125,35 @@
 <!-- Favorites Tab Header -->
 <ul class="nav nav-tabs" id="myTab">
     <li class="active">
-        <a href="#church" data-toggle="tab" title="Church">
+        <a href="#church" data-toggle="tab" title="Churches">
             <span class="round-tabs one">
                 <i class="fa fa-university"></i>
             </span>
         </a>
     </li>
     <li>
-        <a href="#profile" data-toggle="tab" title="profile">
+        <a href="#profile" data-toggle="tab" title="Organizations">
             <span class="round-tabs two">
                 <i class="fa fa-group"></i>
             </span>
         </a>
     </li>
     <li>
-        <a href="#saints" data-toggle="tab" title="saints">
+        <a href="#saints" data-toggle="tab" title="Saints">
             <span class="round-tabs seven">
                 <i class="fa fa-male"></i>
             </span>
         </a>
     </li>
     <li>
-        <a href="#basicCatholicPrayers" data-toggle="tab" title="Basic Catholic Prayers">
+        <a href="#basicCatholicPrayers" data-toggle="tab" title="Prayers & Devotions">
             <span class="round-tabs six">
                 <i class="fa fa-heart"></i>
             </span>
         </a>
     </li>
     <li>
-        <a href="#bibleVerses" data-toggle="tab" title="bootsnipp goodies">
+        <a href="#bibleVerses" data-toggle="tab" title="Bible Verses">
             <span class="round-tabs three">
                 <i class="fa fa-book"></i>
             </span>
@@ -394,9 +394,9 @@
                         <ul class="nav nav-tabs" id="myTab">
                             <div class="liner"></div>
                             <li class="active">
-                                <a href="#gospelReflection" data-toggle="tab" title="gosple">
-                                    <span class="round-tabs seven">
-                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                <a href="#gospelReflection" data-toggle="tab" title="gospel">
+                                    <span class="round-tabs nine">
+                                        <i class="fa fa-book fa-pencil" aria-hidden="true"></i>
                                     </span>
                                 </a>
                             </li>
@@ -404,15 +404,15 @@
                             <li>
                                 <a href="#reflectionReflection" data-toggle="tab" title="reflection">
                                     <span class="round-tabs eight">
-                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                        <i class="fa fa-book fa-pencil" aria-hidden="true"></i>
                                     </span>
                                 </a>
                             </li>
                             
                             <li>
                                 <a href="#saintReflection" data-toggle="tab" title="saint">
-                                    <span class="round-tabs eight">
-                                        <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                    <span class="round-tabs seven">
+                                        <i class="fa fa-male fa-pencil" aria-hidden="true"></i>
                                     </span>
                                 </a>
                             </li>

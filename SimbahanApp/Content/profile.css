@@ -231,6 +231,17 @@ li.active span.round-tabs.eight{
     color: skyblue;
 }
 
+span.round-tabs.nine{
+    color: #71b10e;border: 2px solid #71b10e;
+}
+
+li.active span.round-tabs.nine{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: #71b10e;
+}
+
+
 
 .nav-tabs > li.active > a span.round-tabs{
     background: #fafafa;
