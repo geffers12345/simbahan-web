@@ -1752,6 +1752,7 @@
     <Compile Include="Components\Announcement.cs" />
     <Compile Include="Components\BasicCatholicPrayerItem.cs" />
     <Compile Include="Components\BibleVerseItem.cs" />
+    <Compile Include="Components\Carousel.cs" />
     <Compile Include="Components\CheckLabel.cs" />
     <Compile Include="Components\ChurchItem.cs" />
     <Compile Include="Components\ChurchReview.cs" />

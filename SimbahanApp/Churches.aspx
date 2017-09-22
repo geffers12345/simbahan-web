@@ -350,9 +350,8 @@ Modified by:
             <b>CONTACT INFO:</b>
             <p>Telephone Number: <strong runat="server" id="churchContact">Type</strong>
             </p>
-            <p runat="server" id="churchWebsite">
-                Website: <%--<a href="/">Website</a>--%>
-            </p>
+            Website:<a href="<%=churchWebsite.InnerHtml%>"><p runat="server" id="churchWebsite" style="color: #428bca !important; font-weight: bolder; text-decoration: underline;">
+            </p></a>
             <p>Office Hours: <a href="#" id="seeScheduleTab">see Schedules</a>
             </p>
             <br/>

@@ -123,7 +123,7 @@
                     <div class="vc_empty_space" style="background-color: white; height: 30px"><span class="vc_empty_space_inner"></span></div>
                    
 
-                    <div class="row" style="background-color: white; padding-left: 80px;"> 
+                    <div class="row" style="background-color: white; padding-left: 10px;"> 
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-2 col-xs-12">
                             <div class="grid">
@@ -211,7 +211,7 @@
                     </div>
                     <div class="vc_empty_space" style="height: 30px; background-color: #fafafa;"><span class="vc_empty_space_inner"></span></div>
                   
-                    <div class="row" style="background-color: #fafafa; padding-left: 80px;">
+                    <div class="row" style="background-color: #fafafa; padding-left: 10px;">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
@@ -269,7 +269,7 @@
                                 <div class="wpb_column vc_column_container vc_col-sm-10 vc_col-lg-offset-2 vc_col-lg-8 vc_col-md-offset-1 vc_col-md-10 vc_col-sm-offset-1">
                                     <div class="vc_column-inner ">
                                         <div class="wpb_wrapper">
-                                            <div class="vc_empty_space" style="height: 80px;"><span class="vc_empty_space_inner"></span></div>
+                                            <div class="vc_empty_space" style="height: 10px;"><span class="vc_empty_space_inner"></span></div>
 
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
@@ -333,7 +333,7 @@
                     </div>
                     <div class="vc_empty_space" style="height: 30px; background-color: white;"><span class="vc_empty_space_inner" style="background-color: white;"></span></div>
                    
-                     <div class="row" style="background-color: white; padding-left: 80px;">
+                     <div class="row" style="background-color: white; padding-left: 10px;">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="grid">
@@ -423,7 +423,7 @@
                     </div>
                     <div class="vc_empty_space" style="height: 30px; background-color: #fafafa;"><span class="vc_empty_space_inner"></span></div>
                     
-                      <div class="row" style="background-color: #fafafa; padding-left: 100px;">
+                      <div class="row" style="background-color: #fafafa; padding-left: 1px;">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="grid">

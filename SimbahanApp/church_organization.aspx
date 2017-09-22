@@ -1640,7 +1640,7 @@
                 pagination: true,
                 page: $("#organizationDisplayLimit").val(),
                 item:
-                    '<a href="#" target="_blank" id="churchItem" data-id="" class="organizationItem">' +
+                    '<a href="#" target="_blank" id="organizationItem" data-id="" class="organizationItem">' +
                         '<div class="row church-result">' +
                         '<div class="col-md-4">' +
                         '<img class="img-responsive" src="">' +
@@ -1660,7 +1660,7 @@
 
             organizationList = new List('organizationResultContainer', options, organizationItems);
 
-            $("#organizationPaginationText").text($(".churchItem").length + ' of ' + organizationItems.length + ' Organizations');
+            $("#organizationPaginationText").text($(".organizationItem").length + ' of ' + organizationItems.length + ' Organizations');
         }
 
         function renderAdorationItem() {

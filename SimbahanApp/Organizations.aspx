@@ -128,10 +128,10 @@ Modified by:
             </div>
             <div class="modal-footer">
                 <div style="display:-webkit-inline-box; margin-right:100%;">
-                    <div class="col-lg-3">
+                    <%--<div class="col-lg-3">
                         <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" width="45" height="45"/>
-                        <%--<img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>--%>
-                    </div>
+                        <img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>
+                    </div>--%>
                     <div class="col-lg-3">
                         <button id="btnShareSocialTwit" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="2" style="color: rgb(255, 255, 255); border-color: rgb(26, 181, 193);">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
