@@ -4,6 +4,13 @@
 
 <html lang="en">
 <head runat="server">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-1360923144092964",
+    enable_page_level_ads: true
+  });
+</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - MyCatholicPortal</title>
@@ -17,7 +24,7 @@
 
     <asp:PlaceHolder runat="server">    <%: Scripts.Render("~/bundles/modernizr") %>    <meta property="og:title" content="<%= MetaTitle %>">    <meta property="og:description" content="<%= MetaDescription %>">    <meta property="og:url" content="<%= MetaUrl %>">    <meta property="og:image" content="<%= MetaImage %>">    <meta name="description" content="<%= GoogleMetaDescription %>">    <meta name="google-site-verification" content="sGQbU5TMAtd4B949g5RG2Q2yyVxHu7V86GDRx7QPMOw" /></asp:PlaceHolder>
 
-    <script type='text/javascript' src='../../../apis.google.com/js/platform.js' async defer></script>
+    <script type='text/javascript' src='https://apis.google.com/js/platform.js' async defer></script>
     <link rel='dns-prefetch' href='http://maps.googleapis.com/' />
     <link rel='dns-prefetch' href='http://apis.google.com/' />
     <link rel='dns-prefetch' href='http://ajax.googleapis.com/' />
@@ -25,6 +32,14 @@
     <link rel='dns-prefetch' href='http://s.w.org/' />
     <link href="Content/sweetalert.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Roboto|Bungee+Inline|Vast+Shadow" rel="stylesheet">
+
+    <style>
+         @media only screen and (max-width:600px){
+             #icon2{
+                 display:none;
+             }
+         }
+     </style>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
@@ -181,6 +196,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body class="home page-template page-template-full-width page-template-full-width-php page page-id-6 eltd-booking-1.1.1 eltd-core-1.2 eltd-core-1.1.3 eltd-overlapping-content-enabled search and go-ver-1.7 eltd-smooth-scroll  eltd-ajax eltd-top-bar-enabled eltd-header-standard eltd-sticky-header-on-scroll-down-up eltd-default-mobile-header eltd-sticky-up-mobile-header eltd-dropdown-default eltd-light-header wpb-js-composer js-comp-ver-5.0.1 vc_responsive">
+  
     <form runat="server" id="MainForm">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -383,7 +399,7 @@
                     </div>
                 </div>--%>
                 <div class=" eltd-vertical-align-containers">
-                        <div class="eltd-position-left" style="width: 8%;">
+                        <div class="eltd-position-left" style="width: 10%;">
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
@@ -396,10 +412,10 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right" style="width: 92%;">
+                        <div class="eltd-position-right" style="width: 90%;">
                             <div class="eltd-position-right-inner">
 
-                                <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
+                                <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav" >
                                     <ul id="menu-other-menu-1" class="clearfix">
                                         <li id="sticky-nav-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" class="home"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-home fa"></i></span><span class="item_text">Home</span></span><span class="plus"></span></span></a></li>
                                         <li id="sticky-nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Church &#038; Organizations</span></span><span class="plus"></span></span></a></li>
@@ -479,7 +495,7 @@
             <div class="eltd-sticky-header">
                 <div class="eltd-sticky-holder">
                     <div class=" eltd-vertical-align-containers">
-                        <div class="eltd-position-left" style="width: 8%;">
+                        <div class="eltd-position-left" style="width: 10%;">
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
@@ -492,7 +508,7 @@
 
                             </div>
                         </div>
-                        <div class="eltd-position-right" style="width: 92%;">
+                        <div class="eltd-position-right" style="width: 90%;">
                             <div class="eltd-position-right-inner">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav">
@@ -681,7 +697,7 @@
             </asp:ContentPlaceHolder>
 
 
-            <footer style="background-image: url(~/searchandgo.elated-themes.com/wp-content/uploads/2016/02/footer-background.jpg);">
+            <footer <%--style="background-image: url(~/searchandgo.elated-themes.com/wp-content/uploads/2016/02/footer-background.jpg);"--%>>
                 <div class="eltd-footer-inner clearfix">
                     <div class="eltd-footer-top-holder">
                         <div class="eltd-footer-top eltd-footer-top-aligment-left">
