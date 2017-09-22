@@ -54,7 +54,7 @@ namespace SimbahanApp
             churchVicariate.InnerHtml = churches.Vicariate;
             churchDiocese.InnerHtml = churches.Diocese;
             churchContact.InnerHtml = churches.ContactNo;
-            churchWebsite.InnerHtml = "Website: " + churches.Website;
+            churchWebsite.InnerHtml = churches.Website;
             adorationSchedule.InnerHtml = churches.AdorationDisplayText;
             churchMapAddress.InnerHtml = churches.CompleteAddress;
             churchMapDestination.Value = churches.CompleteAddress;
@@ -259,9 +259,9 @@ namespace SimbahanApp
                 slider.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
 
                 for (var i = 0; i < churches.ChurchPhotos.Count; i++)
-                    slider.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
+                    carousel.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
 
-                cssSlider.InnerHtml = slider.ToHtml();
+                cssSlider.InnerHtml = carousel.ToHtml();
             }
             else
             {

@@ -108,6 +108,7 @@ namespace SimbahanApp
                 MetaDescription = devotion.Prayer.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
                 MetaUrl = "http://www.mycatholicportal.org/Dvote/" + devotion.Id;
+                MetaImage = "http://www.mycatholicportal.org/Images/prayersdefault.jpg";
                 //MetaImage = church.ChurchPhotos.Count > 0 ? "http://www.mycatholicportal.org/Images/" + church.ChurchPhotos[0].ChurchPhotos : "";
             }
 
@@ -122,6 +123,7 @@ namespace SimbahanApp
                 MetaDescription = bcp.Prayer.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
                 MetaUrl = "http://www.mycatholicportal.org/Prayer/" + bcp.Id;
+                MetaImage = "http://www.mycatholicportal.org/Images/prayersdefault.jpg";
                 //MetaImage = church.ChurchPhotos.Count > 0 ? "http://www.mycatholicportal.org/Images/" + church.ChurchPhotos[0].ChurchPhotos : "";
             }
 
@@ -136,6 +138,7 @@ namespace SimbahanApp
                 MetaDescription = ocp.Prayer.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
                 MetaUrl = "http://www.mycatholicportal.org/OtherPrayer/" + ocp.Id;
+                MetaImage = "http://www.mycatholicportal.org/Images/prayersdefault.jpg";
                 //MetaImage = church.ChurchPhotos.Count > 0 ? "http://www.mycatholicportal.org/Images/" + church.ChurchPhotos[0].ChurchPhotos : "";
             }
 
@@ -202,6 +205,7 @@ namespace SimbahanApp
                 MetaTitle = "Daily Reflection";
                 MetaImage = "http://www.mycatholicportal.org/Images/dailyreadings.jpg";
                 MetaUrl = "http://www.mycatholicportal.org/Reflection/" + reflection.Id;
+                MetaImage = "http://www.mycatholicportal.org/Images/dailyreadings.jpg";
             }
 
             if (Page.RouteData.Values["announcement-id"] != null)

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Blogs Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Blogs.aspx.cs" Inherits="SimbahanApp.Blogs" %>
+<%@ Page Title="Blogs Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Blogs.aspx.cs" Inherits="SimbahanApp.Blogs" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <%--<link href="Content/SimbahanStyle.css" rel="stylesheet" />
@@ -30,7 +30,7 @@
             </div>
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
-              <a href="#">MyCatholicPortal.org</a>
+              <a class="mylink" href="http://mycatholicportal.org/">MyCatholicPortal.org</a>
             </div>
           </div>
             <br />
@@ -40,17 +40,16 @@
             <div class="card-body">
               <h3 class="card-title">Top 10 Most Beautiful Churches in Manila</h3>
               <p class="card-text">Aside from our world-class beach resorts and our famous Filipino hospitality, Philippines is also known as a predominantly Catholic country, something we inherited after 300 years of being under the Spaniards.  Only third from Brazil and Mexico in terms of Catholic Population, 81.4% or over 81 million Filipinos are Catholics. Our culture has been heavily shaped by Catholicism to the point that some Catholic traditions, such as the Sinulog Festival, has become a tourist attraction in the country.  </p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+              <a href="Blog-2.aspx" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
-              <a class="mylink" href="#">MyCatholicPortal.org</a>
+              <a class="mylink" href="http://mycatholicportal.org/">MyCatholicPortal.org</a>
             </div>
           </div>
             <br />
-
           <!-- Blog Post -->
-          <div class="card mb-4">
+          <%--<div class="card mb-4">
             <img class="card-img-top" src="Images/MakatiCover.png" alt="Card image cap">
             <div class="card-body">
               <h3 class="card-title">Top 10 Most Beautiful Churches in Makati</h3>
@@ -59,11 +58,10 @@
             </div>
             <div class="card-footer text-muted">
               Posted on January 1, 2017 by
-              <a class="mylink" href="#">MyCatholicPortal.org</a>
+              <a class="mylink" href="http://mycatholicportal.org/">MyCatholicPortal.org</a>
             </div>
           </div>
             <br />
-
           <%--<!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
@@ -100,14 +98,14 @@
                 <div class="col-lg-12">
                   <ul class="list-unstyled mb-0">
                     <li>
-                      <a class="mylink" href="#">Top 10 Most Beautiful Churches in Quezon City </a>
+                      <a class="mylink" href="Blog-1.aspx">Top 10 Most Beautiful Churches in Quezon City </a>
                     </li>
                     <li>
-                      <a class="mylink" href="#">Top 10 Most Beautiful Churches in Manila</a>
+                      <a class="mylink" href="Blog-2.aspx">Top 10 Most Beautiful Churches in Manila</a>
                     </li>
-                    <li>
+                   <%-- <li>
                       <a class="mylink" href="#">Top 10 Most Beautiful Churches in Makati</a>
-                    </li>
+                    </li>--%>
                   </ul>
                 </div>
                 
