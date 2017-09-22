@@ -281,9 +281,8 @@ Modified by:
             <p>
                 Email Address: <strong id="Email" runat="server"></strong>
             </p>
-            <p>
-                Website: <strong id="Website" runat="server"></strong>
-            </p>
+            Website:<a href="<%=Website.InnerHtml%>"><p runat="server" id="Website" style="color: #428bca !important; font-weight: bolder;">
+            </p></a>
             <br/>
             <div class="eltd-listing-feature-list eltd-listing-part">
                 <p>ORGANIZATION ACTIVITIES:</p>
