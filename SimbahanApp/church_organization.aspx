@@ -938,11 +938,23 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <hr />
+                                      
                                 <div id="organizationResultContainer">
                                     <organization-item v-for="organization in organizations" :organization="organization" :key="organization.Id"></organization-item>
                                 </div>
-                                <hr />
+                                 <hr />
+                
+                                <p class="text-muted" id="organizationPaginationText"></p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="pagination" id="organizationPagination">
+                              
+                                                 </ul>
+                                    </div>
+                                     </div>
                                 <p class="text-muted"></p>
                                 <div class="row">
                                     <div class="col-md-6">
@@ -1640,7 +1652,7 @@
                 pagination: true,
                 page: $("#organizationDisplayLimit").val(),
                 item:
-                    '<a href="#" target="_blank" id="churchItem" data-id="" class="organizationItem">' +
+                    '<a href="#" target="_blank" id="organizationItem" data-id="" class="organizationItem">' +
                         '<div class="row church-result">' +
                         '<div class="col-md-4">' +
                         '<img class="img-responsive" src="">' +
@@ -1660,7 +1672,7 @@
 
             organizationList = new List('organizationResultContainer', options, organizationItems);
 
-            $("#organizationPaginationText").text($(".churchItem").length + ' of ' + organizationItems.length + ' Organizations');
+            $("#organizationPaginationText").text($(".organizationItem").length + ' of ' + organizationItems.length + ' Organizations');
         }
 
         function renderAdorationItem() {
@@ -1696,6 +1708,9 @@
             }
 
             adorationList = new List('adorationResultContainer', options, adorationItems);
+
+            $("#adorationPaginationText").text($(".adorationItem").length + ' of ' + adorationItems.length + ' Adorations');
+
         }
 
         $(document).on('mouseenter', '.churchItem', function (e) {
