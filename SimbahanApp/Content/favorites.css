@@ -95,6 +95,6 @@ span:active {
 	opacity: 1;
 }
 
-* {
+/** {
 	transition: all .32s ease;
-}
+}*/
