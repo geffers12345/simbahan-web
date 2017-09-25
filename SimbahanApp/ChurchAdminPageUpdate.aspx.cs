@@ -17,8 +17,21 @@ namespace SimbahanApp
 {
     public partial class ChurchAdminPageUpdate : System.Web.UI.Page
     {
+        protected string uploadedImgPath;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if (FileUpload1.HasFile)
+            {
+                uploadedImgPath = "Images / Photos / " + FileUpload1.FileName.ToString();
+                FileUpload1.SaveAs(Server.MapPath(uploadedImgPath));
+            }
+            else
+            {
+                emptyupload.Text = "Choose your file";
+            }
+
             if (IsPostBack) return;
 
             int simbahanId = Convert.ToInt32(Request["id"]);

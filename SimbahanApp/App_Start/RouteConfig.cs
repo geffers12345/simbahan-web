@@ -24,7 +24,7 @@ namespace SimbahanApp
                 "~/ReligiousQuotes.aspx");
 
             routes.MapPageRoute("Church",
-                "Church/{church-id}",
+                "Church/{church-id}/{announcement-id}",
                 "~/Churches.aspx");
 
             routes.MapPageRoute("Organization",
@@ -59,9 +59,9 @@ namespace SimbahanApp
                 "Saint/{saint-id}",
                 "~/Saintlisting.aspx");
 
-            routes.MapPageRoute("Announcement",
-             "Announcement/{announcement-id}",
-             "~/ChurchesAnnouncements.aspx");
+            //routes.MapPageRoute("Announcement",
+            // "Announcement/{announcement-id}",
+            // "~/ChurchesAnnouncements.aspx");
         }
     }
 }

@@ -899,6 +899,8 @@
 <div class="col-md-5">
 <label class="font-large">ADD CHURCH PHOTOS</label>
 <div style="padding: 40px;">
+    <img src="<%=uploadedImgPath%>" />
+    <asp:label id="emptyupload" runat="server" xmlns:asp="#unknown"></asp:label>   
 <asp:FileUpload ID="FileUpload1" runat="server" /><br />
 <asp:FileUpload ID="FileUpload2" runat="server" /><br />
 <asp:FileUpload ID="FileUpload3" runat="server" /><br />

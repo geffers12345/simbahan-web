@@ -939,14 +939,15 @@
                                     </div>
                                 </div>
                                 <hr />
+                                
                                 <div id="organizationResultContainer">
-                                    <organization-item v-for="organization in organizations" :organization="organization" :key="organization.Id"></organization-item>
+                                    <%--<organization-item v-for="organization in organizations" :organization="organization" :key="organization.Id"></organization-item>--%>
                                 </div>
                                 <hr />
-                                <p class="text-muted"></p>
+                                <p class="text-muted" id="organizationPaginationText"></p>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <paginate
+                                       <%-- <paginate
                                             :page-count="pages"
                                             :margin-pages="2"
                                             :page-range="3"
@@ -958,7 +959,7 @@
                                             :prev-link-class="'prev-link-item'"
                                             :next-class="'next-item'"
                                             :next-link-class="'next-link-item'"
-                                            :click-handler="OnPageClicked"></paginate>
+                                            :click-handler="OnPageClicked"></paginate>--%>
                                     </div>
                                     <div class="col-md-3">
 
@@ -1233,14 +1234,14 @@
 
                     $.each(organizations, function(key, organization) {
 
-//                        organizationItems.push({
-//                            'church-name': organization.Name,
-//                            'church-location': organization.Address,
-//                            'name': organization.ParentOrganization,
-//                            'mass': (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : '',
-//                            'id': organization.Id,
-//                            'img-responsive': organization.Photos[0]
-//                        });
+                        organizationItems.push({
+                            'church-name': organization.Name,
+                            'church-location': organization.Address,
+                            'name': organization.ParentOrganization,
+                            'mass': (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : '',
+                            'id': organization.Id,
+                            'img-responsive': organization.Photos[0]
+                        });
                         
                         organizationMap.AddMarker(organization.Id.toString(), {
                             position: new google.maps.LatLng(organization.Latitude, organization.Longitude),
