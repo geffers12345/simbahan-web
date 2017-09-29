@@ -22,15 +22,15 @@ namespace SimbahanApp
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (FileUpload1.HasFile)
-            {
-                uploadedImgPath = "Images/Photos/"+ FileUpload1.FileName.ToString();
-                FileUpload1.SaveAs(Server.MapPath(uploadedImgPath));
-            }
-            else
-            {
-                emptyupload.Text = "Choose your file";
-            }
+            //if (FileUpload1.HasFile)
+            //{
+            //    uploadedImgPath = "Images/Photos/"+ FileUpload1.FileName.ToString();
+            //    FileUpload1.SaveAs(Server.MapPath(uploadedImgPath));
+            //}
+            //else
+            //{
+            //    emptyupload.Text = "Choose your file";
+            //}
 
             if (IsPostBack) return;
 
@@ -133,6 +133,7 @@ namespace SimbahanApp
                 WeddingSchedules();
                 EventDetails();
                 adoration();
+                Images();
             }
         }
         
@@ -641,6 +642,33 @@ namespace SimbahanApp
             }
         }
 
+        private void Images()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT * from [ChurchPhotos] where SimbahanID = " + SimbahanId.Value, dbconn);
+
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var path = reader["ImagePath"];
+                    var tr = new HtmlGenericControl("td");
+                    int id = Convert.ToInt32(reader["ChurchPhotoID"].ToString());
+
+                    tr.InnerHtml = string.Format("<tr name=\"{1}\"><td class=\"text-center\">{0}</td><td><img src=\"Images/Photos/{0}\" /></td><td class=\"text-center\"><i class=\"fa fa-remove\" style=\"font-size: 28px; color: #db0c0c;\" id=\"deleteImage\" data-id='" + id + "'></i></td></tr>", path, id);
+                    imagesList.Controls.Add(tr);
+                }
+
+            }
+        }
+
         [WebMethod]
         public static void UpdateEventDetails(int eventDetailsId, string eventName, string eventStartDate, string eventStartTime, string eventEndDate, string eventEndTime, int SimbahanId, string venue, string path, string desc)
         {
@@ -691,6 +719,23 @@ namespace SimbahanApp
                 dbconn.Open();
 
                 SqlCommand cmd = new SqlCommand("DELETE from MassDetails where MassDetailID = '" + massDetailsId + "'", dbconn);
+
+                cmd.ExecuteReader();
+            }
+        }
+
+        [WebMethod]
+        public static void DeleteImage(int imgId)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                SqlCommand cmd = new SqlCommand("DELETE from [ChurchPhotos] where [ChurchPhotoID] = '" + imgId + "'", dbconn);
 
                 cmd.ExecuteReader();
             }
@@ -1141,26 +1186,26 @@ namespace SimbahanApp
 
         private void StartUpLoad(int SimbahanID)
         {
-            if (FileUpload1.PostedFile != null && FileUpload1.PostedFile.FileName != "")
-            {
-                FileUpload1.SaveAs(Server.MapPath("Images/Photos/" + FileUpload1.FileName.ToString()));
+            //if (FileUpload1.PostedFile != null && FileUpload1.PostedFile.FileName != "")
+            //{
+            //    FileUpload1.SaveAs(Server.MapPath("Images/Photos/" + FileUpload1.FileName.ToString()));
 
-                ExecuteInsert(SimbahanID, FileUpload1.FileName.ToString());
-            }
+            //    ExecuteInsert(SimbahanID, FileUpload1.FileName.ToString());
+            //}
 
-            if (FileUpload2.PostedFile != null && FileUpload2.PostedFile.FileName != "")
-            {
-                FileUpload2.SaveAs(Server.MapPath("Images/Photos/" + FileUpload2.FileName.ToString()));
+            //if (FileUpload2.PostedFile != null && FileUpload2.PostedFile.FileName != "")
+            //{
+            //    FileUpload2.SaveAs(Server.MapPath("Images/Photos/" + FileUpload2.FileName.ToString()));
 
-                ExecuteInsert(SimbahanID, FileUpload2.FileName.ToString());
-            }
+            //    ExecuteInsert(SimbahanID, FileUpload2.FileName.ToString());
+            //}
 
-            if (FileUpload3.PostedFile != null && FileUpload3.PostedFile.FileName != "")
-            {
-                FileUpload3.SaveAs(Server.MapPath("Images/Photos/" + FileUpload3.FileName.ToString()));
+            //if (FileUpload3.PostedFile != null && FileUpload3.PostedFile.FileName != "")
+            //{
+            //    FileUpload3.SaveAs(Server.MapPath("Images/Photos/" + FileUpload3.FileName.ToString()));
 
-                ExecuteInsert(SimbahanID, FileUpload3.FileName.ToString());
-            }
+            //    ExecuteInsert(SimbahanID, FileUpload3.FileName.ToString());
+            //}
         }
 
         private void ExecuteInsert(int SimbahanID, string path)
@@ -1299,6 +1344,31 @@ namespace SimbahanApp
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
                 cmd.ExecuteNonQuery();
+            }
+        }
+
+        protected void addChurchImages_Click(object sender, EventArgs e)
+        {
+            var SimbahanID = Convert.ToInt32(Request["id"]);
+            if (FileUpload1.PostedFile != null && FileUpload1.PostedFile.FileName != "")
+            {
+                FileUpload1.SaveAs(Server.MapPath("Images/Photos/" + FileUpload1.FileName.ToString()));
+
+                ExecuteInsert(SimbahanID, FileUpload1.FileName.ToString());
+            }
+
+            if (FileUpload2.PostedFile != null && FileUpload2.PostedFile.FileName != "")
+            {
+                FileUpload2.SaveAs(Server.MapPath("Images/Photos/" + FileUpload2.FileName.ToString()));
+
+                ExecuteInsert(SimbahanID, FileUpload2.FileName.ToString());
+            }
+
+            if (FileUpload3.PostedFile != null && FileUpload3.PostedFile.FileName != "")
+            {
+                FileUpload3.SaveAs(Server.MapPath("Images/Photos/" + FileUpload3.FileName.ToString()));
+
+                ExecuteInsert(SimbahanID, FileUpload3.FileName.ToString());
             }
         }
     }
