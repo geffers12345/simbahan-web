@@ -898,13 +898,31 @@
 <div class="row">
 <div class="col-md-5">
 <label class="font-large">ADD CHURCH PHOTOS</label>
-<div style="padding: 40px;">
+<div style="padding-right: 40px;">
+    <button id="addnewImage" class="btn btn-success">Add New Church Image</button>
     <img src="<%=uploadedImgPath%>" />
-    <asp:label id="emptyupload" runat="server" xmlns:asp="#unknown"></asp:label>   
-<asp:FileUpload ID="FileUpload1" runat="server" /><br />
+    <asp:label id="emptyupload" runat="server" CssClass="hidden" xmlns:asp="#unknown"></asp:label>
+    <table id="imagesTable">
+        <thead>
+            <tr class="bg-primary">
+                <td class="text-center">
+                    <strong>Filename</strong>
+                </td>
+                <td class="text-center">
+                    <strong>Image</strong>
+                </td>
+                <td class="text-center">
+                    <strong>Action</strong>
+                </td>
+            </tr>
+        </thead>
+        <tbody id="imagesList" runat="server">
+        </tbody>
+    </table> 
+<%--<asp:FileUpload ID="FileUpload1" runat="server" /><br />
 <asp:FileUpload ID="FileUpload2" runat="server" /><br />
-<asp:FileUpload ID="FileUpload3" runat="server" /><br />
-<asp:Button ID="btnUpload" runat="server" Text="Save" CssClass="hidden"/>
+<asp:FileUpload ID="FileUpload3" runat="server" /><br />--%>
+<%--<asp:Button ID="btnUpload" runat="server" Text="Save" CssClass="hidden"/>--%>
 </div>
 </div>
     <div class="col-md-4">
@@ -1268,6 +1286,35 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!--Modal End-->
+    <!-- Modal Start-->
+<div class="modal fade" id="add-Images-modal" tabindex="-1" style="width: 100%;" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Add Church Images</h4>
+            </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div id="ImagesModal" class="">
+                        <div class="row">
+                             
+                        <div class="col-md-12">
+                            <asp:FileUpload ID="FileUpload1" runat="server" /><br />
+                            <asp:FileUpload ID="FileUpload2" runat="server" /><br />
+                            <asp:FileUpload ID="FileUpload3" runat="server" /><br />
+                            <asp:Button ID="btnUpload" runat="server" Text="Save" CssClass="hidden"/>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="addChurchImages" CssClass="btn btn-info btn-block" OnClick="addChurchImages_Click" runat="server" Text="Save Images"></asp:Button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <!--Modal End-->
 </asp:Content>
@@ -1899,6 +1946,29 @@
                 alert('Added!');
                 window.location.reload();
             }).run();
+        });
+
+        $(document).on('click', '#deleteImage', function (e) {
+            e.preventDefault();
+
+            var confirmDelete = confirm('Are you sure yo want to delete this image?');
+            var id = $(this).data('id');
+
+            if (confirmDelete) {
+                console.log($(this).data('id'));
+                (new http).post('ChurchAdminPageUpdate.aspx/DeleteImage', {
+                    imgId: id
+                }).then(function (response) {
+                    alert('Deleted!');
+                    window.location.reload();
+                }).run();
+            }
+        });
+
+        $(document).on('click', '#addnewImage', function (e) {
+            e.preventDefault();
+
+            $('#add-Images-modal').modal('show');
         });
 </script>
 <script src="Scripts/timepicki.js"></script>
