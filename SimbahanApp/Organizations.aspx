@@ -629,11 +629,17 @@ Modified by:
             function(e) {
                 e.preventDefault();
 
-                window.open(
+               window.open(
                     'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organization/' +
                     $("#<%= OrganizationId.ClientID %>").val(),
                     'Share To Facebook',
                     'width=500,height=300');
+
+                 <%--window.open(
+                        'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organization/' + $("#<%= OrganizationId.ClientID %>").val() + "&description=" +
+                        $("#OrganizationAbout").val(),
+                        'Share To Facebook',
+                        'width=500,height=300');--%>
 
             });
 
