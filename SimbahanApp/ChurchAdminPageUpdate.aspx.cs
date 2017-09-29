@@ -24,7 +24,7 @@ namespace SimbahanApp
             
             if (FileUpload1.HasFile)
             {
-                uploadedImgPath = "Images / Photos / " + FileUpload1.FileName.ToString();
+                uploadedImgPath = "Images/Photos/"+ FileUpload1.FileName.ToString();
                 FileUpload1.SaveAs(Server.MapPath(uploadedImgPath));
             }
             else

@@ -1771,20 +1771,25 @@
             e.preventDefault();
 
             var fromHour = removeZeroPrefix($('#timepicker11').val().split(':')[0]);
+            console.log('fromHour ', fromHour);
             var fromAMorPM = $('#timepicker11').val().split(':')[1].split(' ')[1];
+            console.log('2 ', fromAMorPM);
             var toHour = removeZeroPrefix($('#timepicker12').val().split(':')[0]);
+            console.log('3 ', toHour);
             var toAMorPM = $('#timepicker12').val().split(':')[1].split(' ')[1];
-
+            console.log('4 ', toAMorPM);
+            
             
             var timeStd = 0;
+            var timeStandardID = 0;
 
             timestandard[fromAMorPM].forEach(
                 function (time, timeStandardID) {
-                    if (fromHour == time.substr(0, 1))
+                    if (fromHour.split(':')[0] == time.substr(0, 1))
+                        console.log('from hour ', fromHour.split(':')[0]);
+                        console.log('time std ', time.substr(0, 1));
                         timeStd = timeStandardID;
                 });
-
-            console.log('timeStd ', timeStd);
 
             (new http).post('ChurchAdminPageUpdate.aspx/addNewMass', {
                 day: massDayID,
@@ -1826,14 +1831,15 @@
 
             
             var timeStd = 0;
+            var timeStandardID = 0;
 
             timestandard[fromAMorPM].forEach(
                 function (time, timeStandardID) {
-                    if (fromHour == time.substr(0, 1))
-                        timeStd = timeStandardID;
+                    if (fromHour.split(':')[0] == time.substr(0, 1))
+                        console.log('from hour ', fromHour.split(':')[0]);
+                    console.log('time std ', time.substr(0, 1));
+                    timeStd = timeStandardID;
                 });
-
-            console.log('timeStd ', timeStd);
 
             (new http).post('ChurchAdminPageUpdate.aspx/addNewConfession', {
                 conday: conFDayID,
@@ -1873,14 +1879,15 @@
 
             
             var timeStd = 0;
+            var timeStandardID = 0;
 
             timestandard[fromAMorPM].forEach(
                 function (time, timeStandardID) {
-                    if (fromHour == time.substr(0, 1))
-                        timeStd = timeStandardID;
+                    if (fromHour.split(':')[0] == time.substr(0, 1))
+                        console.log('from hour ', fromHour.split(':')[0]);
+                    console.log('time std ', time.substr(0, 1));
+                    timeStd = timeStandardID;
                 });
-
-            console.log('timeStd ', timeStd);
 
             (new http).post('ChurchAdminPageUpdate.aspx/addNewAdoration', {
                 adoday: adoDayID,
