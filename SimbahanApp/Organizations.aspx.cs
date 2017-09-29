@@ -23,6 +23,9 @@ namespace SimbahanApp
             var imgArr = new List<string>();
             var organizationId = 0;
             orgID = Convert.ToInt32(Request["id"]);
+
+            OrganizationId.Value = orgID.ToString();
+
             if (Request["id"] == null && Page.RouteData.Values["organization-id"] == null)
                 return;
 
