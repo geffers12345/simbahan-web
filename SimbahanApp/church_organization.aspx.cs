@@ -6,11 +6,19 @@ using System.Web.UI;
 using Microsoft.Ajax.Utilities;
 using SimbahanApp.Models;
 using SimbahanApp.Services;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+using System.Web;
+using SimbahanApp.Transformers;
 
 namespace SimbahanApp
 {
     public partial class church_organization : Page
     {
+
+        public int LongCS = 0;
+        public int LatCS = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -378,6 +386,51 @@ namespace SimbahanApp
                 .OrderBy(adoration => NearDistance(new Coordinate { Latitude = latitude, Longitude = longitude },
                     new Coordinate { Latitude = adoration.Church.Latitude, Longitude = adoration.Church.Longitude }))
                 .ToList();
+        }
+
+        public decimal longi = 0;
+        public decimal lati = 0;
+        [WebMethod]
+        public static void getChurchLongLat(int churchID)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                ChurchTransformer churchTransformer = new ChurchTransformer();
+                ChurchInfo church = new ChurchInfo();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT Longitude, Latitude FROM [Simbahan] where SimbahanID = " + churchID, dbconn))
+                {
+                    var reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        HttpContext.Current.Session["Longi"] = Convert.ToDecimal(reader["Longitude"].ToString());
+                        church.Longitude = Convert.ToDouble(HttpContext.Current.Session["Longi"]);
+
+                        HttpContext.Current.Session["Lati"] = Convert.ToDecimal(reader["Latitude"].ToString());
+                        church.Latitude = Convert.ToDouble(HttpContext.Current.Session["Lati"]);
+                    }                    
+                }
+            }
+        }
+
+        public void passLocation()
+        {
+            Longitude.Value = HttpContext.Current.Session["Longi"].ToString();
+            
+            Latitude.Value = HttpContext.Current.Session["Lati"].ToString();
+            
+        }
+
+        protected void triggerMe_Click(object sender, EventArgs e)
+        {
+            passLocation();
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿<%@ Page Title="Filter of Churches & Organizations" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="church_organization.aspx.cs" Inherits="SimbahanApp.church_organization" %>
+﻿<%@ Page Title="Filter of Churches & Organizations" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="church_organization.aspx.cs" Inherits="SimbahanApp.church_organization" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <input type="hidden" id="Longitude" runat="server" />
+    <input type="hidden" id="Latitude" runat="server" />
+    <asp:Button ID="triggerMe" runat="server" OnClick="triggerMe_Click" />
     <div class="row">
         <div class="col-sm-5">
             <div class="map">
@@ -1256,6 +1259,10 @@
             });
         });
 
+        var latLong = [];
+        var long = 0;
+        var lat = 0;
+
         var GetChurches = (new http).post('church_organization.aspx/GetChurches').prepare(function () {
             $("#churchResultContainer").empty();
             
@@ -1308,6 +1315,12 @@
                             position: new google.maps.LatLng(church.Latitude, church.Longitude),
                             title: church.Parish
                         });
+
+                            //long = church.Longitude;
+                            //lat = church.Latitude;
+
+                        //console.log(long, lat);
+
                     });
 
                     renderChurchItem();
@@ -1608,9 +1621,9 @@
                     '<a href="#" target="_blank" id="churchItem" data-id="" class="churchItem">' +
                         '<div class="row church-result">' +
                         '<div class="col-md-4">' +
-                        '<img class="img-responsive" src="">' +
+                        '<img class="img-responsive" id="churchPhotohh" src="">' +
                         '</div>' +
-                        '<div class="col-md-8">' +
+                        '<div class="col-md-8" id="churchInfo">' +
                         '<h4 class="church-name text-danger"></h4>' +
                         '<p class="church-location text-muted"></p>' +
                         '<div class="church-details">' +
@@ -1699,10 +1712,68 @@
             adorationList = new List('adorationResultContainer', options, adorationItems);
             $("#adorationPaginationText").text($(".adorationItem").length + ' of ' + adorationItems.length + ' Adorations');
         }
-
+        
+        var newLong = 0;
+        var newLat = 0;
         $(document).on('mouseenter', '.churchItem', function (e) {
-            churchMap.setActiveMarker($(this).data('id').toString());
+            //e.preventDefault();
+            //churchMap.setActiveMarker($(this).data('id').toString());
+
+            <%--var id = $(this).data('id').toString();
+
+            (new http).post('church_organization.aspx/getChurchLongLat', {
+                churchID: id
+            }).then(function (data) {
+                
+            }).run();
+
+            $('#<%= triggerMe.ClientID%>').trigger('click');--%>
+
+            <%--var lat = <%= Convert.ToInt32(HttpContext.Current.Session["LatCS"]); %>;
+            var long = <%= Convert.ToInt32(HttpContext.Current.Session["LongCS"]); %>;--%>
+
+            //var x = { lat: church.Latitude, lng: church.Longitude };
+            //var long =  churchMap.setActiveMarker(parseFloat($(this).data('long')));
+            //var lat =  churchMap.setActiveMarker(parseFloat($(this).data('lat')));
+            //console.log(long, lat);
+            
+            //console.log('Lat ', church.Longitude);
+            //console.log('Long ', church.Latitude);
+
+            churchMap.getMarker($(this).data('id')).position();
+            console.log($(this).data('id'));
+            
+            var churchInfo = '<div class="col-md-4" id="imgHere"><img src="..\Images\Photos\Thumbnails\1.jpg"></img></div><div class="col-md-8">' + $('.church-name').text() + '</div>';
+            //$(this).closest('body').find('#churchPhotohh').clone().appendTo('#imgHere');
+
+            var x = {lat: 14.651458, lng: 121.029307};
+
+            var map = new google.maps.Map(document.getElementById('churchMap'), {
+                zoom: 14,
+                center: x
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: churchInfo
+            });
+
+            var marker = new google.maps.Marker({
+                position: x,
+                map: map,
+                title: 'West Trade'
+            });
+
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
+
         });
+
+        <%--$(document).on('click', '#<%= triggerMe.ClientID%>', function (e) {
+            e.preventDefault();
+            newLat = parseFloat($('#<%= Latitude.ClientID%>').val());
+            newLong = parseFloat($('#<%= Longitude.ClientID%>').val());
+        });--%>
 
         $(document).on('mouseleave', '.churchItem', function (e) {
             churchMap.setInactiveMarker($(this).data('id').toString());
