@@ -36,7 +36,7 @@
 
                 <div class="row">
                     <div class="col-md-5">
-                        <img runat="server" class="img-responsive imagepath" id="ImagePath"/>
+                        <center><img runat="server" class="img-responsive imagepath" id="ImagePath"/></center>
                     </div>
                     <div class="col-md-7 col-sm-12 col-xs-12 clear-padding">
                         <h1 runat="server" class="moods" id="FeaturedSaint"></h1>
