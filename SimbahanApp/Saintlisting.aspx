@@ -36,7 +36,7 @@
 
                 <div class="row">
                     <div class="col-md-5">
-                        <img runat="server" class="img-responsive imagepath" id="ImagePath"/>
+                        <center><img runat="server" class="img-responsive imagepath" id="ImagePath"/></center>
                     </div>
                     <div class="col-md-7 col-sm-12 col-xs-12 clear-padding">
                         <h1 runat="server" class="moods" id="FeaturedSaint"></h1>
@@ -78,7 +78,7 @@
                                 <a href="#" data-toggle="modal" data-target="#related-churches-modal" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                                     <span class="eltd-btn-text">RELATED CHURCHES IN THE COUNTRY</span><span aria-hidden="true"></span>
                                 </a>
-                                     <div class="col-lg-1  col-md-1 col-sm-6 col-xs-12 pull-right">
+                                     <div class="col-lg-1  col-md-1 col-sm-6 col-xs-12 pull-right mgst2">
                                     <div class="eltd-listing-search-submit-holder">
 
                                         <button id="ShareTw" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
@@ -87,7 +87,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col-lg-1  col-md-1 col-sm-6 col-xs-12 pull-right">
+                                <div class="col-lg-1  col-md-1 col-sm-6 col-xs-12 pull-right mgfb2">
                                     <div class="eltd-listing-search-submit-holder">
                                         <button id="ShareFb" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                                             <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>

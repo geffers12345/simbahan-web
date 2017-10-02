@@ -69,7 +69,7 @@
                 </div>
                 <br/>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-                    <img runat="server" class="img-responsive imagepath" id="ImagePath"/>
+                    <center><img runat="server" class="img-responsive imagepath" id="ImagePath"/></center>
                 </div>
             </div>
             <br/>

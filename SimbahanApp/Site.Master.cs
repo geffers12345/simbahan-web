@@ -88,13 +88,16 @@ namespace SimbahanApp
             {
                 var organizationService = new OrganizationService();
 
-                var church = organizationService.Find(Convert.ToInt32(Page.RouteData.Values["organization-id"]));
+                var org = organizationService.Find(Convert.ToInt32(Page.RouteData.Values["organization-id"]));
 
                 char[] separator = { ',' };
-                MetaTitle = church.Name;
-                MetaDescription = "";
-                MetaUrl = "http://www.mycatholicportal.org/Organization/" + church.Id;
-                MetaImage = "";
+                MetaTitle = org.Name;
+                MetaDescription = org.About.Split(separator)[0];
+                GoogleMetaDescription = MetaDescription;
+                MetaUrl = "http://www.mycatholicportal.org/Organization/" + org.Id;
+                MetaImage = org.Photos.Count > 0
+                    ? "http://www.mycatholicportal.org/Images/" + org.Photos[0]
+                    : "";
             }
 
             if (Page.RouteData.Values["devote-id"] != null)

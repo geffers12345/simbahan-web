@@ -18,6 +18,8 @@ namespace SimbahanApp
 {
     public partial class Churches : Page
     {
+        public ChurchInfo churches;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             btnAddToFav.Src = "Images/star.png";
@@ -38,7 +40,7 @@ namespace SimbahanApp
 
             var timeStandard = new TimeStandard();
 
-            var churches = service.Find(churchId);
+            churches = service.Find(churchId);
 
             simbahanID.Value = churchId.ToString();
             churchName.InnerHtml = churches.Parish;
@@ -54,6 +56,7 @@ namespace SimbahanApp
             churchVicariate.InnerHtml = churches.Vicariate;
             churchDiocese.InnerHtml = churches.Diocese;
             churchContact.InnerHtml = churches.ContactNo;
+            churchWeb.HRef = "http://www." + churches.Website;
             churchWebsite.InnerHtml = churches.Website;
             adorationSchedule.InnerHtml = churches.AdorationDisplayText;
             churchMapAddress.InnerHtml = churches.CompleteAddress;

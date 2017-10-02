@@ -28,7 +28,7 @@ namespace SimbahanApp
                  "~/Churches.aspx");
 
             routes.MapPageRoute("Church",
-                "Church/{church-id}",
+                "Church/{church-id}/{announcement-id}",
                 "~/Churches.aspx");
 
             routes.MapPageRoute("Organization",
@@ -62,6 +62,7 @@ namespace SimbahanApp
             routes.MapPageRoute("Saint",
                 "Saint/{saint-id}",
                 "~/Saintlisting.aspx");
+          
         }
     }
 }

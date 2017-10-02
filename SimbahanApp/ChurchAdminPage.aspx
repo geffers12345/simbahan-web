@@ -1305,7 +1305,7 @@
 
 						var _id = church.SimbahanID;
 						console.log(AdorationID);
-						alert('Successfully Added!');
+						alert('Successfully Added! Simbahan ID is ' + _id);
 						
 						AdorationID.forEach(function (adoration) {
 							console.log(adoration);
