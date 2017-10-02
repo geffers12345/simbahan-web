@@ -255,11 +255,11 @@ namespace SimbahanApp
                 churchReviewsContainer.InnerHtml += reviewItem.ToHtml();
             }
 
-            var slider = new ImageSlider();
+            var carousel = new ImageSlider();
 
             if (churches.ChurchPhotos.Count > 0)
             {
-                slider.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
+                carousel.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
 
                 for (var i = 0; i < churches.ChurchPhotos.Count; i++)
                     carousel.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
