@@ -122,7 +122,6 @@
                     </div>
                     <div class="vc_empty_space" style="background-color: white; height: 30px"><span class="vc_empty_space_inner"></span></div>
                    
-
                     <div class="row" style="background-color: white; padding-left: 10px;"> 
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-2 col-xs-12">
@@ -423,7 +422,7 @@
                     </div>
                     <div class="vc_empty_space" style="height: 30px; background-color: #fafafa;"><span class="vc_empty_space_inner"></span></div>
                     
-                      <div class="row" style="background-color: #fafafa; padding-left: 1px;">
+                      <div class="row" style="background-color: #fafafa; padding-left: 10px;">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
                         <div class="col-md-3 col-sm-12 col-xs-12">
                             <div class="grid">

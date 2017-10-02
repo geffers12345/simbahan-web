@@ -1064,7 +1064,7 @@ Modified by:
         $("#view-announcement-modal").modal('show');
     });
 
-    <%--$(document).on('click',
+    $(document).on('click',
             '#<%= btnAddToFav.ClientID %>',
             function (e) {
                 e.preventDefault();
@@ -1106,7 +1106,7 @@ Modified by:
                         }
                         
                     }).run();
-            });--%>
+            });
 
     $(document).on('click',
    '#btnShareSocialTwit',
@@ -1133,14 +1133,17 @@ Modified by:
                     e.preventDefault();
 
                     var message = '';
-
+                    
+                   
                     window.open(
                         'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Church/' + $("#<%= simbahanID.ClientID %>").val() + "/" +
                         $("#viewAnnouncementId").val(),
                         'Share To Facebook',
                         'width=500,height=300');
 
-                });
+
+                  
+                })
     $(document).on('click', '#editHistory', function () {
         var history = $('#<%= churchHistory.ClientID%>').val();
         $('#<%= editChurchHistory.ClientID%>').val(history);
