@@ -78,7 +78,7 @@ namespace SimbahanApp
                 MetaTitle = church.Parish;
                 MetaDescription = church.ChurchHistory.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
-                MetaUrl = "http://www.mycatholicportal.org/Church/" + church.SimbahanID;
+                MetaUrl = "http://www.mycatholicportal.org/Churches.aspx/" + church.SimbahanID;
                 MetaImage = church.ChurchPhotos.Count > 0
                     ? "http://www.mycatholicportal.org/Images/" + church.ChurchPhotos[0].ChurchPhotos
                     : "";
