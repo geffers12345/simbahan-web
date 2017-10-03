@@ -188,7 +188,7 @@ $(document).on('click', '#buttonAddToFavorite', function (e) {
     }
 
     if ($(this).children()[0].attributes[0].value === 'fa fa-star-o fa-2x') {
-        $(this).children()[0].attributes[0].value = 'fa fa-star fa-2x';
+        $(this).children()[0].attributes[0].value = 'fa fa-star fa-2x' ;
         // Favorite
     } else {
         $(this).children()[0].attributes[0].value = 'fa fa-star-o fa-2x';
@@ -199,6 +199,7 @@ $(document).on('click', '#buttonAddToFavorite', function (e) {
         .then(function(response) {
             Walkman.tracks[Walkman.playingTrack.index].isFavorite =
                 !Walkman.tracks[Walkman.playingTrack.index].isFavorite;
+            location.reload(true);
 
             if (Walkman.tracks[Walkman.playingTrack.index].isFavorite)
                 swal('Success!', 'Music has been added to your Favorites!');
