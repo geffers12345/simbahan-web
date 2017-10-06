@@ -135,10 +135,10 @@ Modified by:
             </div>
             <div class="modal-footer">
                 <div style="display:-webkit-inline-box;">
-                    <%--<div class="col-lg-3">
+                    <div class="col-lg-3">
                     <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!"/>
-                            <img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>
-                    </div>--%>
+                            <img class="img-responsive" src='<%= ResolveUrl("Images/star.png") %>' title="Share on Twitter" width="45" height="45"/>
+                    </div>
                     <div class="col-lg-3">
                         <button id="btnShareSocialTwit" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="2" style="color: rgb(255, 255, 255); border-color: rgb(26, 181, 193);">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
@@ -148,7 +148,7 @@ Modified by:
                             <%--<img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/>--%>
                     </div>
                     <div class="col-lg-3">
-                        <button id="btnShareSocialFB" data-show-count="false" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="3">
+                        <button id="btnShareSocialFB" data-show-count="false" style="margin-left: 150% !important;" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="3">
                          <i class="fa fa-facebook-square" aria-hidden="true"></i>
                          <span aria-hidden="true"></span>
                     </button>
@@ -798,8 +798,14 @@ Modified by:
             function(e) {
                 e.preventDefault();
 
+                var message = " http://www.mycatholicportal.org" + currentPage;
+
+                var ie = ".aspx?id="
+
                 window.open(
-                    'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Churches.aspx/' +
+                    "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Churches.aspx&link=http://www.mycatholicportal.org/Churches" +
+                 ie +
+
                     $("#<%= simbahanID.ClientID %>").val(),
                     'Share To Facebook',
                     'width=500,height=300');

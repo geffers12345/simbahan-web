@@ -199,7 +199,6 @@ $(document).on('click', '#buttonAddToFavorite', function (e) {
         .then(function(response) {
             Walkman.tracks[Walkman.playingTrack.index].isFavorite =
                 !Walkman.tracks[Walkman.playingTrack.index].isFavorite;
-            location.reload(true);
 
             if (Walkman.tracks[Walkman.playingTrack.index].isFavorite)
                 swal('Success!', 'Music has been added to your Favorites!');
@@ -230,8 +229,11 @@ $("#btnShareFacebok").click(function (e) {
 
     var message = song.title + " by " + song.artist + " http://www.mycatholicportal.org" + currentPage;
 
+    var ee = "s.aspx?id="
+
     window.open(
-        "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/MusicalInspiration/" +
+        "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/MusicalInspirations.aspx&link=http://www.mycatholicportal.org/MusicalInspiration" +
+        ee +
         song.id +
         "&caption=" +
         encodeURI(message) +

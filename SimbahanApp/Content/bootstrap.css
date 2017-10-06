@@ -7243,5 +7243,6 @@ img.img-responsive.chrome {
 }
 
 a#buttonAddToFavorite {
-    color: black;
+    color: yellow;
+    font-size: 1.5em;
 }
