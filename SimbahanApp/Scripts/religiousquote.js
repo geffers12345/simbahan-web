@@ -42,7 +42,8 @@
             e.preventDefault();
 
             var quote = quotes.get($(this).data("id"));
-            var message = quote.Quote + " - " + quote.Author;
+            var message = "\"" + quote.Quote.substr(0, 50) + "...\"" + " - " + quote.Author +
+          '  via @SimbahanApp';
 
             window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
                 "Share to Twitter",

@@ -7,14 +7,25 @@ using SimbahanApp.Components;
 using SimbahanApp.Models;
 using SimbahanApp.Services;
 using OrganizationReview = SimbahanApp.Models.OrganizationReview;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Data;
+using System.Collections.Generic;
 
 namespace SimbahanApp
 {
     public partial class Organizations : Page
     {
+        public int orgID = 0;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            var imgArr = new List<string>();
             var organizationId = 0;
+            orgID = Convert.ToInt32(Request["id"]);
+
+            OrganizationId.Value = orgID.ToString();
+
             if (Request["id"] == null && Page.RouteData.Values["organization-id"] == null)
                 return;
 
@@ -82,22 +93,55 @@ namespace SimbahanApp
             foreach (var worshipSchedule in organization.WorshipSchedules)
                 WorshipSchedule.Controls.Add(new HtmlGenericControl("li") {InnerHtml = worshipSchedule.Time});
 
-            var slider = new ImageSlider();
 
-            if (organization.Photos.Count > 0)
+            char[] separator = { ',' };
+
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
             {
-                slider.FirstImage = organization.Photos[0];
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+                
+                using (SqlCommand cmd = new SqlCommand("SELECT ImagePath from [tblOrganizationPhoto] where OrganizationID = '" + orgID + "'", dbconn))
+                
+                {
+                    var reader = cmd.ExecuteReader();
 
-                for (var i = 0; i < organization.Photos.Count; i++)
-                    slider.AddImage(i, organization.Photos[i]);
+                    while (reader.Read())
+                    {
+                        var photos = reader["ImagePath"].ToString().Split(separator, StringSplitOptions.None);
 
-                cssSlider.InnerHtml = slider.ToHtml();
+                        foreach (var strPix in photos)
+                            imgArr.Add(strPix);
+
+                        var carousel = new Carousel();
+                        //var slider = new ImageSlider();
+
+                        if (imgArr.Count > 0)
+                        {
+                            //slider.FirstImage = photos[0];
+
+                            //for (var i = 0; i < imgArr.Count; i++)
+                            //    slider.AddImage(i, imgArr[i]);
+
+                            //cssSlider.InnerHtml = slider.ToHtml();
+                            for (var i = 0; i < imgArr.Count; i++)
+                                //slider.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
+                                carousel.AddImage(i, imgArr[i]);
+
+                            //cssSlider.InnerHtml = slider.ToHtml();
+                            cssSlider.InnerHtml = carousel.ToHtml();
+                        }
+                        else
+                        {
+                            cssSlider.InnerHtml = "<h3 class=\"text-center\">No Photos Available.</h3>";
+                        }
+                    }
+                }
             }
-            else
-            {
-                cssSlider.InnerHtml = "<h3 class=\"text-center\">No Photos Available.</h3>";
-            }
-
+            
             var reviews = new OrganizationReviewService().Get(organization.Id);
 
             foreach (var review in reviews)

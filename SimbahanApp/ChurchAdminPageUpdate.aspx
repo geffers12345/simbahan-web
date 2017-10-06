@@ -489,6 +489,7 @@
 </div>
 </div>
 <div class="row">
+<button id="showMassModal" class="btn btn-success">Add New Mass Schedule</button>
 <div class="table-responsive">
 <table id="MassTable">
     <thead>
@@ -640,6 +641,7 @@
 </div>
 </div>
 </div>
+<button id="showConfessionModal" class="btn btn-success">Add New Confession Schedule</button>
  <div class="table-responsive">
     <table id="ConfessionTable">
         <thead>
@@ -788,6 +790,7 @@
 </div>
 </div>
 <div class="row">
+<button id="showAdorationModal" class="btn btn-success">Add New Adoration Schedule</button>
     <div class="table-responsive">
         <table id="AdorationTable">
             <thead>
@@ -895,11 +898,31 @@
 <div class="row">
 <div class="col-md-5">
 <label class="font-large">ADD CHURCH PHOTOS</label>
-<div style="padding: 40px;">
-<asp:FileUpload ID="FileUpload1" runat="server" /><br />
+<div style="padding-right: 40px;">
+    <button id="addnewImage" class="btn btn-success">Add New Church Image</button>
+    <img src="<%=uploadedImgPath%>" />
+    <asp:label id="emptyupload" runat="server" CssClass="hidden" xmlns:asp="#unknown"></asp:label>
+    <table id="imagesTable">
+        <thead>
+            <tr class="bg-primary">
+                <td class="text-center">
+                    <strong>Filename</strong>
+                </td>
+                <td class="text-center">
+                    <strong>Image</strong>
+                </td>
+                <td class="text-center">
+                    <strong>Action</strong>
+                </td>
+            </tr>
+        </thead>
+        <tbody id="imagesList" runat="server">
+        </tbody>
+    </table> 
+<%--<asp:FileUpload ID="FileUpload1" runat="server" /><br />
 <asp:FileUpload ID="FileUpload2" runat="server" /><br />
-<asp:FileUpload ID="FileUpload3" runat="server" /><br />
-<asp:Button ID="btnUpload" runat="server" Text="Save" CssClass="hidden"/>
+<asp:FileUpload ID="FileUpload3" runat="server" /><br />--%>
+<%--<asp:Button ID="btnUpload" runat="server" Text="Save" CssClass="hidden"/>--%>
 </div>
 </div>
     <div class="col-md-4">
@@ -1041,6 +1064,257 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!--Modal End-->
+<!-- Modal Start-->
+<div class="modal fade" id="add-massSchedule-modal" tabindex="-1" style="width: 100%;" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Add Mass Schedules</h4>
+            </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div id="massModal" class="clonedInputMass">
+                        <fieldset>
+                        <!-- Multiple Checkboxes (inline) -->
+                        <label class="label_day control-label" for="checkboxitem">Day:</label>
+                        
+                        <div class="weekDays-selector">
+                        <div class="row">
+                             <div class="col-md-1">
+                                 <label>Sun</label>
+                                <input type="radio" id="Sun" value="1" name="massOption[]" onclick="analyzeMassDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Mon</label>
+                                <input type="radio" id="Mon" value="2" name="massOption[]" onclick="analyzeMassDayID();"  class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Tue</label>
+                                <input type="radio" id="Tue" value="3" name="massOption[]" onclick="analyzeMassDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Wed</label>
+                                <input type="radio" id="Wed" value="4" name="massOption[]" onclick="analyzeMassDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Thu</label>
+                                <input type="radio" id="Thu" value="5" name="massOption[]" onclick="analyzeMassDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Fri</label>
+                                <input type="radio" id="Fri" value="6" name="massOption[]" onclick="analyzeMassDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Sat</label>
+                            <input type="radio" id="Sat" value="7" name="massOption[]" onclick="analyzeMassDayID();" class="form-control" />
+                            </div>
+                        </fieldset>
+                        <div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="inner cover indexpicker">
+                                <label class="label_timepicker1 control-label" for="timepicker11">From:</label>
+                                <input class="timepicker11 form-control" id="timepicker11" type="text" name="timepicker1[]" placeholder="-:--" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="inner cover indexpicker">
+                                <label class="label_timepicker2 control-label" for="timepicker12">To:</label>
+                                <input class="timepicker12 form-control" id="timepicker12" type="text" name="timepicker2[]" placeholder="-:--" />
+                            
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="font-large">LANGUAGE:</label>
+                                <select id="Select1" class="form-control">
+                                    <option value="English">English</option>
+                                    <option value="Tagalog">Tagalog</option>
+                                    <option value="Cebuano">Cebuano</option>
+                                </select>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="AddMassbtn" name="AddMassbtn" class="btn btn-info btn-block"><i class="fa fa-plus"></i>Add New Mass</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+<!-- Modal Start-->
+<div class="modal fade" id="add-Condession-modal" tabindex="-1" style="width: 100%;" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Add Confession Schedules</h4>
+            </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div id="confessionModal" class="clonedInputMass">
+                        <fieldset>
+                        <!-- Multiple Checkboxes (inline) -->
+                        <label class="label_day control-label" for="checkboxitem">Day:</label>
+                        
+                        <div class="weekDays-selector">
+                        <div class="row">
+                             <div class="col-md-1">
+                                 <label>Sun</label>
+                                <input type="radio" id="CSun" value="1" name="conOption[]" onclick="analyzeConDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Mon</label>
+                                <input type="radio" id="CMon" value="2" name="conOption[]" onclick="analyzeConDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Tue</label>
+                                <input type="radio" id="CTue" value="3" name="conOption[]" onclick="analyzeConDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Wed</label>
+                                <input type="radio" id="CWed" value="4" name="conOption[]" onclick="analyzeConDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Thu</label>
+                                <input type="radio" id="CThu" value="5" name="conOption[]" onclick="analyzeConDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Fri</label>
+                                <input type="radio" id="CFri" value="6" name="conOption[]" onclick="analyzeConDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Sat</label>
+                            <input type="radio" id="CSat" value="7" name="conOption[]" onclick="analyzeConDayID();" class="form-control" />
+                            </div>
+                        </fieldset>
+                        <div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="inner cover indexpicker">
+                                <label class="label_timepicker1 control-label" for="timepicker13">From:</label>
+                                <input class="timepicker13 form-control" id="timepicker13" type="text" name="timepicker13[]" placeholder="-:--" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="inner cover indexpicker">
+                                <label class="label_timepicker2 control-label" for="timepicker13">To:</label>
+                                <input class="timepicker14 form-control" id="timepicker14" type="text" name="timepicker14[]" placeholder="-:--" />
+                            
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="font-large">Display Text:</label>
+                                <textarea id="Select2" class="form-control"></textarea>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="AddConfessionBtn" name="AddConfessionBtn" class="btn btn-info btn-block"><i class="fa fa-plus"></i>Add Confession Mass</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+<!-- Modal Start-->
+<div class="modal fade" id="add-Adoration-modal" tabindex="-1" style="width: 100%;" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Add Adoration Schedules</h4>
+            </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div id="AdorationModal" class="clonedInputMass">
+                        <fieldset>
+                        <!-- Multiple Checkboxes (inline) -->
+                        <label class="label_day control-label" for="checkboxitem">Day:</label>
+                        
+                        <div class="weekDays-selector">
+                        <div class="row">
+                             <div class="col-md-1">
+                                 <label>Sun</label>
+                                <input type="radio" id="ASun" value="1" name="adoOption[]" onclick="analyzeAdoDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Mon</label>
+                                <input type="radio" id="AMon" value="2" name="adoOption[]" onclick="analyzeAdoDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Tue</label>
+                                <input type="radio" id="ATue" value="3" name="adoOption[]" onclick="analyzeAdoDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Wed</label>
+                                <input type="radio" id="AWed" value="4" name="adoOption[]" onclick="analyzeAdoDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Thu</label>
+                                <input type="radio" id="AThu" value="5" name="adoOption[]" onclick="analyzeAdoDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Fri</label>
+                                <input type="radio" id="AFri" value="6" name="adoOption[]" onclick="analyzeAdoDayID();" class="form-control" />
+                            </div>
+                            <div class="col-md-1">
+                                <label>Sat</label>
+                            <input type="radio" id="ASat" value="7" name="adoOption[]" onclick="analyzeAdoDayID();" class="form-control" />
+                            </div>
+                        </fieldset>
+                        <div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="inner cover indexpicker">
+                                <label class="label_timepicker15 control-label" for="timepicker15">From:</label>
+                                <input class="timepicker15 form-control" id="timepicker15" type="text" name="timepicker15[]" placeholder="-:--" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="inner cover indexpicker">
+                                <label class="label_timepicker6 control-label" for="timepicker16">To:</label>
+                                <input class="timepicker16 form-control" id="timepicker16" type="text" name="timepicker16[]" placeholder="-:--" />
+                            
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="AddAdorationBtn" name="AddAdorationBtn" class="btn btn-info btn-block"><i class="fa fa-plus"></i>Add Adoration Mass</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Modal End-->
+    <!-- Modal Start-->
+<div class="modal fade" id="add-Images-modal" tabindex="-1" style="width: 100%;" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4>Add Church Images</h4>
+            </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <div id="ImagesModal" class="">
+                        <div class="row">
+                             
+                        <div class="col-md-12">
+                            <asp:FileUpload ID="FileUpload1" runat="server" /><br />
+                            <asp:FileUpload ID="FileUpload2" runat="server" /><br />
+                            <asp:FileUpload ID="FileUpload3" runat="server" /><br />
+                            <asp:Button ID="btnUpload" runat="server" Text="Save" CssClass="hidden"/>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <asp:Button ID="addChurchImages" CssClass="btn btn-info btn-block" OnClick="addChurchImages_Click" runat="server" Text="Save Images"></asp:Button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     <!--Modal End-->
 </asp:Content>
@@ -1416,7 +1690,7 @@
             }
         });
 
-        //Update Confession Details
+        //Update Details
         $(document).on('click', '#btnAddAdoration', function (e) {
             e.preventDefault();
             
@@ -1524,19 +1798,192 @@
             $("#add-event-modal2").modal("show");
 
         });
+
+        $(document).on('click', '#showMassModal', function (e) {
+            e.preventDefault();
+            $('#add-massSchedule-modal').modal('show');
+        });
+
+        var massDayID = 0;
+
+			function analyzeMassDayID() {
+				var inputName = $("#Sun").attr('name');
+				massDayID = $('input[name="' + inputName + '"]:checked').val();
+				//console.log(massDayID);
+
+				//window.localStorage.setItem('locationID', locationID);
+			}
+
+        $(document).on('click', '#AddMassbtn', function (e) {
+            e.preventDefault();
+
+            var fromHour = removeZeroPrefix($('#timepicker11').val().split(':')[0]);
+            console.log('fromHour ', fromHour);
+            var fromAMorPM = $('#timepicker11').val().split(':')[1].split(' ')[1];
+            console.log('2 ', fromAMorPM);
+            var toHour = removeZeroPrefix($('#timepicker12').val().split(':')[0]);
+            console.log('3 ', toHour);
+            var toAMorPM = $('#timepicker12').val().split(':')[1].split(' ')[1];
+            console.log('4 ', toAMorPM);
+            
+            
+            var timeStd = 0;
+            var timeStandardID = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 1))
+                        console.log('from hour ', fromHour.split(':')[0]);
+                        console.log('time std ', time.substr(0, 1));
+                        timeStd = timeStandardID;
+                });
+
+            (new http).post('ChurchAdminPageUpdate.aspx/addNewMass', {
+                day: massDayID,
+                massStart: $('#timepicker11').val(),
+                massEnd: $('#timepicker12').val(),
+                lang: $('#Select1').val(),
+                timestandard: timeStd,
+                simbahanID: $('#<% =SimbahanId.ClientID%>').val()
+            }).then(function (response) {
+                alert('Added!');
+                window.location.reload();
+            }).run();
+        });
+
+        $(document).on('click', '#showConfessionModal', function (e) {
+            e.preventDefault(e);
+            
+            $('#add-Condession-modal').modal('show');
+        });
+
+
+        var conFDayID = 0;
+
+        function analyzeConDayID() {
+            var inputName = $("#CSun").attr('name');
+            conFDayID = $('input[name="' + inputName + '"]:checked').val();
+            //console.log(conFDayID);
+
+            //window.localStorage.setItem('locationID', locationID);
+        }
+
+        $(document).on('click', '#AddConfessionBtn', function (e) {
+            e.preventDefault();
+            
+            var fromHour = removeZeroPrefix($('#timepicker13').val().split(':')[0]);
+            var fromAMorPM = $('#timepicker13').val().split(':')[1].split(' ')[1];
+            var toHour = removeZeroPrefix($('#timepicker14').val().split(':')[0]);
+            var toAMorPM = $('#timepicker14').val().split(':')[1].split(' ')[1];
+
+            
+            var timeStd = 0;
+            var timeStandardID = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 1))
+                        console.log('from hour ', fromHour.split(':')[0]);
+                    console.log('time std ', time.substr(0, 1));
+                    timeStd = timeStandardID;
+                });
+
+            (new http).post('ChurchAdminPageUpdate.aspx/addNewConfession', {
+                conday: conFDayID,
+                conStart: $('#timepicker13').val(),
+                conEnd: $('#timepicker14').val(),
+                display: $('#Select2').val(),
+                timestandard: timeStd,
+                simbahanID: $('#<% =SimbahanId.ClientID%>').val()
+            }).then(function (response) {
+                alert('Added!');
+                window.location.reload();
+            }).run();
+        });
+
+        $(document).on('click', '#showAdorationModal', function (e) {
+            e.preventDefault();
+            $('#add-Adoration-modal').modal('show');
+        });
+
+        var adoDayID = 0;
+
+        function analyzeAdoDayID() {
+            var inputName = $("#ASun").attr('name');
+            adoDayID = $('input[name="' + inputName + '"]:checked').val();
+            console.log(adoDayID);
+
+            //window.localStorage.setItem('locationID', locationID);
+        }
+
+        $(document).on('click', '#AddAdorationBtn', function (e) {
+            e.preventDefault();
+            
+            var fromHour = removeZeroPrefix($('#timepicker15').val().split(':')[0]);
+            var fromAMorPM = $('#timepicker15').val().split(':')[1].split(' ')[1];
+            var toHour = removeZeroPrefix($('#timepicker16').val().split(':')[0]);
+            var toAMorPM = $('#timepicker16').val().split(':')[1].split(' ')[1];
+
+            
+            var timeStd = 0;
+            var timeStandardID = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 1))
+                        console.log('from hour ', fromHour.split(':')[0]);
+                    console.log('time std ', time.substr(0, 1));
+                    timeStd = timeStandardID;
+                });
+
+            (new http).post('ChurchAdminPageUpdate.aspx/addNewAdoration', {
+                adoday: adoDayID,
+                adoStart: $('#timepicker15').val(),
+                adoEnd: $('#timepicker16').val(),
+                timestandard: timeStd,
+                simbahanID: $('#<% =SimbahanId.ClientID%>').val()
+            }).then(function (response) {
+                alert('Added!');
+                window.location.reload();
+            }).run();
+        });
+
+        $(document).on('click', '#deleteImage', function (e) {
+            e.preventDefault();
+
+            var confirmDelete = confirm('Are you sure yo want to delete this image?');
+            var id = $(this).data('id');
+
+            if (confirmDelete) {
+                console.log($(this).data('id'));
+                (new http).post('ChurchAdminPageUpdate.aspx/DeleteImage', {
+                    imgId: id
+                }).then(function (response) {
+                    alert('Deleted!');
+                    window.location.reload();
+                }).run();
+            }
+        });
+
+        $(document).on('click', '#addnewImage', function (e) {
+            e.preventDefault();
+
+            $('#add-Images-modal').modal('show');
+        });
 </script>
 <script src="Scripts/timepicki.js"></script>
 <script>
             $('#timepicker1').timepicki();
-
             $('#timepicker2').timepicki();
-
             $('#timepicker3').timepicki();
-
             $('#timepicker4').timepicki();
-
             $('#timepicker5').timepicki();
-
             $('#timepicker6').timepicki();
+            $('#timepicker11').timepicki();
+            $('#timepicker12').timepicki();
+            $('#timepicker13').timepicki();
+            $('#timepicker14').timepicki();
+            $('#timepicker15').timepicki();
+            $('#timepicker16').timepicki();
 </script>
 </asp:Content>

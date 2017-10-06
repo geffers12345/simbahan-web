@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Blogs Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Blogs.aspx.cs" Inherits="SimbahanApp.Blogs" %>
+<%@ Page Title="Blogs Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Blogs.aspx.cs" Inherits="SimbahanApp.Blogs" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <%--<link href="Content/SimbahanStyle.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
               <a class="mylink" href="http://mycatholicportal.org/">MyCatholicPortal.org</a>
             </div>
           </div>
-            <br />--%>
+            <br />
           <%--<!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
             <li class="page-item">
