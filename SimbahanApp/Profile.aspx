@@ -394,15 +394,15 @@
                         <ul class="nav nav-tabs" id="myTab">
                             <div class="liner"></div>
                             <li class="active">
-                                <a href="#gospelReflection" data-toggle="tab" title="gospel">
+                                <a href="#gospelReflection" data-toggle="tab" title="Gospel Reading">
                                     <span class="round-tabs nine">
-                                        <i class="fa fa-book fa-pencil" aria-hidden="true"></i>
+                                        <i class="fa fa-book fa-book" aria-hidden="true"></i>
                                     </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#reflectionReflection" data-toggle="tab" title="reflection">
+                                <a href="#reflectionReflection" data-toggle="tab" title="Daily Reflections">
                                     <span class="round-tabs eight">
                                         <i class="fa fa-book fa-pencil" aria-hidden="true"></i>
                                     </span>
@@ -410,7 +410,7 @@
                             </li>
                             
                             <li>
-                                <a href="#saintReflection" data-toggle="tab" title="saint">
+                                <a href="#saintReflection" data-toggle="tab" title="Saints">
                                     <span class="round-tabs seven">
                                         <i class="fa fa-male fa-pencil" aria-hidden="true"></i>
                                     </span>

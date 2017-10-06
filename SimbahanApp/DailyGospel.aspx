@@ -23,7 +23,7 @@
 	</ol>
 </div>
              
-            <h2 >Daily Gospel <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
+            <h2 >Gospel Reading <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
                 <button id="MapPicker" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                     <i class="fa fa-calendar fa-2x"></i>
                     <span aria-hidden="true"></span>
