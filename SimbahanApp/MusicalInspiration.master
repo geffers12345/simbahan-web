@@ -6,12 +6,22 @@
     <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/font-awesome-4.7.0/css/font-awesome.min.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/style.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <div class="box-body" style="background-image: url(Images/Background.jpg);">
-
+     <div class="container">
+                    <ol class="breadcrumb breadcrumb-arrow">
+		                <li><a href="#">Inspirations</a></li>
+		                <li class="active"><a href="#">Musical Inspiration</a></li>
+		                 <li class="active"><span><%= Page.Title.Split('-')[1].ToUpper() %></span></li>
+	                </ol>
+                </div>
 <div class="row">
+   
+    <br />
+    <br />
 <div class="col-lg-1">
     <center>
         <strong>CHOOSE YOUR MOOD</strong>

@@ -4,6 +4,8 @@
 
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
+    
+<link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
 
 <div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)">
 <input type="hidden" id="ReflectionID" runat="server"/>
@@ -11,8 +13,14 @@
 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
     <div class="row">
         <div class="col-md-12">
-            <h2>
-                Daily Reflection &nbsp;<asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
+           <div class="container">
+    <ol class="breadcrumb breadcrumb-arrow">
+		<li><a href="#">Daily Readings</a></li>
+		<%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
+		<li class="active"><span>Daily Reflection</span></li>
+	</ol>
+</div>
+             <h2> Daily Reflection &nbsp;<asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
                 <button id="MapPicker" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                     <i class="fa fa-calendar fa-2x"></i>
                     <span aria-hidden="true"></span>
@@ -276,7 +284,8 @@
                 return;
             }
 
-            <%--if ($("#<%= DReflectTitle.ClientID %>").val() == "" && $("#<%= DReflectContent.ClientID %>").val() == "")            return;--%>
+            <%--if ($("#<%= DReflectTitle.ClientID %>").val() == "" && $("#<%= DReflectContent.ClientID %>").val() == "")
+            return;--%>
 
             swal({
                 title: 'Are you sure you want to save your changes?',
