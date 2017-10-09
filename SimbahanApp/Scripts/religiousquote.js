@@ -42,7 +42,8 @@
             e.preventDefault();
 
             var quote = quotes.get($(this).data("id"));
-            var message = quote.Quote + " - " + quote.Author;
+            var message = "\"" + quote.Quote.substr(0, 50) + "...\"" + " - " + quote.Author +
+          '  via @SimbahanApp';
 
             window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
                 "Share to Twitter",
@@ -58,9 +59,10 @@
 
             var quote = quotes.get($(this).data("id"));
             var message = quote.Quote + " - " + quote.Author;
-
+            var rq = ".aspx?id="
             window.open(
-                "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/ReligiousQuote/" +
+                "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/ReligiousQuotes.aspx&link=http://www.mycatholicportal.org/ReligiousQuotes" +
+                rq +
                 quote.Id +
                 "&caption=" +
                 encodeURI(message) +

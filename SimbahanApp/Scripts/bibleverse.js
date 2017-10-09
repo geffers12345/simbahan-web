@@ -61,8 +61,11 @@
             var verse = verses.get($(this).data("id"));
             var message = verse.BibleVerseContent + " - " + verse.ChapterTitle;
 
+            var ae = ".aspx?id="
+
             window.open(
-                "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/BibleVerse/" +
+                "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/BibleVerses.aspx&link=http://www.mycatholicportal.org/BibleVerses" +
+                ae +
                 verse.Id +
                 "&caption=" +
                 encodeURI(message) +

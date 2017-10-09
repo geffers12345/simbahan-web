@@ -188,7 +188,7 @@ $(document).on('click', '#buttonAddToFavorite', function (e) {
     }
 
     if ($(this).children()[0].attributes[0].value === 'fa fa-star-o fa-2x') {
-        $(this).children()[0].attributes[0].value = 'fa fa-star fa-2x';
+        $(this).children()[0].attributes[0].value = 'fa fa-star fa-2x' ;
         // Favorite
     } else {
         $(this).children()[0].attributes[0].value = 'fa fa-star-o fa-2x';
@@ -229,8 +229,11 @@ $("#btnShareFacebok").click(function (e) {
 
     var message = song.title + " by " + song.artist + " http://www.mycatholicportal.org" + currentPage;
 
+    var ee = "s.aspx?id="
+
     window.open(
-        "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/MusicalInspiration/" +
+        "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/MusicalInspirations.aspx&link=http://www.mycatholicportal.org/MusicalInspiration" +
+        ee +
         song.id +
         "&caption=" +
         encodeURI(message) +

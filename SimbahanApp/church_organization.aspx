@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Filter of Churches & Organizations" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="church_organization.aspx.cs" Inherits="SimbahanApp.church_organization" %>
+<%@ Page Title="Filter of Churches & Organizations" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" EnableEventValidation="false" CodeBehind="church_organization.aspx.cs" Inherits="SimbahanApp.church_organization" %>
+
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <input type="hidden" id="Longitude" runat="server" />
@@ -941,13 +942,17 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <hr />
-                                
+
                                 <div id="organizationResultContainer">
                                     <%--<organization-item v-for="organization in organizations" :organization="organization" :key="organization.Id"></organization-item>--%>
                                 </div>
+
                                 <hr />
                                 <p class="text-muted" id="organizationPaginationText"></p>
+
                                 <div class="row">
                                     <div class="col-md-6">
                                        <%-- <paginate
@@ -1710,6 +1715,7 @@
             }
 
             adorationList = new List('adorationResultContainer', options, adorationItems);
+
             $("#adorationPaginationText").text($(".adorationItem").length + ' of ' + adorationItems.length + ' Adorations');
         }
         

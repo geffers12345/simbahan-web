@@ -22,7 +22,7 @@ namespace SimbahanApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //btnAddToFav.Src = "Images/star.png";
+            btnAddToFav.Src = "Images/star.png";
 
             var churchId = 0;
 
@@ -255,18 +255,15 @@ namespace SimbahanApp
                 churchReviewsContainer.InnerHtml += reviewItem.ToHtml();
             }
 
-            //var slider = new ImageSlider();
-            var carousel = new Carousel();
+            var carousel = new ImageSlider();
 
             if (churches.ChurchPhotos.Count > 0)
             {
-                //slider.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
+                carousel.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
 
                 for (var i = 0; i < churches.ChurchPhotos.Count; i++)
-                    //slider.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
                     carousel.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
 
-                //cssSlider.InnerHtml = slider.ToHtml();
                 cssSlider.InnerHtml = carousel.ToHtml();
             }
             else
