@@ -95,10 +95,10 @@ namespace SimbahanApp
                 MetaTitle = org.Name;
                 MetaDescription = org.About.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
-                MetaUrl = "http://www.mycatholicportal.org/Organization/" + org.Id;
+                MetaUrl = "http://www.mycatholicportal.org/Organizations/" + org.Id;
                 MetaImage = org.Photos.Count > 0
-                    ? "http://www.mycatholicportal.org/Images/" + org.Photos[0]
-                    : "";
+                    ? "http://www.mycatholicportal.org/Images/Organizations/" + org.Photos[0]
+                    : "http://www.mycatholicportal.org/Images/defaul-org.jpg";
             }
 
             if (Page.RouteData.Values["devote-id"] != null)
