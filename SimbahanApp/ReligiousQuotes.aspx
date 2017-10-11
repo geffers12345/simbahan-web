@@ -15,9 +15,19 @@ Modified by:
 <link href='<%= ResolveUrl("Content/set2.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/bootstrap.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/demo.css") %>' rel="stylesheet"/>
+    <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
 
 <div class="bible" style="background-image: url(Images/Background.jpg)">
 <div class="row">
+    <br />
+ <div class="container">
+                    <ol class="breadcrumb breadcrumb-arrow">
+		                <li><a href="#">Inspirations</a></li>
+		                <%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
+		                <li class="active"><span>Religous Quotes</span></li>
+	                </ol>
+                </div>
+    
     <br/>
     <h1 class="moods">RELIGIOUS QUOTES</h1>
     <h3 class="sub-mood">How are you feeling today?</h3>

@@ -1722,37 +1722,22 @@
         var newLong = 0;
         var newLat = 0;
         $(document).on('mouseenter', '.churchItem', function (e) {
-            //e.preventDefault();
-            //churchMap.setActiveMarker($(this).data('id').toString());
+           
+           churchMap.setActiveMarker($(this).data('id').toString());
 
-            <%--var id = $(this).data('id').toString();
 
-            (new http).post('church_organization.aspx/getChurchLongLat', {
-                churchID: id
-            }).then(function (data) {
-                
-            }).run();
-
-            $('#<%= triggerMe.ClientID%>').trigger('click');--%>
-
-            <%--var lat = <%= Convert.ToInt32(HttpContext.Current.Session["LatCS"]); %>;
-            var long = <%= Convert.ToInt32(HttpContext.Current.Session["LongCS"]); %>;--%>
-
-            //var x = { lat: church.Latitude, lng: church.Longitude };
-            //var long =  churchMap.setActiveMarker(parseFloat($(this).data('long')));
-            //var lat =  churchMap.setActiveMarker(parseFloat($(this).data('lat')));
-            //console.log(long, lat);
+            var pos = churchMap.getMarker($(this).data('id').toString()).position
+            var ID = $(this).data('id').toString();
             
-            //console.log('Lat ', church.Longitude);
-            //console.log('Long ', church.Latitude);
-
-            churchMap.getMarker($(this).data('id')).position();
-            console.log($(this).data('id'));
+            var church = churchItems.find(function (church) {
+                return church.id == ID;
+            })
+            console.log(church);
             
-            var churchInfo = '<div class="col-md-4" id="imgHere"><img src="..\Images\Photos\Thumbnails\1.jpg"></img></div><div class="col-md-8">' + $('.church-name').text() + '</div>';
-            //$(this).closest('body').find('#churchPhotohh').clone().appendTo('#imgHere');
-
-            var x = {lat: 14.651458, lng: 121.029307};
+            var churchInfo = '<a href="http://www.mycatholicportal.org/Churches.aspx?id=' + church['id'] + '"><div class="col-md-4" id="imgHere"><img src="' + church['img-responsive'] + '" style="width: 112px;"></img></div><div class="col-md-8"><p><strong>' + church['church-name'] + '</strong></p><p>' + church['church-location'] + '</p></div></a>';
+            
+            var x = { lat: pos.lat(), lng: pos.lng() };
+            console.log(x);
 
             var map = new google.maps.Map(document.getElementById('churchMap'), {
                 zoom: 14,
@@ -1766,7 +1751,7 @@
             var marker = new google.maps.Marker({
                 position: x,
                 map: map,
-                title: 'West Trade'
+                title: church['church-name']
             });
 
             marker.addListener('click', function () {
