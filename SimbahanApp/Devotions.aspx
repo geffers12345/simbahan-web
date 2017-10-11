@@ -21,7 +21,7 @@
                 </div>
                     <br/>
 
-                    <h1 class="moods">DEVOTIONS AND TRADITIONS</h1>
+                    <h1 class="moods">DEVOTIONS</h1>
 
                     <br/><br/>
 

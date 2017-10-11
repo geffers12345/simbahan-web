@@ -18,8 +18,8 @@
            <div class="container">
                     <ol class="breadcrumb breadcrumb-arrow">
 		                <li><a href="#">Inspirations</a></li>
-		                <li class="active"><a href="#">Bible Verses</a></li>
-		                <li class="active"><span><%= Page.Title.Split('-')[1].ToUpper() %></span></li>
+		                <li class="active"><a href="BibleVerses.aspx">Bible Verses</a></li>
+		                <li class="active"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></li>
 	                </ol>
                 </div>
              

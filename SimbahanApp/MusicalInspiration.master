@@ -14,8 +14,8 @@
      <div class="container">
                     <ol class="breadcrumb breadcrumb-arrow">
 		                <li><a href="#">Inspirations</a></li>
-		                <li class="active"><a href="#">Musical Inspiration</a></li>
-		                 <li class="active"><span><%= Page.Title.Split('-')[1].ToUpper() %></span></li>
+		                <li class="active"><a href="MusicalInspirations.aspx">Musical Inspiration</a></li>
+		                 <li class="active"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></li>
 	                </ol>
                 </div>
 <div class="row">
