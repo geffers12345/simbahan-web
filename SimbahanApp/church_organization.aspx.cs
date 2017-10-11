@@ -271,7 +271,7 @@ namespace SimbahanApp
 
         private static bool WithinRadius(double distance, int radius)
         {
-            double kilometer = distance / 111;
+            double kilometer = distance / 200;
 
             return kilometer <= radius;
         }

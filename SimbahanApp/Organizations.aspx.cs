@@ -116,7 +116,7 @@ namespace SimbahanApp
                         foreach (var strPix in photos)
                             imgArr.Add(strPix);
 
-                        var carousel = new Carousel();
+                        var carousel2 = new Carousel2();
                         //var slider = new ImageSlider();
 
                         if (imgArr.Count > 0)
@@ -129,10 +129,10 @@ namespace SimbahanApp
                             //cssSlider.InnerHtml = slider.ToHtml();
                             for (var i = 0; i < imgArr.Count; i++)
                                 //slider.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
-                                carousel.AddImage(i, imgArr[i]);
+                                carousel2.AddImage(i, imgArr[i]);
 
                             //cssSlider.InnerHtml = slider.ToHtml();
-                            cssSlider.InnerHtml = carousel.ToHtml();
+                            cssSlider.InnerHtml = carousel2.ToHtml();
                         }
                         else
                         {
