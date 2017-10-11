@@ -19,11 +19,11 @@
     <ol class="breadcrumb breadcrumb-arrow">
 		<li><a href="#">Daily Readings</a></li>
 		<%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
-		<li class="active"><span>Daily Gospel</span></li>
+		<li class="active"><span> Gospel Reading</span></li>
 	</ol>
 </div>
              
-            <h2 >Daily Gospel <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
+            <h2 >Gospel Reading <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
                 <button id="MapPicker" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                     <i class="fa fa-calendar fa-2x"></i>
                     <span aria-hidden="true"></span>
