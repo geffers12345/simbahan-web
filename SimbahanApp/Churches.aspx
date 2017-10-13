@@ -16,7 +16,7 @@ Author: Claud Montaril
 Description: Churches Page
 Date Created: 02/22/2017
 Date Modified:
-Modified by:
+Modified by:    
 --------------------------->
 
     <%--Popup Adblock--%>
@@ -133,13 +133,13 @@ Modified by:
                 <hr />
                 <p id="viewAnnouncementContent"></p>
             </div>
-            <div class="modal-footer">
+        <div class="modal-footer">
                 <div style="display:-webkit-inline-box;">
-                    <div class="col-lg-3">
-                    <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!"/>
-                            <img class="img-responsive" src='<%= ResolveUrl("Images/star.png") %>' title="Share on Twitter" width="45" height="45"/>
+                    <div class="col-lg-3" style="width:43px">
+                    <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" style="height: 45px;"/> 
+                        <%--   <img class="img-responsive" src='<%= ResolveUrl("Images/star.png") %>' title="Share on Twitter" width="45" height="45"/>--%>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3" style="width:17px;">
                         <button id="btnShareSocialTwit" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="2" style="color: rgb(255, 255, 255); border-color: rgb(26, 181, 193);">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
                             <span aria-hidden="true"></span>
@@ -783,7 +783,7 @@ Modified by:
 
                 var message = $('#<%= churchName.ClientID %>').text().substr(0, 80) +
                     '\n' +
-                    'www.mycatholicportal.org/Church/' +
+                    'www.mycatholicportal.org/Churches.aspx?id=' +
                     $("#<%= simbahanID.ClientID %>").val() +
                     '   via @SimbahanApp';
 
@@ -811,6 +811,7 @@ Modified by:
                     'width=500,height=300');
 
             });
+
 
         $("#getCurrentLocation").click(function(e) {
             e.preventDefault();
