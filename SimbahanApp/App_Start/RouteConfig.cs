@@ -28,7 +28,11 @@ namespace SimbahanApp
                  "~/Churches.aspx");
 
             routes.MapPageRoute("Church",
-                "Church/{church-id}/{announcement-id}",
+                "Churches.aspx/{church-id}/{announcement-id}",
+                "~/Churches.aspx");
+
+            routes.MapPageRoute("Churches",
+                "Churches/{church-id}/{church-name}",
                 "~/Churches.aspx");
 
             routes.MapPageRoute("Organization",

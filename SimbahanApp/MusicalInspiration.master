@@ -14,8 +14,8 @@
      <div class="container">
                     <ol class="breadcrumb breadcrumb-arrow">
 		                <li><a href="#">Inspirations</a></li>
-		                <li class="active"><a href="#">Musical Inspiration</a></li>
-		                 <li class="active"><span><%= Page.Title.Split('-')[1].ToUpper() %></span></li>
+		                <li class="active"><a href="MusicalInspirations.aspx">Musical Inspiration</a></li>
+		                 <li class="active"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></li>
 	                </ol>
                 </div>
 <div class="row">
@@ -145,7 +145,7 @@
           
                <div class="col-md-2">
                 <div class="col-md-4">
-                    <a href="#" id="buttonAddToFavorite" >
+                    <a href="#" id="buttonAddToFavorite">
                         <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
                     </a>
                 </div>
