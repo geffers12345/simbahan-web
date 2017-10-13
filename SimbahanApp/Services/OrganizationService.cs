@@ -129,6 +129,7 @@ namespace SimbahanApp.Services
 
         public Organization Find(int id)
         {
+            char[] commaSeparator = { ',' };
             var organizationTransformer = new OrganizationTransformer();
             var organization = new Organization();
 
@@ -162,6 +163,18 @@ namespace SimbahanApp.Services
                         while (reader.Read())
                         {
                             // TODO: Implement
+                        }
+
+                        reader.NextResult();
+                        while (reader.Read())
+                        {
+                            var photos = reader["OrganizationPhotos"].ToString().Split(commaSeparator, StringSplitOptions.None);
+                            foreach (var photo in photos)
+                            {
+                                if (photo == "")                                {                                    organization.Photos.Add("Images/default-org.jpg");                                    break;                                }
+
+                                organization.Photos.Add("Images/Organizations/" + photo);
+                            }
                         }
 
                         reader.NextResult();
