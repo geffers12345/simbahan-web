@@ -14,13 +14,23 @@
     <link href="Content/SimbahanStyle.css" rel="stylesheet"/>
     <link href="Content/calendar-blue.css" rel="stylesheet"/>
     <link href="Content/prayers.css" rel="stylesheet"/>
+    <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
+
 
     <div class="box-body" style="background-image: url(Images/Background.jpg)">
         <div class="row">
+              
             <div class="col-md-12">
                 <div class="row">
-                    <br/>
-                    <h1 class="moods">BASIC CATHOLIC PRAYERS</h1>
+                   <div class="container">
+                    <ol class="breadcrumb breadcrumb-arrow">
+		                <li><a href="#">Prayer & Devotions</a></li>
+		                <%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
+		                <li class="active"><span>Basic Catholic Prayers</span></li>
+	                </ol>
+                </div>
+                    <br />
+                 <h1 class="moods">BASIC CATHOLIC PRAYERS</h1>
 
                     <br/><br/>
 

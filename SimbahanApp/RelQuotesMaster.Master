@@ -7,11 +7,19 @@
     <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/font-awesome-4.7.0/css/font-awesome.min.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/favorites.css") %>' rel="stylesheet"/>
+        <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="box-body" style="background-image: url(Images/Background.jpg)">
         <div class="row">
+                <div class="container">
+                    <ol class="breadcrumb breadcrumb-arrow">
+		                <li><a href="#">Inspirations</a></li>
+		                <li class="active"><a href="ReligiousQuotes.aspx">Religous Quotes</a></li>
+		                <li class="active"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></li>
+	                </ol>
+                </div>
             <h1 class="moods">
                 <%= Page.Title.Split('-')[1].ToUpper() %>
             </h1>

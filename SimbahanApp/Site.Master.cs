@@ -78,7 +78,8 @@ namespace SimbahanApp
                 MetaTitle = church.Parish;
                 MetaDescription = church.ChurchHistory.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
-                MetaUrl = "http://www.mycatholicportal.org/Churches.aspx/" + church.SimbahanID;
+                //MetaUrl = "http://www.mycatholicportal.org/Churches.aspx/" + church.SimbahanID;
+                MetaUrl = HttpContext.Current.Request.Url.Host + "/Churches/" + church.SimbahanID + "/" + church.maskingData; //URL Masking
                 MetaImage = church.ChurchPhotos.Count > 0
                     ? "http://www.mycatholicportal.org/Images/" + church.ChurchPhotos[0].ChurchPhotos
                     : "";
@@ -94,10 +95,10 @@ namespace SimbahanApp
                 MetaTitle = org.Name;
                 MetaDescription = org.About.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
-                MetaUrl = "http://www.mycatholicportal.org/Organization/" + org.Id;
+                MetaUrl = "http://www.mycatholicportal.org/Organizations/" + org.Id;
                 MetaImage = org.Photos.Count > 0
-                    ? "http://www.mycatholicportal.org/Images/" + org.Photos[0]
-                    : "";
+                    ? "http://www.mycatholicportal.org/Images/Organizations/" + org.Photos[0]
+                    : "http://www.mycatholicportal.org/Images/defaul-org.jpg";
             }
 
             if (Page.RouteData.Values["devote-id"] != null)

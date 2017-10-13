@@ -43,5 +43,6 @@ namespace SimbahanApp.Models
         public List<MassDetailsModel> MassSchedules { get; set; }
         public List<ChurchPhotosModel> ChurchPhotos { get; set; }
         public List<ChurchPhotosModel> ChurchThumbnails { get; set; }
+        public string maskingData { get; set; }
     }
 }

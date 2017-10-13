@@ -6,15 +6,22 @@
     <link href="Content/SimbahanStyle.css" rel="stylesheet"/>
     <link href="Content/calendar-blue.css" rel="stylesheet"/>
     <link href="Content/prayers.css" rel="stylesheet"/>
+    <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
 
     <div class="box-body" style="background-image: url(Images/Background.jpg)">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
-                    
-                    <br/><br/>
+                     <div class="container">
+                    <ol class="breadcrumb breadcrumb-arrow">
+		                <li><a href="#">Prayer & Devotions</a></li>
+		                <%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
+		                <li class="active"><span>Devotions</span></li>
+	                </ol>
+                </div>
+                    <br/>
 
-                    <h1 class="moods">DEVOTIONS AND TRADITIONS</h1>
+                    <h1 class="moods">DEVOTIONS</h1>
 
                     <br/><br/>
 

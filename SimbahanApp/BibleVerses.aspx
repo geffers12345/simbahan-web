@@ -15,9 +15,18 @@ Modified by:
 <link href="Content/set2.css" rel="stylesheet"/>
 <link href="Content/bootstrap.css" rel="stylesheet"/>
 <link href="Content/demo.css" rel="stylesheet"/>
+<link href="Content/Breadcrumbs.css" rel="stylesheet"/>
 
 <div class="bible" style="background-image: url(Images/Background.jpg)">
 <div class="row">
+    <br />
+ <div class="container">
+                    <ol class="breadcrumb breadcrumb-arrow">
+		                <li><a href="#">Inspirations</a></li>
+		                <%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
+		                <li class="active"><span>Bible Verses</span></li>
+	                </ol>
+                </div>
     <br/>
     <h1 class="moods">BIBLE VERSES</h1>
     <h3 class="sub-mood">How are you feeling today?</h3>
