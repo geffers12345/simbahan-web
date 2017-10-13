@@ -19,7 +19,7 @@
     <ol class="breadcrumb breadcrumb-arrow">
 		<li><a href="#">Daily Readings</a></li>
 		<%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
-		<li class="active"><span>Daily Gospel</span></li>
+		<li class="active"><span> Gospel Reading</span></li>
 	</ol>
 </div>
              
