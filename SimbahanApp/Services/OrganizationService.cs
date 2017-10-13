@@ -162,19 +162,7 @@ namespace SimbahanApp.Services
                         reader.NextResult();
                         while (reader.Read())
                         {
-                            // TODO: Implement
-                        }
-
-                        reader.NextResult();
-                        while (reader.Read())
-                        {
-                            var photos = reader["OrganizationPhotos"].ToString().Split(commaSeparator, StringSplitOptions.None);
-                            foreach (var photo in photos)
-                            {
-                                if (photo == "")                                {                                    organization.Photos.Add("Images/default-org.jpg");                                    break;                                }
-
-                                organization.Photos.Add("Images/Organizations/" + photo);
-                            }
+                            organization.Photos.Add(reader["ImagePath"].ToString());
                         }
 
                         reader.NextResult();
