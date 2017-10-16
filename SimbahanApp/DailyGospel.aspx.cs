@@ -72,6 +72,8 @@ namespace SimbahanApp
                     dailyGospel.VerseBeforeGospelContent == "" ? "display:none" : "display:block");
 
 
+            
+
                 DateTime dateParam;
 
                 dateParam = Request["date"] != null ? Convert.ToDateTime(Request["date"]) : DateTime.Now;

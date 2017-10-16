@@ -354,6 +354,7 @@
             });
 
 
+       $(document).ready(function() {
         $("#<%= TextBox1.ClientID %>").dynDateTime({
             showsTime: true,
             ifFormat: "%Y/%m/%d %H:%M",
@@ -368,75 +369,97 @@
             }
         });
 
+
         $("#<%= TextBox1.ClientID %>").change(function(e) {
             $.ajax({
                 type: "POST",
                 url: '<%= ResolveUrl("DailyReflection.aspx/GetReflection") %>',
                 data: JSON.stringify({ date: $("#<%= TextBox1.ClientID %>").val() }),
                 contentType: "application/json; charset=utf-8",
-                success: function(response) {
+                success: function (response) {
                     var data = response.d;
+                    console.log(data.Id);
+                    var hasID = data.Id;
 
-                    $("#<%= ReflectionID.ClientID %>").val(data.Id);
-
-                    getUserReflection(data.Id);
-
-                    $("#<%= ReflectionDate.ClientID %>").text(data.FormattedDate);
-
-                    $("#<%= FirstTitle.ClientID %>").text(data.FirstContentTitle);
-                    $("#<%= FContent.ClientID %>").text(data.FirstContent);
-                    $("#<%= SCTitle.ClientID %>").text(data.SecondContentTitle);
-                    $("#<%= SContent.ClientID %>").text(data.SecondContent);
-                    $("#<%= TCTitle.ClientID %>").text(data.ThirdContentTitle);
-                    $("#<%= TContent.ClientID %>").text(data.ThirdContent);
-                    $("#<%= FTitle.ClientID %>").text(data.FourthContentTitle);
-                    $("#<%= FTContent.ClientID %>").text(data.FourthContent);
-                    $("#<%= FiveTitle.ClientID %>").text(data.FifthContentTitle);
-                    $("#<%= FiveContent.ClientID %>").text(data.FifthContent);
-                    $("#<%= SixTitle.ClientID %>").text(data.SixthContentTitle);
-                    $("#<%= SixContent.ClientID %>").text(data.SixthContent);
-                    $("#<%= PContent.ClientID %>").text(data.Prayer);
-                    $("#<%= BibleQuote.ClientID %>").text(data.BibleVerseContent);
-                    $("#<%= BibleVerse.ClientID %>").text(data.ChapterTitle);
-
-                    if (data.SecondContent == "") {
-                        Control.hide('<%= SCTitle.ClientID %>');
-                        Control.hide('<%= SContent.ClientID %>');
+                    if (hasID == 0) {
+                        $("#<%= FirstTitle.ClientID %>").text('No Data Available');
+                        $("#<%= FContent.ClientID %>").text('No Data Available');
+                        $("#<%= SCTitle.ClientID %>").text('No Data Available');
+                        $("#<%= SContent.ClientID %>").text('No Data Available');
+                        $("#<%= TCTitle.ClientID %>").text('No Data Available');
+                        $("#<%= TContent.ClientID %>").text('No Data Available');
+                        $("#<%= FTitle.ClientID %>").text('No Data Available');
+                        $("#<%= FTContent.ClientID %>").text('No Data Available');
+                        $("#<%= FiveTitle.ClientID %>").text('No Data Available');
+                        $("#<%= FiveContent.ClientID %>").text('No Data Available');
+                        $("#<%= SixTitle.ClientID %>").text('No Data Available');
+                        $("#<%= SixContent.ClientID %>").text('No Data Available');
+                        $("#<%= PContent.ClientID %>").text('No Data Available'r);
+                        $("#<%= BibleQuote.ClientID %>").text('No Data Available');
+                        $("#<%= BibleVerse.ClientID %>").text('No Data Available');
                     } else {
-                        Control.show('<%= SCTitle.ClientID %>');
-                        Control.show('<%= SContent.ClientID %>');
-                    }
 
-                    if (data.ThirdContent == "") {
-                        Control.hide('<%= TCTitle.ClientID %>');
-                        Control.hide('<%= TContent.ClientID %>');
-                    } else {
-                        Control.show('<%= TCTitle.ClientID %>');
-                        Control.show('<%= TContent.ClientID %>');
-                    }
+                        $("#<%= ReflectionID.ClientID %>").val(data.Id);
 
-                    if (data.FourthContent == "") {
-                        Control.hide('<%= FTitle.ClientID %>');
-                        Control.hide('<%= FTContent.ClientID %>');
-                    } else {
-                        Control.show('<%= FTitle.ClientID %>');
-                        Control.show('<%= FTContent.ClientID %>');
-                    }
+                        getUserReflection(data.Id);
 
-                    if (data.FifthContent == "") {
-                        Control.hide('<%= FiveTitle.ClientID %>');
-                        Control.hide('<%= FiveContent.ClientID %>');
-                    } else {
-                        Control.show('<%= FiveTitle.ClientID %>');
-                        Control.show('<%= FiveContent.ClientID %>');
-                    }
+                        $("#<%= ReflectionDate.ClientID %>").text(data.FormattedDate);
 
-                    if (data.SixthContent == "") {
-                        Control.hide('<%= SixTitle.ClientID %>');
-                        Control.hide('<%= SixContent.ClientID %>');
-                    } else {
-                        Control.show('<%= SixTitle.ClientID %>');
-                        Control.show('<%= SixContent.ClientID %>');
+                        $("#<%= FirstTitle.ClientID %>").text(data.FirstContentTitle);
+                        $("#<%= FContent.ClientID %>").text(data.FirstContent);
+                        $("#<%= SCTitle.ClientID %>").text(data.SecondContentTitle);
+                        $("#<%= SContent.ClientID %>").text(data.SecondContent);
+                        $("#<%= TCTitle.ClientID %>").text(data.ThirdContentTitle);
+                        $("#<%= TContent.ClientID %>").text(data.ThirdContent);
+                        $("#<%= FTitle.ClientID %>").text(data.FourthContentTitle);
+                        $("#<%= FTContent.ClientID %>").text(data.FourthContent);
+                        $("#<%= FiveTitle.ClientID %>").text(data.FifthContentTitle);
+                        $("#<%= FiveContent.ClientID %>").text(data.FifthContent);
+                        $("#<%= SixTitle.ClientID %>").text(data.SixthContentTitle);
+                        $("#<%= SixContent.ClientID %>").text(data.SixthContent);
+                        $("#<%= PContent.ClientID %>").text(data.Prayer);
+                        $("#<%= BibleQuote.ClientID %>").text(data.BibleVerseContent);
+                        $("#<%= BibleVerse.ClientID %>").text(data.ChapterTitle);
+
+                        if (data.SecondContent == "") {
+                            Control.hide('<%= SCTitle.ClientID %>');
+                            Control.hide('<%= SContent.ClientID %>');
+                        } else {
+                            Control.show('<%= SCTitle.ClientID %>');
+                            Control.show('<%= SContent.ClientID %>');
+                        }
+
+                        if (data.ThirdContent == "") {
+                            Control.hide('<%= TCTitle.ClientID %>');
+                            Control.hide('<%= TContent.ClientID %>');
+                        } else {
+                            Control.show('<%= TCTitle.ClientID %>');
+                            Control.show('<%= TContent.ClientID %>');
+                        }
+
+                        if (data.FourthContent == "") {
+                            Control.hide('<%= FTitle.ClientID %>');
+                            Control.hide('<%= FTContent.ClientID %>');
+                        } else {
+                            Control.show('<%= FTitle.ClientID %>');
+                            Control.show('<%= FTContent.ClientID %>');
+                        }
+
+                        if (data.FifthContent == "") {
+                            Control.hide('<%= FiveTitle.ClientID %>');
+                            Control.hide('<%= FiveContent.ClientID %>');
+                        } else {
+                            Control.show('<%= FiveTitle.ClientID %>');
+                            Control.show('<%= FiveContent.ClientID %>');
+                        }
+
+                        if (data.SixthContent == "") {
+                            Control.hide('<%= SixTitle.ClientID %>');
+                            Control.hide('<%= SixContent.ClientID %>');
+                        } else {
+                            Control.show('<%= SixTitle.ClientID %>');
+                            Control.show('<%= SixContent.ClientID %>');
+                        }
                     }
                 }
             });
