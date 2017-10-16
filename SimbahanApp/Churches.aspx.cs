@@ -46,6 +46,9 @@ namespace SimbahanApp
 
             churches = service.Find(churchId);
 
+            Master.MetaTitle = $"{churches.Parish} | Church Mass Schedule | {churches.City}";
+            Master.MetaDescription = $"UPDATED Church Information and Mass Schedule | {churches.Parish} | {churches.City}  | {churches.Diocese}";
+
             simbahanID.Value = churchId.ToString();
             churchName.InnerHtml = churches.Parish;
             churchAddress.InnerHtml = churches.CompleteAddress;
