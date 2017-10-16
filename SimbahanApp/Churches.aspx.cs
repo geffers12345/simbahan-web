@@ -26,6 +26,8 @@ namespace SimbahanApp
 
             var churchId = 0;
 
+            
+
             if (Request["id"] == null && Page.RouteData.Values["church-id"] == null && Page.RouteData.Values["church-id"] == null)
                 return;
 
@@ -33,6 +35,8 @@ namespace SimbahanApp
                 churchId = Convert.ToInt32(Request["id"]);
             else if (Page.RouteData.Values["church-id"] != null)
                 churchId = Convert.ToInt32(Page.RouteData.Values["church-id"]);
+           
+
 
             var service = new ChurchService();
 
@@ -255,21 +259,51 @@ namespace SimbahanApp
                 churchReviewsContainer.InnerHtml += reviewItem.ToHtml();
             }
 
-            var carousel = new Carousel();
+            
+            //var path = HttpContext.Current.Request.Url.AbsolutePath;
+            //string[] QueryArray = path.Split('/');
+            //var newPath = QueryArray[1];
+            //var root = QueryArray[0];
 
-            if (churches.ChurchPhotos.Count > 0)
-            {
-                //carousel.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
+            //if (newPath == "Churches")
+            //{
+            //    ResolveUrl("Churches.aspx");
+            //    var carousel = new Carousel();
 
-                for (var i = 0; i < churches.ChurchPhotos.Count; i++)
-                    carousel.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
+            //    if (churches.ChurchPhotos.Count > 0)
+            //    {
+            //        //carousel.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
 
-                cssSlider.InnerHtml = carousel.ToHtml();
-            }
-            else
-            {
-                cssSlider.InnerHtml = "<h3 class=\"text-center\">No Photos Available.</h3>";
-            }
+            //        for (var i = 0; i < churches.ChurchPhotos.Count; i++)
+            //            carousel.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
+
+            //        cssSlider.InnerHtml = carousel.ToHtml();
+            //    }
+            //    else
+            //    {
+            //        cssSlider.InnerHtml = "<h3 class=\"text-center\">No Photos Available.</h3>";
+            //    }
+
+            //} else
+            //{
+
+                var carousel = new Carousel();
+
+                if (churches.ChurchPhotos.Count > 0)
+                {
+                    //carousel.FirstImage = churches.ChurchPhotos[0].ChurchPhotos;
+
+                    for (var i = 0; i < churches.ChurchPhotos.Count; i++)
+                        carousel.AddImage(i, churches.ChurchPhotos[i].ChurchPhotos);
+
+                    cssSlider.InnerHtml = carousel.ToHtml();
+                }
+                else
+                {
+                    cssSlider.InnerHtml = "<h3 class=\"text-center\">No Photos Available.</h3>";
+                }
+            //}
+           
 
             if (churches.AdorationPhotos.Count > 0)
                 for (var i = 0; i < churches.AdorationPhotos.Count; i++)
