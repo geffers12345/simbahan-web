@@ -21,23 +21,24 @@
 
 .church-header {
     color: #db0c0c; 
-    font-size: 36px; 
+    font-size: 26px; 
     font-weight: 500;
 }
 
 .church-address {
     color: #808080;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .church-label {
     color: #000; 
-    font-size: 24px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .church-sublabel {
     color: #000; 
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 0;
 }
 
