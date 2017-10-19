@@ -17,7 +17,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="church-container">
-
+                      ]\
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -140,7 +140,7 @@
             var featuredsaint = $('#<%= FeaturedSaint.ClientID %>').text();
             var message = featuredsaint +
                 '\n' +
-            'Know more about ' + featuredsaint +  'via @SimbahanApp' + 
+            'Know more about ' + featuredsaint +  ' via @SimbahanApp' + 
                 ' http://www.mycatholicportal.org/Saint/' + $('#<%= SaintID.ClientID %>').val();
 
             window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
@@ -316,5 +316,24 @@
                         $("#church-container").append('<p class="lead text-danger text-center">No Results found</p>');
             }).run();
         });
+        <%--    $("#church-container").click(function (e) {
+               var data = response.d;
+
+                    console.log(data.Id);
+                    var hasID = data.Id;
+
+                    if (hasID == 0) {
+                        alert("No Gospel for this Day")
+                        window.location.reload();
+                    } else {
+                        $("#<%= SaintID.ClientID %>").val(data.Id);
+                    
+                    };--%>
+     
+            $("#church-container").text("No information!");
+            console.log(RelatedChurch)
+      
+
+
     </script>
 </asp:Content>
