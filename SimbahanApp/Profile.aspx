@@ -131,6 +131,13 @@
             </span>
         </a>
     </li>
+        <li>
+        <a href="#Favannouncement" data-toggle="tab" title="Church Announcements">
+            <span class="round-tabs eight">
+                <i class="fa fa-bullhorn"></i>
+            </span>
+        </a>
+    </li>
     <li>
         <a href="#profile" data-toggle="tab" title="Organizations">
             <span class="round-tabs two">
@@ -208,8 +215,21 @@
     <!-- Churches -->
     <div class="tab-pane fade in active" id="church">
         <h3 class="moods">Churches</h3>
-
+<%--        <div id="Favannouncement">
+        <a href="announcementFav"><button id="announcement" ="server" style="margin-left: 80%;" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                        <span class="eltd-btn-text">ANNOUNCEMENTS</span><span aria-hidden="true"></span>
+                    </button></a>
+        <h3 id="favoriteAnnouncements" runat="server"></h3>
+        </div>--%>
         <h3 id="favoriteChurches" runat="server">
+
+        </h3>
+    </div>
+
+        <div class="tab-pane fade" id="Favannouncement">
+        <h3 class="moods">Church Announcements</h3>
+
+        <h3 id="favoriteAnnouncements" runat="server">
 
         </h3>
     </div>
@@ -217,7 +237,7 @@
      <!-- Churches -->
     <div class="tab-pane fade" id="saints">
         <h3 class="moods">Saints</h3>
-
+        
         <h3 id="favoriteSaints" runat="server">
 
         </h3>

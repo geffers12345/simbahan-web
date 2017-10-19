@@ -161,6 +161,16 @@ li.active span.round-tabs.one{
     color: rgb(34, 194, 34);
 }
 
+span.round-tabs.eight{
+    color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
+}
+
+li.active span.round-tabs.eight{
+    background: #fff !important;
+    border: 2px solid #ddd;
+    color: rgb(34, 194, 34);
+}
+
 span.round-tabs.two{
     color: #febe29;border: 2px solid #febe29;
 }
