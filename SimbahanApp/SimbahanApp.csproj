@@ -1236,6 +1236,8 @@
     <Content Include="Images\MakatiCover.psd" />
     <Content Include="Images\ManilaCathedralCover.psd" />
     <Content Include="Images\poster off.psd" />
+    <None Include="Properties\PublishProfiles\simbahan - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\simbahan - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Simbahan Prod.pubxml" />
     <None Include="Properties\PublishProfiles\staging-mycatholicportal - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -1448,8 +1450,6 @@
     <Content Include="Content\cssslider_files\csss_engine1\cs-ctrl-basic.eot" />
     <Content Include="Content\cssslider_files\csss_engine1\cs-ctrl-basic.ttf" />
     <Content Include="Content\cssslider_files\csss_engine1\cs-ctrl-basic.woff" />
-    <None Include="Properties\PublishProfiles\simbahan - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\simbahan - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\BCPrayers.png" />
     <Content Include="Images\BibleVerses.png" />
@@ -1753,6 +1753,7 @@
     <Compile Include="Components\BasicCatholicPrayerItem.cs" />
     <Compile Include="Components\BibleVerseItem.cs" />
     <Compile Include="Components\Carousel.cs" />
+    <Compile Include="Components\Carousel2.cs" />
     <Compile Include="Components\CheckLabel.cs" />
     <Compile Include="Components\ChurchItem.cs" />
     <Compile Include="Components\ChurchReview.cs" />

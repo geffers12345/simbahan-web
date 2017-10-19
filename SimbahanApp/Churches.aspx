@@ -1,4 +1,4 @@
-﻿          <%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
+﻿<%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
 <%@ Import Namespace="SimbahanApp.Models" %>
 <%@ MasterType virtualpath="~/Site.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
@@ -16,7 +16,7 @@ Author: Claud Montaril
 Description: Churches Page
 Date Created: 02/22/2017
 Date Modified:
-Modified by:
+Modified by:    
 --------------------------->
 
     <%--Popup Adblock--%>
@@ -133,6 +133,7 @@ Modified by:
                 <hr />
                 <p id="viewAnnouncementContent"></p>
             </div>
+
             <div class="modal-footer">
                 <div style="display:-webkit-inline-box; margin-right: -7%;">
                     <div style="width: 26%; margin-top: -2%;">
@@ -782,7 +783,7 @@ Modified by:
 
                 var message = $('#<%= churchName.ClientID %>').text().substr(0, 80) +
                     '\n' +
-                    'www.mycatholicportal.org/Church/' +
+                    'www.mycatholicportal.org/Churches.aspx?id=' +
                     $("#<%= simbahanID.ClientID %>").val() +
                     '   via @SimbahanApp';
 
@@ -810,6 +811,7 @@ Modified by:
                     'width=500,height=300');
 
             });
+
 
         $("#getCurrentLocation").click(function(e) {
             e.preventDefault();

@@ -104,7 +104,7 @@ namespace SimbahanApp
                 }
                 dbconn.Open();
                 
-                using (SqlCommand cmd = new SqlCommand("SELECT ImagePath from [tblOrganizationPhoto] where OrganizationID = '" + orgID + "'", dbconn))
+                using (SqlCommand cmd = new SqlCommand("SELECT ImagePath from [tblOrganizationPhoto] where OrganizationID = '" + orgID + "' and (ImagePath LIKE '%.1%' or ImagePath LIKE '%.2%' or ImagePath LIKE '%.3%')", dbconn))
                 
                 {
                     var reader = cmd.ExecuteReader();

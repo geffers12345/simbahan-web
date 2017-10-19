@@ -261,12 +261,21 @@ namespace SimbahanApp
             if (churchLocation.IsNullOrWhiteSpace())
                 return churches;
 
-            return churches
-                .Where(coordinate => WithinRadius(NearDistance(new Coordinate { Latitude = latitude, Longitude = longitude },
-                    new Coordinate { Latitude = coordinate.Latitude, Longitude = coordinate.Longitude }), radius))
-                .OrderBy(coordinate => NearDistance(new Coordinate { Latitude = latitude, Longitude = longitude },
-                    new Coordinate { Latitude = coordinate.Latitude, Longitude = coordinate.Longitude }))
-                .ToList();
+            //return churches
+            //    .Where(coordinate => WithinRadius(NearDistance(new Coordinate { Latitude = latitude, Longitude = longitude },
+            //        new Coordinate { Latitude = coordinate.Latitude, Longitude = coordinate.Longitude }), radius))
+            //    .OrderBy(coordinate => NearDistance(new Coordinate { Latitude = latitude, Longitude = longitude },
+            //        new Coordinate { Latitude = coordinate.Latitude, Longitude = coordinate.Longitude }))
+                    
+            //    .ToList();
+            var filteredChurch = from church in churches
+                   where NearDistance(
+                            new Coordinate { Latitude = latitude, Longitude = longitude },
+                            new Coordinate { Latitude = church.Latitude, Longitude = church.Longitude }
+                       ) < 0.04
+                   select church;
+
+            return filteredChurch.ToList();
         }
 
         private static bool WithinRadius(double distance, int radius)
