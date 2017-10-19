@@ -1418,6 +1418,48 @@
                         longitude: coordinate.Longitude
                     });
                 }
+
+                if (getUrlParameter('redirect') == 'default' && (getUrlParameter('category') == 'All' || getUrlParameter('category') == 'Organizations')) {
+                    GetOrganizations.run({
+                        keyword: $("#<%= organizationKeyword.ClientID %>").val(),
+                        location: $("#<%= organizationLocation.ClientID %>").val(),
+                        parentOrganization: $("#selectOrganizationName").val(),
+                        schedule: $("#selectOrganizationSchedule").val(),
+                        day: $("#selectOrganizationDay").val(),
+                        time: $("#selectOrganizationTime").val(),
+                        language: "",
+                        activityWorship: $("#hasWorship").is(":checked"),
+                        activityBibleStudy: $("#hasBibleStudy").is(":checked"),
+                        activityMass: $("#hasMass").is(":checked"),
+                        activityRetreats: $("#hasRetreats").is(":checked"),
+                        activityRecollection: $("#hasRecollection").is(":checked"),
+                        activityVolunteerWorks: $("#hasVolunteerWorks").is(":checked"),
+                        activityTalks: $("#hasTalks").is(":checked"),
+                        activityCamp: $("#hasCamps").is(":checked"),
+                        attendeeMen: $("#hasMenAttendees").is(":checked"),
+                        attendeeWomen: $("#hasWomenAttendees").is(":checked"),
+                        attendeeSingle: $("#hasSingleAttendees").is(":checked"),
+                        attendeeCouple: $("#hasCoupleAttendees").is(":checked"),
+                        attendeeProfessional: $("#hasProfessionalAttendees").is(":checked"),
+                        attendeeStudent: $("#hasStudentAttendees").is(":checked"),
+                        attendeeMissionary: $("#hasMissionariesAttendees").is(":checked"),
+                        attendeeNonCatholic: false,
+                        venueChurch: $("#isOrganizationInChurch").is(":checked"),
+                        venueMall: $("#isOrganizationInMall").is(":checked"),
+                        venueSchool: $("#isOrganizationInSchool").is(":checked"),
+                        venuePrivate: $("#isOrganizationInPrivate").is(":checked"),
+                        venuePublic: $("#isOrganizationInPublic").is(":checked"),
+                        ventAircon: $("#organizationHasAirCondition").is(":checked"),
+                        ventCeilingFan: $("#organizationHasCeilingFan").is(":checked"),
+                        ventWallFan: $("#organizationHasWallFan").is(":checked"),
+                        ventStandFan: $("#organizationHasStandardFan").is(":checked"),
+                        parkingStreet: $("#organizationHasStreetParking").is(":checked"),
+                        parkingMall: $("#organizationHasMallParking").is(":checked"),
+                        parkingPrivate: $("#hasSeparateParking").is(":checked"),
+                        latitude: coordinate == null ? 0 : coordinate.Latitude,
+                        longitude: coordinate == null ? 0 : coordinate.Longitude
+                    });
+                }
             }, 3000);
         }
 
@@ -1430,6 +1472,7 @@
 
                 if (getUrlParameter('category') == 'All' || getUrlParameter('category') == 'Organizations')
                     $("#btnShowMoreFilterOrganization").trigger('click');
+
             }
                 
 

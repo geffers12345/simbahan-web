@@ -227,21 +227,15 @@
     </div>
 
         <div class="tab-pane fade" id="Favannouncement">
-        <h3 class="moods">Church Announcements</h3>
+        <h3 class="moods">Church/Adoration Chapel Announcements</h3>
 
         <h3 id="favoriteAnnouncements" runat="server">
 
         </h3>
 
-        <h3 class="moods">Adoration Chapel Announcements</h3>
-
-        <h3 id="favoriteAdorationAnnouncements" runat="server">
-
-        </h3>
-
          <h3 class="moods">Organization Announcements</h3>
 
-        <h3 id="favoriteOrganizationAnnouncements" runat="server">
+        <h3 id="favoriteAnnouncementss" runat="server">
 
         </h3>
     </div>
