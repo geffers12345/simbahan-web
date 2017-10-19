@@ -535,7 +535,7 @@ namespace SimbahanApp.Services
                         var reader = cmd.ExecuteReader();
 
                         while (reader.Read())
-                            return Convert.ToInt32(reader["result"]) == 1;
+                            return Convert.ToInt32(reader["result"]) != 0;
                     }
                     catch (Exception)
                     {

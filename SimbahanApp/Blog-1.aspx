@@ -32,64 +32,64 @@
          <div class="col-md-12"><br/><br />
           	<h1 class="church1"> 1. The Immaculate Conception Cathedral of Cubao</h1><br/>
           	<img class="cubao" src="Images/5440206_orig.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> 40 Lantana St., Cubao, Quezon City</p></caption>
+          	<p class="cap"><caption><b>Address:</b> 40 Lantana St., Cubao, Quezon City</caption></p>
           </div>
               <br />
            <div class="col-md-12">
           	<h1 class="church2"> 2. National Shrine of Our Lady of Lourdes</h1><br/>
           	<img class="cubao" src="Images/lourdes_orig.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> N.S. Amoranto Sr. St, Santa Mesa Heights, Quezon City</p></caption>
+          	<p class="cap"><caption><b>Address:</b> N.S. Amoranto Sr. St, Santa Mesa Heights, Quezon City</caption></p>
           </div>
 
           <br />
           <div class="col-md-12">
           	<h1 class="church3"> 3. St. Peter Parish: Shrine of Leaders</h1><br/>
           	<img class="cubao" src="Images/7074362_orig.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> Blk 44 Lot 7 & 8 New Capitol Estates I, Commonwealth Avenue, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b> Blk 44 Lot 7 & 8 New Capitol Estates I, Commonwealth Avenue, Quezon City </caption></p>
           </div>
               <br />
           <div class="col-md-12">
           	<h1 class="church4"> 4. Sanctuario De San Vicente De Paul Parish</h1><br/>
           	<img class="cubao" src="Images/sanctuarionewlatest_orig.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> 221 Tandang Sora Ave, Project 8, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b> 221 Tandang Sora Ave, Project 8, Quezon City </caption></p>
           </div>
               <br />
           <div class="col-md-12">
           	<h1 class="church4"> 5. Blessed St. John Paul II</h1><br/>
           	<img class="cubao" src="Images/blessed-john-paul.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> Orchard Rd, Bagumbayan, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b> Orchard Rd, Bagumbayan, Quezon City </caption></p>
           </div>
               <br />
           <div class="col-md-12">
           	<h1 class="church4"> 6. St. Padre Pio Chapel</h1><br/>
           	<img class="cubao" src="Images/facade_pic02.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> Eulogio Rodriguez Jr. Ave, Bagumbayan, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b> Eulogio Rodriguez Jr. Ave, Bagumbayan, Quezon City </caption></p>
           </div>
               <br />
           <div class="col-md-12">
           	<h1 class="church4"> 7. Sto. Domingo Church</h1><br/>
           	<img class="cubao" src="Images/5165497_orig.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> 537 Quezon Ave, Santa Mesa Heights, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b> 537 Quezon Ave, Santa Mesa Heights, Quezon City </caption></p>
           </div>
               <br />
 
           <div class="col-md-12">
           	<h1 class="church4"> 8. San Pedro Bautista Parish</h1><br/>
           	<img class="cubao" src="Images/5915671_orig.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b> #69 San Pedro Bautista Street, SFDM, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b> #69 San Pedro Bautista Street, SFDM, Quezon City </caption></p>
           </div>
               <br />
 
           <div class="col-md-12">
           	<h1 class="church4"> 9. Sta. Rita De Cascia Parish</h1><br/>
           	<img class="cubao" src="Images/Sta Rita de Cascia Parish (1).jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b>  South Lawin Avenue, Philam Homes, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b>  South Lawin Avenue, Philam Homes, Quezon City </caption></p>
           </div>
               <br />
           <div class="col-md-12">
           	<h1 class="church4"> 10. Christ the King Parish</h1><br/>
           	<img class="cubao" src="Images/1979-christ-the-king-parish-greenmeadows-03.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b>  Greenmeadows Avenue, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b>  Greenmeadows Avenue, Quezon City </caption></p>
           </div>
               <br />
           <div class="col-md-12">
@@ -99,19 +99,19 @@
 		   <div class="col-md-12">
           	<h1 class="church4"> Parish of the Holy Sacrifice</h1><br/>
           	<img class="cubao" src="Images/churches_1448709457_2471_2603.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b>  Apacible St, Diliman, Quezon City, 1101 Metro Manila </p></caption>
+          	<p class="cap"><caption><b>Address:</b>  Apacible St, Diliman, Quezon City, 1101 Metro Manila </caption></p>
           </div>
               <br />
           <div class="col-md-12">
           	<h1 class="church4"> Immaculate Heart of Mary Parish Church</h1><br/>
           	<img class="cubao" src="Images/08-1972-75-leandro-locsin-immaculate-heart-of-mary-parish.jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b>  2 Mahinhin, Diliman, Quezon City </p></caption>
+          	<p class="cap"><caption><b>Address:</b>  2 Mahinhin, Diliman, Quezon City </caption></p>
           </div>
               <br />
           <div class="col-md-12">
           	<h1 class="church4"> Parish Of The Hearts Of Jesus And Mary</h1><br/>
           	<img class="cubao" src="Images/twin hearts (1).jpg"/><br/>
-          	<p class="cap"><caption><b>Address:</b>  Daily Mirror Street corner Bulletin Street, West Traingle , Quezon City, Metro Manila </p></caption>
+          	<p class="cap"><caption><b>Address:</b>  Daily Mirror Street corner Bulletin Street, West Traingle , Quezon City, Metro Manila </caption></p>
           </div>
              <%-- <br />
           <div class="col-md-12">

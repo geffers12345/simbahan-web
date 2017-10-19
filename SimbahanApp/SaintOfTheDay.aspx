@@ -247,7 +247,7 @@
                         var hasID = data.Id;
 
                         if (hasID == 0) {
-                            alert("No Reflection for this Day")
+                            alert("No Saint available for this Day")
                             window.location.reload();
                         } else {
                             $("#<%= SaintsID.ClientID %>").val(data.SaintId);
@@ -255,7 +255,6 @@
                             //getUserReflection(data.Id);
                             //var dates = $("#<%=TextBox1.ClientID %>").val();
                             $("#<%= SaintDate.ClientID %>").text(data.FormattedDate);
-                            
                             $("#<%= FeaturedSaint.ClientID %>").text(data.Name);
                             $("#<%= FeastDay.ClientID %>").text(data.FeastDay);
                             $("#<%= PatronOf.ClientID %>").text(data.Patron);
