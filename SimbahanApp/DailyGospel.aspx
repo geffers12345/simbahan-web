@@ -334,7 +334,7 @@
         });
     });
 
-    $(document).ready(function() {
+   $(document).ready(function() {
         $("#<%= TextBox1.ClientID %>").dynDateTime({
             showsTime: true,
             ifFormat: "%Y/%m/%d %H:%M",
@@ -358,11 +358,20 @@
                 success: function(response) {
                     var data = response.d;
 
-                    $("#<%= GospelID.ClientID %>").val(data.Id);
+                    console.log(data.Id);
+                    var hasID = data.Id;
+
+                    if (hasID == 0) {
+                              alert("No Gospel for this Day")
+                        window.location.reload();
+                    } else {
+                        $("#<%= GospelID.ClientID %>").val(data.Id);
+                    
 
                     getUserReflection(data.Id);
 
                     $("#<%= GospelDate.ClientID %>").text(data.FormattedDate);
+
 
                     $("#<%= FRTitle.ClientID %>").text(data.FirstReadingTitle);
                     $("#<%= FRContent.ClientID %>").text(data.FirstReadingContent);
@@ -398,9 +407,9 @@
                     } else {
                         Control.show('<%= VerseBeforeGospel.ClientID %>');
                     }
+                    }
                 }
             });
-
             $.ajax({
                 type: "POST",
                 url: '<%= ResolveUrl("DailyReflection.aspx/GetVerse") %>',

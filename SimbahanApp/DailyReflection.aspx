@@ -382,21 +382,8 @@
                     var hasID = data.Id;
 
                     if (hasID == 0) {
-                        $("#<%= FirstTitle.ClientID %>").text('No Data Available');
-                        $("#<%= FContent.ClientID %>").text('No Data Available');
-                        $("#<%= SCTitle.ClientID %>").text('No Data Available');
-                        $("#<%= SContent.ClientID %>").text('No Data Available');
-                        $("#<%= TCTitle.ClientID %>").text('No Data Available');
-                        $("#<%= TContent.ClientID %>").text('No Data Available');
-                        $("#<%= FTitle.ClientID %>").text('No Data Available');
-                        $("#<%= FTContent.ClientID %>").text('No Data Available');
-                        $("#<%= FiveTitle.ClientID %>").text('No Data Available');
-                        $("#<%= FiveContent.ClientID %>").text('No Data Available');
-                        $("#<%= SixTitle.ClientID %>").text('No Data Available');
-                        $("#<%= SixContent.ClientID %>").text('No Data Available');
-                        $("#<%= PContent.ClientID %>").text('No Data Available'r);
-                        $("#<%= BibleQuote.ClientID %>").text('No Data Available');
-                        $("#<%= BibleVerse.ClientID %>").text('No Data Available');
+                       alert("No Reflection for this Day")
+                        window.location.reload();
                     } else {
 
                         $("#<%= ReflectionID.ClientID %>").val(data.Id);
