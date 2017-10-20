@@ -1635,7 +1635,7 @@
                         '<p>Mass Schedule: <strong class="mass"></strong></p>' +
                         '<p>Ventilation: <strong class="ventilations"></strong></p>' +
                         '</div>' +
-                        '<p class="text-comment">Comments: <em class="comments"></em></p>' +
+                       // '<p class="text-comment">Comments: <em class="comments"></em></p>' +
                         '</div>' +
                         '</div>' +
                         '</a>'
