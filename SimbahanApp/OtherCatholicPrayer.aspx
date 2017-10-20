@@ -49,7 +49,7 @@
                     : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
                 var message = $("#<%= Title.ClientID %>").text() +
-                    ' <%= ResolveUrl("OtherCatholicPrayer.aspx?id=") %>' +
+                     " mycatholicportal.org" + '<%= ResolveUrl("OtherCatholicPrayer.aspx?id=") %>' +
                     id +
                     " via ";
 

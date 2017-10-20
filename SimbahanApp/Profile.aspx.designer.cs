@@ -67,6 +67,15 @@ namespace SimbahanApp.Account {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl favoriteChurches;
         
         /// <summary>
+        /// favoriteAnnouncements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl favoriteAnnouncements;
+        
+        /// <summary>
         /// favoriteSaints control.
         /// </summary>
         /// <remarks>

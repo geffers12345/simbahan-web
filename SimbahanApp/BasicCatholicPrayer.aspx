@@ -46,12 +46,12 @@
                     ? window.location.href.split('=')[1]
                     : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
-                var message = $("#<%= PrayerTitle.ClientID %>").text() +
-                    ' <%= ResolveUrl("BasicCatholicPrayer.aspx?id=") %>' +
+                var message = $("#<%= PrayerTitle.ClientID %>").text() + 
+                    " mycatholicportal.org" + '<%= ResolveUrl("BasicCatholicPrayer.aspx?id=") %>' +
                     id +
                     " via ";
 
-                window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
+                window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message)  + encodeURI('@SimbahanApp'),
                     "mywindow",
                     "width=500,height=300");
             });

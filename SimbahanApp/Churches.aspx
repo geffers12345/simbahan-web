@@ -1,4 +1,4 @@
-﻿          <%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
+﻿<%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
 <%@ Import Namespace="SimbahanApp.Models" %>
 <%@ MasterType virtualpath="~/Site.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
@@ -133,13 +133,13 @@ Modified by:
                 <hr />
                 <p id="viewAnnouncementContent"></p>
             </div>
-        <div class="modal-footer">
-                <div style="display:-webkit-inline-box;">
-                    <div class="col-lg-3" style="width:43px">
-                    <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" style="height: 45px;"/> 
-                        <%--   <img class="img-responsive" src='<%= ResolveUrl("Images/star.png") %>' title="Share on Twitter" width="45" height="45"/>--%>
+
+            <div class="modal-footer">
+                <div style="display:-webkit-inline-box; margin-right: -7%;">
+                    <div style="width: 26%; margin-top: -2%;">
+                        <img src="Images/star.png" id="btnAddToFav" runat="server" title="Add to Favorites!" width="95" height="70"/>
                     </div>
-                    <div class="col-lg-3" style="width:17px;">
+                    <div style="margin-left: 2%;">
                         <button id="btnShareSocialTwit" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="2" style="color: rgb(255, 255, 255); border-color: rgb(26, 181, 193);">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
                             <span aria-hidden="true"></span>
@@ -147,7 +147,7 @@ Modified by:
                         </button>
                             <%--<img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/>--%>
                     </div>
-                    <div class="col-lg-3">
+                    <div style="margin-left: -35%;">
                         <button id="btnShareSocialFB" data-show-count="false" style="margin-left: 150% !important;" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="3">
                          <i class="fa fa-facebook-square" aria-hidden="true"></i>
                          <span aria-hidden="true"></span>
@@ -781,7 +781,7 @@ Modified by:
                 e.preventDefault();
 
 
-                var message = $('#<%= churchName.ClientID %>').text().substr(0, 80) +
+                var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
                     'www.mycatholicportal.org/Churches.aspx?id=' +
                     $("#<%= simbahanID.ClientID %>").val() +
@@ -1071,9 +1071,7 @@ Modified by:
         $("#view-announcement-modal").modal('show');
     });
 
-    $(document).on('click',
-            '#<%= btnAddToFav.ClientID %>',
-            function (e) {
+    $("#<%= btnAddToFav.ClientID %>").click(function (e) {
                 e.preventDefault();
 
                 if ($("#<%= btnAddToFav.ClientID %>").attr('src') == '/Images/star.png') {
@@ -1082,13 +1080,14 @@ Modified by:
                     $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/star.png');
                 }
 
-                var id = window.location.href.includes('?')
-                    ? window.location.href.split('=')[1]
-                    : window.location.href.split('/')[window.location.href.split('/').length - 1];
-
-                (new http).post('<%= ResolveUrl("Churches.aspx/OnFavoriteAnnouncements") %>',
+        var id = window.location.href.includes('?')
+            ? window.location.href.split('=')[1]
+            : window.location.href.split('/')[window.location.href.split('/').length - 1];
+        var aID = $('#viewAnnouncementId').val();
+        console.log(aID);
+                (new http).post("Churches.aspx/OnFavoriteAnnouncements",
                     {
-                        announcementID: id
+                        announcementId: aID
                     }).then(function (response) {
                         if (response.d) {
                             if ($("#<%= btnAddToFav.ClientID %>").attr('src') != '/Images/star.png') {

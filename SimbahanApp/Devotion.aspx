@@ -54,7 +54,7 @@
                     : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
                 var message = $("#<%= PrayerTitle.ClientID %>").text() +
-                    ' <%= ResolveUrl("Devotion.aspx?id=") %>' +
+                     " mycatholicportal.org" + '<%= ResolveUrl("Devotion.aspx?id=") %>' +
                     id +
                     " via ";
 
