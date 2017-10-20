@@ -336,7 +336,7 @@
                     $('#<%= FirstTitle.ClientID %>').text().substr(0, 40) +
                     '... ' +
                     '\n' +
-                    'http://www.mycatholicportal.org/DailyReflection/' +
+                    'http://www.mycatholicportal.org/DailyReflection.aspx/' +
                     $("#<%= ReflectionID.ClientID %>").val();
 
                 Share.toTwitter(tweet);
@@ -350,7 +350,7 @@
 
                 var reflectionId = $("#<%= ReflectionID.ClientID %>").val();
 
-                Share.toFacebook('http://www.mycatholicportal.org/DailyReflection/' + reflectionId);
+                Share.toFacebook('http://www.mycatholicportal.org/DailyReflection.aspx/' + reflectionId);
             });
 
 
