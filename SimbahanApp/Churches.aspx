@@ -781,7 +781,7 @@ Modified by:
                 e.preventDefault();
 
 
-                var message = $('#<%= churchName.ClientID %>').text().substr(0, 80) +
+                var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
                     'www.mycatholicportal.org/Churches.aspx?id=' +
                     $("#<%= simbahanID.ClientID %>").val() +
