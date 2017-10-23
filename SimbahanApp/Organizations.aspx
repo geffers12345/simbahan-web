@@ -126,24 +126,24 @@ Modified by:
                 <hr />
                 <p id="viewAnnouncementContent"></p>
             </div>
-            <div class="modal-footer">
-                <div style="display:-webkit-inline-box; margin-right:100%;">
-                    <%--<div class="col-lg-3">
-                        <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" width="45" height="45"/>
-                        <img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/>
-                    </div>--%>
-                    <div class="col-lg-3">
+         <div class="modal-footer">
+                <div style="display:-webkit-inline-box; margin-right: -7%;">
+                    <div style="width: 26%; margin-top: -2%;">
+                        <img src="Images/star.png" id="btnAddToFav" runat="server" title="Add to Favorites!" width="95" height="70"/>
+                    </div>
+                    <div style="margin-left: 2%;">
                         <button id="btnShareSocialTwit" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="2" style="color: rgb(255, 255, 255); border-color: rgb(26, 181, 193);">
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
                             <span aria-hidden="true"></span>
+
                         </button>
-                        <%--<img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/>--%>
+                            <%--<img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/>--%>
                     </div>
-                    <div class="col-lg-3">
-                        <button id="btnShareSocialFB" data-show-count="false" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="3">
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                            <span aria-hidden="true"></span>
-                        </button>
+                    <div style="margin-left: -35%;">
+                        <button id="btnShareSocialFB" data-show-count="false" style="margin-left: 150% !important;" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" data-dpmaxz-eid="3">
+                         <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                         <span aria-hidden="true"></span>
+                    </button>
                     </div></div>
                 <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
             </div>
@@ -604,6 +604,49 @@ Modified by:
 
                 if (validationPassed)
                     map.DrawRoute($("#startPosition").val(), $("#<%= organizationMapDestination.ClientID %>").val());
+            });
+
+          $("#<%= btnAddToFav.ClientID %>").click(function (e) {
+                e.preventDefault();
+
+                if ($("#<%= btnAddToFav.ClientID %>").attr('src') == '/Images/star.png') {
+                    $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/starcolored.png');
+                } else {
+                    $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/star.png');
+                }
+
+        var id = window.location.href.includes('?')
+            ? window.location.href.split('=')[1]
+            : window.location.href.split('/')[window.location.href.split('/').length - 1];
+        var aID = $('#viewAnnouncementId').val();
+        console.log(aID);
+                (new http).post("Organizations.aspx/OnFavoriteAnnouncements",
+                    {
+                        announcementId: aID
+                    }).then(function (response) {
+                        if (response.d) {
+                            if ($("#<%= btnAddToFav.ClientID %>").attr('src') != '/Images/star.png') {
+                                swal(
+                                    'Added to favorites!',
+                                    'Announcement has been added to your favorites list!',
+                                    'success'
+                                );
+                            } else {
+                                swal(
+                                    'Removed from favorites!',
+                                    'Announcement has been removed from your favorites list!',
+                                    'success'
+                                );
+                            }
+                        } else {
+                            swal(
+                                'You are not be able to add it to favorites!',
+                                'You must Log-in first!',
+                                'Warning'
+                            );
+                        }
+                        
+                    }).run();
             });
 
         $(document).on('click',
