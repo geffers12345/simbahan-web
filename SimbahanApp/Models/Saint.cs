@@ -34,5 +34,6 @@ namespace SimbahanApp.Models
         public string CanonizeDate { get; set; }
         public string RelatedChurch { get; set; }
         public DateTime PublicationDate { get; set; }
+        public string FormattedDate => PublicationDate.ToString("dddd, MMMM d, yyyy");
     }
 }
