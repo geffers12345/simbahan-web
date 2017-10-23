@@ -234,7 +234,8 @@
                 }
             });
 
-            $("#<%= TextBox1.ClientID %>").change(function(e) {
+
+            $("#<%= TextBox1.ClientID %>").change(function (e) {
                 $.ajax({
                     type: "POST",
                     url: "SaintOfTheDay.aspx/getSaints",
@@ -252,8 +253,9 @@
                             $("#<%= SaintsID.ClientID %>").val(data.SaintId);
 
                             //getUserReflection(data.Id);
-
+                            //var dates = $("#<%=TextBox1.ClientID %>").val();
                             $("#<%= SaintDate.ClientID %>").text(data.FormattedDate);
+                            
                             $("#<%= FeaturedSaint.ClientID %>").text(data.Name);
                             $("#<%= FeastDay.ClientID %>").text(data.FeastDay);
                             $("#<%= PatronOf.ClientID %>").text(data.Patron);
