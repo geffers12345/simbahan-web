@@ -4,7 +4,6 @@
 
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
-    
 <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
 
 <div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)">
@@ -493,6 +492,7 @@
                 $("#<%= DReflectContent.ClientID %>").val(reflection.ReflectionContent);
             }).run();
         }
+       });
     });
 </script>
 </asp:Content>
