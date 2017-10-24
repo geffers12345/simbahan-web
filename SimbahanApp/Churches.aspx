@@ -194,17 +194,17 @@ Modified by:
         </p>
         <br/>
         <span class="church-sublabel" id="massSchedules">
-            <strong runat="server" id="churchMassDates"></strong>
+            <span runat="server" id="churchMassDates"></span>
         </span>
         <br/>
         <br/>
         <span class="church-label" id="massLanguage">
-            Mass Languages: <strong runat="server" id="churchMassLanguages"></strong>
+            Mass Languages: <span runat="server" id="churchMassLanguages"></span>
         </span>
         <br/>
         <br/>
         <span class="church-label" id="lastUpdate">
-            Last Update: <strong runat="server" id="churchLastUpdate">Date</strong>
+            Last Update: <span runat="server" id="churchLastUpdate">Date</span>
         </span>
         <br/>
         <br/>
@@ -781,7 +781,7 @@ Modified by:
                 e.preventDefault();
 
 
-                var message = $('#<%= churchName.ClientID %>').text().substr(0, 80) +
+                var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
                     'www.mycatholicportal.org/Churches.aspx?id=' +
                     $("#<%= simbahanID.ClientID %>").val() +

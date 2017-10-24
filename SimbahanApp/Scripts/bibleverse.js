@@ -44,7 +44,7 @@
             e.preventDefault();
 
             var verse = verses.get($(this).data("id"));
-            var message = verse.BibleVerseContent + " - " + verse.ChapterTitle;
+            var message = verse.BibleVerseContent.substr(0, 50) + "...\"" + " - " + verse.ChapterTitle;
 
             window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
                 "Share to Twitter",

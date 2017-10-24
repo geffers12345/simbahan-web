@@ -319,7 +319,7 @@
                         response: false,
                         churches: churchesID
                     }).then(function (data) {
-                        window.location = 'VisitaIglesiaProgress';
+                        window.location = 'VisitaIglesiaProgress.aspx';
                     }).run();
                 });
             });
@@ -339,7 +339,7 @@
                     'Your Visita Iglesia list has successfully been saved.',
                     'success'
                 ).then(function() {
-                    window.location = 'VisitaIglesiaProgress';
+                    window.location = 'VisitaIglesiaProgress.aspx';
                 });
             }).run();
         }
