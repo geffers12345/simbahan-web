@@ -1594,6 +1594,7 @@
     <Content Include="wpStuffs\wp-admin\load-scriptsadbd.php" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnouncementItem.cs" />
     <Compile Include="BasicCatholicPrayer.aspx.cs">
       <DependentUpon>BasicCatholicPrayer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

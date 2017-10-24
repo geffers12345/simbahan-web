@@ -234,34 +234,43 @@
                 }
             });
 
-            $("#<%= TextBox1.ClientID %>").change(function(e) {
+
+            $("#<%= TextBox1.ClientID %>").change(function (e) {
                 $.ajax({
                     type: "POST",
                     url: "SaintOfTheDay.aspx/getSaints",
                     data: JSON.stringify({ date: $("#<%= TextBox1.ClientID %>").val() }),
                     contentType: "application/json; charset=utf-8",
-                    success: function(response) {
+                    success: function (response) {
                         var data = response.d;
+                        console.log(data.Id);
+                        var hasID = data.Id;
 
-                        $("#<%= SaintsID.ClientID %>").val(data.SaintId);
+                        if (hasID == 0) {
+                            alert("No Reflection for this Day")
+                            window.location.reload();
+                        } else {
+                            $("#<%= SaintsID.ClientID %>").val(data.SaintId);
 
-                        //getUserReflection(data.Id);
+                            //getUserReflection(data.Id);
+                            //var dates = $("#<%=TextBox1.ClientID %>").val();
+                            $("#<%= SaintDate.ClientID %>").text(data.FormattedDate);
+                            
+                            $("#<%= FeaturedSaint.ClientID %>").text(data.Name);
+                            $("#<%= FeastDay.ClientID %>").text(data.FeastDay);
+                            $("#<%= PatronOf.ClientID %>").text(data.Patron);
+                            $("#<%= BirthDate.ClientID %>").text(data.BirthDate);
+                            $("#<%= DeathDate.ClientID %>").text(data.DeathDate);
+                            $("#<%= SaintBio.ClientID %>").text(data.Biography);
+                            $("#<%= CanonizedDate.ClientID %>").text(data.CanonizeDate);
+                            $("#<%= ImagePath.ClientID %>").attr('src', data.ImagePath);
 
-                        $("#<%= SaintDate.ClientID %>").text(data.FormattedDate);
-                        $("#<%= FeaturedSaint.ClientID %>").text(data.Name);
-                        $("#<%= FeastDay.ClientID %>").text(data.FeastDay);
-                        $("#<%= PatronOf.ClientID %>").text(data.Patron);
-                        $("#<%= BirthDate.ClientID %>").text(data.BirthDate);
-                        $("#<%= DeathDate.ClientID %>").text(data.DeathDate);
-                        $("#<%= SaintBio.ClientID %>").text(data.Biography);
-                        $("#<%= CanonizedDate.ClientID %>").text(data.CanonizeDate);
-                        $("#<%= ImagePath.ClientID %>").attr('src', data.ImagePath);
-
-                        <%-- if (data.SecondReadingTitle == "") {
+                            <%-- if (data.SecondReadingTitle == "") {
                             Control.hide('<%= SaintBio.ClientId %>');
                         } else {
                             Control.show('<%= SaintBio.ClientId %>');
                         }--%>
+                        }
                     }
                 });
 

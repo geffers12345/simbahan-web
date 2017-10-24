@@ -1635,7 +1635,7 @@
                         '<p>Mass Schedule: <strong class="mass"></strong></p>' +
                         '<p>Ventilation: <strong class="ventilations"></strong></p>' +
                         '</div>' +
-                        '<p class="text-comment">Comments: <em class="comments"></em></p>' +
+                       // '<p class="text-comment">Comments: <em class="comments"></em></p>' +
                         '</div>' +
                         '</div>' +
                         '</a>'
@@ -1760,18 +1760,44 @@
 
         });
 
-        <%--$(document).on('click', '#<%= triggerMe.ClientID%>', function (e) {
-            e.preventDefault();
-            newLat = parseFloat($('#<%= Latitude.ClientID%>').val());
-            newLong = parseFloat($('#<%= Longitude.ClientID%>').val());
-        });--%>
-
         $(document).on('mouseleave', '.churchItem', function (e) {
             churchMap.setInactiveMarker($(this).data('id').toString());
         });
 
         $(document).on('mouseenter', '.organizationItem', function (e) {
             organizationMap.setActiveMarker($(this).data('id').toString());
+
+            var pos = organizationMap.getMarker($(this).data('id').toString()).position
+            var ID = $(this).data('id').toString();
+
+            var organization = organizationItems.find(function (organization) {
+                return organization.id == ID;
+            })
+            console.log(organization);
+
+            var orgInfo = '<a href="http://www.mycatholicportal.org/Organizations.aspx?id=' + organization['id'] + '"><div class="col-md-4" id="imgHere"><img src="' + organization['img-responsive'] + '" style="width: 112px;"></img></div><div class="col-md-8"><p><strong>' + organization['church-name'] + '</strong></p><p>' + organization['church-location'] + '</p></div></a>';
+
+            var x = { lat: pos.lat(), lng: pos.lng() };
+            console.log(x);
+
+            var map = new google.maps.Map(document.getElementById('organizationMap'), {
+                zoom: 14,
+                center: x
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: orgInfo
+            });
+
+            var marker = new google.maps.Marker({
+                position: x,
+                map: map,
+                title: organization['church-name']
+            });
+
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
         });
 
         $(document).on('mouseleave', '.organizationItem', function (e) {
@@ -1780,6 +1806,38 @@
 
         $(document).on('mouseenter', '.adorationItem', function (e) {
             adorationMap.setActiveMarker($(this).data('id').toString());
+
+            var pos = adorationMap.getMarker($(this).data('id').toString()).position
+            var ID = $(this).data('id').toString();
+
+            var adoration = adorationItems.find(function (adoration) {
+                return adoration.id == ID;
+            })
+            console.log(adoration);
+
+            var adoInfo = '<a href="http://www.mycatholicportal.org/Churches.aspx?id=' + adoration['id'] + '"><div class="col-md-4" id="imgHere"><img src="' + adoration['img-responsive'] + '" style="width: 112px;"></img></div><div class="col-md-8"><p><strong>' + adoration['church-name'] + '</strong></p><p>' + adoration['church-location'] + '</p></div></a>';
+
+            var x = { lat: pos.lat(), lng: pos.lng() };
+            console.log(x);
+
+            var map = new google.maps.Map(document.getElementById('adorationMap'), {
+                zoom: 14,
+                center: x
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+                content: adoInfo
+            });
+
+            var marker = new google.maps.Marker({
+                position: x,
+                map: map,
+                title: adoration['church-name']
+            });
+
+            marker.addListener('click', function () {
+                infowindow.open(map, marker);
+            });
         });
 
         $(document).on('mouseleave', '.adorationItem', function (e) {
