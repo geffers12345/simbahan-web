@@ -138,7 +138,7 @@
 
                 <div class="col-md-3 col-sm-12 col-xs-12">
                 <h1 style="font-family: 'Sounds Eroded';"><%= Page.Title.Split('-')[1].ToUpper() %></h1>
-                <%--<h5 id="LastUpdate">Last Updated on March 2015</h5>--%>
+                <h5 id="LastUpdate">Last Updated on October 2017</h5>
                 <br/>
 
             </div>
