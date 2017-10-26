@@ -221,31 +221,20 @@ namespace SimbahanApp
         }
 
         [WebMethod]
-        public static bool OnFavoriteAnnouncements(int announcementId)
+        public static bool OnFavoriteOrgAnnouncements(int organnouncementId)
         {
-            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            var service = new FavoritesService();
+
+            if (service.IsOrgAnnouncementAlreadyInFavorites(Auth.user().Id, organnouncementId))
             {
-                if (dbconn.State == ConnectionState.Open)
-                    dbconn.Close();
-                dbconn.Open();
+                service.RemoveOrgAnnouncement(Auth.user().Id, organnouncementId);
+            }
+            else
+            {
+                service.AddOrgAnnouncement(Auth.user().Id, organnouncementId);
+            }
 
-                using (var cmd = new SqlCommand("[spInsertFavoriteAnnouncements]", dbconn))
-                {
-                    try
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@AnnouncementID", announcementId);
-                        cmd.Parameters.AddWithValue("@userID", Auth.user().Id);
-                        cmd.ExecuteNonQuery();
-
-
-                    }
-                    catch (Exception)
-                    {
-                        // ignored
-                    }
-                }
-            } return true;
+            return true;
         }
 
         protected void btnAddAnnouncement_Click(object sender, EventArgs e)
