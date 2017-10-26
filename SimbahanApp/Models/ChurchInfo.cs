@@ -44,5 +44,6 @@ namespace SimbahanApp.Models
         public List<MassDetailsModel> FridayMassSchedule { get; set; }
         public List<MassDetailsModel> SaturdayMassSchedule { get; set; }
         public List<string> AdorationVentilations { get; set; }
+        public string MaskData { get; set; }
     }
 }

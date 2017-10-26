@@ -95,7 +95,8 @@ namespace SimbahanApp
                 MetaTitle = organization.Name;
                 MetaDescription = organization.About.Split(separator)[0];
                 GoogleMetaDescription = MetaDescription;
-                MetaUrl = "http://www.mycatholicportal.org/Organizations/" + organization.Id;
+                //MetaUrl = "http://www.mycatholicportal.org/Organizations.aspx?id=" + organization.Id;
+                MetaUrl = HttpContext.Current.Request.Url.Host + "/Organizations.aspx?id=" + organization.Id;
                 MetaImage = organization.Photos.Count > 0
                     ? "http://www.mycatholicportal.org/Images/Organizations/" + organization.Photos[0].ToString()
                     : "http://www.mycatholicportal.org/Images/defaul-org.jpg";

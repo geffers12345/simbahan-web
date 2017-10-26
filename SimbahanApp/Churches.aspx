@@ -164,6 +164,7 @@ Modified by:
 <input type="hidden" runat="server" id="latitude"/>
 <input type="hidden" runat="server" id="longitude"/>
 <input type="hidden" runat="server" id="simbahanID"/>
+<input type="hidden" runat="server" id="maskData"/>
 <div class="row">
     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
         <span class="church-header" runat="server" id="churchName"></span>
@@ -803,10 +804,8 @@ Modified by:
                 var ie = ".aspx?id="
 
                 window.open(
-                    "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Churches.aspx&link=http://www.mycatholicportal.org/Churches" +
-                 ie +
-
-                    $("#<%= simbahanID.ClientID %>").val(),
+                    "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Churches.aspx&link=http://www.mycatholicportal.org/Churches/" +
+                    $("#<%= simbahanID.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
                     'Share To Facebook',
                     'width=500,height=300');
 
