@@ -657,7 +657,7 @@ Modified by:
 
                 var message = $('#<%= OrganizationName.ClientID %>').text().substr(0, 80) +
                     '\n' +
-                    'www.mycatholicportal.org/Organization/' +
+                    'www.mycatholicportal.org/Organizations.aspx?id=' +
                     $("#<%= OrganizationId.ClientID %>").val() +
                     '   via @SimbahanApp';
 
