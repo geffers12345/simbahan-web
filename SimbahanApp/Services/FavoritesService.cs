@@ -547,6 +547,38 @@ namespace SimbahanApp.Services
             return true;
         }
 
+            public bool IsOrgAnnouncementAlreadyInFavorites(int userID, int organnouncementID)
+            {
+                using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+                {
+                    if (dbconn.State == ConnectionState.Open)
+                        dbconn.Close();
+                    dbconn.Open();
+
+                    using (var cmd = new SqlCommand("spIsOrgAnnouncementInFavorite", dbconn))
+                    {
+                        try
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@OrgAnnouncementID", organnouncementID);
+                            cmd.Parameters.AddWithValue("@userID", userID);
+
+
+                            var reader = cmd.ExecuteReader();
+
+                            while (reader.Read())
+                                return Convert.ToInt32(reader["result"]) != 0;
+                        }
+                        catch (Exception)
+                        {
+                            // ignored
+                        }
+                    }
+                }
+
+                return true;
+            }
+
             public bool RemoveAnnouncement(int userID, int announcementID)
             {
                 if (!IsAnnouncementAlreadyInFavorites(userID, announcementID)) return false;
@@ -564,6 +596,40 @@ namespace SimbahanApp.Services
                         {
                             cmd.CommandType = CommandType.StoredProcedure;
                             cmd.Parameters.AddWithValue("@AnnouncementID", announcementID);
+                            cmd.Parameters.AddWithValue("@userID", userID);
+
+
+                            cmd.ExecuteNonQuery();
+
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            // ignored
+                        }
+                    }
+                }
+
+                return false;
+            }
+
+            public bool RemoveOrgAnnouncement(int userID, int organnouncementID)
+            {
+                if (!IsOrgAnnouncementAlreadyInFavorites(userID, organnouncementID)) return false;
+
+                using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"]
+                    .ConnectionString))
+                {
+                    if (dbconn.State == ConnectionState.Open)
+                        dbconn.Close();
+                    dbconn.Open();
+
+                    using (var cmd = new SqlCommand("spRemoveOrgAnnouncementFavorite", dbconn))
+                    {
+                        try
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@OrgAnnouncementID", organnouncementID);
                             cmd.Parameters.AddWithValue("@userID", userID);
 
 
@@ -985,6 +1051,40 @@ namespace SimbahanApp.Services
             return announcement;
         }
 
+        public List<Models.OrganizationAnnouncement> GetFavoriteOrgAnnouncements(int userID)
+        {
+            var announcement = new List<Models.OrganizationAnnouncement>();
+            var announcementTransformer = new OrganizationAnnouncementTransformer();
+
+            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                    dbconn.Close();
+                dbconn.Open();
+
+                using (var cmd = new SqlCommand("spGetFavoriteOrgAnnouncement", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@userID", userID);
+
+
+                        var reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                            announcement.Add(announcementTransformer.Transform(reader));
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+
+            return announcement;
+        }
+
         public bool AddBasicCatholicPrayer(int userId, int basicCatholicPrayerId)
         {
             if (IsBasicCatholicPrayerAlreadyInFavorites(userId, basicCatholicPrayerId)) return false;
@@ -1138,6 +1238,40 @@ namespace SimbahanApp.Services
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@announcementID", announcementID);
+                        cmd.Parameters.AddWithValue("@userID", userID);
+
+
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool AddOrgAnnouncement(int userID, int organnouncementID)
+        {
+            if (IsOrgAnnouncementAlreadyInFavorites(userID, organnouncementID)) return false;
+
+            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"]
+                .ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                    dbconn.Close();
+                dbconn.Open();
+
+                using (var cmd = new SqlCommand("spInsertFavoriteOrgAnnouncement", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@organnouncementID", organnouncementID);
                         cmd.Parameters.AddWithValue("@userID", userID);
 
 

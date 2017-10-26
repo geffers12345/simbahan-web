@@ -110,7 +110,7 @@ Modified by:
                 <h4 class="modal-title">CHURCH ANNOUNCEMENT / EVENT</h4>
             </div>
             <div class="modal-body">
-                <input type="hidden" id="viewAnnouncementId" />
+                <input type="hidden" id="viewOrgAnnouncementId" />
                 <img class="img-responsive" id="viewAnnouncementImage" />
                 <h2 id="viewAnnouncementTitle"></h2>
                 <p class="lead" id="viewAnnouncementVenue"></p>
@@ -610,32 +610,32 @@ Modified by:
         $("#<%= btnAddToFav.ClientID %>").click(function (e) {
             e.preventDefault();
 
-            if ($("#<%= btnAddToFav.ClientID %>").attr('src') == '/Images/star.png') {
-                    $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/starcolored.png');
-                } else {
+            if ($("#<%= btnAddToFav.ClientID %>").attr('src') == '/Images/starcolored.png') {
                     $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/star.png');
+                } else {
+                $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/starcolored.png');
                 }
 
               var id = window.location.href.includes('?')
                   ? window.location.href.split('=')[1]
                   : window.location.href.split('/')[window.location.href.split('/').length - 1];
-              var aID = $('#viewAnnouncementId').val();
+              var aID = $('#viewOrgAnnouncementId').val();
               console.log(aID);
-              (new http).post("Organizations.aspx/OnFavoriteAnnouncements",
+              (new http).post("Organizations.aspx/OnFavoriteOrgAnnouncements",
                   {
-                      announcementId: aID
+                      organnouncementId: aID
                   }).then(function (response) {
                       if (response.d) {
-                          if ($("#<%= btnAddToFav.ClientID %>").attr('src') != '/Images/star.png') {
+                          if ($("#<%= btnAddToFav.ClientID %>").attr('src') != '/Images/starcolored.png') {
                                 swal(
-                                    'Added to favorites!',
-                                    'Announcement has been added to your favorites list!',
+                                    'Removed from favorites!',
+                                    'Announcement has been removed to your favorites list!',
                                     'success'
                                 );
                             } else {
                                 swal(
-                                    'Removed from favorites!',
-                                    'Announcement has been removed from your favorites list!',
+                                    'Added to favorites!',
+                                    'Announcement has been added from your favorites list!',
                                     'success'
                                 );
                             }
@@ -919,7 +919,7 @@ Modified by:
 
         $("#viewAnnouncementImage").attr('src', $(this).data('image'));
         $("#viewAnnouncementTitle").text($(this).data('title'));
-        $("#viewAnnouncementId").val($(this).data('id'));
+        $("#viewOrgAnnouncementId").val($(this).data('id'));
         $("#viewAnnouncementVenue").text($(this).data('venue'));
         $("#viewAnnouncementStartDate").text($(this).data('start-date'));
         $("#viewAnnouncementStartTime").text($(this).data('start-time'));

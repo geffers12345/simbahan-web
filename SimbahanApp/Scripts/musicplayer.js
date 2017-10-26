@@ -130,7 +130,7 @@ var walkmanVM = {
             _this.control.audio.trigger('play');
 
             // Update the favorites button
-            $("#buttonAddToFavorite>i").attr('class', Walkman.playingTrack.isFavorite ? 'fa fa-star fa-2x' : 'fa fa-star-o fa-2x');
+            $("#buttonAddToFavoritee").attr('class', Walkman.playingTrack.isFavorite ? '/Images/star.png' : '/Images/starcolored.png');
         }
 
         _this.control.lyrics.text(Walkman.playingTrack.lyrics);
@@ -178,7 +178,7 @@ $(document).ready(function () {
         }).run();
 });
 
-$(document).on('click', '#buttonAddToFavorite', function (e) {
+$(document).on('click', '#buttonAddToFavoritee', function (e) {
     e.preventDefault();
 
     if (!isAuth) {
@@ -187,11 +187,11 @@ $(document).on('click', '#buttonAddToFavorite', function (e) {
         return;
     }
 
-    if ($(this).children()[0].attributes[0].value === 'fa fa-star-o fa-2x') {
-        $(this).children()[0].attributes[0].value = 'fa fa-star fa-2x' ;
+    if ($(this).children()[0].attributes[0].value === '/Images/starcolored.png') {
+        $(this).children()[0].attributes[0].value = '/Images/star.png';
         // Favorite
     } else {
-        $(this).children()[0].attributes[0].value = 'fa fa-star-o fa-2x';
+        $(this).children()[0].attributes[0].value = '/Images/starcolored.png';
         // Unfavorite
     }
 

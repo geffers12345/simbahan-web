@@ -145,9 +145,7 @@
           
                <div class="col-md-2">
                 <div class="col-md-4">
-                    <a href="#" id="buttonAddToFavorite">
-                        <i class="fa fa-star-o fa-2x" aria-hidden="true"></i>
-                    </a>
+                    <img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" width="95" height="70"/>
                 </div>
                 <div class="col-md-4">                  
                     <button  id="btnShareTwitter" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
