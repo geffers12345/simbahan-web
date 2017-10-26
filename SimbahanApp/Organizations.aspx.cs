@@ -16,10 +16,14 @@ namespace SimbahanApp
 {
     public partial class Organizations : Page
     {
+        
+
         public int orgID = 0;
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnAddToFav.Src = "Images/star.png";
+
             var imgArr = new List<string>();
             var organizationId = 0;
             orgID = Convert.ToInt32(Request["id"]);
@@ -214,6 +218,34 @@ namespace SimbahanApp
             };
 
             return review.Create();
+        }
+
+        [WebMethod]
+        public static bool OnFavoriteAnnouncements(int announcementId)
+        {
+            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                    dbconn.Close();
+                dbconn.Open();
+
+                using (var cmd = new SqlCommand("[spInsertFavoriteAnnouncements]", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@AnnouncementID", announcementId);
+                        cmd.Parameters.AddWithValue("@userID", Auth.user().Id);
+                        cmd.ExecuteNonQuery();
+
+
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            } return true;
         }
 
         protected void btnAddAnnouncement_Click(object sender, EventArgs e)

@@ -407,32 +407,19 @@ namespace SimbahanApp
             });
         }
 
-        [WebMethod]
-        public static void OnFavoriteAnnouncements(int announcementId)
+                [WebMethod]
+        public static bool OnFavoriteAnnouncements(int announcementId)
         {
-            using (var dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            var service = new FavoritesService();
+
+            if (service.IsAnnouncementAlreadyInFavorites(Auth.user().Id, announcementId)) {
+                service.RemoveAnnouncement(Auth.user().Id, announcementId);
+            }else
             {
-                if (dbconn.State == ConnectionState.Open)
-                    dbconn.Close();
-                dbconn.Open();
-
-                using (var cmd = new SqlCommand("[spInsertFavoriteAnnouncements]", dbconn))
-                {
-                    try
-                    {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@AnnouncementID", announcementId);
-                        cmd.Parameters.AddWithValue("@userID", Auth.user().Id);
-                        cmd.ExecuteNonQuery();
-
-
-                    }
-                    catch (Exception)
-                    {
-                        // ignored
-                    }
-                }
+                service.AddAnnouncement(Auth.user().Id, announcementId);
             }
+
+            return true;
         }
 
         protected void btnAddAnnouncement_Click(object sender, EventArgs e)
