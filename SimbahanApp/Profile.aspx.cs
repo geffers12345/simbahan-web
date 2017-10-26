@@ -81,7 +81,7 @@ namespace SimbahanApp.Account
 
                     foreach (var announcement in announcements)
                     {
-                        var announcementItem = new AnnouncementItem(announcement.Id, announcement.Title, announcement.Venue,
+                        var announcementItem = new AnnouncementItem(announcement.SimbahanId, announcement.Title, announcement.Venue,
                             announcement.ImagePath);
 
                         favoriteAnnouncements.InnerHtml += announcementItem.ToHtml();
@@ -95,7 +95,7 @@ namespace SimbahanApp.Account
 
                     foreach (var organnouncement in organnouncements)
                     {
-                        var announcementItem = new AnnouncementItem(organnouncement.Id, organnouncement.Title, organnouncement.Venue,
+                        var announcementItem = new OrganizationAnnouncementItem(organnouncement.Id, organnouncement.OrganizationId, organnouncement.Title, organnouncement.Venue,
                             organnouncement.ImagePath);
 
                         favoriteAnnouncementss.InnerHtml += announcementItem.ToHtml();
