@@ -1313,6 +1313,7 @@
                             'ventilations': ventilations.join(", "),
                             'comments': comment,
                             'id': church.SimbahanID,
+                            'mask-data': church.MaskData,
                             'img-responsive': church.ChurchThumbnails[0]["ChurchPhotos"]
                         });
 
@@ -1618,12 +1619,13 @@
                     'ventilations',
                     'comments',
                     { data: ['id'] },
+                    { data: ['mask-data'] },
                     { name: 'img-responsive', attr: 'src' }
                 ],
                 pagination: true,
                 page: $("#churchDisplayLimit").val(),
                 item:
-                    '<a href="#" target="_blank" id="churchItem" data-id="" class="churchItem">' +
+                    '<a href="#" target="_blank" id="churchItem" data-id="" data-mask-data="" class="churchItem">' +
                         '<div class="row church-result">' +
                         '<div class="col-md-4">' +
                         '<img class="img-responsive" id="churchPhotohh" src="">' +
@@ -1847,7 +1849,7 @@
         $(document).on('click', '.churchItem', function (e) {
             e.preventDefault();
 
-            window.open('Churches.aspx?id=' + $(this).data('id'), '_blank');
+            window.open('Churches/' + $(this).data('id') + '/' + $(this).data('mask-data'), '_blank');
         });
 
         $(document).on('click', '.organizationItem', function (e) {

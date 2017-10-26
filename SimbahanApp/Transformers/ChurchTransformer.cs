@@ -34,7 +34,8 @@ namespace SimbahanApp.Transformers
                 EmailAddress = EmailAddress.ToString(),
                 DevotionSchedule = DevotionSchedule.ToString(),
                 LocationID = ToInt(LocationID),
-                ChurchCode = ChurchCode.ToString()
+                ChurchCode = ChurchCode.ToString(),
+                MaskData = MaskingData.ToString()
             };
         }
 
@@ -181,6 +182,8 @@ namespace SimbahanApp.Transformers
         ///     Property that represents the column ChurchCode from data layer.
         /// </summary>
         private object ChurchCode { get; set; }
+
+        private object MaskingData { get; set; }
 
         #endregion
     }
