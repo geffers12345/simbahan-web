@@ -17,7 +17,7 @@
                 </div>
                 <div class="modal-body">
                     <div id="church-container">
-                      ]\
+                     
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -330,10 +330,13 @@
                     
                     };--%>
      
-            $("#church-container").text("No information!");
-            console.log(RelatedChurch)
-      
+        //if ("#church-container")== null
+        if ($('#church-container').val() == '') {
+           $("#church-container").text("No church available for the selected saint")
+        } else {
 
+        }
+        
 
     </script>
 </asp:Content>
