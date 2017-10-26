@@ -8,7 +8,7 @@ namespace SimbahanApp.Models
         public string Name { get; set; }
         public string Biography { get; set; }
         public string Categories { get; set; }
-        public string ClassName => Categories.Replace(' ', '-').ToLower(); 
+        public string ClassName => String.IsNullOrEmpty(Categories) ? "" : Categories.Replace(' ', '-').ToLower(); 
 
         private string _imagePath;
 
