@@ -51,7 +51,7 @@ namespace SimbahanApp.Services
                             dailyGospelReflection.User = _userTransformer.Transform(reader);
                         }
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
                         // ignored
                     }
