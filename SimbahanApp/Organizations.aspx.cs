@@ -16,10 +16,14 @@ namespace SimbahanApp
 {
     public partial class Organizations : Page
     {
+        
+
         public int orgID = 0;
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnAddToFav.Src = "Images/star.png";
+
             var imgArr = new List<string>();
             var organizationId = 0;
             orgID = Convert.ToInt32(Request["id"]);
@@ -214,6 +218,23 @@ namespace SimbahanApp
             };
 
             return review.Create();
+        }
+
+        [WebMethod]
+        public static bool OnFavoriteOrgAnnouncements(int organnouncementId)
+        {
+            var service = new FavoritesService();
+
+            if (service.IsOrgAnnouncementAlreadyInFavorites(Auth.user().Id, organnouncementId))
+            {
+                service.RemoveOrgAnnouncement(Auth.user().Id, organnouncementId);
+            }
+            else
+            {
+                service.AddOrgAnnouncement(Auth.user().Id, organnouncementId);
+            }
+
+            return true;
         }
 
         protected void btnAddAnnouncement_Click(object sender, EventArgs e)

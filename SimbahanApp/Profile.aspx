@@ -227,9 +227,15 @@
     </div>
 
         <div class="tab-pane fade" id="Favannouncement">
-        <h3 class="moods">Church Announcements</h3>
+        <h3 class="moods">Church/Adoration Chapel Announcements</h3>
 
         <h3 id="favoriteAnnouncements" runat="server">
+
+        </h3>
+
+         <h3 class="moods">Organization Announcements</h3>
+
+        <h3 id="favoriteAnnouncementss" runat="server">
 
         </h3>
     </div>
@@ -824,6 +830,14 @@
             e.preventDefault();
 
             window.open('Churches.aspx?id=' + $(this).data('id'), '_blank');
+        });
+
+    $(document).on('click',
+        '#btnViewOrgDetail',
+        function (e) {
+            e.preventDefault();
+
+            window.open('Organizations.aspx?id=' + $(this).data('id'), '_blank');
         });
 
     $(document).on('click',
