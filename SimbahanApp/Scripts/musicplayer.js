@@ -214,7 +214,7 @@ $("#btnShareTwitter").click(function (e) {
 
     var song = Walkman.playingTrack;
 
-    var message = song.title + " by " + song.artist + " http://www.mycatholicportal.org" + currentPage + " @SimbahanApp";
+    var message = "Currently listening to " + song.title + " by " + song.artist + " in" + " http://www.mycatholicportal.org" + currentPage + " @SimbahanApp";
 
     window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
         "Share to Twitter",
@@ -227,7 +227,7 @@ $("#btnShareFacebok").click(function (e) {
 
     var song = Walkman.playingTrack;
 
-    var message = song.title + " by " + song.artist + " http://www.mycatholicportal.org" + currentPage;
+    var message = "Currently listening to" + song.title + " by " + song.artist + " in" + " http://www.mycatholicportal.org" + currentPage;
 
     var ee = "s.aspx?id="
 

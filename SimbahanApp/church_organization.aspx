@@ -208,7 +208,7 @@
                                     </div>
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="churchResultsCount">No Results Found.</label>
+                                            <label class="label-normal" id="churchResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
