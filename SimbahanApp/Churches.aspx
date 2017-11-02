@@ -2,7 +2,7 @@
 <%@ Import Namespace="SimbahanApp.Models" %>
 <%@ MasterType virtualpath="~/Site.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
-    
+        <script type='text/javascript' src="Scripts/SearchEstablishment.js"></script>
     <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
     <link rel="stylesheet" href='<%= ResolveUrl("Content/cssslider_files/csss_engine1/style.css") %>'>
     <link rel="stylesheet" type="text/css" href='<%= ResolveUrl("Content/engine1/style.css") %>'/>

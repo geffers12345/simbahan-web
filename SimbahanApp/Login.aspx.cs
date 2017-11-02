@@ -85,7 +85,7 @@ namespace SimbahanApp
                             user.RoleID = Convert.ToInt32(reader["RoleID"]);
                         }
 
-                        if (Email.Text == email && Password.Text == password)
+                        if (EmailFromDB == email && PasswordFromDB == password)
                         {
                             return true;
                         }

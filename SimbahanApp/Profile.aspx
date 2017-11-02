@@ -833,6 +833,14 @@
         });
 
     $(document).on('click',
+        '#btnViewOrgDetail',
+        function (e) {
+            e.preventDefault();
+
+            window.open('Organizations.aspx?id=' + $(this).data('id'), '_blank');
+        });
+
+    $(document).on('click',
         '#btnViewSaintDetail',
         function (e) {
             e.preventDefault();
