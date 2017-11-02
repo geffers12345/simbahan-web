@@ -674,7 +674,7 @@ Modified by:
                 e.preventDefault();
 
                window.open(
-                    'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organization.aspx?id=' +
+                    'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organizations.aspx?id=' +
                     $("#<%= OrganizationId.ClientID %>").val(),
                     'Share To Facebook',
                     'width=500,height=300');
