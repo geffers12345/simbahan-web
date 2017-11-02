@@ -250,7 +250,7 @@
                             alert("No Saint available for this Day")
                             window.location.reload();
                         } else {
-                            $("#<%= SaintsID.ClientID %>").val(data.SaintId);
+                            $("#<%= SaintsID.ClientID %>").val(data.Id);
 
                             //getUserReflection(data.Id);
                             //var dates = $("#<%=TextBox1.ClientID %>").val();
