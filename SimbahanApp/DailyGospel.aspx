@@ -196,7 +196,7 @@
     <br/>
     <br/>
     <div class="row">
-        <div class="row reflection" style="background-image: url(<%= ResolveUrl("Images/ReflectionBackground1.png") %>);">
+        <div class="row reflection" id="reflection" style="background-image: url(<%= ResolveUrl("Images/ReflectionBackground1.png") %>);">
             <div class="row">
                 <input id="GReflectTitle" runat="server" class="text-reflect" type="text" placeholder="MY REFLECTION"/>
             </div>
@@ -334,7 +334,14 @@
         });
     });
 
-   $(document).ready(function() {
+    $(document).ready(function () {
+
+        if ($("#<%= GospelID.ClientID %>").val() == 0){
+            $('#reflection').hide();
+        } else {
+            $('#reflection').show();
+        }
+
         $("#<%= TextBox1.ClientID %>").dynDateTime({
             showsTime: true,
             ifFormat: "%Y/%m/%d %H:%M",
@@ -382,7 +389,13 @@
                     $("#<%= VBGTitle.ClientID %>").text(data.VerseBeforeGospelTitle);
                     $("#<%= VBGContent.ClientID %>").text(data.VerseBeforeGospelContent);
                     $("#<%= DGospelTitle.ClientID %>").text(data.GospelTitle);
-                    $("#<%= DGospelContent.ClientID %>").text(data.GospelContent);
+                        $("#<%= DGospelContent.ClientID %>").text(data.GospelContent);
+
+                    if ($("#<%= GospelID.ClientID %>").val() == 0){
+                        $('#reflection').hide();
+                    } else {
+                        $('#reflection').show();
+                    }
 
                     if (data.SecondReadingTitle == "") {
                         Control.hide('<%= SecondReading.ClientID %>');

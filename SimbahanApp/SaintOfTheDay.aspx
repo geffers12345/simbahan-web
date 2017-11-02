@@ -182,7 +182,7 @@
             <br/>
             <br/>
             <div class="row">
-                <div class="row reflection" style="background-image: url(<%= ResolveUrl("Images/ReflectionBackground1.png") %>);">
+                <div class="row reflection" id="reflection" style="background-image: url(<%= ResolveUrl("Images/ReflectionBackground1.png") %>);">
                     <div class="row">
                         <input id="GReflectTitle" runat="server" class="text-reflect" type="text" placeholder="MY REFLECTION"/>
                     </div>
@@ -218,7 +218,13 @@
     <script type="text/javascript">
 
 
-        $(document).ready(function() {
+        $(document).ready(function () {
+
+            if ($("#<%= SaintsID.ClientID %>").val() == 0){
+                $('#reflection').hide();
+            } else {
+                $('#reflection').show();
+            }
 
             $("#<%= TextBox1.ClientID %>").dynDateTime({
                 showsTime: true,
@@ -269,6 +275,11 @@
                         } else {
                             Control.show('<%= SaintBio.ClientId %>');
                         }--%>
+                            if ($("#<%= SaintsID.ClientID %>").val() == 0){
+                                $('#reflection').hide();
+                            } else {
+                                $('#reflection').show();
+                            }
                         }
                     }
                 });
@@ -382,6 +393,11 @@
             if (!isAuth) {
                 document.cookie = "intendedRedirect=" + currentPage + ";";
                 window.location.href = "Login.aspx";
+                return;
+            }
+
+            if ($("#<%= SaintsID.ClientID %>").val() == 0) {
+                alert('No Saint Available!');
                 return;
             }
 
