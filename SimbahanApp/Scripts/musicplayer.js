@@ -219,7 +219,6 @@ $("#btnShareTwitter").click(function (e) {
     window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
         "Share to Twitter",
         "width=500,height=300");
-
 });
 
 $("#btnShareFacebok").click(function (e) {
