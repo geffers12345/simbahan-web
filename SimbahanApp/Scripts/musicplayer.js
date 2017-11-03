@@ -178,20 +178,21 @@ $(document).ready(function () {
         }).run();
 });
 
-$(document).on('click', '#buttonAddToFavoritee', function (e) {
+$(document).on('click', '#btnAddFav', function (e) {
     e.preventDefault();
-
+    console.log('haha');
     if (!isAuth) {
         document.cookie = "intendedRedirect=" + currentPage + ";";
         window.location.href = "Login.aspx";
         return;
     }
 
-    if ($(this).children()[0].attributes[0].value === '/Images/starcolored.png') {
-        $(this).children()[0].attributes[0].value = '/Images/star.png';
+    if ($("#buttonAddToFavoritee").prop('src') === '/Images/starcolored.png') {
+      
+        $("#buttonAddToFavoritee").prop('src', '/Images/star.png');
         // Favorite
     } else {
-        $(this).children()[0].attributes[0].value = '/Images/starcolored.png';
+        $("#buttonAddToFavoritee").prop('src', '/Images/starcolored.png');
         // Unfavorite
     }
 

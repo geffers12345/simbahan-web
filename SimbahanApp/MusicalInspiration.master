@@ -145,7 +145,7 @@
           
                <div class="col-md-2">
                 <div class="col-md-4">
-                    <img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" width="95" height="70"/>
+                    <a id="btnAddFav" href=""><img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" style="max-width: 268% !important;"/></a>
                 </div>
                 <div class="col-md-4">                  
                     <button  id="btnShareTwitter" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
