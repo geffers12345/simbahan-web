@@ -1793,6 +1793,7 @@
     </Compile>
     <Compile Include="Exceptions\ModelAlreadyPersistedException.cs" />
     <Compile Include="Exceptions\ModelNotFoundException.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
