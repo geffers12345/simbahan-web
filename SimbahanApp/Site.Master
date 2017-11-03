@@ -817,7 +817,7 @@
         <!-- close div.eltd-wrapper-inner  -->
     </form>
 
-    <script src="Scripts/sweetalert.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/sweetalert.js"></script>
     <script src='<%= ResolveUrl("Scripts/share.js") %>'></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
     <script src="https://unpkg.com/vuejs-paginate@latest"></script>
@@ -897,7 +897,7 @@
     <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/position.mine899.js?ver=1.11.4'></script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/menu.mine899.js?ver=1.11.4'></script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/wp-a11y.mine100.js?ver=4.7.2'></script>
-    <script src="Scripts/jssor.slider-22.2.10.min.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/jssor.slider-22.2.10.min.js"></script>
     <script type='text/javascript'>
         /* <![CDATA[ */
         var uiAutocompleteL10n = { "noResults": "No results found.", "oneResult": "1 result found. Use up and down arrow keys to navigate.", "manyResults": "%d results found. Use up and down arrow keys to navigate.", "itemSelected": "Item selected." };
@@ -913,11 +913,11 @@
         var isAuth = <%= SimbahanApp.Models.Auth.Check() ? "true" : "false" %>;
         var currentPage = '<%= HttpContext.Current.Request.Url.AbsolutePath %>';
     </script>
-    <script type='text/javascript' src='Scripts/bootstrap.min.js'></script>
-    <script src="Scripts/jssor.slider-22.2.10.min.js"></script>
-    <script src="Scripts/validator.js"></script>
-    <script src="Scripts/list.js"></script>
-    <script src="Scripts/helpers.js"></script>
+    <script type='text/javascript' src='http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/bootstrap.min.js'></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/jssor.slider-22.2.10.min.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/validator.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/list.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/helpers.js"></script>
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
         <!--Start of Tawk.to Script-->
 <script type="text/javascript">
