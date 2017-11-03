@@ -89,7 +89,7 @@ namespace SimbahanApp.Components
             if (id == 0)
                 activeClass = "item active";
             
-            var imagepath = "http://" + HttpContext.Current.Request.Url.Host + @"\Images\Photos\" + image;
+            var imagepath = Helpers.GenerateURL(@"\Images\Photos\" + image);
 
             Images.Add("<div class=\"" + activeClass + "\"><img src=\""+ imagepath +"\"/></div>");
         }
