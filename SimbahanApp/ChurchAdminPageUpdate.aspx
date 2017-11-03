@@ -1128,11 +1128,12 @@
                         </div>
                         <div class="col-md-4">
                             <label class="font-large">LANGUAGE:</label>
-                                <select id="Select1" class="form-control">
+                            <input type="text" id="Select1" class="form-control" />
+                               <%-- <select id="Select1" class="form-control">
                                     <option value="English">English</option>
                                     <option value="Tagalog">Tagalog</option>
                                     <option value="Cebuano">Cebuano</option>
-                                </select>
+                                </select>--%>
                         </div>
                         </div>
                     </div>
