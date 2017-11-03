@@ -194,6 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div id="btnGroupMoreFilter">
                                     <div class="row">
                                         <div class="col-sm-4">
