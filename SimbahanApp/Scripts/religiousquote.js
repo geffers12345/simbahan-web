@@ -21,7 +21,7 @@
                 var classActive = quote.IsFavorite ? "active" : "";
                 $("#toppage").append('<div><p></p><ol><li class="tqquote">' +
                     quote.Quote +
-                    '</li></ol></div><br /><div class="authors"><div class="pull-left"><a id="btnRelFavorite" class="' +
+                    '</li></ol></div><div class="authors"><div class="pull-left"><a id="btnRelFavorite" class="' +
                     classActive +
                     '" data-id="' +
                     quote.Id +
