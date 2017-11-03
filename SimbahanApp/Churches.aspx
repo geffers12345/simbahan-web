@@ -1069,6 +1069,12 @@ Modified by:
         $("#viewAnnouncementEndDate").text($(this).data('end-date'));
         $("#viewAnnouncementEndTime").text($(this).data('end-time'));
         $("#viewAnnouncementContent").text($(this).data('content'));
+        if ($(this).data("is-favorite") == 'True') {
+            $('#<%= btnAddToFav.ClientID %>').prop('src', '/Images/starcolored.png')
+        }
+        else {
+            $('#<%= btnAddToFav.ClientID %>').prop('src', '/Images/star.png')
+        }
 
         $("#view-announcement-modal").modal('show');
     });
@@ -1078,8 +1084,10 @@ Modified by:
          
                 if ($("#<%= btnAddToFav.ClientID %>").attr('src') == '/Images/starcolored.png') {
                     $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/star.png');
+                    $("#annoucementItem[data-id='" + $('#viewAnnouncementId').val() + "']").data('is-favorite', false);
                 } else {
                     $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/starcolored.png');
+                    $("#annoucementItem[data-id='" + $('#viewAnnouncementId').val() + "']").data('is-favorite', true);
                 }
 
         var id = window.location.href.includes('?')
