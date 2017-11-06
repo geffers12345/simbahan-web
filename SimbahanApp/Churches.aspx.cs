@@ -22,7 +22,7 @@ namespace SimbahanApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            btnAddToFav.Src = "Images/star.png";
+            btnAddToFav.Src = "http://" + HttpContext.Current.Request.Url.Host + "/Images/star.png";
 
             var churchId = 0;
 
