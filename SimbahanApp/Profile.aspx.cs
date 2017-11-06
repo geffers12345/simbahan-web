@@ -7,6 +7,7 @@ using System.Web.Services;
 using System.Web.UI;
 using SimbahanApp.Components;
 using SimbahanApp.Models;
+using SimbahanModel = SimbahanApp.Models.SimbahanModel;
 using SimbahanApp.Services;
 using System.Web.UI.HtmlControls;
 using System.Data.SqlClient;
@@ -17,6 +18,9 @@ namespace SimbahanApp.Account
 {
     public partial class Profile : Page
     {
+        public ChurchInfo churchh;
+        public string x = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
@@ -26,6 +30,14 @@ namespace SimbahanApp.Account
                     dbconn.Close();
                 }
                 dbconn.Open();
+                var favoriteService = new FavoritesService();
+                if (Auth.Check())
+                    //if (favoriteService.IsChurchAlreadyInFavorites(Auth.user().Id, churchh.SimbahanID))
+                    {
+                        //AddFav.Attributes.Add("style", "display: none;");
+                        //RemoveFav.Attributes.Add("style", "display: block;");
+                    }
+
                 if (Auth.Check())
                 {
                     Name.InnerHtml = Auth.user().FullName;
@@ -58,8 +70,6 @@ namespace SimbahanApp.Account
                         tab5.Visible = false;
                         manage.Visible = false;
                     }
-
-                    var favoriteService = new FavoritesService();
 
                     var churches = favoriteService.GetFavoriteChurches(Auth.user().Id);
 
@@ -172,18 +182,22 @@ namespace SimbahanApp.Account
                     var saints = favoriteService.GetFavoriteSaint(Auth.user().Id);
 
                     favoriteSaints.InnerHtml = "";
-
+                    //var favoriteService = new FavoritesService();
                     foreach (var saint in saints)
                     {
                         var saintItem = new SaintItem(saint);
 
                         favoriteSaints.InnerHtml += saintItem.ToHtml();
+
+                        
                     }
                 }
                 else
                 {
                     Response.Redirect("Login.aspx");
                 }
+                getUnreadDocuments();
+                countii();
             }
         }
 
@@ -249,6 +263,83 @@ namespace SimbahanApp.Account
             HttpContext.Current.Response.Cookies.Add(cookie);
 
             return user;
+        }
+
+        private void getUnreadDocuments()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT Simbahan.SimbahanID, Simbahan.Parish FROM Simbahan where Activated = 0", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        var reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+
+                            var tr = new HtmlGenericControl("td");
+
+                            int SID = Convert.ToInt32(reader["SimbahanID"].ToString());
+                            var parish = (reader["Parish"].ToString());
+                           
+                            tr.InnerHtml = string.Format("<tr id=\"getID\" data-id='" + SID + "' name=\"{0}\"><td>{0}</td><td>{1}</td></tr>", SID, parish);
+                            notif.Controls.Add(tr);
+                            countii();
+                        }
+
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        string msg = "Insert Error:";
+                        msg += ex.Message;
+                        throw new Exception(msg);
+                    }
+                }
+            }
+        }
+
+        private void countii()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT count(*) As bilang FROM Simbahan where Activated = 0", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        var reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+
+                            count1.InnerHtml = reader["bilang"].ToString();
+                            count2.InnerHtml = reader["bilang"].ToString();
+                            idContainer.Value = reader["bilang"].ToString();
+                        }
+
+                    }
+                    catch (System.Data.SqlClient.SqlException ex)
+                    {
+                        string msg = "Insert Error:";
+                        msg += ex.Message;
+                        throw new Exception(msg);
+                    }
+                }
+            }
         }
     }
 }

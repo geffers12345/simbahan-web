@@ -22,6 +22,33 @@ namespace SimbahanApp.Account {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Name;
         
         /// <summary>
+        /// simbahanID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden simbahanID;
+        
+        /// <summary>
+        /// count1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl count1;
+        
+        /// <summary>
+        /// count2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl count2;
+        
+        /// <summary>
         /// manage control.
         /// </summary>
         /// <remarks>
@@ -119,6 +146,24 @@ namespace SimbahanApp.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl favoriteDevotions;
+        
+        /// <summary>
+        /// notif control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl notif;
+        
+        /// <summary>
+        /// idContainer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText idContainer;
         
         /// <summary>
         /// firstName control.
