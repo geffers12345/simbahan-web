@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
+<%@ Page Title="Catholic Church Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Churches.aspx.cs" Inherits="SimbahanApp.Churches" %>
 <%@ Import Namespace="SimbahanApp.Models" %>
 <%@ MasterType virtualpath="~/Site.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
@@ -232,7 +232,7 @@ Modified by:
             </div>
             <div class="col-md-1 col-xs-12">
                 <div class="eltd-listing-search-submit-holder mgfb">
-                    <button id="ShareFb" type="submit" class="btn-facebook-share eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                    <button id="ShareFb" class="btn-facebook-share eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
                         <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
                         <span aria-hidden="true"></span>
                     </button>
@@ -730,7 +730,8 @@ Modified by:
 
     $(document).ready(function () {
 
-        SelectTab("info");
+        //SelectTab("info");
+        $('.nav-tabs a[href="#info"]').tab('show');
 
         $('#startPosition').keyup(function(e) {
             //e.preventDefault();
@@ -1082,25 +1083,25 @@ Modified by:
     $("#<%= btnAddToFav.ClientID %>").click(function (e) {
                 e.preventDefault();
          
-                if ($("#<%= btnAddToFav.ClientID %>").attr('src') == '/Images/starcolored.png') {
-                    $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/star.png');
-                    $("#annoucementItem[data-id='" + $('#viewAnnouncementId').val() + "']").data('is-favorite', false);
-                } else {
-                    $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/starcolored.png');
-                    $("#annoucementItem[data-id='" + $('#viewAnnouncementId').val() + "']").data('is-favorite', true);
-                }
+        if ($("#<%= btnAddToFav.ClientID %>").attr('src') == 'http://<%= HttpContext.Current.Request.Url.Host %>/Images/starcolored.png') {
+            $("#<%= btnAddToFav.ClientID %>").attr('src', 'http://<%= HttpContext.Current.Request.Url.Host %>/Images/star.png');
+            $("#annoucementItem[data-id='" + $('#viewAnnouncementId').val() + "']").data('is-favorite', false);
+        } else {
+            $("#<%= btnAddToFav.ClientID %>").attr('src', 'http://<%= HttpContext.Current.Request.Url.Host %>/Images/starcolored.png');
+            $("#annoucementItem[data-id='" + $('#viewAnnouncementId').val() + "']").data('is-favorite', true);
+        }
 
         var id = window.location.href.includes('?')
             ? window.location.href.split('=')[1]
             : window.location.href.split('/')[window.location.href.split('/').length - 1];
         var aID = $('#viewAnnouncementId').val();
-        console.log(aID);
+          
                 (new http).post("Churches.aspx/OnFavoriteAnnouncements",
                     {
                         announcementId: aID
                     }).then(function (response) {
                         if (response.d) {
-                            if ($("#<%= btnAddToFav.ClientID %>").attr('src') != '/Images/starcolored.png') {
+                            if ($("#<%= btnAddToFav.ClientID %>").attr('src') != 'http://<%= HttpContext.Current.Request.Url.Host%>/Images/starcolored.png') {
                                 swal(
                                     'Remove from favorites!',
                                     'Announcement has been removed to your favorites list!',

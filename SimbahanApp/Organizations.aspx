@@ -21,7 +21,7 @@ Modified by:
 <input type="hidden" id="latitude" runat="server" />
 <input type="hidden" id="longitude" runat="server" />
 <input type="hidden" id="OrganizationId" runat="server" />
-    
+<input type="hidden" runat="server" id="maskData"/>
 <div id="create-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -673,9 +673,21 @@ Modified by:
             function(e) {
                 e.preventDefault();
 
-               window.open(
+               <%--window.open(
                     'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organizations.aspx?id=' +
                     $("#<%= OrganizationId.ClientID %>").val(),
+                    'Share To Facebook',
+                    'width=500,height=300');--%>
+
+              <%-- window.open(
+                    'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organizations/' +
+                    $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
+                    'Share To Facebook',
+                    'width=500,height=300');--%>
+
+               window.open(
+                    "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Organizations.aspx&link=http://www.mycatholicportal.org/Organizations/" +
+                    $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
                     'Share To Facebook',
                     'width=500,height=300');
 
