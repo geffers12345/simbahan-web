@@ -12,14 +12,22 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
-                     <div class="container">
+                    <%-- <div class="container">
                     <ol class="breadcrumb breadcrumb-arrow">
-		                <li><a href="#">Prayer & Devotions</a></li>
+		                <li><a href="#">Prayer & Devotions</a></li>--%>
 		                <%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
-		                <li class="active"><span>Devotions</span></li>
+		              <%--  <li class="active"><span>Devotions</span></li>
 	                </ol>
                 </div>
-                    <br/>
+                    <br/>--%>
+                    <div class="btn-group btn-breadcrumb">
+            <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="#" class="btn btn-info">Prayer & Devotions</a>
+            <a href="#" class="btn btn-info"><strong>Devotion</strong></a>
+          
+        </div>
+
+            <br /><br />
 
                     <h1 class="moods">DEVOTIONS</h1>
 
