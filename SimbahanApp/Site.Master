@@ -415,7 +415,7 @@
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
                                         <img class="eltd-normal-logo" src="../Images/SimbahanLogoBeta.png" alt="logo" />
                                         <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logoo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo" style="height: 100% !important; width: 100% !important; margin-top: 9%;"/>
                                     </a>
                                 </div>
 
