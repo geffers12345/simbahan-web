@@ -369,8 +369,12 @@
                     var hasID = data.Id;
 
                     if (hasID == 0) {
-                              alert("No Gospel for this Day")
-                        window.location.reload();
+
+
+                        swal("No Gospel for this Day", "", "error").then(function () {
+                            
+                            window.location.reload();
+                        });
                     } else {
                         $("#<%= GospelID.ClientID %>").val(data.Id);
                     

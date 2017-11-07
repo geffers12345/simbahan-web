@@ -388,8 +388,10 @@
                     var hasID = data.Id;
 
                     if (hasID == 0) {
-                       alert("No Reflection for this Day")
-                        window.location.reload();
+                        swal("No Reflection for this Day", "", "error").then(function () {
+
+                            window.location.reload();
+                        });
                     } else {
 
                         $("#<%= ReflectionID.ClientID %>").val(data.Id);
