@@ -46,12 +46,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5">Mass Schedule</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important;">Mass Schedule</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <p>Schedule:</p>
+                                            <p style="font-weight: bold !important;">Schedule:</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -69,7 +69,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-1">
-                                        <label class="label-normal">Time:</label>
+                                        <label class="label-normal" style="font-weight: bold !important;">Time:</label>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectChurchMassTime">
@@ -99,7 +99,7 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <p>Language:</p>
+                                            <p style="font-weight: bold !important;">Language:</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -115,12 +115,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5">Confession Schedule</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important;">Confession Schedule</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <p>With Confession:</p>
+                                            <p style="font-weight: bold !important;">With Confession:</p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -138,7 +138,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-1">
-                                        <label class="label-normal">Time:</label>
+                                        <label class="label-normal" style="font-weight: bold !important;">Time:</label>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectChurchConfessionTime">
@@ -166,14 +166,14 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5">Church Ventilation</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important;">Church Ventilation</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3" style="padding-right: 0px;">
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="churchHasAirConditioned">
-                                                <label for="churchHasAirConditioned">Air Conditioned</label>
+                                                <label for="churchHasAirConditioned" style="font-weight: bold !important;">Air Conditioned</label>
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="churchHasCeilingFan">
-                                                <label for="churchHasCeilingFan">Ceiling Fan</label>
+                                                <label for="churchHasCeilingFan" style="font-weight: bold !important;">Ceiling Fan</label>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="churchHasOrdinaryFan">
-                                                <label for="churchHasOrdinaryFan">Ordinary Fan</label>
+                                                <label for="churchHasOrdinaryFan" style="font-weight: bold !important;">Ordinary Fan</label>
                                             </div>
                                         </div>
                                     </div>
@@ -398,12 +398,12 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5">Adoration Chapel Schedule</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important;">Adoration Chapel Schedule</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 full-width">
                                         <div class="form-group">
-                                            <p>Adoration Chapel: </p>
+                                            <p style="font-weight: bold !important;">Adoration Chapel: </p>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -421,7 +421,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-1">
-                                        <label class="label-normal">Time:</label>
+                                        <label class="label-normal" style="font-weight: bold !important;">Time:</label>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectAdorationTime">
@@ -449,7 +449,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5">Chapel Site</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important;">Chapel Site</h5>
                                 </div>
                                 <div class="row">
                                     <input class="adorationlocation" type="radio" id="isEmptyAdorationLocation" name="adorationlocation" value="" checked="" style="display: none;">
@@ -457,7 +457,7 @@
                                         <div class="form-group">
                                             <div class="square-radio">
                                                 <input class="adorationlocation" name="adorationlocation" type="radio" id="isAdorationSeparate" value="1">
-                                                <label for="isAdorationSeparate">Standalone</label>
+                                                <label for="isAdorationSeparate" style="font-weight: bold !important;">Standalone</label>
                                             </div>
                                         </div>
                                     </div>
@@ -465,7 +465,7 @@
                                         <div class="form-group">
                                             <div class="square-radio">
                                                 <input class="adorationlocation" name="adorationlocation" type="radio" id="isAdorationInMall" value="3">
-                                                <label for="isAdorationInMall">Mall</label>
+                                                <label for="isAdorationInMall" style="font-weight: bold !important;">Mall</label>
                                             </div>
                                         </div>
                                     </div>
@@ -473,7 +473,7 @@
                                         <div class="form-group">
                                             <div class="square-radio">
                                                 <input class="adorationlocation" name="adorationlocation" type="radio" id="isAdorationInHospital" value="5">
-                                                <label for="isAdorationInHospital">Hospital</label>
+                                                <label for="isAdorationInHospital" style="font-weight: bold !important;">Hospital</label>
                                             </div>
                                         </div>
                                     </div>
@@ -481,20 +481,20 @@
                                         <div class="form-group">
                                             <div class="square-radio">
                                                 <input class="adorationlocation" name="adorationlocation" type="radio" id="isAdorationInSchool" value="4">
-                                                <label for="isAdorationInSchool">School</label>
+                                                <label for="isAdorationInSchool" style="font-weight: bold !important;">School</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5">Adoration Chapel Ventilation</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important;">Adoration Chapel Ventilation</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3" style="padding-right: 0px;">
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="adorationHasAirCondition">
-                                                <label for="adorationHasAirCondition">Air-conditioned</label>
+                                                <label for="adorationHasAirCondition" style="font-weight: bold !important;">Air-conditioned</label>
                                             </div>
                                         </div>
                                     </div>
@@ -502,7 +502,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="adorationHasElectricFan">
-                                                <label for="adorationHasElectricFan">Electric Fan</label>
+                                                <label for="adorationHasElectricFan" style="font-weight: bold !important;">Electric Fan</label>
                                             </div>
                                         </div>
                                     </div>
@@ -563,7 +563,7 @@
                                 <br />
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <h5 class="normalize-h5 vertical-align-center">Organization Name:</h5>
+                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important;">Organization Name:</h5>
                                     </div>
                                     <div class="col-md-8">
                                         <select class="form-control input-lg" id="selectOrganizationName">
@@ -578,7 +578,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 full-left-width">
-                                        <h5 class="normalize-h5 vertical-align-center">SCHEDULE:</h5>
+                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important;">SCHEDULE:</h5>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectOrganizationSchedule">
@@ -593,7 +593,7 @@
                                 <div id="organizationSchedulePanel" style="display: none;">
                                 <div class="row">
                                     <div class="col-md-3" style="padding-right: 0px;">
-                                        <p>Schedule - Day:</p>
+                                        <p style="font-weight: bold !important;">Schedule - Day:</p>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectOrganizationDay">
@@ -610,7 +610,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-1">
-                                        <p>Time:</p>
+                                        <p style="font-weight: bold !important;">Time:</p>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectOrganizationTime">
@@ -655,14 +655,14 @@
                                 </div>--%>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5">ACTIVITIES</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important;">ACTIVITIES</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasWorship">
-                                                <label for="hasWorship">Worship</label>
+                                                <label for="hasWorship" style="font-weight: bold !important;">Worship</label>
                                             </div>
                                         </div>
                                     </div>
@@ -670,7 +670,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasBibleStudy">
-                                                <label for="hasBibleStudy">Bible Study</label>
+                                                <label for="hasBibleStudy" style="font-weight: bold !important;">Bible Study</label>
                                             </div>
                                         </div>
                                     </div>
@@ -678,7 +678,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasMass">
-                                                <label for="hasMass">Mass</label>
+                                                <label for="hasMass" style="font-weight: bold !important;">Mass</label>
                                             </div>
                                         </div>
                                     </div>
@@ -686,7 +686,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasRetreats">
-                                                <label for="hasRetreats">Retreats</label>
+                                                <label for="hasRetreats" style="font-weight: bold !important;">Retreats</label>
                                             </div>
                                         </div>
                                     </div>
@@ -696,7 +696,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasRecollection">
-                                                <label for="hasRecollection">Recollection</label>
+                                                <label for="hasRecollection" style="font-weight: bold !important;">Recollection</label>
                                             </div>
                                         </div>
                                     </div>
@@ -704,7 +704,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasVolunteerWorks">
-                                                <label for="hasVolunteerWorks">Volunteer Works</label>
+                                                <label for="hasVolunteerWorks" style="font-weight: bold !important;">Volunteer Works</label>
                                             </div>
                                         </div>
                                     </div>
@@ -712,7 +712,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasTalks">
-                                                <label for="hasTalks">Talks</label>
+                                                <label for="hasTalks" style="font-weight: bold !important;">Talks</label>
                                             </div>
                                         </div>
                                     </div>
@@ -720,7 +720,7 @@
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="hasCamps">
-                                                <label for="hasCamps">Camps</label>
+                                                <label for="hasCamps" style="font-weight: bold !important;">Camps</label>
                                             </div>
                                         </div>
                                     </div>
