@@ -7198,7 +7198,16 @@ td.visible-print {
 }
 
 @media only screen and (max-width: 800px) {
-	
+    .logu {
+    height: 100% !important;
+    width: 100% !important;
+    margin-top: -1%;      
+    }
+    .logu2 {
+    height: 100% !important;
+    width: 100% !important;
+    margin-top: 5%;
+    }
 	/* Force table to not be like tables anymore */
 	#no-more-tables table, 
 	#no-more-tables thead, 
