@@ -20,15 +20,23 @@ Modified by:
 <div class="bible" style="background-image: url(Images/Background.jpg)">
 <div class="row">
     <br />
- <div class="container">
+<%-- <div class="container">
                     <ol class="breadcrumb breadcrumb-arrow">
 		                <li><a href="#">Inspirations</a></li>
 		                <%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
-		                <li class="active"><span>Religous Quotes</span></li>
+		               <%-- <li class="active"><span>Religous Quotes</span></li>
 	                </ol>
                 </div>
     
-    <br/>
+    <br/>--%>
+     <div class="btn-group btn-breadcrumb" style="padding-left: 40px">
+            <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="#" class="btn btn-info">Inspirations</a>
+            <a href="#" class="btn btn-info"><strong>Religous Quotes</strong></a>
+          
+        </div>
+
+            <br /><br />
     <h1 class="moods">RELIGIOUS QUOTES</h1>
     <h3 class="sub-mood">How are you feeling today?</h3>
     <br />

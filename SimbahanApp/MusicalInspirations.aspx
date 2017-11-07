@@ -22,13 +22,21 @@
 		<div class="row">
   <div class="container">
       <br />
-      <br />
+    <%--  <br />
                     <ol class="breadcrumb breadcrumb-arrow">
 		                <li><a href="#">Inspirations</a></li>
 		                <%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
-		                <li class="active"><span>Musical Inspirations</span></li>
+		               <%-- <li class="active"><span>Musical Inspirations</span></li>
 	                </ol>
-                </div>
+                </div>--%>
+       <div class="btn-group btn-breadcrumb" style="padding-left: 40px">
+            <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="#" class="btn btn-info">Inspirations</a>
+            <a href="#" class="btn btn-info"><strong>Musical Inspirations</strong></a>
+          
+        </div>
+
+            <br /><br />
 			<br />
 			<h1 class="moods fs">MUSICAL INSPIRATION</h1>
             <h3 class="sub-mood">How are you feeling today?</h3>
