@@ -5788,6 +5788,16 @@ button.close {
   .modal-lg {
     width: 900px;
   }
+   .logu {
+   height: 100% !important;
+   width: 100% !important;
+   margin-top: -37%;      
+   }
+   .logu2 {
+   height: 100% !important;
+   width: 100% !important;
+   margin-top: -36%;
+   }
 }
 
 .tooltip {
@@ -6318,7 +6328,7 @@ button.close {
      .logu {
    height: 100% !important;
    width: 100% !important;
-   margin-top: -9%;      
+   margin-top: -38%;      
    }
    .logu2 {
    height: 100% !important;
