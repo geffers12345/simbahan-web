@@ -75,7 +75,7 @@
                         <br/>
                         <div class="row">
                             <div class="eltd-listing-search-submit-holder">
-                                <a href="#" data-toggle="modal" data-target="#related-churches-modal" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                                <a href="#" data-toggle="modal" data-target="#related-churches-modal" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" style="padding: 10px 41px !important;">
                                     <span class="eltd-btn-text">RELATED CHURCHES IN THE COUNTRY</span><span aria-hidden="true"></span>
                                 </a>
                                      <div class="col-lg-1  col-md-1 col-sm-6 col-xs-12 pull-right mgst2">
@@ -97,7 +97,7 @@
                                 </div>
                                 
                 
-                                <button id="AddFav" runat="server" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                                <button id="AddFav" runat="server" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" style="padding: 10px 15px !important; margin-top: 1% !important;">
                                     <span class="eltd-btn-text">ADD TO FAVORITES</span><span aria-hidden="true"></span>
                                 </button>
                                 <button id="RemoveFav" runat="server" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
