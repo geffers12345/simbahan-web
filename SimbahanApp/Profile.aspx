@@ -80,6 +80,7 @@
         <span class="card-title" runat="server" id="Name"></span>
     </div>
 </div>
+    <input type="hidden" runat="server" id="simbahanID"/>
 <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
     <div class="btn-group" role="group">
         <a type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab">
@@ -105,6 +106,38 @@
             <div class="hidden-xs">Visita Iglesia</div>
         </a>
     </div>
+        <div class="btn-group" role="group">
+        <a type="button" id="notification" class="btn btn-default" href="#tabnotif" data-toggle="tab">
+            <% if (SimbahanApp.Models.Auth.Check()) { %>
+            <% if (SimbahanApp.Models.Auth.user().RoleID == 3) { %>
+                <% if (SimbahanApp.Models.Auth.user().HasPermission(Convert.ToInt32(simbahanID.Value))) { %>
+            <i class="fa fa-bell" aria-hidden="true"></i><label id="count1" runat="server" style="margin-bottom: 0px !important; color: red;"></label>
+             <% } %>
+            <% } else if (SimbahanApp.Models.Auth.user().RoleID == 1) { %>
+            <i class="fa fa-bell" aria-hidden="true"></i><label id="count2" runat="server" style="margin-bottom: 0px !important;"></label>
+            <div class="hidden-xs">Notification</div>
+        </a>
+            <% } %>
+        <% } %>
+    </div>
+<%--    <div>
+                <% if (SimbahanApp.Models.Auth.Check()) { %>
+            <% if (SimbahanApp.Models.Auth.user().RoleID == 3) { %>
+                <% if (SimbahanApp.Models.Auth.user().HasPermission(Convert.ToInt32(simbahanID.Value))) { %>
+                    <a href="ChurchAdminPageUpdate.aspx?id=<%= simbahanID.Value %>">
+                        <i class="fa fa-bell-o" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+                <% } %>
+            <% } else if (SimbahanApp.Models.Auth.user().RoleID == 1) { %>
+                    <a href="ChurchAdminPageUpdate.aspx?id=<%= simbahanID.Value %>">
+                        <i class="fa fa-bell-o" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+            <% } %>
+        <% } %>
+    </div>--%>
+
+    
+
     <div class="btn-group" role="group">
         <a type="button" runat="server" id="manage" class="btn btn-default" href="#tab5" data-toggle="tab">
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -514,6 +547,24 @@
         </div>
     </section>
 </div>
+
+    <!-- Tab for Notification -->
+<div class="tab-pane fade in" id="tabnotif">
+    <section style="background: #efefe9;">
+        <div class="container">
+            <div class="notifItem" style="display: block;">
+        <table>
+            <tbody id="notif" runat="server">
+
+            </tbody>
+        </table>
+        <input type="text" id="idContainer" runat="server" style="display: none;"/>
+        <%--<asp:Button ID="trigger2" OnClick="trigger2_Click" runat="server" style="display: none" Text="Trigger" />--%>
+    </div>
+        </div>
+    </section>
+</div>
+
 
 <!-- Tab for Account -->
 <div class="tab-pane fade in active" id="tab3">
