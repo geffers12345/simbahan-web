@@ -253,8 +253,10 @@
                         var hasID = data.Id;
 
                         if (hasID == 0) {
-                            alert("No Saint available for this Day")
-                            window.location.reload();
+                            swal("No Saints for this Day", "", "error").then(function () {
+
+                                window.location.reload();
+                            });
                         } else {
                             $("#<%= SaintsID.ClientID %>").val(data.Id);
 
