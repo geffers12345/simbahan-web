@@ -32,7 +32,7 @@
             </div>
             <br/>
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 clear-padding">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 clear-padding" style="margin-left: 35%;">
                     <div class="saint-pane">
                         <div class="saint-name-pane">
                             <h3 runat="server" id="FeaturedSaint" class="church-subtitle">
@@ -75,12 +75,12 @@
                 </div>--%>
                 </div>
                 <br/>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin-left: -100%;margin-top: -3%;">
                     <center><img runat="server" class="img-responsive imagepath" id="ImagePath"/></center>
                 </div>
             </div>
             <br/>
-            <div class="row">
+            <div class="row" style="margin-left: 2%;">
                 <p class="church-subtitle">
                     <strong>BIOGRAPHY: </strong>
                 </p>
@@ -256,12 +256,12 @@
                             //var dates = $("#<%=TextBox1.ClientID %>").val();
                             $("#<%= SaintDate.ClientID %>").text(data.FormattedDate);
                             $("#<%= FeaturedSaint.ClientID %>").text(data.Name);
-                            $("#<%= FeastDay.ClientID %>").text(data.FeastDay);
-                            $("#<%= PatronOf.ClientID %>").text(data.Patron);
-                            $("#<%= BirthDate.ClientID %>").text(data.BirthDate);
-                            $("#<%= DeathDate.ClientID %>").text(data.DeathDate);
+                            $("#<%= FeastDay.ClientID %>").text('Feast Day: ' + data.FeastDay);
+                            $("#<%= PatronOf.ClientID %>").text('Patron of: ' + data.Patron);
+                            $("#<%= BirthDate.ClientID %>").text('Birth: ' + data.BirthDate);
+                            $("#<%= DeathDate.ClientID %>").text('Death: ' + data.DeathDate);
                             $("#<%= SaintBio.ClientID %>").text(data.Biography);
-                            $("#<%= CanonizedDate.ClientID %>").text(data.CanonizeDate);
+                            $("#<%= CanonizedDate.ClientID %>").text('Canonized Date: ' + data.CanonizeDate);
                             $("#<%= ImagePath.ClientID %>").attr('src', data.ImagePath);
 
                             <%-- if (data.SecondReadingTitle == "") {
