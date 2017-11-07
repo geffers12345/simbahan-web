@@ -6315,7 +6315,16 @@ button.close {
 }
 
 @media screen and (max-width: 600px)  {
-
+     .logu {
+   height: 100% !important;
+   width: 100% !important;
+   margin-top: -9%;      
+   }
+   .logu2 {
+   height: 100% !important;
+   width: 100% !important;
+   margin-top: -65%;
+   }
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block !important;
     max-width: 100% !important;
