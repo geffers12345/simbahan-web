@@ -481,6 +481,24 @@ namespace SimbahanApp {
         protected global::System.Web.UI.WebControls.Button btnAddThumbnail;
         
         /// <summary>
+        /// metatitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea metatitle;
+        
+        /// <summary>
+        /// metadesription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea metadesription;
+        
+        /// <summary>
         /// btnSubmit control.
         /// </summary>
         /// <remarks>

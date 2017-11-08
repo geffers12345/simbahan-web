@@ -379,7 +379,7 @@ namespace SimbahanApp {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect SelectLanguage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SelectLanguage;
         
         /// <summary>
         /// confessionText control.

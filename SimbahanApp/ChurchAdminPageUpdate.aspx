@@ -925,11 +925,19 @@
 <%--<asp:Button ID="btnUpload" runat="server" Text="Save" CssClass="hidden"/>--%>
 </div>
 </div>
-    <div class="col-md-4">
-            <label class="font-large">Add Church Thumbnail</label>
-            <asp:FileUpload ID="FileUpload6" runat="server" style="padding: 20px 0px 20px 40px;"/>
-            <asp:Button ID="btnAddThumbnail" runat="server" Text="Save Thumbnail" onclick="btnAddThumbnail_Click" CssClass="btn btn-success"/>
-        </div>
+    <div class="col-md-5">
+        <label class="font-large">ADD CHURCH THUMBNAIL</label>
+        <asp:FileUpload ID="FileUpload6" runat="server" style="padding: 20px 0px 20px 40px;"/>
+        <asp:Button ID="btnAddThumbnail" runat="server" Text="Save Thumbnail" onclick="btnAddThumbnail_Click" CssClass="btn btn-success"/>
+        <br />
+        <br />
+        <label>Meta Title</label>
+        <textarea id="metatitle" runat="server" class="form-control"></textarea>
+
+        <label>Meta Description</label>
+        <textarea id="metadesription" runat="server" class="form-control"></textarea><br />
+        <button id="saveMeta" class="btn btn-success">Save Changes For Metatitle and Description</button>
+    </div>
 </div>
 </div>
 <hr>
@@ -1970,6 +1978,22 @@
             e.preventDefault();
 
             $('#add-Images-modal').modal('show');
+        });
+
+        $('#saveMeta').click(function (e) {
+            e.preventDefault();
+            var x = confirm('Are you sure you want to save changes?');
+
+            if (x==true){
+                (new http).post('ChurchAdminPageUpdate.aspx/Meta', {
+                    id: parseInt($('#<%= SimbahanId.ClientID%>').val()),
+                    title: $('#<%= metatitle.ClientID%>').val(),
+                    desc: $('#<%= metadesription.ClientID%>').val()
+                }).then(function (response) {
+                    alert('Saved!');
+                    window.location.reload();
+                }).run();
+            }
         });
 </script>
 <script src="Scripts/timepicki.js"></script>

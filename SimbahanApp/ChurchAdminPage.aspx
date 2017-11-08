@@ -494,11 +494,12 @@
 					</div>
 					<div class="col-md-3"><br />
 						<label class="font-large">LANGUAGE:</label>
-						 <select runat="server" id="SelectLanguage" class="form-control">
+						 <%--<select runat="server" id="SelectLanguage" class="form-control">
 								<option value="English">English</option>
 								<option value="Tagalog">Tagalog</option>
 								<option value="Cebuano">Cebuano</option>
-							</select>
+							</select>--%>
+                        <input type="text" class="form-control input-lg" id="SelectLanguage" runat="server" placeholder="Language" />
 					</div>
 							<div class="col-md-2"><br />
 								<button type="button" id="btnAddMass" name="btnAddMass" class="btn btn-info btn-block"><i class="fa fa-plus"></i>Add Mass</button>
