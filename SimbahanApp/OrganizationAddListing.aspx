@@ -15,7 +15,7 @@
     tr {
         border: none !important;
         border-color: none !important;
-    }
+    }   
 
     td {
         border: none !important;
