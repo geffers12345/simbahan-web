@@ -173,12 +173,12 @@ Modified by:
         <% if (Auth.Check()) { %>
             <% if (Auth.user().RoleID == 3) { %>
                 <% if (Auth.user().HasPermission(Convert.ToInt32(simbahanID.Value))) { %>
-                    <a href="ChurchAdminPageUpdate.aspx?id=<%= simbahanID.Value %>">
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= simbahanID.Value %>">
                         <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
                     </a>
                 <% } %>
             <% } else if (Auth.user().RoleID == 1) { %>
-                    <a href="ChurchAdminPageUpdate.aspx?id=<%= simbahanID.Value %>">
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= simbahanID.Value %>">
                         <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
                     </a>
             <% } %>

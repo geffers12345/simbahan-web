@@ -986,7 +986,8 @@
 
 						<div class="col-md-6">
 							<label class="control-label">Start Time</label>
-							<input type="time" class="form-control" runat="server" id="eventTime" value="" />
+							<%--<input type="text" class="form-control" runat="server" id="eventTime" value="" />--%>
+                            <input type="text" class="form-control" runat="server" id="eventTime" value="" />
 						</div>
 
 						<div class="col-md-6">
@@ -996,7 +997,7 @@
 
 						<div class="col-md-6">
 							<label class="control-label">End Time</label>
-							<input type="time" class="form-control" runat="server" id="eventEndTime" value="" />
+							<input type="text" class="form-control" runat="server" id="eventEndTime" value="" />
 						</div>
 						</div>
 					</div>
@@ -1878,17 +1879,17 @@
 		</script>
 
 		<script>
-			$('#timepicker1').timepicki();
+			//$('#timepicker1').timepicki();
 
-			$('#timepicker2').timepicki();
+			//$('#timepicker2').timepicki();
 
-			$('#timepicker3').timepicki();
+			//$('#timepicker3').timepicki();
 
-			$('#timepicker4').timepicki();
+			//$('#timepicker4').timepicki();
 
-			$('#timepicker5').timepicki();
+			//$('#timepicker5').timepicki();
 
-			$('#timepicker6').timepicki();
+			//$('#timepicker6').timepicki();
 
 
 			function ClearFields()

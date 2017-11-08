@@ -541,7 +541,7 @@ namespace SimbahanApp {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventTime;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText eventTime;
         
         /// <summary>
         /// eventEndDate control.
@@ -559,7 +559,7 @@ namespace SimbahanApp {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl eventEndTime;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText eventEndTime;
         
         /// <summary>
         /// btnAddEvent control.

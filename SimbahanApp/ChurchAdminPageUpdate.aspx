@@ -990,7 +990,7 @@
 
                         <div class="col-md-6">
                             <label class="control-label">Start Time</label>
-                            <input type="time" class="form-control" runat="server" id="newEventTime" value="" />
+                            <input type="text" class="form-control" runat="server" id="newEventTime" value="" />
                         </div>
 
                         <div class="col-md-6">
@@ -1000,7 +1000,7 @@
 
                         <div class="col-md-6">
                             <label class="control-label">End Time</label>
-                            <input type="time" class="form-control" runat="server" id="newEventEndTime" value="" />
+                            <input type="text" class="form-control" runat="server" id="newEventEndTime" value="" />
                         </div>
                     </div>
                 </div>
@@ -1052,7 +1052,7 @@
 
                         <div class="col-md-6">
                             <label class="control-label">Start Time</label>
-                            <input type="time" class="form-control" runat="server" id="eventTime" value="" />
+                            <input type="text" class="form-control" runat="server" id="eventTime" value="" />
                         </div>
 
                         <div class="col-md-6">
@@ -1062,7 +1062,7 @@
 
                         <div class="col-md-6">
                             <label class="control-label">End Time</label>
-                            <input type="time" class="form-control" runat="server" id="eventEndTime" value="" />
+                            <input type="text" class="form-control" runat="server" id="eventEndTime" value="" />
                         </div>
                     </div>
                 </div>
@@ -1147,7 +1147,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="AddMassbtn" name="AddMassbtn" class="btn btn-info btn-block"><i class="fa fa-plus"></i>Add New Mass</button>
+                    <button type="button" id="AddMassbtn" name="AddMassbtn" class="btn btn-info btn-block">Add New Mass</button>
                 </div>
             </div>
         </div>
@@ -1998,17 +1998,17 @@
 </script>
 <script src="Scripts/timepicki.js"></script>
 <script>
-            $('#timepicker1').timepicki();
-            $('#timepicker2').timepicki();
-            $('#timepicker3').timepicki();
-            $('#timepicker4').timepicki();
-            $('#timepicker5').timepicki();
-            $('#timepicker6').timepicki();
-            $('#timepicker11').timepicki();
-            $('#timepicker12').timepicki();
-            $('#timepicker13').timepicki();
-            $('#timepicker14').timepicki();
-            $('#timepicker15').timepicki();
-            $('#timepicker16').timepicki();
+            //$('#timepicker1').timepicki();
+            //$('#timepicker2').timepicki();
+            //$('#timepicker3').timepicki();
+            //$('#timepicker4').timepicki();
+            //$('#timepicker5').timepicki();
+            //$('#timepicker6').timepicki();
+            //$('#timepicker11').timepicki();
+            //$('#timepicker12').timepicki();
+            //$('#timepicker13').timepicki();
+            //$('#timepicker14').timepicki();
+            //$('#timepicker15').timepicki();
+            //$('#timepicker16').timepicki();
 </script>
 </asp:Content>
