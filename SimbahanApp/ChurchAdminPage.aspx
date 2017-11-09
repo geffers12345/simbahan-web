@@ -494,11 +494,12 @@
 					</div>
 					<div class="col-md-3"><br />
 						<label class="font-large">LANGUAGE:</label>
-						 <select runat="server" id="SelectLanguage" class="form-control">
+						 <%--<select runat="server" id="SelectLanguage" class="form-control">
 								<option value="English">English</option>
 								<option value="Tagalog">Tagalog</option>
 								<option value="Cebuano">Cebuano</option>
-							</select>
+							</select>--%>
+                        <input type="text" class="form-control input-lg" id="SelectLanguage" runat="server" placeholder="Language" />
 					</div>
 							<div class="col-md-2"><br />
 								<button type="button" id="btnAddMass" name="btnAddMass" class="btn btn-info btn-block"><i class="fa fa-plus"></i>Add Mass</button>
@@ -985,7 +986,8 @@
 
 						<div class="col-md-6">
 							<label class="control-label">Start Time</label>
-							<input type="time" class="form-control" runat="server" id="eventTime" value="" />
+							<%--<input type="text" class="form-control" runat="server" id="eventTime" value="" />--%>
+                            <input type="text" class="form-control" runat="server" id="eventTime" value="" />
 						</div>
 
 						<div class="col-md-6">
@@ -995,7 +997,7 @@
 
 						<div class="col-md-6">
 							<label class="control-label">End Time</label>
-							<input type="time" class="form-control" runat="server" id="eventEndTime" value="" />
+							<input type="text" class="form-control" runat="server" id="eventEndTime" value="" />
 						</div>
 						</div>
 					</div>
@@ -1877,17 +1879,17 @@
 		</script>
 
 		<script>
-			$('#timepicker1').timepicki();
+			//$('#timepicker1').timepicki();
 
-			$('#timepicker2').timepicki();
+			//$('#timepicker2').timepicki();
 
-			$('#timepicker3').timepicki();
+			//$('#timepicker3').timepicki();
 
-			$('#timepicker4').timepicki();
+			//$('#timepicker4').timepicki();
 
-			$('#timepicker5').timepicki();
+			//$('#timepicker5').timepicki();
 
-			$('#timepicker6').timepicki();
+			//$('#timepicker6').timepicki();
 
 
 			function ClearFields()

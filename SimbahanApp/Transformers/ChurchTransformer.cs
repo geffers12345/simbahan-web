@@ -35,7 +35,9 @@ namespace SimbahanApp.Transformers
                 DevotionSchedule = DevotionSchedule.ToString(),
                 LocationID = ToInt(LocationID),
                 ChurchCode = ChurchCode.ToString(),
-                MaskData = MaskingData.ToString()
+                MaskData = MaskingData.ToString(),
+                MetaTitle = MetaTitle.ToString(),
+                MetaDescription = MetaDescription.ToString()
             };
         }
 
@@ -185,6 +187,8 @@ namespace SimbahanApp.Transformers
 
         private object MaskingData { get; set; }
 
+        private object MetaTitle { get; set; }
+        private string MetaDescription { get; set; }
         #endregion
     }
 }
