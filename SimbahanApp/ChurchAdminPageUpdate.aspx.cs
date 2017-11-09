@@ -21,7 +21,7 @@ namespace SimbahanApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             //if (FileUpload1.HasFile)
             //{
             //    uploadedImgPath = "Images/Photos/"+ FileUpload1.FileName.ToString();
@@ -71,7 +71,8 @@ namespace SimbahanApp
                         SchedOfDevotion.Value = church.DevotionSchedule;
                         Longitude.Value = church.Longitude.ToString();
                         Latitude.Value = church.Latitude.ToString();
-
+                        metadesription.Value = church.MetaDescription.ToString();
+                        metatitle.Value = church.MetaTitle.ToString();
                         int locID;
 
                         if (Convert.IsDBNull(church.LocationID))
@@ -94,10 +95,12 @@ namespace SimbahanApp
                         else if (locID == 2)
                         {
                             locConvent.Checked = true;
-                        } else if (locID == 3)
+                        }
+                        else if (locID == 3)
                         {
                             locMall.Checked = true;
-                        } else if (locID == 5)
+                        }
+                        else if (locID == 5)
                         {
                             locHospital.Checked = true;
                         }
@@ -118,7 +121,7 @@ namespace SimbahanApp
                     }
                     catch (Exception ex)
                     {
-                        
+
                     }
                 }
                 SimbahanId.Value = simbahanId.ToString();
@@ -136,7 +139,7 @@ namespace SimbahanApp
                 Images();
             }
         }
-        
+
         private void BaptismSchedules()
         {
             using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
@@ -236,14 +239,14 @@ namespace SimbahanApp
                         if (Convert.IsDBNull(reader["VentID"].ToString()))
                             ventID = 0;
                         else
-                        ventID = Convert.ToInt32(reader["VentID"].ToString());
+                            ventID = Convert.ToInt32(reader["VentID"].ToString());
                     }
                     catch (Exception e)
                     {
                         ventID = 0;
                     }
                 }
-                
+
                 //CheckBox1.Checked = Convert.ToBoolean(table1.Rows[0][].ToString());
             }
         }
@@ -338,7 +341,7 @@ namespace SimbahanApp
                             adoID.Text = "0";
                         }
                     }
-                    
+
                     while (reader.Read())
                     {
                         var isOpen = Convert.ToInt32(reader["IsOpen24By7"].ToString());
@@ -406,7 +409,7 @@ namespace SimbahanApp
                 }
                 dbconn.Open();
 
-                SqlCommand cmd = new SqlCommand("SELECT MassDetailID, ScheduleID, Language, Time, TimeStandardID from [MassDetails] where SimbahanID = "  + SimbahanId.Value , dbconn);
+                SqlCommand cmd = new SqlCommand("SELECT MassDetailID, ScheduleID, Language, Time, TimeStandardID from [MassDetails] where SimbahanID = " + SimbahanId.Value, dbconn);
 
                 var reader = cmd.ExecuteReader();
 
@@ -434,7 +437,8 @@ namespace SimbahanApp
                     if (days == 1)
                     {
                         dayStr = "Sunday";
-                    } else if (days == 2)
+                    }
+                    else if (days == 2)
                     {
                         dayStr = "Monday";
                     }
@@ -462,7 +466,7 @@ namespace SimbahanApp
                     tr.InnerHtml = string.Format("<tr name=\"{4}\"><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td><button id=\"delete\" class=\"btn btn-danger\" data-id='" + id + "'>Delete</button>&nbsp&nbsp<button id=\"edit\" data-id='" + id + "' class=\"btn btn-success\">Edit</button></td></tr>", dayStr, language, from, to, id);
                     tableMassSchedules.Controls.Add(tr);
                 }
-                
+
             }
         }
 
@@ -562,11 +566,13 @@ namespace SimbahanApp
                     if (times.Length > 1)
                     {
                         to = times[1];
-                    } else {
+                    }
+                    else
+                    {
                         to = (Convert.ToInt32(times[0].Split(':')[0]) + 1) + ":" + times[0].Split(':')[1];
                     }
 
-                    
+
                     int days = Convert.ToInt32(reader["ScheduleID"].ToString());
                     int id = Convert.ToInt32(reader["AdChapelID"].ToString());
 
@@ -742,7 +748,7 @@ namespace SimbahanApp
         }
 
         [WebMethod]
-        public static void UpdateMassDetails(int massDetailsId, int ScheduleId, string Language, string Time, int SimbahanId,  int TimeStandard)
+        public static void UpdateMassDetails(int massDetailsId, int ScheduleId, string Language, string Time, int SimbahanId, int TimeStandard)
         {
             using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
             {
@@ -864,18 +870,23 @@ namespace SimbahanApp
                 int hasAdo = 0;
 
                 //Location ID
-                if (locSeparate.Checked) {
+                if (locSeparate.Checked)
+                {
                     locID = 1;
-                } else if (locMall.Checked)
+                }
+                else if (locMall.Checked)
                 {
                     locID = 3;
-                } else if (locSchool.Checked)
+                }
+                else if (locSchool.Checked)
                 {
                     locID = 4;
-                } else if (locConvent.Checked)
+                }
+                else if (locConvent.Checked)
                 {
                     locID = 2;
-                } else if (locHospital.Checked)
+                }
+                else if (locHospital.Checked)
                 {
                     locID = 5;
                 }
@@ -884,7 +895,8 @@ namespace SimbahanApp
                 if (hasAdoYes.Checked)
                 {
                     hasAdo = 1;
-                } else if(hasAdoNo.Checked)
+                }
+                else if (hasAdoNo.Checked)
                 {
                     hasAdo = 0;
                 }
@@ -1009,7 +1021,7 @@ namespace SimbahanApp
 
         private void DeleteParking(int simbahanId)
         {
-            
+
             using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
             {
                 if (dbconn.State == ConnectionState.Open)
@@ -1043,7 +1055,8 @@ namespace SimbahanApp
                 if (openYes.Checked)
                 {
                     isOpen = 1;
-                } else if (openNo.Checked)
+                }
+                else if (openNo.Checked)
                 {
                     isOpen = 0;
                 }
@@ -1065,7 +1078,7 @@ namespace SimbahanApp
                     dbconn.Close();
                 }
                 dbconn.Open();
-                
+
                 using (SqlCommand cmd = new SqlCommand("SELECT AdorationID from Adorations where SimbahanID = " + SimbahanId.Value, dbconn))
                 //using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                 //using (DataTable table = new DataTable())
@@ -1112,7 +1125,7 @@ namespace SimbahanApp
                 {
                     int ado = Convert.ToInt32(Session["adoID"]);
 
-                    string query = String.Format("Insert Into [AdoVent3rdTable] values (" + ado +", " + adoVent + ")");
+                    string query = String.Format("Insert Into [AdoVent3rdTable] values (" + ado + ", " + adoVent + ")");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
@@ -1371,5 +1384,26 @@ namespace SimbahanApp
                 ExecuteInsert(SimbahanID, FileUpload3.FileName.ToString());
             }
         }
+
+        [WebMethod]
+        public static void Meta(int id, string title, string desc)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("UPDATE Simbahan set MetaTitle = '" + title + "', MetaDescription = '" + desc + "' where SimbahanID = '" + id + "'");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
     }
 }
