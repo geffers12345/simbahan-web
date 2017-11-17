@@ -114,7 +114,7 @@
         <div class="col-lg-6 col-md-3 col-sm-2 col-xs-2">
             <div class="eltd-listing-search-submit-holder">
                 <a href='<%= ResolveUrl("DailyReflection.aspx") %>' type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
-                    <span class="eltd-btn-text">SEE THIS DAY'S REFLECTION</span><span aria-hidden="true"></span>
+                    <span class="eltd-btn-text">SEE TODAY'S REFLECTION</span><span aria-hidden="true"></span>
                 </a>
             </div>
         </div>

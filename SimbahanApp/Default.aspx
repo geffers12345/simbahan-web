@@ -110,7 +110,7 @@
                                             </div>
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
-                                                    <p>Visit our Daily Readings page to hear God’s daily message for you</p>
+                                                    <p>Visit our <a href="DailyGospel.aspx" style="color:skyblue">Daily Readings</a> page to hear God’s daily message for you</p>
 
                                                 </div>
                                             </div>

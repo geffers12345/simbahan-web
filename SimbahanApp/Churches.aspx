@@ -190,7 +190,7 @@ Modified by:
         <br/>
         <br/>
         <p class="church-label">
-            Mass Schedule:
+            Mass Schedule/s:
         </p>
         <br/>
         <span class="church-sublabel" id="massSchedules">
@@ -198,13 +198,13 @@ Modified by:
         </span>
         <br/>
         <br/>
-        <span class="church-label" id="massLanguage">
-            Mass Languages: <span runat="server" id="churchMassLanguages"></span>
+        <span class="church-label" id="massLanguage" style="font-weight:400;">
+            <span style="font-weight:bold !important;">Mass Languages:</span> <span runat="server" id="churchMassLanguages"></span>
         </span>
         <br/>
         <br/>
-        <span class="church-label" id="lastUpdate">
-            Last Update: <span runat="server" id="churchLastUpdate">Date</span>
+        <span class="church-label" id="lastUpdate" style="font-weight:400;">
+            <span style="font-weight:bold !important;">Last Update:</span> <span runat="server" id="churchLastUpdate">Date</span>
         </span>
         <br/>
         <br/>
