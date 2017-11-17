@@ -260,7 +260,7 @@ Modified by:
 <br/>
 
 <p class="church-gospel">
-    READ TODAY'S GOSPEL <a href='<%= ResolveUrl("DailyGospel.aspx") %>' class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon here" data-hover-color="#000" data-hover-border-color="#000">HERE</a>
+    READ TODAY'S GOSPEL <a href='<%= ResolveUrl("DailyGospel.aspx") %>'><u>HERE</u></a>
 </p>
 <br/>
 
