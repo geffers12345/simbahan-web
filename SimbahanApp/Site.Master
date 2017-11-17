@@ -920,7 +920,7 @@
     <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/helpers.js"></script>
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
         <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<%--<script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -930,8 +930,9 @@
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
+</script>--%>
 <!--End of Tawk.to Script-->
+        <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '44bf8416-da2d-47bb-b76f-485619ccf29c', f: true }); done = true; } }; })();</script>
     </asp:ContentPlaceHolder>
 
 </body>
