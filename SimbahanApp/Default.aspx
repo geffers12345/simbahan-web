@@ -200,7 +200,7 @@
                                         </div>
                                         <div class="wpb_text_column wpb_content_element ">
                                             <div class="wpb_wrapper">
-                                                <p>Know More About the Prayers, Devotions &amp; Traditions Practiced by Catholics Around the World</p>
+                                                <p>Know More About the <a href="BasicCatholicPrayers.aspx" style="color:skyblue">Prayers</a>, <a href="Devotions.aspx" style="color:skyblue">Devotions &amp; Traditions</a> Practiced by Catholics Around the World</p>
                                             </div>
                                         </div>
                                     </div>
@@ -320,7 +320,7 @@
                                             </div>
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
-                                                    <p>Get your heavy dosage of inspiration for the soul through our Inspirations Page</p>
+                                                    <p>Get your heavy dosage of inspiration for the soul through our <a href="BibleVerses.aspx" style="color:skyblue;">Inspirations</a> Page</p>
 
                                                 </div>
                                             </div>
@@ -411,7 +411,7 @@
                                             </div>
                                             <div class="wpb_text_column wpb_content_element ">
                                                 <div class="wpb_wrapper">
-                                                    <p>Discover How the Visita Iglesia Page Makes your Church Visits or Pilgrimage Easier</p>
+                                                    <p>Discover How the <a href="VisitaIglesia.aspx" style="color:skyblue;">Visita Iglesia</a> Page Makes your Church Visits or Pilgrimage Easier</p>
                                                 </div>
                                             </div>
                                         </div>

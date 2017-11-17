@@ -26,7 +26,7 @@
     <center>
         <strong>CHOOSE YOUR MOOD</strong>
     </center>
-    <nav class="navbar navbar-right navbar-minimal animate" role="navigation">
+    <nav class="navbar navbar-minimal animate" style="margin-left:12%; margin-top:10%;" role="navigation">
         <div class="navbar-toggler animate">
             <span class="menu-icon"></span>
         </div>
