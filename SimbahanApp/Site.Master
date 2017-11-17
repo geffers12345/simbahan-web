@@ -412,7 +412,7 @@
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
-                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 150px;">
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37%;">
                                         <img class="eltd-normal-logo" src="../Images/SimbahanLogoBeta.png" alt="logo" />
                                         <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logoo" />
                                         <img class="eltd-light-logo logu2" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
