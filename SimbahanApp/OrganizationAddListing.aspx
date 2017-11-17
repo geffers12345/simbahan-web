@@ -3,12 +3,14 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <style>
+
     .col-md-6 {
         z-index: 1;
     }
     input[type=text], select{
         border-radius: 0px !important;
         z-index: 999999999;
+
     }
 
     .myClass {
@@ -19,7 +21,9 @@
     tr {
         border: none !important;
         border-color: none !important;
+
     }   
+
 
     td {
         border: none !important;
@@ -93,12 +97,15 @@
 }
 </style>
 <div class="box-body" style="background-color: white;">
+
     <div class="container">
         <strong>
             <h2>CHURCH ORGANIZATION INFORMATION SHEET</h2>
         </strong>
         <form role="form" class="form-horizontal">
+
             <div class="row">
+
                 <div class="col-md-12">
                     <label>Organization Name</label>
                     <input type="text" id="orgName" placeholder="Organization Name" class="form-control input-lg" />
@@ -284,6 +291,7 @@
                     <div class="col-md-12">
                         <label>AFFILIATED ORGANIZATIONS</label>
                         <input type="text" id="affiliated" class="form-control input-lg" placeholder="Affiliated Organization" />
+
                     </div>
                 </div>
             </div>
