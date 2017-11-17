@@ -853,7 +853,7 @@ Modified by:
                 if (commentReviewPassed) {
                     var d = new Date()
                     var dd = d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear();
-                    (new http).post('Churches.aspx/PublishReview',
+                    (new http).post('<%= ResolveUrl("Churches.aspx/PublishReview")%>',
                         {
                             simbahanId: $("#<%= simbahanID.ClientID %>").val(),
                             rate: starCount,

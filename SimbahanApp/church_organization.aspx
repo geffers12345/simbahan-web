@@ -518,7 +518,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="adorationResultsCount">No Results Found.</label>
+                                            <label class="label-normal" id="adorationResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -741,7 +741,7 @@
                                     </div>
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="organizationResultsCount">No Results Found</label>
+                                            <label class="label-normal" id="organizationResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1010,7 +1010,7 @@
                     '<p class="church-location text-muted">{{ organization.Address }}</p>' +
                     '<div class="church-details">' +
                     '<p>Organization Name: <strong class="name">{{ organization.ParentOrganization }}</strong></p>' +
-                    '<p>Organization Schedule: <strong class="mass">{{ (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : "" }}</strong></p>' +
+                    '<p>Worship Schedule Today: <strong class="mass">{{ (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : "" }}</strong></p>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -1717,7 +1717,7 @@
                         '<p class="church-location text-muted"></p>' +
                         '<div class="church-details">' +
                         '<p>Organization Name: <strong class="name"></strong></p>' +
-                        '<p>Organization Schedule: <strong class="mass"></strong></p>' +
+                        '<p>Worship Schedule Today: <strong class="mass"></strong></p>' +
                         '</div>' +
                         //'<p class="text-comment">Comments: <em class="comments"></em></p>' +
                         '</div>' +
