@@ -178,7 +178,7 @@ $(document).ready(function () {
         }).run();
 });
 
-$(document).on('click', '#btnAddFav', function (e) {
+$(document).on('click', '#buttonAddToFavoritee', function (e) {
     e.preventDefault();
     console.log('haha');
     if (!isAuth) {
@@ -187,7 +187,7 @@ $(document).on('click', '#btnAddFav', function (e) {
         return;
     }
 
-    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/starcolored.png")) {
+    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/starcolored.png") < 0) {
         $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/star.png")
 
     } else {
