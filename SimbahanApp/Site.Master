@@ -427,7 +427,7 @@
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav" >
                                     <ul id="menu-other-menu-1" class="clearfix">
                                         <li id="sticky-nav-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" class="home"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-home fa"></i></span><span class="item_text">Home</span></span><span class="plus"></span></span></a></li>
-                                        <li id="sticky-nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Church &#038; Organizations</span></span><span class="plus"></span></span></a></li>
+                                        <li id="sticky-nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Churches &#038; Organizations</span></span><span class="plus"></span></span></a></li>
                                         <li id="sticky-nav-menu-item-1467" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
                                             <a class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-newspaper-o fa"></i></span><span class="item_text">Daily Readings</span></span><span class="plus"></span></span></a>
                                             <div class="second">
@@ -443,7 +443,7 @@
                                         </li>
                                         <li id="sticky-nav-menu-item-1472" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Saints.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-male fa"></i></span><span class="item_text">Saints</span></span><span class="plus"></span></span></a></li>
                                         <li id="sticky-nav-menu-item-1473" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
-                                            <a  class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-book fa"></i></span><span class="item_text">Prayer &#038; Devotions</span></span><span class="plus"></span></span></a>
+                                            <a  class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-book fa"></i></span><span class="item_text">Prayers &#038; Devotions</span></span><span class="plus"></span></span></a>
                                             <div class="second">
                                                 <div class="inner">
                                                     <ul>
@@ -920,7 +920,7 @@
     <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/helpers.js"></script>
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
         <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<%--<script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -930,8 +930,9 @@
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
+</script>--%>
 <!--End of Tawk.to Script-->
+        <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '44bf8416-da2d-47bb-b76f-485619ccf29c', f: true }); done = true; } }; })();</script>
     </asp:ContentPlaceHolder>
 
 </body>
