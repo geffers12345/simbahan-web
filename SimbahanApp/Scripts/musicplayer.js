@@ -102,6 +102,7 @@ var walkmanVM = {
     },
     rowClicked: function() {
         Walkman.play($(this).data('id'));
+        $("#MainContent_buttonAddToFavoritee").prop("src", Walkman.playingTrack.isFavorite ? '/Images/starcolored.png' : '/Images/star.png')
     },
     render: function () {
         var _this = this;
@@ -178,20 +179,19 @@ $(document).ready(function () {
         }).run();
 });
 
-$(document).on('click', '#buttonAddToFavoritee', function (e) {
+$(document).on('click', "#MainContent_buttonAddToFavoritee", function (e) {
     e.preventDefault();
-    console.log('haha');
     if (!isAuth) {
         document.cookie = "intendedRedirect=" + currentPage + ";";
         window.location.href = "Login.aspx";
         return;
     }
 
-    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/starcolored.png") < 0) {
-        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/star.png")
+    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/star.png") > 0) {
+        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/starcolored.png")
 
     } else {
-        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/starcolored.png")
+        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/star.png")
 
     }
 
