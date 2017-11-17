@@ -341,29 +341,59 @@ namespace SimbahanApp.Services
                                 }
                             }
 
-                            switch (DateTime.Now.DayOfWeek)
+                            if (massScheduleId != string.Empty)
                             {
-                                case DayOfWeek.Sunday:
-                                    church.MassSchedules = church.SundayMassSchedule;
-                                    break;
-                                case DayOfWeek.Monday:
-                                    church.MassSchedules = church.MondayMassSchedule;
-                                    break;
-                                case DayOfWeek.Tuesday:
-                                    church.MassSchedules = church.TuesdayMassSchedule;
-                                    break;
-                                case DayOfWeek.Wednesday:
-                                    church.MassSchedules = church.WednesdayMassSchedule;
-                                    break;
-                                case DayOfWeek.Thursday:
-                                    church.MassSchedules = church.ThursdayMassSchedule;
-                                    break;
-                                case DayOfWeek.Friday:
-                                    church.MassSchedules = church.FridayMassSchedule;
-                                    break;
-                                case DayOfWeek.Saturday:
-                                    church.MassSchedules = church.SaturdayMassSchedule;
-                                    break;
+                                switch (massScheduleId)
+                                {
+                                    case "1":
+                                        church.MassSchedules = church.SundayMassSchedule;
+                                        break;
+                                    case "2":
+                                        church.MassSchedules = church.MondayMassSchedule;
+                                        break;
+                                    case "3":
+                                        church.MassSchedules = church.TuesdayMassSchedule;
+                                        break;
+                                    case "4":
+                                        church.MassSchedules = church.WednesdayMassSchedule;
+                                        break;
+                                    case "5":
+                                        church.MassSchedules = church.ThursdayMassSchedule;
+                                        break;
+                                    case "6":
+                                        church.MassSchedules = church.FridayMassSchedule;
+                                        break;
+                                    case "7":
+                                        church.MassSchedules = church.SaturdayMassSchedule;
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                switch (DateTime.Now.DayOfWeek)
+                                {
+                                    case DayOfWeek.Sunday:
+                                        church.MassSchedules = church.SundayMassSchedule;
+                                        break;
+                                    case DayOfWeek.Monday:
+                                        church.MassSchedules = church.MondayMassSchedule;
+                                        break;
+                                    case DayOfWeek.Tuesday:
+                                        church.MassSchedules = church.TuesdayMassSchedule;
+                                        break;
+                                    case DayOfWeek.Wednesday:
+                                        church.MassSchedules = church.WednesdayMassSchedule;
+                                        break;
+                                    case DayOfWeek.Thursday:
+                                        church.MassSchedules = church.ThursdayMassSchedule;
+                                        break;
+                                    case DayOfWeek.Friday:
+                                        church.MassSchedules = church.FridayMassSchedule;
+                                        break;
+                                    case DayOfWeek.Saturday:
+                                        church.MassSchedules = church.SaturdayMassSchedule;
+                                        break;
+                                }
                             }
 
 

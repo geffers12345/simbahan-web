@@ -415,7 +415,7 @@
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
                                         <img class="eltd-normal-logo" src="../Images/SimbahanLogoBeta.png" alt="logo" />
                                         <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logoo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
+                                        <img class="eltd-light-logo logu2" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -482,7 +482,7 @@
                                         </span>
                                     </div>
                                     <ul class="eltd-login-dropdown">
-                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Profile.aspx">My Profile</a></li>
                                         <li>
                                             <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
                                         </li>
@@ -490,9 +490,9 @@
                                 </div>
                                 <%} else {%>
                                 <div class="widget eltd-login-register-widget">
-                                    <a href="Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
                                     <span class="eltd-mobile-login-icon">
-                                        <a href="Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users"></i></a>
+                                        <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users"></i></a>
                                     </span>
                                 </div>
                                 <%} %>
@@ -509,9 +509,9 @@
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoBeta.png" alt="logo" />
+                                        <img class="eltd-normal-logo logu" src="../Images/SimbahanLogoBeta.png" alt="logo" />
                                         <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
+                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo"  />
                                     </a>
                                 </div>
 
@@ -578,7 +578,7 @@
                                         </span>
                                     </div>
                                     <ul class="eltd-login-dropdown">
-                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Profile.aspx">My Profile</a></li>
                                         <li>
                                             <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
                                         </li>
@@ -586,9 +586,9 @@
                                 </div>
                                 <%} else {%>
                                 <div class="widget eltd-login-register-widget">
-                                    <a href="Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
                                     <span class="eltd-mobile-login-icon">
-                                    <a href="Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a></span>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a></span>
                                 </div>
                                 <%} %>
                             </div>
@@ -638,7 +638,7 @@
                                         </span>
                                     </div>
                                     <ul class="eltd-login-dropdown">
-                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Profile.aspx">My Profile</a></li>
                                         <li>
                                             <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
                                         </li>
@@ -646,7 +646,7 @@
                                 </div>
                                 <%} else {%>
                                 <div class="widget eltd-login-register-widget">
-                                    <a href="Login.aspx" style="border-color: #1ab5c1;" class="eltd-mobile-login-icon"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx" style="border-color: #1ab5c1;" class="eltd-mobile-login-icon"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a>
                                 </div>
                                 <%} %>
                                 </div>
@@ -718,11 +718,11 @@
                                         <div class="textwidget">
                                             <h5 style="color: snow;">COMPANY</h5>
                                             <p>
-                                                <a href="About.aspx">About Us
+                                                <a href="http://<%= HttpContext.Current.Request.Url.Host %>/About.aspx">About Us
                                                 </a>
                                             </p>
                                             <p>
-                                                <a href="Contact.aspx">Contact Us
+                                                <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Contact.aspx">Contact Us
                                                 </a>
                                             </p>
                                             <%--<p>
