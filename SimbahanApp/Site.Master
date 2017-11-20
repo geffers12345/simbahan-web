@@ -713,6 +713,7 @@
 
                             <div class="row">
                                 <div class="col-xs-4"></div>
+
                              <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
                                     <div class="widget eltd-footer-column widget_text">
                                         <div class="textwidget">
@@ -732,6 +733,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <%--<div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
                                     <div class="widget eltd-footer-column widget_text">
                                         <div class="textwidget">
@@ -762,17 +764,7 @@
                                         </div>
                                     </div>
                                 </div>-->
-                                 <div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
-                                    <h5 style="color: snow;">FOLLOW US</h5>
-                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://instagram.com/simbahanappofficial" target="_blank">
-                                        <span class="eltd-social-icon-widget social_instagram"></span></a>
-
-                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://twitter.com/SimbahanApp" target="_blank">
-                                        <span class="eltd-social-icon-widget social_twitter"></span></a>
-
-                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px" href="https://www.facebook.com/SimbahanApp/" target="_blank">
-                                        <span class="eltd-social-icon-widget social_facebook"></span></a>
-                                </div>
+                                 
                             <%--  <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12 ">
                                    <h5 style="color: snow;">GET FREE MOBILE APP VERSION</h5>
                                     <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="#" target="_blank">
@@ -790,7 +782,7 @@
                                         <div class="eltd-container-inner">
                                             <div class="eltd-column-inner">
                                                 <div class="textwidget">
-                                                    <div class="col-lg-10">
+                                                    <div class="col-lg-10" style="margin-left:10%;">
                                                         <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx">
                                                         <img src="Images/SimbahanLogoBeta.png" alt="logo" />
                                                     </a>
@@ -798,9 +790,48 @@
                                                     <div class="textwidget">&copy; <%: DateTime.Now.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
                                                 </div>
                                                     </div>
+                                                    <div class="col-lg-2  col-md-2 col-sm-12 col-xs-12" style=" margin-left: 36.5%; margin-top: 2%;">
+                                    <%--<h5 style="color: snow;">FOLLOW US</h5>--%>
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://instagram.com/simbahanappofficial" target="_blank">
+                                        <span class="eltd-social-icon-widget social_instagram" style="background-color: white;padding: 39%;border-radius: 47%; color: black !important;"></span></a>
+
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://twitter.com/SimbahanApp" target="_blank">
+                                        <span class="eltd-social-icon-widget social_twitter" style="background-color: white;padding: 39%;border-radius: 47%; color: black !important;"></span></a>
+
+                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px" href="https://www.facebook.com/SimbahanApp/" target="_blank">
+                                        <span class="eltd-social-icon-widget social_facebook" style="background-color: white;padding: 39%;border-radius: 47%; color: black !important;"></span></a>
+                                </div>
                                                     <div class="col-lg-2">
-                                                        <img class="img-responsive chrome" src="Images/chrome.png" alt="chrome"/>
+                                                        <img class="img-responsive chrome" src="Images/chrome.png" alt="chrome" style=" margin-left: -15%; margin-top: 7% !important;"/>
                                                     </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
+                                    <div class="widget eltd-footer-column widget_text" style="margin-top:40%;">
+                                        <div class="textwidget">
+                                            <%--<h5 style="color: snow;">COMPANY</h5>--%>
+                                            <p>
+                                                <a href="About.aspx" style="color:#42c1f5; margin-left:-450%; font-size:initial;">About Us
+                                                </a>
+                                            </p>
+                                            <%--<p>
+                                                <a href="#">Donation
+                                                </a>
+                                            </p>--%>
+                                        </div>
+                                    </div>
+                                    <div class="widget eltd-footer-column widget_text" style="margin-top:-15%;">
+                                        <div class="textwidget">
+                                            <%--<h5 style="color: snow;">COMPANY</h5>--%>
+                                            <p>
+                                                <a href="Contact.aspx" style="color:#42c1f5; margin-left:-300%; font-size:initial;">Contact Us
+                                                </a>
+                                            </p>
+                                            <%--<p>
+                                                <a href="#">Donation
+                                                </a>
+                                            </p>--%>
+                                        </div>
+                                    </div>
+                                </div>
                                                 </div>
                                                 
                                             </div>

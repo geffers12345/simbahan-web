@@ -579,7 +579,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 full-left-width">
-                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important; margin-left:9%;">SCHEDULE:</h5>
+                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important; margin-left:9%;">Schedule:</h5>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectOrganizationSchedule" style="margin-left:4%;">
@@ -656,7 +656,7 @@
                                 </div>--%>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5" style="font-weight: bold !important; margin-left:2%;">ACTIVITIES</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important; margin-left:2%;">Activities:</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
