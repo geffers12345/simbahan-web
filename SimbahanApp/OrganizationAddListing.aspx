@@ -351,10 +351,10 @@ td {
                         </div>
                         <div class="col-md-2">
                             <label>From:</label>
-                            <input type="text" id="worshipFrom" runat="server" class="form-control input-lg" placeholder="Worship Started"/>
+                            <input type="text" id="worshipFrom" runat="server" class="form-control input-lg" placeholder="--:-- --"/>
 
                             <label>To:</label>
-                            <input type="text" id="worshipTo" runat="server" class="form-control input-lg" placeholder="Worship Ended"/><br />
+                            <input type="text" id="worshipTo" runat="server" class="form-control input-lg" placeholder="--:-- --"/><br />
                             <button id="addWorship" class="btn btn-primary btn-block">Add Worship</button>
                         </div>
                         <div class="col-md-8">
@@ -372,51 +372,51 @@ td {
                         <h5>MASS SCHEDULES</h5>
                         <div class="col-md-2">
                             <label class="containers">MONDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="masMon">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">TUESDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="masTue">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">WEDNESDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="masWed">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">THURSDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="masThu">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">FRIDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="masFri">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">SATURDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="masSat">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">SUNDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="masSun">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="col-md-4">
                             <label>From:</label>
-                            <input type="text" id="massFrom" runat="server" class="form-control input-lg" placeholder="Mass Started"/>
+                            <input type="text" id="massFrom" runat="server" class="form-control input-lg" placeholder="--:-- --"/>
 
                             <label>To:</label>
-                            <input type="text" id="MassTo" runat="server" class="form-control input-lg" placeholder="Mass Ended"/>
+                            <input type="text" id="masssTo" runat="server" class="form-control input-lg" placeholder="--:-- --"/>
 
-                            <label>Language:</label>
-                            <input type="text" id="massLanguage" runat="server" class="form-control input-lg" placeholder="Language"/><br />
+                            <%--<label>Language:</label>
+                            <input type="text" id="massLanguage" class="form-control input-lg" placeholder="Language"/>--%><br />
                             <button id="addMass" class="btn btn-primary btn-block">Add Mass</button>
                         </div>
                         <div class="col-md-6">
                             <table>
                                 <thead>
-                                    <tr><td>Days(Mass)</td><td>Langauge</td><td>From</td><td>To</td><td>Action</td></tr>
+                                    <tr><td>Days(Mass)</td><td>From</td><td>To</td><%--<td>Langauge</td>--%><td>Action</td></tr>
                                 </thead>
-                                <tbody id="massTable" runat="server">
+                                <tbody id="massTable">
 
                                 </tbody>
                             </table>
@@ -426,31 +426,31 @@ td {
                         <h5>BIBLE STUDY SCHEDULES</h5>
                         <div class="col-md-2">
                             <label class="containers">MONDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="bibMon">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">TUESDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="bibTue">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">WEDNESDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="bibWed">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">THURSDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="bibThu">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">FRIDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="bibFri">
                                 <span class="checkmark"></span>
                             </label>
-                            <label class="containers">SATURDAY
+                            <label class="containers" id="bibSat">SATURDAY
                                 <input type="checkbox">
                                 <span class="checkmark"></span>
                             </label>
                             <label class="containers">SUNDAY
-                                <input type="checkbox">
+                                <input type="checkbox" id="bibSun">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
@@ -468,7 +468,7 @@ td {
                                 <thead>
                                     <tr><td>Days(Bible)</td><td>From</td><td>To</td><td>Action</td></tr>
                                 </thead>
-                                <tbody id="bibleTable" runat="server">
+                                <tbody id="bibleTable">
 
                                 </tbody>
                             </table>
@@ -735,6 +735,7 @@ $(document).on('click', '#submit', function (e) {
 				    });
 
 			    if (timeStd != 0) {
+                    console.log(timeStd);
 			        (new http).post('OrganizationAddListing.aspx/insertWorship', {
 				        FromDate: simbahan.WorFrom,
 				        ToDate: simbahan.WorTo,
@@ -746,7 +747,72 @@ $(document).on('click', '#submit', function (e) {
 			    }
 
 		    });
-	    })
+        })
+
+        MassID.forEach(function (simbahan) {
+            console.log(simbahan);
+            $.each(simbahan.day, function (key, day) {
+                console.log(day);
+                var fromHour = removeZeroPrefix(simbahan.MassFrom.split(':')[0]);
+                var fromAMorPM = simbahan.MassFrom.split(':')[1].split(' ')[1];
+                var toHour = removeZeroPrefix(simbahan.MassTo.split(':')[0]);
+                var toAMorPM = simbahan.MassTo.split(':')[1].split(' ')[1];
+
+                var timeStd = 0;
+
+                timestandard[fromAMorPM].forEach(
+				    function (time, timeStandardID) {
+				        if (fromHour == time.substr(0, 1))
+				            timeStd = timeStandardID;
+				    });
+
+                if (timeStd != 0) {
+                    console.log(timeStd);
+                    (new http).post('OrganizationAddListing.aspx/insertMass', {
+                        FromDate: simbahan.MassFrom,
+                        ToDate: simbahan.MassTo,
+                        ScheduleID: getIdOfDay(day),
+                        TimeStandard: timeStd
+                    }).then(function (data) {
+
+                    }).run();
+                }
+
+            });
+        });
+
+        BibleID.forEach(function (simbahan) {
+            console.log(simbahan);
+            $.each(simbahan.day, function (key, day) {
+                console.log(day);
+                var fromHour = removeZeroPrefix(simbahan.BibleFrom.split(':')[0]);
+                var fromAMorPM = simbahan.BibleFrom.split(':')[1].split(' ')[1];
+                var toHour = removeZeroPrefix(simbahan.BibleTo.split(':')[0]);
+                var toAMorPM = simbahan.BibleTo.split(':')[1].split(' ')[1];
+
+                var timeStd = 0;
+
+                timestandard[fromAMorPM].forEach(
+				    function (time, timeStandardID) {
+				        if (fromHour == time.substr(0, 1))
+				            timeStd = timeStandardID;
+				    });
+
+                if (timeStd != 0) {
+                    console.log(timeStd);
+                    (new http).post('OrganizationAddListing.aspx/insertBible', {
+                        FromDate: simbahan.BibleFrom,
+                        ToDate: simbahan.BibleTo,
+                        ScheduleID: getIdOfDay(day),
+                        TimeStandard: timeStd
+                    }).then(function (data) {
+
+                    }).run();
+                }
+
+            });
+        })
+
     }).run();
 });
 
@@ -806,7 +872,7 @@ $(document).on('click', '#addWorship', function (e) {
 		$("#<%= worshipTo.ClientID%>").val() +
 		'</td>' +
 		'<td>' +
-		'<i id="btnDelMass" data-id="' + index + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
+		'<i id="btnDelWorship" data-id="' + index + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
 		'</td>' +
 		'</tr>');
 
@@ -814,7 +880,7 @@ $(document).on('click', '#addWorship', function (e) {
         worshipDays: days,
         worshipStart: $("#<%= worshipFrom.ClientID%>").val(),
         worshipEnd: $("#<%= worshipTo.ClientID%>").val()
-    })
+    });
 
     WorshipID.set(index, {
         day: days,
@@ -833,6 +899,182 @@ $(document).on('click', '#addWorship', function (e) {
     document.getElementById("worSat").checked = false;
 
     index++;
+});
+</script>
+
+<script>
+var MassID = new Map();
+var indexx = 1;
+var massSched = [];
+
+$(document).on('click', '#addMass', function (e) {
+    e.preventDefault();
+
+    var days = [];
+
+    if ($("#<%= massFrom.ClientID%>").val() == ''){
+        alert('Please add start time!');
+        return;
+    }
+
+    if ($("#<%= masssTo.ClientID%>").val() == ''){
+        alert('Please add end time!');
+        return;
+    }
+
+    if ($("#masSun").is(":checked")) {
+        days.push("Sunday");
+    }
+    if ($("#masMon").is(":checked")) {
+        days.push("Monday");
+    }
+    if ($("#masTue").is(":checked")) {
+        days.push("Tuesday");
+    }
+    if ($("#masWed").is(":checked")) {
+        days.push("Wednesday");
+    }
+    if ($("#masThu").is(":checked")) {
+        days.push("Thursday");
+    }
+    if ($("#masFri").is(":checked")) {
+        days.push("Friday");
+    }
+    if ($("masSat").is(":checked")) {
+        days.push("Saturday");
+    }
+
+    console.log(days);
+
+    $("#massTable").append('' +
+		'<tr>' +
+		'<td>' +
+		days.join(', ') +
+		'</td>' +
+		'<td>' +
+		$("#<%= massFrom.ClientID%>").val() +
+		'</td>' +
+		'<td>' +
+		$("#<%= masssTo.ClientID%>").val() +
+		'</td>' +
+		'<td>' +
+		'<i id="btnDelMass" data-id="' + indexx + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
+		'</td>' +
+		'</tr>');
+
+    massSched.push({
+        massDays: days,
+        massStart: $("#<%= massFrom.ClientID%>").val(),
+        massEnd: $("#<%= masssTo.ClientID%>").val()
+    })
+
+    MassID.set(indexx, {
+        day: days,
+        MassFrom: $("#<%= massFrom.ClientID%>").val(),
+        MassTo: $("#<%= masssTo.ClientID%>").val()
+    });
+
+    console.log(MassID);
+
+    $("#<%= massFrom.ClientID%>").val('');
+    $("#<%= masssTo.ClientID%>").val('')
+    document.getElementById("masSun").checked = false;
+    document.getElementById("masMon").checked = false;
+    document.getElementById("masTue").checked = false;
+    document.getElementById("masWed").checked = false;
+    document.getElementById("masThu").checked = false;
+    document.getElementById("masFri").checked = false;
+    document.getElementById("masSat").checked = false;
+
+    indexx++;
+});
+</script>
+
+<script>
+var BibleID = new Map();
+var indexxx = 1;
+var bibleSched = [];
+
+$(document).on('click', '#addBible', function (e) {
+    e.preventDefault();
+
+    var days = [];
+
+    if ($("#<%= bibleFrom.ClientID%>").val() == ''){
+        alert('Please add start time!');
+        return;
+    }
+
+    if ($("#<%=  bibleTo.ClientID%>").val() == ''){
+        alert('Please add end time!');
+        return;
+    }
+
+    if ($("#bibSun").is(":checked")) {
+        days.push("Sunday");
+    }
+    if ($("#bibMon").is(":checked")) {
+        days.push("Monday");
+    }
+    if ($("#bibTue").is(":checked")) {
+        days.push("Tuesday");
+    }
+    if ($("#bibWed").is(":checked")) {
+        days.push("Wednesday");
+    }
+    if ($("#bibThu").is(":checked")) {
+        days.push("Thursday");
+    }
+    if ($("#bibFri").is(":checked")) {
+        days.push("Friday");
+    }
+    if ($("bibSat").is(":checked")) {
+        days.push("Saturday");
+    }
+
+    console.log(days);
+
+    $("#bibleTable").append('' +
+		'<tr>' +
+		'<td>' +
+		days.join(', ') +
+		'</td>' +
+		'<td>' +
+		$("#<%= bibleFrom.ClientID%>").val() +
+		'</td>' +
+		'<td>' +
+		$("#<%= bibleTo.ClientID%>").val() +
+		'</td>' +
+		'<td>' +
+		'<i id="btnDelBible" data-id="' + indexxx + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
+		'</td>' +
+		'</tr>');
+
+    bibleSched.push({
+        bibleDays: days,
+        bibleStart: $("#<%= bibleFrom.ClientID%>").val(),
+        bibleEnd: $("#<%= bibleTo.ClientID%>").val()
+    })
+
+    BibleID.set(indexxx, {
+        day: days,
+        BibleFrom: $("#<%= bibleFrom.ClientID%>").val(),
+        BibleTo: $("#<%= bibleTo.ClientID%>").val()
+    });
+
+    console.log(BibleID);
+
+    $("#<%= bibleFrom.ClientID%>").val('');
+    $("#<%= bibleTo.ClientID%>").val('')
+    document.getElementById("bibSun").checked = false;
+    document.getElementById("bibMon").checked = false;
+    document.getElementById("bibTue").checked = false;
+    document.getElementById("bibWed").checked = false;
+    document.getElementById("bibThu").checked = false;
+    document.getElementById("bibFri").checked = false;
+    document.getElementById("bibSat").checked = false;
+
+    indexxx++;
 });
 </script>
 </asp:Content>

@@ -292,31 +292,13 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlInputText massFrom;
         
         /// <summary>
-        /// MassTo control.
+        /// masssTo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText MassTo;
-        
-        /// <summary>
-        /// massLanguage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText massLanguage;
-        
-        /// <summary>
-        /// massTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl massTable;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText masssTo;
         
         /// <summary>
         /// bibleFrom control.
@@ -335,15 +317,6 @@ namespace SimbahanApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText bibleTo;
-        
-        /// <summary>
-        /// bibleTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bibleTable;
         
         /// <summary>
         /// FileUpload1 control.

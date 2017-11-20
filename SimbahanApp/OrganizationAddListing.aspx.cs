@@ -274,5 +274,73 @@ namespace SimbahanApp
                 }
             }
         }
+
+        [WebMethod]
+        public static void insertMass(string FromDate, string ToDate, int ScheduleID, int TimeStandard)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var time = FromDate + " - " + ToDate;
+
+                using (SqlCommand cmd = new SqlCommand("insert into [tblMassDetails] values(@schedID, @tsID, @time, @orgID)", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        cmd.Parameters.AddWithValue("@orgID", HttpContext.Current.Session["orgID"]);
+                        cmd.Parameters.AddWithValue("@schedID", ScheduleID);
+                        cmd.Parameters.AddWithValue("@tsID", TimeStandard);
+                        cmd.Parameters.AddWithValue("@time", time);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message.ToString());
+
+                    }
+                }
+            }
+        }
+
+        [WebMethod]
+        public static void insertBible(string FromDate, string ToDate, int ScheduleID, int TimeStandard)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var time = FromDate + " - " + ToDate;
+
+                using (SqlCommand cmd = new SqlCommand("insert into [tblBibleSchedules] values(@schedID, @tsID, @time, @orgID)", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        cmd.Parameters.AddWithValue("@orgID", HttpContext.Current.Session["orgID"]);
+                        cmd.Parameters.AddWithValue("@schedID", ScheduleID);
+                        cmd.Parameters.AddWithValue("@tsID", TimeStandard);
+                        cmd.Parameters.AddWithValue("@time", time);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message.ToString());
+
+                    }
+                }
+            }
+        }
     }
 }
