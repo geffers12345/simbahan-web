@@ -7,6 +7,7 @@
     <link href='<%= ResolveUrl("Content/font-awesome-4.7.0/css/font-awesome.min.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/style.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
+    <script src="Scripts/helpers.js"></script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -153,7 +154,7 @@
           
                <div class="col-md-2">
                 <div class="col-md-4">
-                    <a id="btnAddFav" href=""><img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" style="max-width: 268% !important;"/></a>
+                    <a><img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" style="max-width: 268% !important;"/></a>
                 </div>
                 <div class="col-md-4">                  
                     <button  id="btnShareTwitter" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
