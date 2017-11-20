@@ -488,7 +488,7 @@ namespace SimbahanApp.Services
             return churches;
         }
 
-        public List<ChurchInfo> GetCoordinates(Coordinate coordinate)
+        public List<ChurchInfo> GetCoordinates(Coordinate coordinate, int limit)
         {
             var churches = new List<ChurchInfo>();
 
@@ -505,6 +505,7 @@ namespace SimbahanApp.Services
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@latitude", coordinate.Latitude);
                         cmd.Parameters.AddWithValue("@longitude", coordinate.Longitude);
+                        cmd.Parameters.AddWithValue("@limit", limit);
 
                         var reader = cmd.ExecuteReader();
 
