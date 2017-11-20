@@ -23,13 +23,13 @@
                 verses.set(bibleVerse.Id, bibleVerse);
                 var classActive = bibleVerse.IsFavorite ? "active" : "";
                 $("#toppage").append('<div><p></p><div><div class="tqquote">' +
-                    bibleVerse.BibleVerseContent.toString() +
+                    bibleVerse.BibleVerseContent.toString().replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ' ') +
                     '</div></div></div><div class="authors"><div class="pull-left"><a id="btnBibleFavorite" class="' +
                     classActive +
                     '" data-id="' +
                     bibleVerse.Id +
                     '"><div class="click"><span class="fa fa-star-o"></span><div class="ring"></div><div class="ring2"></div><p class="info">Added to favourites!</p></div></a></div><p id="BibleVerse" class="tqauthor"> - ' +
-                    bibleVerse.ChapterTitle +
+                   bibleVerse.ChapterTitle +
                     '</p>&nbsp<input type ="Image" id="btnShareSocialTwet" src="Images/Twitter.png" title="Share on Twitter" width="25" height="25" data-id="' +
                     bibleVerse.Id +
                     '">&nbsp<input type ="Image" id="btnShareSocialFB" src="Images/Facebook.png" title="Share on Facebook" width="25" height="25" data-id="' +
@@ -119,35 +119,3 @@
         });
 });
 
-$(".click").click(function() {
-    if ($("span").hasClass("fa-star")) {
-        $(".click").removeClass("active");
-        setTimeout(function() {
-                $(".click").removeClass("active-2");
-            },
-            30);
-        $(".click").removeClass("active-3");
-        setTimeout(function() {
-                $("span").removeClass("fa-star");
-                $("span").addClass("fa-star-o");
-            },
-            15);
-    } else {
-        $(".click").addClass("active");
-        $(".click").addClass("active-2");
-        setTimeout(function() {
-                $("span").addClass("fa-star");
-                $("span").removeClass("fa-star-o");
-            },
-            150);
-        setTimeout(function() {
-                $(".click").addClass("active-3");
-            },
-            150);
-        $(".info").addClass("info-tog");
-        setTimeout(function() {
-                $(".info").removeClass("info-tog");
-            },
-            1000);
-    }
-});

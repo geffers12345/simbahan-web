@@ -191,7 +191,7 @@ Modified by:
         <br/>
         <br/>
         <p class="church-label">
-            Mass Schedule:
+            Mass Schedule/s:
         </p>
         <br/>
         <span class="church-sublabel" id="massSchedules">
@@ -199,13 +199,13 @@ Modified by:
         </span>
         <br/>
         <br/>
-        <span class="church-label" id="massLanguage">
-            Mass Languages: <span runat="server" id="churchMassLanguages"></span>
+        <span class="church-label" id="massLanguage" style="font-weight:400;">
+            <span style="font-weight:bold !important;">Mass Languages:</span> <span runat="server" id="churchMassLanguages"></span>
         </span>
         <br/>
         <br/>
-        <span class="church-label" id="lastUpdate">
-            Last Update: <span runat="server" id="churchLastUpdate">Date</span>
+        <span class="church-label" id="lastUpdate" style="font-weight:400;">
+            <span style="font-weight:bold !important;">Last Update:</span> <span runat="server" id="churchLastUpdate">Date</span>
         </span>
         <br/>
         <br/>
@@ -260,7 +260,7 @@ Modified by:
 <br/>
 
 <p class="church-gospel">
-    READ TODAY'S GOSPEL <a href='<%= ResolveUrl("DailyGospel.aspx") %>' class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon here" data-hover-color="#000" data-hover-border-color="#000">HERE</a>
+    READ TODAY'S GOSPEL <a href='<%= ResolveUrl("DailyGospel.aspx") %>'><u>HERE</u></a>
 </p>
 <br/>
 
@@ -853,7 +853,7 @@ Modified by:
                 if (commentReviewPassed) {
                     var d = new Date()
                     var dd = d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear();
-                    (new http).post('Churches.aspx/PublishReview',
+                    (new http).post('<%= ResolveUrl("Churches.aspx/PublishReview")%>',
                         {
                             simbahanId: $("#<%= simbahanID.ClientID %>").val(),
                             rate: starCount,

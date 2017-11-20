@@ -518,7 +518,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="adorationResultsCount">No Results Found.</label>
+                                            <label class="label-normal" id="adorationResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -567,7 +567,7 @@
                                         <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important;">Organization Name:</h5>
                                     </div>
                                     <div class="col-md-8">
-                                        <select class="form-control input-lg" id="selectOrganizationName">
+                                        <select class="form-control input-lg" id="selectOrganizationName" style="margin-left:-12%;">
                                             <option value="">ALL</option>
                                             <option value="">Light of Jesus Family</option>
                                         </select>
@@ -579,10 +579,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 full-left-width">
-                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important;">SCHEDULE:</h5>
+                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important; margin-left:9%;">SCHEDULE:</h5>
                                     </div>
                                     <div class="col-md-4">
-                                        <select class="form-control" id="selectOrganizationSchedule">
+                                        <select class="form-control" id="selectOrganizationSchedule" style="margin-left:4%;">
                                             <option value="">- SELECT SCHEDULE -</option>
                                             <option value="1">Worship</option>
                                             <option value="1">Mass</option>
@@ -656,7 +656,7 @@
                                 </div>--%>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5" style="font-weight: bold !important;">ACTIVITIES</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important; margin-left:2%;">ACTIVITIES</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
@@ -741,7 +741,7 @@
                                     </div>
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="organizationResultsCount">No Results Found</label>
+                                            <label class="label-normal" id="organizationResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -1010,7 +1010,7 @@
                     '<p class="church-location text-muted">{{ organization.Address }}</p>' +
                     '<div class="church-details">' +
                     '<p>Organization Name: <strong class="name">{{ organization.ParentOrganization }}</strong></p>' +
-                    '<p>Organization Schedule: <strong class="mass">{{ (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : "" }}</strong></p>' +
+                    '<p>Worship Schedule Today: <strong class="mass">{{ (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : "" }}</strong></p>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -1717,7 +1717,7 @@
                         '<p class="church-location text-muted"></p>' +
                         '<div class="church-details">' +
                         '<p>Organization Name: <strong class="name"></strong></p>' +
-                        '<p>Organization Schedule: <strong class="mass"></strong></p>' +
+                        '<p>Worship Schedule Today: <strong class="mass"></strong></p>' +
                         '</div>' +
                         //'<p class="text-comment">Comments: <em class="comments"></em></p>' +
                         '</div>' +
