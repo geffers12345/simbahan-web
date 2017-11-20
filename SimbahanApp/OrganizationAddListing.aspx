@@ -596,6 +596,7 @@ timestandard["AM"].set(9, '8:00 - 9:00 AM');
 timestandard["AM"].set(10, '9:00 - 10:00 AM');
 timestandard["AM"].set(11, '10:00 - 11:00 AM');
 timestandard["AM"].set(24, '11:00 - 12:00 AM');
+timestandard["AM"].set(12, '11:00 - 12:00 PM');
 
 timestandard["PM"].set(12, '11:00 - 12:00 PM');
 timestandard["PM"].set(13, '12:00 - 1:00 PM');
@@ -717,107 +718,74 @@ $(document).on('click', '#submit', function (e) {
             }).run();
         });
 
-        WorshipID.forEach(function (simbahan) {
-		    console.log(simbahan);
-		    $.each(simbahan.day, function (key, day) {
-			    console.log(day);
-			    var fromHour = removeZeroPrefix(simbahan.WorFrom.split(':')[0]);
-			    var fromAMorPM = simbahan.WorFrom.split(':')[1].split(' ')[1];
-			    var toHour = removeZeroPrefix(simbahan.WorTo.split(':')[0]);
-			    var toAMorPM = simbahan.WorTo.split(':')[1].split(' ')[1];
+        WorshipID.forEach(function (org) {
+		    console.log('Org: ', org);
+		    $.each(org.day, function (key, day) {
+			    console.log('day: ', day);
+			    var fromHour = removeZeroPrefix(org.WorFrom.split(':')[0]);
+			    console.log('from Hour: ', fromHour);
+			    var fromAMorPM = org.WorFrom.split(':')[1].split(' ')[1];
+			    console.log('fromAMorPM: ', fromAMorPM);
+			    var toHour = removeZeroPrefix(org.WorTo.split(':')[0]);
+			    console.log('toHour: ', toHour);
+			    var toAMorPM = org.WorTo.split(':')[1].split(' ')[1];
+			    console.log('toAMorPM: ', toAMorPM);
 
 			    var timeStd = 0;
+			    console.log('timeStd: ', timeStd);
 
+			    $.each(timestandard[fromAMorPM], function (key, value) {
+			        console.log('timestandard: ', key);
+			    });
+
+			    //for (var timestandard in timestandard[fromAMorPM]) {
+			    //    console.log('timestandard: ', timestandard);
+			    //}
 			    timestandard[fromAMorPM].forEach(
 				    function (time, timeStandardID) {
-					    if (fromHour == time.substr(0, 1))
-						    timeStd = timeStandardID;
+
+				        console.log('time: ', time);
+				        console.log('fromHour: ', fromHour);
+				        console.log('time.substr(0, 1): ', time.substr(0, 1));
+				        console.log('timeStandardID ', timeStandardID)
+				        console.log('timeStd2 ', timeStd);
+
+				        if (fromHour == time.substr(0, 1)) {
+				            timeStd = timeStandardID;
+				            return;
+				        }
 				    });
 
 			    if (timeStd != 0) {
-                    console.log(timeStd);
+                    console.log('test ', timeStd);
 			        (new http).post('OrganizationAddListing.aspx/insertWorship', {
-				        FromDate: simbahan.WorFrom,
-				        ToDate: simbahan.WorTo,
+				        FromDate: org.WorFrom,
+				        ToDate: org.WorTo,
 					    ScheduleID: getIdOfDay(day),
 					    TimeStandard: timeStd
 				    }).then(function (data) {
 
 				    }).run();
 			    }
+			    //else {
+			    //    (new http).post('OrganizationAddListing.aspx/insertWorship', {
+			    //        FromDate: org.WorFrom,
+			    //        ToDate: org.WorTo,
+			    //        ScheduleID: getIdOfDay(day),
+			    //        TimeStandard: 12
+			    //    }).then(function (data) {
+
+			    //    }).run();
+			    //}
 
 		    });
-        })
-
-        MassID.forEach(function (simbahan) {
-            console.log(simbahan);
-            $.each(simbahan.day, function (key, day) {
-                console.log(day);
-                var fromHour = removeZeroPrefix(simbahan.MassFrom.split(':')[0]);
-                var fromAMorPM = simbahan.MassFrom.split(':')[1].split(' ')[1];
-                var toHour = removeZeroPrefix(simbahan.MassTo.split(':')[0]);
-                var toAMorPM = simbahan.MassTo.split(':')[1].split(' ')[1];
-
-                var timeStd = 0;
-
-                timestandard[fromAMorPM].forEach(
-				    function (time, timeStandardID) {
-				        if (fromHour == time.substr(0, 1))
-				            timeStd = timeStandardID;
-				    });
-
-                if (timeStd != 0) {
-                    console.log(timeStd);
-                    (new http).post('OrganizationAddListing.aspx/insertMass', {
-                        FromDate: simbahan.MassFrom,
-                        ToDate: simbahan.MassTo,
-                        ScheduleID: getIdOfDay(day),
-                        TimeStandard: timeStd
-                    }).then(function (data) {
-
-                    }).run();
-                }
-
-            });
-        });
-
-        BibleID.forEach(function (simbahan) {
-            console.log(simbahan);
-            $.each(simbahan.day, function (key, day) {
-                console.log(day);
-                var fromHour = removeZeroPrefix(simbahan.BibleFrom.split(':')[0]);
-                var fromAMorPM = simbahan.BibleFrom.split(':')[1].split(' ')[1];
-                var toHour = removeZeroPrefix(simbahan.BibleTo.split(':')[0]);
-                var toAMorPM = simbahan.BibleTo.split(':')[1].split(' ')[1];
-
-                var timeStd = 0;
-
-                timestandard[fromAMorPM].forEach(
-				    function (time, timeStandardID) {
-				        if (fromHour == time.substr(0, 1))
-				            timeStd = timeStandardID;
-				    });
-
-                if (timeStd != 0) {
-                    console.log(timeStd);
-                    (new http).post('OrganizationAddListing.aspx/insertBible', {
-                        FromDate: simbahan.BibleFrom,
-                        ToDate: simbahan.BibleTo,
-                        ScheduleID: getIdOfDay(day),
-                        TimeStandard: timeStd
-                    }).then(function (data) {
-
-                    }).run();
-                }
-
-            });
         })
 
     }).run();
 });
 
 //var days = [];
-var WorshipID = new Map()
+var WorshipID = new Map();
 var index = 1;
 var worshipSched = [];
 
@@ -888,6 +856,10 @@ $(document).on('click', '#addWorship', function (e) {
         WorTo: $("#<%= worshipTo.ClientID%>").val()
     });
 
+    index++;
+
+    console.log(WorshipID);
+
     $("#<%= worshipFrom.ClientID%>").val('');
     $("#<%= worshipTo.ClientID%>").val('')
     document.getElementById("worSun").checked = false;
@@ -898,11 +870,10 @@ $(document).on('click', '#addWorship', function (e) {
     document.getElementById("worFri").checked = false;
     document.getElementById("worSat").checked = false;
 
-    index++;
 });
 </script>
 
-<script>
+<%--<script>
 var MassID = new Map();
 var indexx = 1;
 var massSched = [];
@@ -1076,5 +1047,5 @@ $(document).on('click', '#addBible', function (e) {
 
     indexxx++;
 });
-</script>
+</script>--%>
 </asp:Content>
