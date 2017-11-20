@@ -187,13 +187,12 @@ $(document).on('click', '#btnAddFav', function (e) {
         return;
     }
 
-    if ($("#buttonAddToFavoritee").prop('src') === '/Images/starcolored.png') {
-      
-        $("#buttonAddToFavoritee").prop('src', '/Images/star.png');
-        // Favorite
+    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/starcolored.png")) {
+        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/star.png")
+
     } else {
-        $("#buttonAddToFavoritee").prop('src', '/Images/starcolored.png');
-        // Unfavorite
+        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/starcolored.png")
+
     }
 
     (new http).post('MusicalInspirations.aspx/OnFavoriteMusicalInspiration', { musicalInspirationId: Walkman.playingTrack.id })
