@@ -88,8 +88,10 @@ namespace SimbahanApp.Components
             var activeClass = "item";
             if (id == 0)
                 activeClass = "item active";
+            
+            var imagepath = Helpers.GenerateURL(@"\Images\Photos\" + image);
 
-            Images.Add("<div class=\"" + activeClass + "\"><img src=\"Images\\Photos\\" + image + "\"/></div>");
+            Images.Add("<div class=\"" + activeClass + "\"><img src=\""+ imagepath +"\"/></div>");
         }
 
         private string CarouselInner()

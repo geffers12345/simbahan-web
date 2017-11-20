@@ -15,13 +15,14 @@
 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
     <div class="row">
         <div class="col-md-12">
-        <div class="container">
-    <ol class="breadcrumb breadcrumb-arrow">
-		<li><a href="#">Daily Readings</a></li>
-		<%--<li class="active"><a href="#">Daily Gospel</a></li>--%>
-		<li class="active"><span> Gospel Reading</span></li>
-	</ol>
-</div>
+     <div class="btn-group btn-breadcrumb">
+            <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="#" class="btn btn-info">Daily Readings</a>
+            <a href="#" class="btn btn-info"><strong>Gospel Reading</strong></a>
+          
+        </div>
+
+            <br /><br />
              
             <h2 >Gospel Reading <asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
                 <button id="MapPicker" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
@@ -196,7 +197,7 @@
     <br/>
     <br/>
     <div class="row">
-        <div class="row reflection" style="background-image: url(<%= ResolveUrl("Images/ReflectionBackground1.png") %>);">
+        <div class="row reflection" id="reflection" style="background-image: url(<%= ResolveUrl("Images/ReflectionBackground1.png") %>);">
             <div class="row">
                 <input id="GReflectTitle" runat="server" class="text-reflect" type="text" placeholder="MY REFLECTION"/>
             </div>
@@ -334,7 +335,14 @@
         });
     });
 
-   $(document).ready(function() {
+    $(document).ready(function () {
+
+        if ($("#<%= GospelID.ClientID %>").val() == 0){
+            $('#reflection').hide();
+        } else {
+            $('#reflection').show();
+        }
+
         $("#<%= TextBox1.ClientID %>").dynDateTime({
             showsTime: true,
             ifFormat: "%Y/%m/%d %H:%M",
@@ -362,8 +370,12 @@
                     var hasID = data.Id;
 
                     if (hasID == 0) {
-                              alert("No Gospel for this Day")
-                        window.location.reload();
+
+
+                        swal("No Gospel for this Day", "", "error").then(function () {
+                            
+                            window.location.reload();
+                        });
                     } else {
                         $("#<%= GospelID.ClientID %>").val(data.Id);
                     
@@ -382,7 +394,13 @@
                     $("#<%= VBGTitle.ClientID %>").text(data.VerseBeforeGospelTitle);
                     $("#<%= VBGContent.ClientID %>").text(data.VerseBeforeGospelContent);
                     $("#<%= DGospelTitle.ClientID %>").text(data.GospelTitle);
-                    $("#<%= DGospelContent.ClientID %>").text(data.GospelContent);
+                        $("#<%= DGospelContent.ClientID %>").text(data.GospelContent);
+
+                    if ($("#<%= GospelID.ClientID %>").val() == 0){
+                        $('#reflection').hide();
+                    } else {
+                        $('#reflection').show();
+                    }
 
                     if (data.SecondReadingTitle == "") {
                         Control.hide('<%= SecondReading.ClientID %>');

@@ -45,6 +45,7 @@ namespace SimbahanApp
                 .Where(mass => mass.ScheduleId == (int) DateTime.Now.DayOfWeek + 1)
                 .ToList();
 
+            maskData.Value = organization.OrgMasking;
             OrganizationId.Value = organization.Id.ToString();
             OrganizationName.InnerHtml = organization.Name;
             OrganizationAbout.InnerHtml = organization.About;

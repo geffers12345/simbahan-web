@@ -194,6 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div id="btnGroupMoreFilter">
                                     <div class="row">
                                         <div class="col-sm-4">
@@ -208,7 +209,7 @@
                                     </div>
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="churchResultsCount">No Results Found.</label>
+                                            <label class="label-normal" id="churchResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -517,7 +518,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="adorationResultsCount">No Results Found.</label>
+                                            <label class="label-normal" id="adorationResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -740,7 +741,7 @@
                                     </div>
                                     <div class="row" style="margin-top: 15px;">
                                         <div class="well result-status text-center shadow">
-                                            <label class="label-normal" id="organizationResultsCount">No Results Found</label>
+                                            <label class="label-normal" id="organizationResultsCount"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -999,7 +1000,7 @@
         Vue.component('organization-item',
             {
                 props: ['organization'],
-                template: '<a href="#" target="_blank" id="churchItem" :data-id="organization.Id" class="organizationItem">' +
+                template: '<a href="#" target="_blank" id="churchItem" :data-id="organization.Id" :data-mask-data="{{ organization.OrgMasking }}" class="organizationItem">' +
                     '<div class="row church-result">' +
                     '<div class="col-md-4">' +
                     '<img class="img-responsive" :src="organization.Photos[0]">' +
@@ -1009,7 +1010,7 @@
                     '<p class="church-location text-muted">{{ organization.Address }}</p>' +
                     '<div class="church-details">' +
                     '<p>Organization Name: <strong class="name">{{ organization.ParentOrganization }}</strong></p>' +
-                    '<p>Organization Schedule: <strong class="mass">{{ (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : "" }}</strong></p>' +
+                    '<p>Worship Schedule Today: <strong class="mass">{{ (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : "" }}</strong></p>' +
                     '</div>' +
                     '</div>' +
                     '</div>' +
@@ -1248,6 +1249,7 @@
                             'name': organization.ParentOrganization,
                             'mass': (organization.TodayMass.length > 0) ? organization.TodayMass[0].Day + " " + organization.TodayMass.map(function (tMass, key) { return tMass.Time; }).join(", ") : '',
                             'id': organization.Id,
+                            'mask-data': organization.OrgMasking,
                             'img-responsive': organization.Photos[0]
                         });
                         
@@ -1313,6 +1315,7 @@
                             'ventilations': ventilations.join(", "),
                             'comments': comment,
                             'id': church.SimbahanID,
+                            'mask-data': church.MaskData,
                             'img-responsive': church.ChurchThumbnails[0]["ChurchPhotos"]
                         });
 
@@ -1661,12 +1664,13 @@
                     'ventilations',
                     'comments',
                     { data: ['id'] },
+                    { data: ['mask-data'] },
                     { name: 'img-responsive', attr: 'src' }
                 ],
                 pagination: true,
                 page: $("#churchDisplayLimit").val(),
                 item:
-                    '<a href="#" target="_blank" id="churchItem" data-id="" class="churchItem">' +
+                    '<a href="#" target="_blank" id="churchItem" data-id="" data-mask-data="" class="churchItem">' +
                         '<div class="row church-result">' +
                         '<div class="col-md-4">' +
                         '<img class="img-responsive" id="churchPhotohh" src="">' +
@@ -1697,12 +1701,13 @@
                     'name',
                     'mass',
                     { data: ['id'] },
+                    {data: ['mask-data']},
                     { name: 'img-responsive', attr: 'src' }
                 ],
                 pagination: true,
                 page: $("#organizationDisplayLimit").val(),
                 item:
-                    '<a href="#" target="_blank" id="organizationItem" data-id="" class="organizationItem">' +
+                    '<a href="#" target="_blank" id="organizationItem" data-id="" data-mask-data="" class="organizationItem">' +
                         '<div class="row church-result">' +
                         '<div class="col-md-4">' +
                         '<img class="img-responsive" src="">' +
@@ -1712,7 +1717,7 @@
                         '<p class="church-location text-muted"></p>' +
                         '<div class="church-details">' +
                         '<p>Organization Name: <strong class="name"></strong></p>' +
-                        '<p>Organization Schedule: <strong class="mass"></strong></p>' +
+                        '<p>Worship Schedule Today: <strong class="mass"></strong></p>' +
                         '</div>' +
                         //'<p class="text-comment">Comments: <em class="comments"></em></p>' +
                         '</div>' +
@@ -1890,13 +1895,14 @@
         $(document).on('click', '.churchItem', function (e) {
             e.preventDefault();
 
-            window.open('Churches.aspx?id=' + $(this).data('id'), '_blank');
+            window.open('Churches/' + $(this).data('id') + '/' + $(this).data('mask-data'), '_blank');
         });
 
         $(document).on('click', '.organizationItem', function (e) {
             e.preventDefault();
 
-            window.open('Organizations.aspx?id=' + $(this).data('id'), '_blank');
+            //window.open('Organizations.aspx?id=' + $(this).data('id'), '_blank');
+            window.open('Organizations/' + $(this).data('id') + '/' + $(this).data('mask-data'), '_blank');
         });
 
         $(document).on('click', '.adorationItem', function (e) {

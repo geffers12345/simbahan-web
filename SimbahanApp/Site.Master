@@ -140,7 +140,7 @@
     <link rel='stylesheet' href='wpStuffs/wp-content/themes/search-and-go/assets/css/style_dynamicc1d0.css?ver=1486919227' type='text/css' media='all' />
     <link rel='stylesheet' href='wpStuffs/wp-content/plugins/js_composer/assets/css/js_composer.min972f.css?ver=5.0.1' type='text/css' media='all' />
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Open+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CCourgette%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPoppins%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;subset=latin%2Clatin-ext&amp;ver=1.0.0' type='text/css' media='all' />
-    <script type='text/javascript' src='ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.mine100.js?ver=4.7.2'></script>
+
     <script type='text/javascript'>
         /* <![CDATA[ */
         var userSettings = { "url": "\/wordpress\/", "uid": "0", "time": "1487218315", "secure": "" };
@@ -228,9 +228,7 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
-            <Services>
-                <asp:ServiceReference Path="~/SimbahanWebService.asmx" />
-            </Services>
+            
         </asp:ScriptManager>
 
         <%--<div class="eltd-top-bar">
@@ -414,10 +412,10 @@
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
-                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo" src="../Images/SimbahanLogoBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logoo" />
-                                        <img class="eltd-light-logo logu2" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 40px;">
+                                        <img class="eltd-normal-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logoo" />
+                                        <img classmenu-other-menu-1menu-other-menu-1="eltd-light-logo logu2" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -427,7 +425,7 @@
                             <div class="eltd-position-right-inner">
 
                                 <nav class="eltd-main-menu eltd-drop-down eltd-sticky-nav" >
-                                    <ul id="menu-other-menu-1" class="clearfix">
+                                    <ul id="menu-other-menu-1" class="clearfix" style="padding-right: 25px">
                                         <li id="sticky-nav-menu-item-1465" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home  narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" class="home"><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-home fa"></i></span><span class="item_text">Home</span></span><span class="plus"></span></span></a></li>
                                         <li id="sticky-nav-menu-item-1466" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item eltd-active-item narrow"><a href="http://<%= HttpContext.Current.Request.Url.Host %>/church_organization.aspx" class=" current "><span class="item_outer"><span class="item_inner"><span class="menu_icon_wrapper"><i class="menu_icon fa-university fa"></i></span><span class="item_text">Churches &#038; Organizations</span></span><span class="plus"></span></span></a></li>
                                         <li id="sticky-nav-menu-item-1467" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children eltd-active-item has_sub narrow">
@@ -484,7 +482,7 @@
                                         </span>
                                     </div>
                                     <ul class="eltd-login-dropdown">
-                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Profile.aspx">My Profile</a></li>
                                         <li>
                                             <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
                                         </li>
@@ -492,9 +490,9 @@
                                 </div>
                                 <%} else {%>
                                 <div class="widget eltd-login-register-widget">
-                                    <a href="Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
                                     <span class="eltd-mobile-login-icon">
-                                        <a href="Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users"></i></a>
+                                        <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users"></i></a>
                                     </span>
                                 </div>
                                 <%} %>
@@ -511,9 +509,9 @@
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo logu" src="../Images/SimbahanLogoBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="../Images/SimbahanLogoBeta.png" alt="dark logo" />
-                                        <img class="eltd-light-logo" src="../Images/SimbahanLogoBeta.png" alt="light logo" />
+                                        <img class="eltd-normal-logo logu" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logo" />
+                                        <img class="eltd-light-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo"  />
                                     </a>
                                 </div>
 
@@ -580,7 +578,7 @@
                                         </span>
                                     </div>
                                     <ul class="eltd-login-dropdown">
-                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Profile.aspx">My Profile</a></li>
                                         <li>
                                             <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
                                         </li>
@@ -588,9 +586,9 @@
                                 </div>
                                 <%} else {%>
                                 <div class="widget eltd-login-register-widget">
-                                    <a href="Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx" style="border-color: #eeeeee" class="eltd-btn eltd-btn-medium eltd-btn-outline"><span class="eltd-btn-text">Log In</span></a>
                                     <span class="eltd-mobile-login-icon">
-                                    <a href="Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a></span>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a></span>
                                 </div>
                                 <%} %>
                             </div>
@@ -640,7 +638,7 @@
                                         </span>
                                     </div>
                                     <ul class="eltd-login-dropdown">
-                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="Profile.aspx">My Profile</a></li>
+                                        <li><span class="eltd-dashboard-menu-icon lnr lnr-user"></span><a href="http://<%= HttpContext.Current.Request.Url.Host %>/Profile.aspx">My Profile</a></li>
                                         <li>
                                             <span class="eltd-dashboard-menu-icon lnr lnr-exit"></span><a href='<%= ResolveUrl("LogOut.aspx") %>'>Log Out</a>
                                         </li>
@@ -648,7 +646,7 @@
                                 </div>
                                 <%} else {%>
                                 <div class="widget eltd-login-register-widget">
-                                    <a href="Login.aspx" style="border-color: #1ab5c1;" class="eltd-mobile-login-icon"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a>
+                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Login.aspx" style="border-color: #1ab5c1;" class="eltd-mobile-login-icon"><i class="eltd-icon-linear-icon lnr lnr-users "></i></a>
                                 </div>
                                 <%} %>
                                 </div>
@@ -715,7 +713,27 @@
 
                             <div class="row">
                                 <div class="col-xs-4"></div>
-                             
+
+                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
+                                    <div class="widget eltd-footer-column widget_text">
+                                        <div class="textwidget">
+                                            <h5 style="color: snow;">COMPANY</h5>
+                                            <p>
+                                                <a href="http://<%= HttpContext.Current.Request.Url.Host %>/About.aspx">About Us
+                                                </a>
+                                            </p>
+                                            <p>
+                                                <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Contact.aspx">Contact Us
+                                                </a>
+                                            </p>
+                                            <%--<p>
+                                                <a href="#">Donation
+                                                </a>
+                                            </p>--%>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <%--<div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
                                     <div class="widget eltd-footer-column widget_text">
                                         <div class="textwidget">
@@ -830,9 +848,8 @@
         <!-- close div.eltd-wrapper-inner  -->
     </form>
 
-    <script src="Scripts/sweetalert.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/sweetalert.js"></script>
     <script src='<%= ResolveUrl("Scripts/share.js") %>'></script>
-    <script type='text/javascript' src="Scripts/Default-JQ.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
     <script src="https://unpkg.com/vuejs-paginate@latest"></script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/core.mine899.js?ver=1.11.4'></script>
@@ -911,7 +928,7 @@
     <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/position.mine899.js?ver=1.11.4'></script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/jquery/ui/menu.mine899.js?ver=1.11.4'></script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/wp-a11y.mine100.js?ver=4.7.2'></script>
-    <script src="Scripts/jssor.slider-22.2.10.min.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/jssor.slider-22.2.10.min.js"></script>
     <script type='text/javascript'>
         /* <![CDATA[ */
         var uiAutocompleteL10n = { "noResults": "No results found.", "oneResult": "1 result found. Use up and down arrow keys to navigate.", "manyResults": "%d results found. Use up and down arrow keys to navigate.", "itemSelected": "Item selected." };
@@ -927,14 +944,14 @@
         var isAuth = <%= SimbahanApp.Models.Auth.Check() ? "true" : "false" %>;
         var currentPage = '<%= HttpContext.Current.Request.Url.AbsolutePath %>';
     </script>
-    <script type='text/javascript' src='Scripts/bootstrap.min.js'></script>
-    <script src="Scripts/jssor.slider-22.2.10.min.js"></script>
-    <script src="Scripts/validator.js"></script>
-    <script src="Scripts/list.js"></script>
-    <script src="Scripts/helpers.js"></script>
+    <script type='text/javascript' src='http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/bootstrap.min.js'></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/jssor.slider-22.2.10.min.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/validator.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/list.js"></script>
+    <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/helpers.js"></script>
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
         <!--Start of Tawk.to Script-->
-<script type="text/javascript">
+<%--<script type="text/javascript">
     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -944,8 +961,9 @@
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
     })();
-</script>
+</script>--%>
 <!--End of Tawk.to Script-->
+        <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '44bf8416-da2d-47bb-b76f-485619ccf29c', f: true }); done = true; } }; })();</script>
     </asp:ContentPlaceHolder>
 
 </body>

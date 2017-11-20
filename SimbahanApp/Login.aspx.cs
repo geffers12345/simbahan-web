@@ -96,7 +96,7 @@ namespace SimbahanApp
                             return false;
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                     }
                     finally

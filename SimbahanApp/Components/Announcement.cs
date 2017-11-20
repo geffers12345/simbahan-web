@@ -1,5 +1,6 @@
 ﻿using SimbahanApp.Models;
 using System.Web;
+using SimbahanApp.Services;
 
 namespace SimbahanApp.Components
 {
@@ -14,8 +15,11 @@ namespace SimbahanApp.Components
 
         public string ToHtml()
         {
+            var service = new FavoritesService();
+            var isInFavorite = service.IsAnnouncementAlreadyInFavorites(Auth.user().Id,_announcement.Id);
+
             return
-                @"<a id=""annoucementItem"" data-id=""" + _announcement.Id + @""" data-title=""" + HttpUtility.HtmlEncode(_announcement.Title) + @""" data-venue=""" + HttpUtility.HtmlEncode(_announcement.Venue) + @""" data-start-date=""" + _announcement.FormattedStartDate + @""" data-start-time=""" + _announcement.StartTime + @""" data-end-date=""" + _announcement.FormattedEndDate + @""" data-end-time=""" + _announcement.EndTime + @""" data-content=""" + HttpUtility.HtmlEncode(_announcement.Description) + @""" data-image=""" + _announcement.ImagePath + @""" href=""#"">" +
+                @"<a id=""annoucementItem"" data-id=""" + _announcement.Id + @""" data-is-favorite=""" + isInFavorite + @""" data-title=""" + HttpUtility.HtmlEncode(_announcement.Title) + @""" data-venue=""" + HttpUtility.HtmlEncode(_announcement.Venue) + @""" data-start-date=""" + _announcement.FormattedStartDate + @""" data-start-time=""" + _announcement.StartTime + @""" data-end-date=""" + _announcement.FormattedEndDate + @""" data-end-time=""" + _announcement.EndTime + @""" data-content=""" + HttpUtility.HtmlEncode(_announcement.Description) + @""" data-image=""" + _announcement.ImagePath + @""" href=""#"">" +
                     @"<div class=""row"">
                         <div class=""col-md-2"">
                             <img class=""img-responsive"" style=""height: 130px;"" src=""" + _announcement.ImagePath + @""" />

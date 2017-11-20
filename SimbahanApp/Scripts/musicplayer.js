@@ -180,18 +180,19 @@ $(document).ready(function () {
 
 $(document).on('click', '#buttonAddToFavoritee', function (e) {
     e.preventDefault();
-
+    console.log('haha');
     if (!isAuth) {
         document.cookie = "intendedRedirect=" + currentPage + ";";
         window.location.href = "Login.aspx";
         return;
     }
 
-    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/starcolored.png")) {
+    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/starcolored.png") < 0) {
         $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/star.png")
 
     } else {
         $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/starcolored.png")
+
     }
 
     (new http).post('MusicalInspirations.aspx/OnFavoriteMusicalInspiration', { musicalInspirationId: Walkman.playingTrack.id })
@@ -213,12 +214,11 @@ $("#btnShareTwitter").click(function (e) {
 
     var song = Walkman.playingTrack;
 
-    var message = song.title + " by " + song.artist + " http://www.mycatholicportal.org" + currentPage + " @SimbahanApp";
+    var message = "Currently listening to " + song.title + " by " + song.artist + " in" + " http://www.mycatholicportal.org" + currentPage + " @SimbahanApp";
 
     window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
         "Share to Twitter",
         "width=500,height=300");
-
 });
 
 $("#btnShareFacebok").click(function (e) {
@@ -226,7 +226,7 @@ $("#btnShareFacebok").click(function (e) {
 
     var song = Walkman.playingTrack;
 
-    var message = song.title + " by " + song.artist + " http://www.mycatholicportal.org" + currentPage;
+    var message = "Currently listening to" + song.title + " by " + song.artist + " in" + " http://www.mycatholicportal.org" + currentPage;
 
     var ee = "s.aspx?id="
 

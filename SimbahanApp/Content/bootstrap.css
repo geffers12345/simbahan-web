@@ -796,7 +796,6 @@ pre code {
 .row {
   margin-right: -15px;
   margin-left: -15px;
-  margin-top: .5%;
 }
 
 .row:before,
@@ -5788,6 +5787,7 @@ button.close {
   .modal-lg {
     width: 900px;
   }
+
     .logu {
     height: 100% !important;
     width: 100% !important;
@@ -5798,6 +5798,7 @@ button.close {
     width: 100% !important;
     margin-top: 5%;
     }
+
 }
 
 .tooltip {
@@ -6326,6 +6327,7 @@ button.close {
 
 @media screen and (max-width: 600px)  {
      .logu {
+
     height: 100% !important;
     width: 100% !important;
     margin-top: -38%;      
@@ -6335,6 +6337,7 @@ button.close {
     width: 100% !important;
     margin-top: -65%;
     }
+
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     display: block !important;
     max-width: 100% !important;

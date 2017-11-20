@@ -34,7 +34,10 @@ namespace SimbahanApp.Transformers
                 EmailAddress = EmailAddress.ToString(),
                 DevotionSchedule = DevotionSchedule.ToString(),
                 LocationID = ToInt(LocationID),
-                ChurchCode = ChurchCode.ToString()
+                ChurchCode = ChurchCode.ToString(),
+                MaskData = MaskingData.ToString(),
+                MetaTitle = MetaTitle.ToString(),
+                MetaDescription = MetaDescription.ToString()
             };
         }
 
@@ -182,6 +185,10 @@ namespace SimbahanApp.Transformers
         /// </summary>
         private object ChurchCode { get; set; }
 
+        private object MaskingData { get; set; }
+
+        private object MetaTitle { get; set; }
+        private string MetaDescription { get; set; }
         #endregion
     }
 }

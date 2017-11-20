@@ -992,7 +992,6 @@
     <Content Include="Images\pointer.png" />
     <Content Include="Images\PrayerBG.jpg" />
     <Content Include="Images\prayerwallbanner.jpg" />
-    <Content Include="Images\quaipochurch.jpg" />
     <Content Include="Images\Saints\ST-001.jpg" />
     <Content Include="Images\Saints\ST-002.jpg" />
     <Content Include="Images\Saints\ST-003.jpg" />
@@ -1594,7 +1593,6 @@
     <Content Include="wpStuffs\wp-admin\load-scriptsadbd.php" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnnouncementItem.cs" />
     <Compile Include="BasicCatholicPrayer.aspx.cs">
       <DependentUpon>BasicCatholicPrayer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1751,6 +1749,7 @@
       <DependentUpon>ChurchAnnouncements.aspx</DependentUpon>
     </Compile>
     <Compile Include="Components\Announcement.cs" />
+    <Compile Include="Components\AnnouncementItem.cs" />
     <Compile Include="Components\BasicCatholicPrayerItem.cs" />
     <Compile Include="Components\BibleVerseItem.cs" />
     <Compile Include="Components\Carousel.cs" />
@@ -1763,6 +1762,7 @@
     <Compile Include="Components\ImageSlider.cs" />
     <Compile Include="Components\NotificationItem.cs" />
     <Compile Include="Components\OrganizationAnnouncement.cs" />
+    <Compile Include="Components\OrganizationAnnouncementItem.cs" />
     <Compile Include="Components\OrganizationItem.cs" />
     <Compile Include="Components\OrganizationReview.cs" />
     <Compile Include="Components\OtherCatholicPrayerItem.cs" />
@@ -1793,6 +1793,7 @@
     </Compile>
     <Compile Include="Exceptions\ModelAlreadyPersistedException.cs" />
     <Compile Include="Exceptions\ModelNotFoundException.cs" />
+    <Compile Include="Helpers.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

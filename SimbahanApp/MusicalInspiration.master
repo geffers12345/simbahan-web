@@ -11,17 +11,25 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <div class="box-body" style="background-image: url(Images/Background.jpg);">
-     <div class="container">
+    <%-- <div class="container">
                     <ol class="breadcrumb breadcrumb-arrow">
 		                <li><a href="#">Inspirations</a></li>
 		                <li class="active"><a href="MusicalInspirations.aspx">Musical Inspiration</a></li>
 		                 <li class="active"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></li>
 	                </ol>
-                </div>
+                </div>--%>
 <div class="row">
    
-    <br />
-    <br />
+    
+    <div class="btn-group btn-breadcrumb" style="padding-left: 40px">
+            <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="#" class="btn btn-info">Inspirations</a>
+            <a href="MusicalInspirations.aspx" class="btn btn-info">Musical Inspirations</a>
+             <a href="#" class="btn btn-info"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></a>
+          
+        </div>
+
+            <br /><br /><br />
 <div class="col-lg-1">
     <center>
         <strong>CHOOSE YOUR MOOD</strong>
@@ -145,7 +153,7 @@
           
                <div class="col-md-2">
                 <div class="col-md-4">
-                    <img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" width="95" height="70"/>
+                    <a id="btnAddFav" href=""><img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" style="max-width: 268% !important;"/></a>
                 </div>
                 <div class="col-md-4">                  
                     <button  id="btnShareTwitter" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">

@@ -33,7 +33,8 @@ namespace SimbahanApp.Transformers
                 RecollectionSchedule = RecollectionSchedule.ToString(),
                 TalkSchedule = TalkSchedule.ToString(),
                 CampSchedule = CampSchedule.ToString(),
-                VolunteerSchedule = VolunteerSchedule.ToString()
+                VolunteerSchedule = VolunteerSchedule.ToString(),
+                OrgMasking = MaskingData.ToString()
             };
         }
 
@@ -64,6 +65,7 @@ namespace SimbahanApp.Transformers
         private object TalkSchedule;
         private object CampSchedule;
         private object VolunteerSchedule;
+        private object MaskingData;
 
         #endregion
     }
