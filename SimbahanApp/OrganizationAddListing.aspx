@@ -504,15 +504,16 @@ td {
                               <label>DESCRIPTION</label>
                               <textarea id="eventDesc" class="form-control input-lg" placeholder="Event Description"></textarea>
                               <label>ATTACH PICTURE</label>
-                              <input type="file" id="eventPicture" class="form-control input-lg" />
+                              <%--<input type="file" id="eventPicture" class="form-control input-lg" />--%>
+                              <asp:FileUpload ID="FileUpload1" runat="server" class="form-control input-lg" />
                          </div>
                         <div class="col-md-6">
                               <label>START DATE</label>
-                              <input type="text" id="startDate" class="form-control input-lg" placeholder="Event Date" />
+                              <input type="date" id="startDate" class="form-control input-lg" placeholder="Event Date" />
                               <label>START TIME</label>
                               <input type="text" id="startTime" class="form-control input-lg" placeholder="Start Time" />
                               <label>END DATE</label>
-                              <input type="text" id="endDate" class="form-control input-lg" placeholder="End Date" />
+                              <input type="date" id="endDate" class="form-control input-lg" placeholder="End Date" />
                               <label>END TIME</label>
                               <input type="text" id="endTime" class="form-control input-lg"placeholder="End Time" /><br /><br />
                          </div>
@@ -554,17 +555,19 @@ td {
 				            <tbody id="eventContainer">
 				            </tbody>
 			            </table><br />
+                        <asp:Button ID="triggerME" runat="server" style="display: none;" OnClick="triggerME_Click" Text="trigger" />
                     </div>
                     <div class="col-md-12">
                         <div class="col-md-6">
                             <h3>ADD CHURCH PHOTOS</h3><br />
-                            <asp:FileUpload ID="FileUpload1" runat="server" /><br />
                             <asp:FileUpload ID="FileUpload2" runat="server" /><br />
-                            <asp:FileUpload ID="FileUpload3" runat="server" />
+                            <asp:FileUpload ID="FileUpload3" runat="server" /><br />
+                            <asp:FileUpload ID="FileUpload4" runat="server" />
+                            <asp:Button ID="trigger" runat="server" Text="trigger" style="display: none;" OnClick="trigger_Click"/>
                         </div>
                         <div class="col-md-6">
                             <h3>ADD CHURCH THUMBNAIL</h3><br />
-                            <asp:FileUpload ID="FileUpload4" runat="server" />
+                            <asp:FileUpload ID="FileUpload5" runat="server" />
                         </div>
                     </div>
                     <div class="col-md-12" style="clear: both;">
@@ -657,7 +660,9 @@ $(document).on('click', '#submit', function (e) {
         longitude: parseFloat($('#longitude').val()),
         about: $('#about').val()
     }).then(function (response) {
-            
+       
+        $('#<%= trigger.ClientID%>').trigger('click');
+
         var ventID = $('input.vent:checked').map(function () {
             return $(this).val();
         });
@@ -738,9 +743,6 @@ $(document).on('click', '#submit', function (e) {
 			        console.log('timestandard: ', key);
 			    });
 
-			    //for (var timestandard in timestandard[fromAMorPM]) {
-			    //    console.log('timestandard: ', timestandard);
-			    //}
 			    timestandard[fromAMorPM].forEach(
 				    function (time, timeStandardID) {
 
@@ -767,18 +769,116 @@ $(document).on('click', '#submit', function (e) {
 
 				    }).run();
 			    }
-			    //else {
-			    //    (new http).post('OrganizationAddListing.aspx/insertWorship', {
-			    //        FromDate: org.WorFrom,
-			    //        ToDate: org.WorTo,
-			    //        ScheduleID: getIdOfDay(day),
-			    //        TimeStandard: 12
-			    //    }).then(function (data) {
+			    else {
+			        (new http).post('OrganizationAddListing.aspx/insertWorship', {
+			            FromDate: org.WorFrom,
+			            ToDate: org.WorTo,
+			            ScheduleID: getIdOfDay(day),
+			            TimeStandard: 12
+			        }).then(function (data) {
 
-			    //    }).run();
-			    //}
+			        }).run();
+			    }
 
 		    });
+        })
+
+        MassID.forEach(function (simbahan) {
+            console.log(simbahan);
+            $.each(simbahan.day, function (key, day) {
+                console.log(day);
+                var fromHour = removeZeroPrefix(simbahan.MassFrom.split(':')[0]);
+                var fromAMorPM = simbahan.MassFrom.split(':')[1].split(' ')[1];
+                var toHour = removeZeroPrefix(simbahan.MassTo.split(':')[0]);
+                var toAMorPM = simbahan.MassTo.split(':')[1].split(' ')[1];
+
+                var timeStd = 0;
+
+                timestandard[fromAMorPM].forEach(
+				    function (time, timeStandardID) {
+				        if (fromHour == time.substr(0, 1))
+				            timeStd = timeStandardID;
+				    });
+
+                if (timeStd != 0) {
+                    console.log(timeStd);
+                    (new http).post('OrganizationAddListing.aspx/insertMass', {
+                        FromDate: simbahan.MassFrom,
+                        ToDate: simbahan.MassTo,
+                        ScheduleID: getIdOfDay(day),
+                        TimeStandard: timeStd
+                    }).then(function (data) {
+
+                    }).run();
+                }
+                else {
+                    (new http).post('OrganizationAddListing.aspx/insertMass', {
+                        FromDate: simbahan.MassFrom,
+                        ToDate: simbahan.MassTo,
+                        ScheduleID: getIdOfDay(day),
+                        TimeStandard: 12
+                    }).then(function (data) {
+
+                    }).run();
+                }
+
+            });
+        });
+
+        BibleID.forEach(function (simbahan) {
+            console.log(simbahan);
+            $.each(simbahan.day, function (key, day) {
+                console.log(day);
+                var fromHour = removeZeroPrefix(simbahan.BibleFrom.split(':')[0]);
+                var fromAMorPM = simbahan.BibleFrom.split(':')[1].split(' ')[1];
+                var toHour = removeZeroPrefix(simbahan.BibleTo.split(':')[0]);
+                var toAMorPM = simbahan.BibleTo.split(':')[1].split(' ')[1];
+
+                var timeStd = 0;
+
+                timestandard[fromAMorPM].forEach(
+				    function (time, timeStandardID) {
+				        if (fromHour == time.substr(0, 1))
+				            timeStd = timeStandardID;
+				    });
+
+                if (timeStd != 0) {
+                    console.log(timeStd);
+                    (new http).post('OrganizationAddListing.aspx/insertBible', {
+                        FromDate: simbahan.BibleFrom,
+                        ToDate: simbahan.BibleTo,
+                        ScheduleID: getIdOfDay(day),
+                        TimeStandard: timeStd
+                    }).then(function (data) {
+
+                    }).run();
+                }
+                else {
+                    (new http).post('OrganizationAddListing.aspx/insertBible', {
+                        FromDate: simbahan.BibleFrom,
+                        ToDate: simbahan.BibleTo,
+                        ScheduleID: getIdOfDay(day),
+                        TimeStandard: 12
+                    }).then(function (data) {
+
+                    }).run();
+                }
+            });
+        })
+
+        EventID.forEach(function (event) {
+            (new http).post('OrganizationAddListing.aspx/insertEvent', {
+                eventName: event.eventName,
+                eventVenue: event.eventVenue,
+                desc: event.desc,
+                filename: event.filename,
+                startDate:event.startDate,
+                startTime: event.startTime,
+                endDate: event.endDate,
+                endTime: event.endTime
+            }).then(function (data) {
+                $('#<%= triggerME.ClientID%>').trigger('click');
+            }).run();
         })
 
     }).run();
@@ -873,7 +973,7 @@ $(document).on('click', '#addWorship', function (e) {
 });
 </script>
 
-<%--<script>
+<script>
 var MassID = new Map();
 var indexx = 1;
 var massSched = [];
@@ -1047,5 +1147,90 @@ $(document).on('click', '#addBible', function (e) {
 
     indexxx++;
 });
-</script>--%>
+</script>
+
+<script>
+var EventID = new Map();
+var indexxxx = 1;
+var eventSched = [];
+
+$(document).on('click', '#addEvent', function (e) {
+    e.preventDefault();
+
+    if ($("#eventName").val() == ''){
+        alert('Please add event name!');
+        return;
+    }
+
+    if ($("#eventDate").val() == ''){
+        alert('Please add event date');
+        return;
+    }
+
+    var file = $("#<% =FileUpload1.ClientID%>").val().split('\\')[$("#<% =FileUpload1.ClientID%>").val().split('\\').length - 1]
+
+    $("#eventContainer").append('' +
+		'<tr>' +
+		'<td>' +
+		$("#eventName").val() +
+		'</td>' +
+		'<td>' +
+		$("#eventVenue").val() +
+		'</td>' +
+		'<td>' +
+		$("#eventDesc").val() +
+		'</td>' +
+        '<td>' +
+		file +
+		'</td>' +
+        '<td>' +
+		$("#startDate").val() +
+		'</td>' +
+        '<td>' +
+		$("#startTime").val() +
+		'</td>' +
+        '<td>' +
+		$("#endDate").val() +
+		'</td>' +
+        '<td>' +
+		$("#endTime").val() +
+		'</td>' +
+		'<td>' +
+		'<i id="btnDelEvent" data-id="' + indexxxx + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
+		'</td>' +
+		'</tr>');
+
+  eventSched.push({
+        eventName: $("#eventName").val(),
+        eventVenue: $("#eventVenue").val(),
+        desc:$("#eventDesc").val(),
+        filename: file,
+        startDate: $("#startDate").val(),
+        startTime: $("#startTime").val(),
+        endDate: $("#endDate").val(),
+        endTime: $("#endTime").val()
+    })
+
+    EventID.set(indexxxx, {
+        eventName: $("#eventName").val(),
+        eventVenue: $("#eventVenue").val(),
+        desc: $("#eventDesc").val(),
+        filename: file,
+        startDate: $("#startDate").val(),
+        startTime: $("#startTime").val(),
+        endDate: $("#endDate").val(),
+        endTime: $("#endTime").val()
+    });
+
+    $("#eventName").val('');
+    $("#eventVenue").val('');
+    $("#eventDesc").val('');
+    $("#startDate").val('');
+    $("#startTime").val('');
+    $("#endDate").val('');
+    $("#endTime").val('');
+
+    indexxxx++;
+});
+</script>
 </asp:Content>
