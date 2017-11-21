@@ -569,7 +569,7 @@
 <!-- Tab for Account -->
 <div class="tab-pane fade in active" id="tab3">
     <div class="container">
-        <a href="#" class="btn btn-default" id="btnToggleEdit"><i class="fa fa-edit"></i> Edit</a>
+        
 
         <!-- First Name -->
         <div class="row">
@@ -629,6 +629,8 @@
             </div>
         </div>
         
+        <a href="#" class="btn btn-default" id="btnToggleEdit" style="margin-top:2%;"><i class="fa fa-edit"></i> Edit</a>
+
         <div class="row">
             <div class="col-md-4">
                 <button id="btnSaveUserInfo" class="btn btn-primary btn-block hidden">Save Changes</button>

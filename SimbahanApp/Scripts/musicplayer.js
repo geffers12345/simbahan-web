@@ -102,6 +102,7 @@ var walkmanVM = {
     },
     rowClicked: function() {
         Walkman.play($(this).data('id'));
+        $("#MainContent_buttonAddToFavoritee").prop("src", Walkman.playingTrack.isFavorite ? '/Images/starcolored.png' : '/Images/star.png')
     },
     render: function () {
         var _this = this;
@@ -178,22 +179,20 @@ $(document).ready(function () {
         }).run();
 });
 
-$(document).on('click', '#btnAddFav', function (e) {
+$(document).on('click', "#MainContent_buttonAddToFavoritee", function (e) {
     e.preventDefault();
-    console.log('haha');
     if (!isAuth) {
         document.cookie = "intendedRedirect=" + currentPage + ";";
         window.location.href = "Login.aspx";
         return;
     }
 
-    if ($("#buttonAddToFavoritee").prop('src') === '/Images/starcolored.png') {
-      
-        $("#buttonAddToFavoritee").prop('src', '/Images/star.png');
-        // Favorite
+    if ($("#MainContent_buttonAddToFavoritee").prop("src").indexOf("/Images/star.png") > 0) {
+        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/starcolored.png")
+
     } else {
-        $("#buttonAddToFavoritee").prop('src', '/Images/starcolored.png');
-        // Unfavorite
+        $("#MainContent_buttonAddToFavoritee").prop("src", "/Images/star.png")
+
     }
 
     (new http).post('MusicalInspirations.aspx/OnFavoriteMusicalInspiration', { musicalInspirationId: Walkman.playingTrack.id })
