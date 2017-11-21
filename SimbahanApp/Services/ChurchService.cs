@@ -337,6 +337,11 @@ namespace SimbahanApp.Services
                                             massDetail.ScheduleId = 7;
                                             church.SaturdayMassSchedule.Add(massDetail);
                                             break;
+                                        default:
+                                            massDetail.Days = DateTime.Now.DayOfWeek.ToString();
+                                            massDetail.ScheduleId = (int)DateTime.Now.DayOfWeek + 1;
+                                            church.MondayMassSchedule.Add(massDetail);
+                                            break;
                                     }
                                 }
                             }
@@ -365,6 +370,9 @@ namespace SimbahanApp.Services
                                         break;
                                     case "7":
                                         church.MassSchedules = church.SaturdayMassSchedule;
+                                        break;
+                                    default:
+                                        church.MassSchedules = church.MondayMassSchedule;
                                         break;
                                 }
                             }
