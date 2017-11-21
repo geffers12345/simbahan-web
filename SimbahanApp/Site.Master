@@ -415,7 +415,7 @@
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 40px;">
                                         <img class="eltd-normal-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
                                         <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logoo" />
-                                        <img classmenu-other-menu-1menu-other-menu-1="eltd-light-logo logu2" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo" />
+                                        <img class="menu-other-menu-1menu-other-menu-1 eltd-light-logo logu2" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -508,7 +508,7 @@
                             <div class="eltd-position-left-inner">
 
                                 <div class="eltd-logo-wrapper">
-                                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 37px;">
+                                    <a href="/Default.aspx" style="height: 37px;">
                                         <img class="eltd-normal-logo logu" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
                                         <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logo" />
                                         <img class="eltd-light-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo"  />
