@@ -2,6 +2,8 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+ <%--   <script src="Scripts/helpers.js"></script>
+    <script src="Scripts/list.js"></script>--%>
     <input type="hidden" id="Longitude" runat="server" />
     <input type="hidden" id="Latitude" runat="server" />
     <asp:Button ID="triggerMe" runat="server" OnClick="triggerMe_Click" />
@@ -1307,11 +1309,17 @@
                         } else {
                             comment = 'No reviews found.';
                         }
+                        var mass = '';
+                        if (church.MassSchedules) {
+                            if (church.MassSchedules.length > 0)
+                                mass = church.MassSchedules[0].Days + " " + church.MassSchedules.map(function (value, key) { return value.Time; }).join(", ");
+                        }
 
                         churchItems.push({
                             'church-name': church.Parish,
                             'church-location': church.CompleteAddress,
-                            'mass': (church.MassSchedules.length > 0) ? church.MassSchedules[0].Days + " " + church.MassSchedules.map(function (value, key) { return value.Time; }).join(", ") : '',
+                            'mass': mass,
+
                             'ventilations': ventilations.join(", "),
                             'comments': comment,
                             'id': church.SimbahanID,
