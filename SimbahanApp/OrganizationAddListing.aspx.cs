@@ -274,5 +274,174 @@ namespace SimbahanApp
                 }
             }
         }
+
+        [WebMethod]
+        public static void insertMass(string FromDate, string ToDate, int ScheduleID, int TimeStandard)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var time = FromDate + " - " + ToDate;
+
+                using (SqlCommand cmd = new SqlCommand("insert into [tblMassDetails] values(@schedID, @tsID, @time, @orgID)", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        cmd.Parameters.AddWithValue("@orgID", HttpContext.Current.Session["orgID"]);
+                        cmd.Parameters.AddWithValue("@schedID", ScheduleID);
+                        cmd.Parameters.AddWithValue("@tsID", TimeStandard);
+                        cmd.Parameters.AddWithValue("@time", time);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message.ToString());
+
+                    }
+                }
+            }
+        }
+
+        [WebMethod]
+        public static void insertBible(string FromDate, string ToDate, int ScheduleID, int TimeStandard)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var time = FromDate + " - " + ToDate;
+
+                using (SqlCommand cmd = new SqlCommand("insert into [tblBibleSchedules] values(@orgID, @schedID, @tsID, @time)", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        cmd.Parameters.AddWithValue("@orgID", HttpContext.Current.Session["orgID"]);
+                        cmd.Parameters.AddWithValue("@schedID", ScheduleID);
+                        cmd.Parameters.AddWithValue("@tsID", TimeStandard);
+                        cmd.Parameters.AddWithValue("@time", time);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message.ToString());
+
+                    }
+                }
+            }
+        }
+
+
+        [WebMethod]
+        public static void insertEvent(string eventName, string eventVenue, string desc, string filename, string startDate, string startTime,
+            string endDate, string endTime)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("INSERT INTO [dbo].[tblAnnouncement]" +
+                                                       " ([OrganizationID]" +
+                                                       " ,[TitleContent]" +
+                                                       " ,[AnnouncementDesc]" +
+                                                       " ,[Address]" +
+                                                       " ,[ImagePath]" +
+                                                       " ,[StartDate]" +
+                                                       " ,[StartTime]" +
+                                                       " ,[EndDate]" +
+                                                       " ,[EndTime])" +
+                                                       "VALUES" +
+                                                       " (@orgID" +
+                                                       " ,@name" +
+                                                       " ,@desc" +
+                                                       " ,@venue" +
+                                                       " ,@filename" +
+                                                       " ,@sDate" +
+                                                       " ,@sTime" +
+                                                       " ,@eDate" +
+                                                       " ,@eTime)", dbconn))
+                {
+                    try
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@orgID", HttpContext.Current.Session["orgID"]);
+                        cmd.Parameters.AddWithValue("@name", eventName);
+                        cmd.Parameters.AddWithValue("@venue", eventVenue);
+                        cmd.Parameters.AddWithValue("@desc", desc);
+                        cmd.Parameters.AddWithValue("@filename", filename);
+                        cmd.Parameters.AddWithValue("@sDate", startDate);
+                        cmd.Parameters.AddWithValue("@sTime", startTime);
+                        cmd.Parameters.AddWithValue("@eDate", endDate);
+                        cmd.Parameters.AddWithValue("@eTime", endTime);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message.ToString());
+
+                    }
+                }
+            }
+        }
+
+        protected void triggerME_Click(object sender, EventArgs e)
+        {
+            if (FileUpload1.PostedFile != null && FileUpload1.PostedFile.FileName != "")
+            {
+                var filename = FileUpload1.FileName.Split('.')[FileUpload1.FileName.Split('.').Length - 1];
+
+                FileUpload1.SaveAs(Server.MapPath("Images/Organizations/" + FileUpload1.FileName.ToString()));
+            }
+
+        }
+
+        protected void trigger_Click(object sender, EventArgs e)
+        {
+            var orgID = HttpContext.Current.Session["orgID"];
+
+            if (FileUpload2.PostedFile != null && FileUpload2.PostedFile.FileName != "")
+            {
+                var ext = FileUpload2.FileName.Split('.')[FileUpload2.FileName.Split('.').Length - 1];
+
+                FileUpload2.SaveAs(Server.MapPath("Images/Organizations/" + orgID + ".1." + ext));
+            }
+
+            if (FileUpload3.PostedFile != null && FileUpload3.PostedFile.FileName != "")
+            {
+                var ext = FileUpload3.FileName.Split('.')[FileUpload3.FileName.Split('.').Length - 1];
+
+                FileUpload3.SaveAs(Server.MapPath("Images/Organizations/" + orgID + ".2." + ext));
+            }
+
+            if (FileUpload4.PostedFile != null && FileUpload4.PostedFile.FileName != "")
+            {
+                var ext = FileUpload4.FileName.Split('.')[FileUpload4.FileName.Split('.').Length - 1];
+
+                FileUpload4.SaveAs(Server.MapPath("Images/Organizations/" + orgID + ".3." + ext));
+            }
+
+            if (FileUpload5.PostedFile != null && FileUpload5.PostedFile.FileName != "")
+            {
+                var ext = FileUpload5.FileName.Split('.')[FileUpload5.FileName.Split('.').Length - 1];
+
+                FileUpload5.SaveAs(Server.MapPath("Images/Organizations/" + orgID + "." + ext));
+            }
+        }
     }
 }
