@@ -19,12 +19,12 @@ namespace SimbahanApp
         }
 
         [WebMethod]
-        public static List<ChurchInfo> GetChurchesNearby(double latitude, double longitude)
+        public static List<ChurchInfo> GetChurchesNearby(double latitude, double longitude, int limit = 9999)
         {
             ChurchService service = new ChurchService();
             Coordinate source = new Coordinate() { Latitude = latitude, Longitude = longitude };
 
-            List<ChurchInfo> coordinates = service.GetCoordinates(new Coordinate() { Latitude = Math.Truncate(latitude), Longitude = Math.Truncate(longitude) });
+            List<ChurchInfo> coordinates = service.GetCoordinates(new Coordinate() { Latitude = Math.Truncate(latitude), Longitude = Math.Truncate(longitude) }, limit);
 
             return coordinates.OrderBy(coordinate => NearDistance(source, new Coordinate() { Latitude = coordinate.Latitude, Longitude = coordinate.Longitude })).ToList<ChurchInfo>();
         }

@@ -75,8 +75,8 @@ namespace SimbahanApp
                 var church = churchService.Find(Convert.ToInt32(Page.RouteData.Values["church-id"]));
 
                 char[] separator = { ',' };
-                MetaTitle = church.Parish;
-                MetaDescription = church.ChurchHistory.Split(separator)[0];
+                MetaTitle = MetaTitle;
+                MetaDescription = MetaDescription;
                 GoogleMetaDescription = MetaDescription;
                 //MetaUrl = "http://www.mycatholicportal.org/Churches.aspx/" + church.SimbahanID;
                 MetaUrl = HttpContext.Current.Request.Url.Host + "/Churches/" + church.SimbahanID + "/" + church.maskingData; //URL Masking

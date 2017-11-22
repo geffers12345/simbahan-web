@@ -337,6 +337,11 @@ namespace SimbahanApp.Services
                                             massDetail.ScheduleId = 7;
                                             church.SaturdayMassSchedule.Add(massDetail);
                                             break;
+                                        default:
+                                            massDetail.Days = DateTime.Now.DayOfWeek.ToString();
+                                            massDetail.ScheduleId = (int)DateTime.Now.DayOfWeek + 1;
+                                            church.MondayMassSchedule.Add(massDetail);
+                                            break;
                                     }
                                 }
                             }
@@ -365,6 +370,9 @@ namespace SimbahanApp.Services
                                         break;
                                     case "7":
                                         church.MassSchedules = church.SaturdayMassSchedule;
+                                        break;
+                                    default:
+                                        church.MassSchedules = church.MondayMassSchedule;
                                         break;
                                 }
                             }
@@ -488,7 +496,7 @@ namespace SimbahanApp.Services
             return churches;
         }
 
-        public List<ChurchInfo> GetCoordinates(Coordinate coordinate)
+        public List<ChurchInfo> GetCoordinates(Coordinate coordinate, int limit)
         {
             var churches = new List<ChurchInfo>();
 
@@ -505,6 +513,7 @@ namespace SimbahanApp.Services
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@latitude", coordinate.Latitude);
                         cmd.Parameters.AddWithValue("@longitude", coordinate.Longitude);
+                        cmd.Parameters.AddWithValue("@limit", limit);
 
                         var reader = cmd.ExecuteReader();
 

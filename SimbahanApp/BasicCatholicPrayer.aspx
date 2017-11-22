@@ -19,12 +19,12 @@
                     <div class="col-md-8">
                         <h6 runat="server" class="church-paragraph" id="PrayerContent"></h6>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2" style="margin-left:11%; margin-top:-4%;">
                         <center>
                             <br/> <br/>
                             <input type="Image" id="btnAddToFav" runat="server" title="Add to Favorites!" width="45" height="45"/>
-                            <a><img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45"/></a>
-                            <a><img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45"/></a>
+                            <a><img class="img-responsive" id="btnShareSocialTwit" src='<%= ResolveUrl("Images/Twitter.png") %>' title="Share on Twitter" width="45" height="45" style="margin-left:52%; margin-top:-23%; width:17%;"/></a>
+                            <a><img class="img-responsive" id="btnShareSocialFB" src='<%= ResolveUrl("Images/Facebook.png") %>' title="Share on Facebook" width="45" height="45" style="margin-left:93%; margin-top:-17%; width:17%;"/></a>
                         </center>
                     </div>
 

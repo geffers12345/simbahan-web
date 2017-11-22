@@ -2,6 +2,8 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+ <%--   <script src="Scripts/helpers.js"></script>
+    <script src="Scripts/list.js"></script>--%>
     <input type="hidden" id="Longitude" runat="server" />
     <input type="hidden" id="Latitude" runat="server" />
     <asp:Button ID="triggerMe" runat="server" OnClick="triggerMe_Click" />
@@ -579,7 +581,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 full-left-width">
-                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important; margin-left:9%;">SCHEDULE:</h5>
+                                        <h5 class="normalize-h5 vertical-align-center" style="font-weight: bold !important; margin-left:9%;">Schedule:</h5>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="form-control" id="selectOrganizationSchedule" style="margin-left:4%;">
@@ -656,7 +658,7 @@
                                 </div>--%>
                                 </div>
                                 <div class="row">
-                                    <h5 class="normalize-h5" style="font-weight: bold !important; margin-left:2%;">ACTIVITIES</h5>
+                                    <h5 class="normalize-h5" style="font-weight: bold !important; margin-left:2%;">Activities:</h5>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
@@ -1307,11 +1309,17 @@
                         } else {
                             comment = 'No reviews found.';
                         }
+                        var mass = '';
+                        if (church.MassSchedules) {
+                            if (church.MassSchedules.length > 0)
+                                mass = church.MassSchedules[0].Days + " " + church.MassSchedules.map(function (value, key) { return value.Time; }).join(", ");
+                        }
 
                         churchItems.push({
                             'church-name': church.Parish,
                             'church-location': church.CompleteAddress,
-                            'mass': (church.MassSchedules.length > 0) ? church.MassSchedules[0].Days + " " + church.MassSchedules.map(function (value, key) { return value.Time; }).join(", ") : '',
+                            'mass': mass,
+
                             'ventilations': ventilations.join(", "),
                             'comments': comment,
                             'id': church.SimbahanID,
