@@ -637,5 +637,44 @@ namespace SimbahanApp
                 cmd.ExecuteNonQuery();
             }
         }
+
+        [WebMethod]
+        public static void deleteMassDetail(int id)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("delete from tblMassDetails where OrgMassID = '" + id + "'");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            int organizationId = Convert.ToInt32(Request["id"]);
+
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("UPDATE tblCatholicOrganization SET OrganizationName = '" + orgName.Value + "', CompleteAddress = '" + address.Value + "',  StreetName = '" + streetName.Value + "', Barangay = '" + barangay.Value + "', CityOrMunicipality = '" + City.Value + "', StateOrProvince = '" + province.Value + "', Country = '" + country.Value + "', FeastBuilderOrPreacher = '" + builder.Value + "', BranchOrLocation = '" + branch.Value + "', ParentOrganization = '" + parent.Value + "', ContactNo = '" + contact.Value + "', EmailAddress = '" + email.Value + "', Website = '" + website.Value + "', RetreatSchedule = '" + retreat.Value + "', RecollectionSchedule = '" + recollection.Value + "', TalkSchedule = '" + talks.Value + "', CampSchedule = '" + camps.Value + "', VolunteerSchedule = '" + volunteerWorks.Value + "',  Latitude = '" + latitude.Value + "', Longitude = '" + longitude.Value + "', About = '" + abouts.Value + "', LastUpdate = '" + DateTime.Now + "' FROM tblCatholicOrganization where OrganizationID = " + organizationId);
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

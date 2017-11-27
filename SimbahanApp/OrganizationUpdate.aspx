@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrganizationUpdate.aspx.cs" Inherits="SimbahanApp.OrganizationUpdate" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="OrganizationUpdate.aspx.cs" Inherits="SimbahanApp.OrganizationUpdate" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <style>
@@ -581,7 +581,8 @@ td {
                         </div>
                     </div>
                     <div class="col-md-12" style="clear: both;">
-                        <button id="submit" style="width: 50%; margin-left: 25%;" class="btn btn-primary btn-block">Submit</button>
+                        <%--<button id="submit" OnClick="" style="width: 50%; margin-left: 25%;" class="btn btn-primary btn-block" >Submit</button>--%>
+                        <asp:Button ID="submit" Text="Save Changes" runat="server" style="width: 50%; margin-left: 25%;" class="btn btn-primary btn-block" OnClick="submit_Click" />
                     </div>
                 </div>
             </div>
@@ -955,7 +956,25 @@ td {
                     window.location.reload();
                 }).run();
             }
-        });
+    });
+
+    $(document).on('click', '#deletemass', function (e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        console.log(id);
+
+        var x = confirm('Are you sure you want to delete this mass detail?');
+
+        if(x == true){
+            (new http).post('OrganizationUpdate.aspx/deleteMassDetail', {
+                id: id
+            }).then(function (response) {
+                alert('Deleted!');
+                window.location.reload();
+            }).run();
+        }
+    });
 
 </script>
 </asp:Content>
