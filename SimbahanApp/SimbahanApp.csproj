@@ -1082,6 +1082,8 @@
     <Content Include="Musical-Tempted.aspx" />
     <Content Include="Musical-Weak.aspx" />
     <Content Include="Musical-Worried.aspx" />
+    <Content Include="OrganizationAddListing.aspx" />
+    <Content Include="OrganizationUpdate.aspx" />
     <Content Include="OrgAnnouncements.aspx" />
     <Content Include="OtherCatholicPrayer.aspx" />
     <Content Include="OtherCatholicPrayers.aspx" />
@@ -1970,6 +1972,20 @@
     <Compile Include="Notifications\NotificationEventArgs.cs" />
     <Compile Include="Notifications\NotificationLocale.cs" />
     <Compile Include="Notifications\NotificationManager.cs" />
+    <Compile Include="OrganizationAddListing.aspx.cs">
+      <DependentUpon>OrganizationAddListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganizationAddListing.aspx.designer.cs">
+      <DependentUpon>OrganizationAddListing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationUpdate.aspx.cs">
+      <DependentUpon>OrganizationUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrganizationUpdate.aspx.designer.cs">
+      <DependentUpon>OrganizationUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OrgAnnouncements.aspx.cs">
       <DependentUpon>OrgAnnouncements.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

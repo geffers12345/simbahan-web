@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrganizationAddListing.aspx.cs" Inherits="SimbahanApp.OrganizationAddListing" EnableEventValidation="false"%>
-
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrganizationUpdate.aspx.cs" Inherits="SimbahanApp.OrganizationUpdate" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <style>
@@ -97,6 +96,9 @@ td {
     transform: rotate(45deg);
 }
 </style>
+<input type="text" id="organizationId" runat="server" style="display: none" />
+<input type="text" id="metatitle" runat="server" style="display: none" />
+<input type="text" id="metadesc" runat="server" style="display: none" />
 <div class="box-body" style="background-color: white;">
 
     <div class="container">
@@ -107,75 +109,76 @@ td {
             <div class="row">
                 <div class="col-md-12">
                     <label>Organization Name</label>
-                    <input type="text" id="orgName" placeholder="Organization Name" class="form-control input-lg" />
+                    <input type="text" id="orgName" runat="server" placeholder="Organization Name" class="form-control input-lg" />
                 </div>
                 <div class="col-md-6">
                     <label>Latitude</label>
-                    <input type="text" id="latitude" class="form-control input-lg" placeholder="Latitude" />
+                    <input type="text" id="latitude" runat="server" class="form-control input-lg" placeholder="Latitude" />
                 </div>
                 <div class="col-md-6">
                     <label>Latitude</label>
-                    <input type="text" id="longitude" class="form-control input-lg" placeholder="Longitude" />
+                    <input type="text" id="longitude" runat="server" class="form-control input-lg" placeholder="Longitude" />
                 </div>
                 <div class="col-md-12">
                     <label>Address</label>
-                    <input type="text" id="address" placeholder="Address" class="form-control input-lg" />
+                    <input type="text" id="address" runat="server" placeholder="Address" class="form-control input-lg" />
                 </div>
                 <div class="col-md-2" style="z-index: 1;">
                     <label>City</label>
-                    <input type="text" id="City" class="form-control input-lg" placeholder="City" />
+                    <input type="text" id="City" runat="server" class="form-control input-lg" placeholder="City" />
                 </div>
                 <div class="col-md-5" style="z-index: 1;">
                     <label>Street No.</label>
-                    <input type="text" id="streetNo" class="form-control input-lg" placeholder="Street Number" />
+                    <input type="text" id="streetNo" runat="server" class="form-control input-lg" placeholder="Street Number" />
                 </div>
                 <div class="col-md-5" style="z-index: 1;">
                     <label>Street Name</label>
-                    <input type="text" id="streetName" class="form-control input-lg" placeholder="Street Name" />
+                    <input type="text" id="streetName" runat="server" class="form-control input-lg" placeholder="Street Name" />
                 </div>
                 <div class="col-md-6">
                     <label>Barangay</label>
-                    <input type="text" id="barangay" class="form-control input-lg" placeholder="Barangay" />
+                    <input type="text" id="barangay" runat="server" class="form-control input-lg" placeholder="Barangay" />
                 </div>
                 <div class="col-md-6">
                     <label>Province</label>
-                    <input type="text" id="province" class="form-control input-lg" placeholder="Province" />
+                    <input type="text" id="province" runat="server" class="form-control input-lg" placeholder="Province" />
                 </div>
                 <div class="col-md-6">
                     <label>Country</label>
-                    <input type="text" id="country" class="form-control input-lg" placeholder="Philippines" disabled/>
+                    <input type="text" id="country" runat="server" class="form-control input-lg" placeholder="Philippines" disabled/>
                 </div>
                 <div class="col-md-6">
                     <label>Feast Builder</label>
-                    <input type="text" id="builder" class="form-control input-lg" placeholder="Feast Builder" />
+                    <input type="text" id="builder" runat="server" class="form-control input-lg" placeholder="Feast Builder" />
                 </div>
                 <div class="col-md-6">
                     <label>Branch</label>
-                    <input type="text" id="branch" class="form-control input-lg" placeholder="Branch" />
+                    <input type="text" id="branch" runat="server" class="form-control input-lg" placeholder="Branch" />
                 </div>
                 <div class="col-md-6">
                     <label>Parent Organization</label>
-                    <input type="text" id="parent" class="form-control input-lg" placeholder="Parent Organization" />
+                    <input type="text" id="parent" runat="server" class="form-control input-lg" placeholder="Parent Organization" />
                 </div>
                 <div class="col-md-6">
                     <label>Contact Number</label>
-                    <input type="text" id="contact" class="form-control input-lg" placeholder="Contact" />
+                    <input type="text" id="contact" runat="server" class="form-control input-lg" placeholder="Contact" />
                 </div>
                 <div class="col-md-6">
                     <label>Website</label>
-                    <input type="text" id="website" class="form-control input-lg" placeholder="Website" />
+                    <input type="text" id="website" runat="server" class="form-control input-lg" placeholder="Website" />
                 </div>
                 <div class="col-md-6">
                     <label>Email</label>
-                    <input type="email" id="email" class="form-control input-lg" placeholder="Email" />
+                    <input type="email" id="email" runat="server" class="form-control input-lg" placeholder="Email" />
                 </div>
                 <div class="col-md-6">
                     <label>Date Established</label>
-                    <input type="text" id="date" class="form-control input-lg" placeholder="Date Established" />
+                    <input type="text" id="date" runat="server" class="form-control input-lg" placeholder="Date Established" />
                 </div>
                 <div class="col-md-12">
                     <label>About</label>
-                    <input type="text" id="about" class="form-control input-lg" placeholder="About" />
+                    <textarea id="abouts" runat="server" class="form-control"></textarea>
+                    <%--<input type="text" id="about" runat="server" class="form-control input-lg" placeholder="About" />--%>
                 </div>
                 <div class="col-md-12">
                     <h3>ORGANIZATION FACILITIES</h3>
@@ -217,7 +220,7 @@ td {
                       <span class="checkmark"></span>
                     </label>
                     <label class="containers">PRIVATE BUILDING
-                      <input type="checkbox" id="private" class="venue" runat="server" name="getVenueID" value="3">
+                      <input type="checkbox" id="privatebuilding" class="venue" runat="server" name="getVenueID" value="3">
                       <span class="checkmark"></span>
                     </label>
                 </div>
@@ -319,10 +322,10 @@ td {
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                   <%-- <div class="col-md-12">
                         <label>AFFILIATED ORGANIZATIONS</label>
                         <input type="text" id="affiliated" class="form-control input-lg" placeholder="Affiliated Organization" />
-                    </div>
+                    </div>--%>
                     <div class="col-md-12">
                         <h3>SCHEDULES</h3>
                         <h5>WORSHIP SCHEDULES</h5>
@@ -362,14 +365,14 @@ td {
 
                             <label>To:</label>
                             <input type="text" id="worshipTo" runat="server" class="form-control input-lg" placeholder="--:-- --"/><br />
-                            <button id="addWorship" class="btn btn-primary btn-block">Add Worship</button>
+                            <button id="addWorship" class="btn btn-primary btn-block">Save Changes</button>
                         </div>
                         <div class="col-md-8">
                             <table>
                                 <thead>
                                     <tr><td>Days(Worship)</td><td>From</td><td>To</td><td>Action</td></tr>
                                 </thead>
-                                <tbody id="worshipTable">
+                                <tbody id="worshipTable" runat="server">
 
                                 </tbody>
                             </table>
@@ -484,21 +487,21 @@ td {
                     <div class="col-md-12" style="clear: both">
                         <div class="col-md-12">
                             <label>RETREAT SCHEDULE</label>
-                            <input type="text" id="retreat" class="form-control input-lg" placeholder="Retreat" />
+                            <input type="text" id="retreat" runat="server" class="form-control input-lg" placeholder="Retreat" />
                         </div>
                     </div>
                      <div class="col-md-12" style="clear: both;">
                          <div class="col-md-6">
                               <label>RECOLLECTION</label>
-                              <input type="text" id="recollection" class="form-control input-lg" placeholder="Recollection" />
+                              <input type="text" runat="server" id="recollection" class="form-control input-lg" placeholder="Recollection" />
                               <label>TALKS</label>
-                              <input type="text" id="talks" class="form-control input-lg" placeholder="Talks" />
+                              <input type="text" runat="server" id="talks" class="form-control input-lg" placeholder="Talks" />
                          </div>
                           <div class="col-md-6">
                               <label>CAMPS</label>
-                              <input type="text" id="camps" class="form-control input-lg" placeholder="Camps" />
+                              <input type="text" runat="server" id="camps" class="form-control input-lg" placeholder="Camps" />
                               <label>VOLUNTEER WORKS</label>
-                              <input type="text" id="volunteerWorks" class="form-control input-lg" placeholder="Volunteer Works" />
+                              <input type="text" runat="server" id="volunteerWorks" class="form-control input-lg" placeholder="Volunteer Works" />
                          </div>
                     </div>
                     <div class="col-md-12" style="clear: both;">
@@ -562,7 +565,7 @@ td {
 				            <tbody id="eventContainer">
 				            </tbody>
 			            </table><br />
-                        <asp:Button ID="triggerME" runat="server" style="display: none;" OnClick="triggerME_Click" Text="trigger" />
+                        <asp:Button ID="triggerME" runat="server" style="display: none;" Text="trigger" />
                     </div>
                     <div class="col-md-12">
                         <div class="col-md-6">
@@ -570,7 +573,7 @@ td {
                             <asp:FileUpload ID="FileUpload2" runat="server" /><br />
                             <asp:FileUpload ID="FileUpload3" runat="server" /><br />
                             <asp:FileUpload ID="FileUpload4" runat="server" />
-                            <asp:Button ID="trigger" runat="server" Text="trigger" style="display: none;" OnClick="trigger_Click"/>
+                            <asp:Button ID="trigger" runat="server" Text="trigger" style="display: none;"/>
                         </div>
                         <div class="col-md-6">
                             <h3>ADD CHURCH THUMBNAIL</h3><br />
@@ -586,658 +589,154 @@ td {
     </div>
 </div>
 <script src="Scripts/helpers.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+    var timestandard = [];
+    timestandard.push('AM');
+    timestandard.push('PM');
+    timestandard["AM"] = new Map();
+    timestandard["PM"] = new Map();
 
-var timestandard = [];
-timestandard.push('AM');
-timestandard.push('PM');
-timestandard["AM"] = new Map();
-timestandard["PM"] = new Map();
+    timestandard["AM"].set(1, '12:00 - 01:00 AM');
+    timestandard["AM"].set(2, '01:00 - 02:00 AM');
+    timestandard["AM"].set(3, '02:00 - 03:00 AM');
+    timestandard["AM"].set(4, '03:00 - 04:00 AM');
+    timestandard["AM"].set(5, '04:00 - 05:00 AM');
+    timestandard["AM"].set(6, '05:00 - 06:00 AM');
+    timestandard["AM"].set(7, '06:00 - 07:00 AM');
+    timestandard["AM"].set(8, '07:00 - 08:00 AM');
+    timestandard["AM"].set(9, '08:00 - 09:00 AM');
+    timestandard["AM"].set(10, '09:00 - 10:00 AM');
+    timestandard["AM"].set(11, '10:00 - 11:00 AM');
+    timestandard["AM"].set(24, '11:00 - 12:00 AM');
+    timestandard["AM"].set(12, '11:00 - 12:00 PM');
 
-timestandard["AM"].set(1, '12:00 - 1:00 AM');
-timestandard["AM"].set(2, '1:00 - 2:00 AM');
-timestandard["AM"].set(3, '2:00 - 3:00 AM');
-timestandard["AM"].set(4, '3:00 - 4:00 AM');
-timestandard["AM"].set(5, '4:00 - 5:00 AM');
-timestandard["AM"].set(6, '5:00 - 6:00 AM');
-timestandard["AM"].set(7, '6:00 - 7:00 AM');
-timestandard["AM"].set(8, '7:00 - 8:00 AM');
-timestandard["AM"].set(9, '8:00 - 9:00 AM');
-timestandard["AM"].set(10, '9:00 - 10:00 AM');
-timestandard["AM"].set(11, '10:00 - 11:00 AM');
-timestandard["AM"].set(24, '11:00 - 12:00 AM');
-timestandard["AM"].set(12, '11:00 - 12:00 PM');
+    timestandard["PM"].set(12, '11:00 - 12:00 PM');
+    timestandard["PM"].set(13, '12:00 - 01:00 PM');
+    timestandard["PM"].set(14, '01:00 - 02:00 PM');
+    timestandard["PM"].set(15, '02:00 - 03:00 PM');
+    timestandard["PM"].set(16, '03:00 - 04:00 PM');
+    timestandard["PM"].set(17, '04:00 - 05:00 PM');
+    timestandard["PM"].set(18, '05:00 - 06:00 PM');
+    timestandard["PM"].set(19, '06:00 - 07:00 PM');
+    timestandard["PM"].set(20, '07:00 - 08:00 PM');
+    timestandard["PM"].set(21, '08:00 - 09:00 PM');
+    timestandard["PM"].set(22, '09:00 - 10:00 PM');
+    timestandard["PM"].set(23, '10:00 - 11:00 PM');
 
-timestandard["PM"].set(12, '11:00 - 12:00 PM');
-timestandard["PM"].set(13, '12:00 - 1:00 PM');
-timestandard["PM"].set(14, '1:00 - 2:00 PM');
-timestandard["PM"].set(15, '2:00 - 3:00 PM');
-timestandard["PM"].set(16, '3:00 - 4:00 PM');
-timestandard["PM"].set(17, '4:00 - 5:00 PM');
-timestandard["PM"].set(18, '5:00 - 6:00 PM');
-timestandard["PM"].set(19, '6:00 - 7:00 PM');
-timestandard["PM"].set(20, '7:00 - 8:00 PM');
-timestandard["PM"].set(21, '8:00 - 9:00 PM');
-timestandard["PM"].set(22, '9:00 - 10:00 PM');
-timestandard["PM"].set(23, '10:00 - 11:00 PM');
+    function removeZeroPrefix(value) {
+        // 3
+        if (value.length == 1 || value.substr(0, 1) != 0)
+            return value;
 
-function removeZeroPrefix(value) {
-    // 3
-    if (value.length == 1 || value.substr(0, 1) != 0)
-        return value;
+        return value.substr(1, value.length - 1);
+    }
 
-    return value.substr(1, value.length - 1);
-}
+    var editWorshipDetailId = 0;
+    var editWorshipDetail;
+    var schedID = 0;
 
+    $(document).ready(function () {
+        $('#addWorship').hide();
+    });
 
-function getIdOfDay(value) {
-    if (value == "Sunday") return 1;
-    if (value == "Monday") return 2;
-    if (value == "Tuesday") return 3;
-    if (value == "Wednesday") return 4;
-    if (value == "Thursday") return 5;
-    if (value == "Friday") return 6;
-    if (value == "Saturday") return 7;
-}
+    $(document).on('click', '#edit', function (e) {
+        e.preventDefault();
 
-$(document).on('click', '#submit', function (e) {
-    e.preventDefault();
-    (new http).post('OrganizationAddListing.aspx/InsertOrganization', {
-        name: $('#orgName').val(),
-        address: $('#address').val(),
-        streetNo: $('#streetNo').val(),
-        streetName: $('#streetName').val(),
-        barangay: $('#barangay').val(),
-        city: $('#City').val(),
-        province: $('#province').val(),
-        country: 'PH',
-        dateEstablished: $('#date').val(),
-        parentorg: $('#parent').val(),
-        feastBuilder: $('#builder').val(),
-        branch: $('#branch').val(),
-        contact: $('#contact').val(),
-        email: $('#email').val(),
-        website: $('#website').val(),
-        retreat: $('#retreat').val(),
-        recollect: $('#recollection').val(),
-        talks: $('#talks').val(),
-        camp: $('#camps').val(),
-        volunteer: $('#volunteerWorks').val(),
-        latitude: parseFloat($('#latitude').val()),
-        longitude: parseFloat($('#longitude').val()),
-        about: $('#about').val()
-    }).then(function (response) {
-       
-        $('#<%= trigger.ClientID%>').trigger('click');
-
-        var ventID = $('input.vent:checked').map(function () {
-            return $(this).val();
-        });
+        $('#addWorship').show('slow');
         
-        $.each(ventID, function (key, id) {
-            console.log(id);
-            (new http).post('OrganizationAddListing.aspx/InsertVentilation', {
-                id: id
-            }).then(function () {
-            }).run();
-        });
+        var id = $(this).data('id');
+        editWorshipDetailId = id;
 
-        var venueID = $('input.venue:checked').map(function () {
-            return $(this).val();
-        });
+        console.log(id);
 
-        $.each(venueID, function (key, id) {
-            console.log(id);
-            (new http).post('OrganizationAddListing.aspx/InsertVenue', {
-                id: id
-            }).then(function () {
-            }).run();
-        });
+       $('#<%= worshipTable.ClientID %> tr[name="' + id + '"]').each(function (index, tr) {
 
-        var parkingID = $('input.parking:checked').map(function () {
-            return $(this).val();
-        });
-
-        $.each(parkingID, function (key, id) {
-            console.log(id);
-            (new http).post('OrganizationAddListing.aspx/InsertParking', {
-                id: id
-            }).then(function () {
-            }).run();
-        });
-
-        var actID = $('input.activities:checked').map(function () {
-            return $(this).val();
-        });
-
-        $.each(actID, function (key, id) {
-            console.log(id);
-            (new http).post('OrganizationAddListing.aspx/InsertActivity', {
-                id: id
-            }).then(function () {
-            }).run();
-        });
-
-        var AttID = $('input.attendees:checked').map(function () {
-            return $(this).val();
-        });
-
-        $.each(AttID, function (key, id) {
-            console.log(id);
-            (new http).post('OrganizationAddListing.aspx/InsertAttendees', {
-                id: id
-            }).then(function () {
-            }).run();
-        });
-
-        WorshipID.forEach(function (org) {
-		    console.log('Org: ', org);
-		    $.each(org.day, function (key, day) {
-			    console.log('day: ', day);
-			    var fromHour = removeZeroPrefix(org.WorFrom.split(':')[0]);
-			    console.log('from Hour: ', fromHour);
-			    var fromAMorPM = org.WorFrom.split(':')[1].split(' ')[1];
-			    console.log('fromAMorPM: ', fromAMorPM);
-			    var toHour = removeZeroPrefix(org.WorTo.split(':')[0]);
-			    console.log('toHour: ', toHour);
-			    var toAMorPM = org.WorTo.split(':')[1].split(' ')[1];
-			    console.log('toAMorPM: ', toAMorPM);
-
-			    var timeStd = 0;
-			    console.log('timeStd: ', timeStd);
-
-			    $.each(timestandard[fromAMorPM], function (key, value) {
-			        console.log('timestandard: ', key);
-			    });
-
-			    timestandard[fromAMorPM].forEach(
-				    function (time, timeStandardID) {
-
-				        console.log('time: ', time);
-				        console.log('fromHour: ', fromHour);
-				        console.log('time.substr(0, 1): ', time.substr(0, 1));
-				        console.log('timeStandardID ', timeStandardID)
-				        console.log('timeStd2 ', timeStd);
-
-				        if (fromHour == time.substr(0, 1)) {
-				            timeStd = timeStandardID;
-				            return;
-				        }
-				    });
-
-			    if (timeStd != 0) {
-                    console.log('test ', timeStd);
-			        (new http).post('OrganizationAddListing.aspx/insertWorship', {
-				        FromDate: org.WorFrom,
-				        ToDate: org.WorTo,
-					    ScheduleID: getIdOfDay(day),
-					    TimeStandard: timeStd
-				    }).then(function (data) {
-
-				    }).run();
-			    }
-			    else {
-			        (new http).post('OrganizationAddListing.aspx/insertWorship', {
-			            FromDate: org.WorFrom,
-			            ToDate: org.WorTo,
-			            ScheduleID: getIdOfDay(day),
-			            TimeStandard: 12
-			        }).then(function (data) {
-
-			        }).run();
-			    }
-
-		    });
-        })
-
-        MassID.forEach(function (simbahan) {
-            console.log(simbahan);
-            $.each(simbahan.day, function (key, day) {
-                console.log(day);
-                var fromHour = removeZeroPrefix(simbahan.MassFrom.split(':')[0]);
-                var fromAMorPM = simbahan.MassFrom.split(':')[1].split(' ')[1];
-                var toHour = removeZeroPrefix(simbahan.MassTo.split(':')[0]);
-                var toAMorPM = simbahan.MassTo.split(':')[1].split(' ')[1];
-
-                var timeStd = 0;
-
-                timestandard[fromAMorPM].forEach(
-				    function (time, timeStandardID) {
-				        if (fromHour == time.substr(0, 1))
-				            timeStd = timeStandardID;
-				    });
-
-                if (timeStd != 0) {
-                    console.log(timeStd);
-                    (new http).post('OrganizationAddListing.aspx/insertMass', {
-                        FromDate: simbahan.MassFrom,
-                        ToDate: simbahan.MassTo,
-                        ScheduleID: getIdOfDay(day),
-                        TimeStandard: timeStd
-                    }).then(function (data) {
-
-                    }).run();
-                }
-                else {
-                    (new http).post('OrganizationAddListing.aspx/insertMass', {
-                        FromDate: simbahan.MassFrom,
-                        ToDate: simbahan.MassTo,
-                        ScheduleID: getIdOfDay(day),
-                        TimeStandard: 12
-                    }).then(function (data) {
-
-                    }).run();
-                }
-
+            var lines = $('td', tr).map(function (index, td) {
+                return $(td).text();
             });
+
+            var day = lines[0];
+            console.log(day);
+            var Start = lines[1];
+            var End = lines[2];
+            console.log(Start);
+            console.log(End);
+
+            $("#worfThu").prop('checked', false);
+            $("#worfMon").prop('checked', false);
+            $("#worfTue").prop('checked', false);
+            $("#worfWed").prop('checked', false);
+            $("#worfSun").prop('checked', false);
+            $("#worfFri").prop('checked', false);
+            $("#worfSat").prop('checked', false);
+
+            if (day == 'Sunday'){
+                schedID = 1;
+                $("#worSun").prop('checked', true);
+            } else if (day == 'Monday') {
+                schedID = 2;
+                $("#worMon").prop('checked', true);
+            } else if (day == 'Tuesday') {
+                schedID = 3;
+                $("#worTue").prop('checked', true);
+            } else if (day == 'Wednesday') {
+                schedID = 4;
+                $("#worWed").prop('checked', true);
+            } else if (day == 'Thursday') {
+                schedID = 5;
+                $("#worThu").prop('checked', true);
+            } else if (day == 'Friday') {
+                schedID = 6;
+                $("#worFri").prop('checked', true);
+            } else if (day == 'Saturday') {
+                schedID = 7;
+                $("#worSat").prop('checked', true);
+            }
+
+               $('#<%= worshipFrom.ClientID%>').val(Start);
+               $('#<%= worshipTo.ClientID%>').val(End);
+
+               editWorshipDetail = {
+                   Start: Start,
+                   End: End,
+                   day: day,
+                   scheduleId: schedID
+               }
+               console.log(editWorshipDetail);
+         })
+    });
+
+    //Save Changes for Worship schedule
+    $(document).on('click', '#addWorship', function (e) {
+            e.preventDefault();
+            
+            var fromHour = editWorshipDetail.Start.split(' ')[0];
+            var fromAMorPM = editWorshipDetail.Start.split(':')[1].split(' ')[1];
+            var toHour = editWorshipDetail.End.split(' ')[0];
+            var toAMorPM = editWorshipDetail.End.split(':')[1].split(' ')[1];
+
+            var timeStd = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 2))
+                        timeStd = timeStandardID;
+                });
+            console.log(timeStd);
+
+            if (timeStd != 0) {
+                (new http).post('OrganizationUpdate.aspx/UpdateWorshipDetails', {
+                    worshipDetailsId: editWorshipDetailId,
+                    ScheduleId: schedID,
+                    Time: $("#<%= worshipFrom.ClientID%>").val() + '-' + $("#<%= worshipTo.ClientID%>").val(),
+                    OrgId: $("#<%= organizationId.ClientID %>").val(),
+                    TimeStandard: timeStd,
+                }).then(function (response) {
+                    alert('Updated!');
+                    window.location.reload();
+                }).run();
+            }
         });
-
-        BibleID.forEach(function (simbahan) {
-            console.log(simbahan);
-            $.each(simbahan.day, function (key, day) {
-                console.log(day);
-                var fromHour = removeZeroPrefix(simbahan.BibleFrom.split(':')[0]);
-                var fromAMorPM = simbahan.BibleFrom.split(':')[1].split(' ')[1];
-                var toHour = removeZeroPrefix(simbahan.BibleTo.split(':')[0]);
-                var toAMorPM = simbahan.BibleTo.split(':')[1].split(' ')[1];
-
-                var timeStd = 0;
-
-                timestandard[fromAMorPM].forEach(
-				    function (time, timeStandardID) {
-				        if (fromHour == time.substr(0, 1))
-				            timeStd = timeStandardID;
-				    });
-
-                if (timeStd != 0) {
-                    console.log(timeStd);
-                    (new http).post('OrganizationAddListing.aspx/insertBible', {
-                        FromDate: simbahan.BibleFrom,
-                        ToDate: simbahan.BibleTo,
-                        ScheduleID: getIdOfDay(day),
-                        TimeStandard: timeStd
-                    }).then(function (data) {
-
-                    }).run();
-                }
-                else {
-                    (new http).post('OrganizationAddListing.aspx/insertBible', {
-                        FromDate: simbahan.BibleFrom,
-                        ToDate: simbahan.BibleTo,
-                        ScheduleID: getIdOfDay(day),
-                        TimeStandard: 12
-                    }).then(function (data) {
-
-                    }).run();
-                }
-            });
-        })
-
-        EventID.forEach(function (event) {
-            (new http).post('OrganizationAddListing.aspx/insertEvent', {
-                eventName: event.eventName,
-                eventVenue: event.eventVenue,
-                desc: event.desc,
-                filename: event.filename,
-                startDate:event.startDate,
-                startTime: event.startTime,
-                endDate: event.endDate,
-                endTime: event.endTime
-            }).then(function (data) {
-                $('#<%= triggerME.ClientID%>').trigger('click');
-            }).run();
-        })
-
-    }).run();
-});
-
-//var days = [];
-var WorshipID = new Map();
-var index = 1;
-var worshipSched = [];
-
-$(document).on('click', '#addWorship', function (e) {
-    e.preventDefault();
-
-    var days = [];
-
-    if ($("#<%= worshipFrom.ClientID%>").val() == ''){
-        alert('Please add start time!');
-        return;
-    }
-
-    if ($("#<%= worshipTo.ClientID%>").val() == ''){
-        alert('Please add end time!');
-        return;
-    }
-
-    if ($("#worSun").is(":checked")) {
-        days.push("Sunday");
-    }
-    if ($("#worMon").is(":checked")) {
-        days.push("Monday");
-    }
-    if ($("#worTue").is(":checked")) {
-        days.push("Tuesday");
-    }
-    if ($("#worWed").is(":checked")) {
-        days.push("Wednesday");
-    }
-    if ($("#worThu").is(":checked")) {
-        days.push("Thursday");
-    }
-    if ($("#worFri").is(":checked")) {
-        days.push("Friday");
-    }
-    if ($("#worSat").is(":checked")) {
-        days.push("Saturday");
-    }
-
-    console.log(days);
-
-    $("#worshipTable").append('' +
-		'<tr>' +
-		'<td>' +
-		days.join(', ') +
-		'</td>' +
-		'<td>' +
-		$("#<%= worshipFrom.ClientID%>").val() +
-		'</td>' +
-		'<td>' +
-		$("#<%= worshipTo.ClientID%>").val() +
-		'</td>' +
-		'<td>' +
-		'<i id="btnDelWorship" data-id="' + index + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
-		'</td>' +
-		'</tr>');
-
-    worshipSched.push({
-        worshipDays: days,
-        worshipStart: $("#<%= worshipFrom.ClientID%>").val(),
-        worshipEnd: $("#<%= worshipTo.ClientID%>").val()
-    });
-
-    WorshipID.set(index, {
-        day: days,
-        WorFrom: $("#<%= worshipFrom.ClientID%>").val(),
-        WorTo: $("#<%= worshipTo.ClientID%>").val()
-    });
-
-    index++;
-
-    console.log(WorshipID);
-
-    $("#<%= worshipFrom.ClientID%>").val('');
-    $("#<%= worshipTo.ClientID%>").val('')
-    document.getElementById("worSun").checked = false;
-    document.getElementById("worMon").checked = false;
-    document.getElementById("worTue").checked = false;
-    document.getElementById("worWed").checked = false;
-    document.getElementById("worThu").checked = false;
-    document.getElementById("worFri").checked = false;
-    document.getElementById("worSat").checked = false;
-
-});
-</script>
-
-<script>
-var MassID = new Map();
-var indexx = 1;
-var massSched = [];
-
-$(document).on('click', '#addMass', function (e) {
-    e.preventDefault();
-
-    var days = [];
-
-    if ($("#<%= massFrom.ClientID%>").val() == ''){
-        alert('Please add start time!');
-        return;
-    }
-
-    if ($("#<%= masssTo.ClientID%>").val() == ''){
-        alert('Please add end time!');
-        return;
-    }
-
-    if ($("#masSun").is(":checked")) {
-        days.push("Sunday");
-    }
-    if ($("#masMon").is(":checked")) {
-        days.push("Monday");
-    }
-    if ($("#masTue").is(":checked")) {
-        days.push("Tuesday");
-    }
-    if ($("#masWed").is(":checked")) {
-        days.push("Wednesday");
-    }
-    if ($("#masThu").is(":checked")) {
-        days.push("Thursday");
-    }
-    if ($("#masFri").is(":checked")) {
-        days.push("Friday");
-    }
-    if ($("masSat").is(":checked")) {
-        days.push("Saturday");
-    }
-
-    console.log(days);
-
-    $("#massTable").append('' +
-		'<tr>' +
-		'<td>' +
-		days.join(', ') +
-		'</td>' +
-		'<td>' +
-		$("#<%= massFrom.ClientID%>").val() +
-		'</td>' +
-		'<td>' +
-		$("#<%= masssTo.ClientID%>").val() +
-		'</td>' +
-		'<td>' +
-		'<i id="btnDelMass" data-id="' + indexx + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
-		'</td>' +
-		'</tr>');
-
-    massSched.push({
-        massDays: days,
-        massStart: $("#<%= massFrom.ClientID%>").val(),
-        massEnd: $("#<%= masssTo.ClientID%>").val()
-    })
-
-    MassID.set(indexx, {
-        day: days,
-        MassFrom: $("#<%= massFrom.ClientID%>").val(),
-        MassTo: $("#<%= masssTo.ClientID%>").val()
-    });
-
-    console.log(MassID);
-
-    $("#<%= massFrom.ClientID%>").val('');
-    $("#<%= masssTo.ClientID%>").val('')
-    document.getElementById("masSun").checked = false;
-    document.getElementById("masMon").checked = false;
-    document.getElementById("masTue").checked = false;
-    document.getElementById("masWed").checked = false;
-    document.getElementById("masThu").checked = false;
-    document.getElementById("masFri").checked = false;
-    document.getElementById("masSat").checked = false;
-
-    indexx++;
-});
-</script>
-
-<script>
-var BibleID = new Map();
-var indexxx = 1;
-var bibleSched = [];
-
-$(document).on('click', '#addBible', function (e) {
-    e.preventDefault();
-
-    var days = [];
-
-    if ($("#<%= bibleFrom.ClientID%>").val() == ''){
-        alert('Please add start time!');
-        return;
-    }
-
-    if ($("#<%=  bibleTo.ClientID%>").val() == ''){
-        alert('Please add end time!');
-        return;
-    }
-
-    if ($("#bibSun").is(":checked")) {
-        days.push("Sunday");
-    }
-    if ($("#bibMon").is(":checked")) {
-        days.push("Monday");
-    }
-    if ($("#bibTue").is(":checked")) {
-        days.push("Tuesday");
-    }
-    if ($("#bibWed").is(":checked")) {
-        days.push("Wednesday");
-    }
-    if ($("#bibThu").is(":checked")) {
-        days.push("Thursday");
-    }
-    if ($("#bibFri").is(":checked")) {
-        days.push("Friday");
-    }
-    if ($("bibSat").is(":checked")) {
-        days.push("Saturday");
-    }
-
-    console.log(days);
-
-    $("#bibleTable").append('' +
-		'<tr>' +
-		'<td>' +
-		days.join(', ') +
-		'</td>' +
-		'<td>' +
-		$("#<%= bibleFrom.ClientID%>").val() +
-		'</td>' +
-		'<td>' +
-		$("#<%= bibleTo.ClientID%>").val() +
-		'</td>' +
-		'<td>' +
-		'<i id="btnDelBible" data-id="' + indexxx + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
-		'</td>' +
-		'</tr>');
-
-    bibleSched.push({
-        bibleDays: days,
-        bibleStart: $("#<%= bibleFrom.ClientID%>").val(),
-        bibleEnd: $("#<%= bibleTo.ClientID%>").val()
-    })
-
-    BibleID.set(indexxx, {
-        day: days,
-        BibleFrom: $("#<%= bibleFrom.ClientID%>").val(),
-        BibleTo: $("#<%= bibleTo.ClientID%>").val()
-    });
-
-    console.log(BibleID);
-
-    $("#<%= bibleFrom.ClientID%>").val('');
-    $("#<%= bibleTo.ClientID%>").val('')
-    document.getElementById("bibSun").checked = false;
-    document.getElementById("bibMon").checked = false;
-    document.getElementById("bibTue").checked = false;
-    document.getElementById("bibWed").checked = false;
-    document.getElementById("bibThu").checked = false;
-    document.getElementById("bibFri").checked = false;
-    document.getElementById("bibSat").checked = false;
-
-    indexxx++;
-});
-</script>
-
-<script>
-var EventID = new Map();
-var indexxxx = 1;
-var eventSched = [];
-
-$(document).on('click', '#addEvent', function (e) {
-    e.preventDefault();
-
-    if ($("#eventName").val() == ''){
-        alert('Please add event name!');
-        return;
-    }
-
-    if ($("#eventDate").val() == ''){
-        alert('Please add event date');
-        return;
-    }
-
-    var file = $("#<% =FileUpload1.ClientID%>").val().split('\\')[$("#<% =FileUpload1.ClientID%>").val().split('\\').length - 1]
-
-    $("#eventContainer").append('' +
-		'<tr>' +
-		'<td>' +
-		$("#eventName").val() +
-		'</td>' +
-		'<td>' +
-		$("#eventVenue").val() +
-		'</td>' +
-		'<td>' +
-		$("#eventDesc").val() +
-		'</td>' +
-        '<td>' +
-		file +
-		'</td>' +
-        '<td>' +
-		$("#startDate").val() +
-		'</td>' +
-        '<td>' +
-		$("#startTime").val() +
-		'</td>' +
-        '<td>' +
-		$("#endDate").val() +
-		'</td>' +
-        '<td>' +
-		$("#endTime").val() +
-		'</td>' +
-		'<td>' +
-		'<i id="btnDelEvent" data-id="' + indexxxx + '" class="fa fa-remove" style="color: red; font-size: x-large;"></i>' +
-		'</td>' +
-		'</tr>');
-
-  eventSched.push({
-        eventName: $("#eventName").val(),
-        eventVenue: $("#eventVenue").val(),
-        desc:$("#eventDesc").val(),
-        filename: file,
-        startDate: $("#startDate").val(),
-        startTime: $("#startTime").val(),
-        endDate: $("#endDate").val(),
-        endTime: $("#endTime").val()
-    })
-
-    EventID.set(indexxxx, {
-        eventName: $("#eventName").val(),
-        eventVenue: $("#eventVenue").val(),
-        desc: $("#eventDesc").val(),
-        filename: file,
-        startDate: $("#startDate").val(),
-        startTime: $("#startTime").val(),
-        endDate: $("#endDate").val(),
-        endTime: $("#endTime").val()
-    });
-
-    $("#eventName").val('');
-    $("#eventVenue").val('');
-    $("#eventDesc").val('');
-    $("#startDate").val('');
-    $("#startTime").val('');
-    $("#endDate").val('');
-    $("#endTime").val('');
-
-    indexxxx++;
-});
 </script>
 </asp:Content>

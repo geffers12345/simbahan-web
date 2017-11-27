@@ -160,6 +160,19 @@ Modified by:
    
             <h1 class="church-header" id="OrganizationName" runat="server"></h1>
        
+                <% if (Auth.Check()) { %>
+                    <% if (Auth.user().RoleID == 3) { %>
+                        <% if (Auth.user().HasPermission(Convert.ToInt32(OrganizationId.Value))) { %>
+                            <a href="http://<%= HttpContext.Current.Request.Url.Host %>/OrganizationUpdate.aspx?id=<%= OrganizationId.Value %>">
+                                <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                            </a>
+                        <% } %>
+                    <% } else if (Auth.user().RoleID == 1) { %>
+                            <a href="http://<%= HttpContext.Current.Request.Url.Host %>/OrganizationUpdate.aspx?id=<%= OrganizationId.Value %>">
+                                <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                            </a>
+                    <% } %>
+                <% } %>
        
             <p class="church-address" id="OrganizationAddress" runat="server">
                 Address
