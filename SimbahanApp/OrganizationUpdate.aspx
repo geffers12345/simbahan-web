@@ -426,7 +426,7 @@ td {
                                 <thead>
                                     <tr><td>Days(Mass)</td><td>From</td><td>To</td><%--<td>Langauge</td>--%><td>Action</td></tr>
                                 </thead>
-                                <tbody id="massTable">
+                                <tbody id="massTable" runat="server">
 
                                 </tbody>
                             </table>
@@ -478,7 +478,7 @@ td {
                                 <thead>
                                     <tr><td>Days(Bible)</td><td>From</td><td>To</td><td>Action</td></tr>
                                 </thead>
-                                <tbody id="bibleTable">
+                                <tbody id="bibleTable" runat="server">
 
                                 </tbody>
                             </table>
@@ -737,6 +737,225 @@ td {
                     window.location.reload();
                 }).run();
             }
+    });
+
+
+    //MassSchedule
+     var editMassDetailId = 0;
+    var editMassDetail;
+    var schedIDformass = 0;
+
+    $(document).ready(function () {
+        $('#addMass').hide();
+    });
+
+    $(document).on('click', '#editmass', function (e) {
+        e.preventDefault();
+
+        $('#addMass').show('slow');
+        
+        var id = $(this).data('id');
+        editMassDetailId = id;
+
+        console.log(id);
+
+       $('#<%= massTable.ClientID %> tr[name="' + id + '"]').each(function (index, tr) {
+
+            var lines = $('td', tr).map(function (index, td) {
+                return $(td).text();
+            });
+
+            var day = lines[0];
+            console.log(day);
+            var Start = lines[1];
+            var End = lines[2];
+            console.log(Start);
+            console.log(End);
+
+            $("#masThu").prop('checked', false);
+            $("#masMon").prop('checked', false);
+            $("#masTue").prop('checked', false);
+            $("#masWed").prop('checked', false);
+            $("#masSun").prop('checked', false);
+            $("#masFri").prop('checked', false);
+            $("#masSat").prop('checked', false);
+
+            if (day == 'Sunday'){
+                schedIDformass = 1;
+                $("#masSun").prop('checked', true);
+            } else if (day == 'Monday') {
+                schedIDformass = 2;
+                $("#masMon").prop('checked', true);
+            } else if (day == 'Tuesday') {
+                schedIDformass = 3;
+                $("#masTue").prop('checked', true);
+            } else if (day == 'Wednesday') {
+                schedIDformass = 4;
+                $("#masWed").prop('checked', true);
+            } else if (day == 'Thursday') {
+                schedIDformass = 5;
+                $("#masThu").prop('checked', true);
+            } else if (day == 'Friday') {
+                schedIDformass = 6;
+                $("#masFri").prop('checked', true);
+            } else if (day == 'Saturday') {
+                schedIDformass = 7;
+                $("#masSat").prop('checked', true);
+            }
+
+               $('#<%= massFrom.ClientID%>').val(Start);
+               $('#<%= masssTo.ClientID%>').val(End);
+
+               editMassDetail = {    
+                   Start: Start,
+                   End: End,
+                   day: day,
+                   scheduleId: schedIDformass
+               }
+               console.log(editMassDetail);
+         })
+    });
+
+    //Save Changes for Mass schedule
+    $(document).on('click', '#addMass', function (e) {
+            e.preventDefault();
+            
+            var fromHour = editMassDetail.Start.split(' ')[0];
+            var fromAMorPM = editMassDetail.Start.split(':')[1].split(' ')[1];
+            var toHour = editMassDetail.End.split(' ')[0];
+            var toAMorPM = editMassDetail.End.split(':')[1].split(' ')[1];
+
+            var timeStd = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 2))
+                        timeStd = timeStandardID;
+                });
+            console.log(timeStd);
+
+            if (timeStd != 0) {
+                (new http).post('OrganizationUpdate.aspx/UpdateMassDetails', {
+                    massDetailsId: editMassDetailId,
+                    ScheduleId: schedIDformass,
+                    Time: $("#<%= massFrom.ClientID%>").val() + '-' + $("#<%= masssTo.ClientID%>").val(),
+                    OrgId: $("#<%= organizationId.ClientID %>").val(),
+                    TimeStandard: timeStd,
+                }).then(function (response) {
+                    alert('Updated!');
+                    window.location.reload();
+                }).run();
+            }
+    });
+
+
+     //BibleSchedule
+     var editBibleDetailId = 0;
+    var editBibleDetail;
+    var schedIDforbible = 0;
+
+    $(document).ready(function () {
+        $('#addBible').hide();
+    });
+
+    $(document).on('click', '#editbible', function (e) {
+        e.preventDefault();
+
+        $('#addBible').show('slow');
+        
+        var id = $(this).data('id');
+        editBibleDetailId = id;
+
+        console.log(id);
+
+       $('#<%= bibleTable.ClientID %> tr[name="' + id + '"]').each(function (index, tr) {
+
+            var lines = $('td', tr).map(function (index, td) {
+                return $(td).text();
+            });
+
+            var day = lines[0];
+            console.log(day);
+            var Start = lines[1];
+            var End = lines[2];
+            console.log(Start);
+            console.log(End);
+
+            $("#bibMon").prop('checked', false);
+            $("#bibTue").prop('checked', false);
+            $("#bibWed").prop('checked', false);
+            $("#bibThu").prop('checked', false);
+            $("#bibFri").prop('checked', false);
+            $("#bibSat").prop('checked', false);
+            $("#bibSun").prop('checked', false);
+
+            if (day == 'Sunday'){
+                schedIDforbible = 1;
+                $("#bibSun").prop('checked', true);
+            } else if (day == 'Monday') {
+                schedIDforbible = 2;
+                $("#bibMon").prop('checked', true);
+            } else if (day == 'Tuesday') {
+                schedIDforbible = 3;
+                $("#bibTue").prop('checked', true);
+            } else if (day == 'Wednesday') {
+                schedIDforbible = 4;
+                $("#bibWed").prop('checked', true);
+            } else if (day == 'Thursday') {
+                schedIDforbible = 5;
+                $("#bibThu").prop('checked', true);
+            } else if (day == 'Friday') {
+                schedIDforbible = 6;
+                $("#bibFri").prop('checked', true);
+            } else if (day == 'Saturday') {
+                schedIDforbible = 7;
+                $("#bibSat").prop('checked', true);
+            }
+
+               $('#<%= bibleFrom.ClientID%>').val(Start);
+               $('#<%= bibleTo.ClientID%>').val(End);
+
+               editBibleDetail = {    
+                   Start: Start,
+                   End: End,
+                   day: day,
+                   scheduleId: schedIDforbible
+               }
+               console.log(editBibleDetail);
+         })
+    });
+
+    //Save Changes for Mass schedule
+    $(document).on('click', '#addBible', function (e) {
+            e.preventDefault();
+            
+            var fromHour = editBibleDetail.Start.split(' ')[0];
+            var fromAMorPM = editBibleDetail.Start.split(':')[1].split(' ')[1];
+            var toHour = editBibleDetail.End.split(' ')[0];
+            var toAMorPM = editBibleDetail.End.split(':')[1].split(' ')[1];
+
+            var timeStd = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 2))
+                        timeStd = timeStandardID;
+                });
+            console.log(timeStd);
+
+            if (timeStd != 0) {
+                (new http).post('OrganizationUpdate.aspx/UpdateBibleDetails', {
+                    massDetailsId: editBibleDetailId,
+                    ScheduleId: schedIDforbible,
+                    Time: $("#<%= bibleFrom.ClientID%>").val() + '-' + $("#<%= bibleTo.ClientID%>").val(),
+                    OrgId: $("#<%= organizationId.ClientID %>").val(),
+                    TimeStandard: timeStd,
+                }).then(function (response) {
+                    alert('Updated!');
+                    window.location.reload();
+                }).run();
+            }
         });
+
 </script>
 </asp:Content>
