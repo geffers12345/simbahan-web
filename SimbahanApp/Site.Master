@@ -722,7 +722,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                     <div class="eltd-footer-top-holder">
                         <div class="eltd-footer-top eltd-footer-top-aligment-left">
 
-                            <div class="row">
+                           <%-- <div class="row">
                                 <div class="col-xs-4"></div>
 
                              <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
@@ -741,9 +741,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                                                 <a href="#">Donation
                                                 </a>
                                             </p>--%>
-                                        </div>
+                               <%--         </div>
                                     </div>
-                                </div>
+                                </div>--%>
 
                                 <%--<div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
                                     <div class="widget eltd-footer-column widget_text">
@@ -784,8 +784,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                                     <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="http://twitter.com/" target="_blank">
                                         <img src="Images/apple.png" /></a>
                                 </div>--%>
-                                <div class="col-xs-4"></div>
-                            </div>
+                               <%-- <div class="col-xs-4"></div>
+                            </div>--%>
 
                             <div class="eltd-footer-bottom-holder">
                                 <div class="eltd-footer-bottom-holder-inner">
