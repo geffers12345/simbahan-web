@@ -508,28 +508,29 @@ td {
                         <h3>OTHER EVENTS</h3>
                          <div class="col-md-6">
                               <label>EVENT NAME</label>
-                              <input type="text" id="eventName" class="form-control input-lg" placeholder="Event Name" />
+                              <input type="text" id="eventName" class="form-control input-lg" runat="server" placeholder="Event Name" />
                               <label>EVENT VENUE</label>
-                              <input type="text" id="eventVenue" class="form-control input-lg" placeholder="Event Venue" />
+                              <input type="text" id="eventVenue" class="form-control input-lg" runat="server" placeholder="Event Venue" />
                               <label>DESCRIPTION</label>
-                              <textarea id="eventDesc" class="form-control input-lg" placeholder="Event Description"></textarea>
+                              <textarea id="eventDesc" class="form-control input-lg" runat="server" placeholder="Event Description"></textarea>
                               <label>ATTACH PICTURE</label>
                               <%--<input type="file" id="eventPicture" class="form-control input-lg" />--%>
                               <asp:FileUpload ID="FileUpload1" runat="server" class="form-control input-lg" />
                          </div>
                         <div class="col-md-6">
                               <label>START DATE</label>
-                              <input type="date" id="startDate" class="form-control input-lg" placeholder="Event Date" />
+                              <input type="date" id="startDate" class="form-control input-lg"  runat="server" placeholder="Event Date" />
                               <label>START TIME</label>
-                              <input type="text" id="startTime" class="form-control input-lg" placeholder="Start Time" />
+                              <input type="text" id="startTime" class="form-control input-lg" runat="server" placeholder="Start Time" />
                               <label>END DATE</label>
-                              <input type="date" id="endDate" class="form-control input-lg" placeholder="End Date" />
+                              <input type="date" id="endDate" class="form-control input-lg" runat="server" placeholder="End Date" />
                               <label>END TIME</label>
-                              <input type="text" id="endTime" class="form-control input-lg"placeholder="End Time" /><br /><br />
+                              <input type="text" id="endTime" class="form-control input-lg" runat="server" placeholder="End Time" /><br /><br />
                          </div>
                     </div>
                     <div class="col-md-12">
-                        <button id="addEvent" class="btn btn-primary btn-block" style="width: 50%; margin-left: 25%;">Add Event</button><br /><br />
+                        <%--<button id="addEvent" class="btn btn-primary btn-block" style="width: 50%; margin-left: 25%;">Add Event</button><br /><br />--%>
+                        <asp:Button id="addEvent" class="btn btn-primary btn-block" style="width: 50%; margin-left: 25%;" Text="Add event" runat="server" Onclick="addEvent_Click"/><br /><br />
                         <table>
 				            <thead>
 					            <tr class="bg-primary">
@@ -562,7 +563,7 @@ td {
 			                        </td>
 					            </tr>
 				            </thead>
-				            <tbody id="eventContainer">
+				            <tbody id="eventContainer" runat="server">
 				            </tbody>
 			            </table><br />
                         <asp:Button ID="triggerME" runat="server" style="display: none;" Text="trigger" />
@@ -740,6 +741,24 @@ td {
             }
     });
 
+    $(document).on('click', '#delete', function (e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        console.log(id);
+
+        var x = confirm('Are you sure you want to delete this mass detail?');
+
+        if (x == true) {
+            (new http).post('OrganizationUpdate.aspx/deleteMassDetail', {
+                id: id
+            }).then(function (response) {
+                alert('Deleted!');
+                window.location.reload();
+            }).run();
+        }
+    });
+
 
     //MassSchedule
      var editMassDetailId = 0;
@@ -847,6 +866,25 @@ td {
                     window.location.reload();
                 }).run();
             }
+    });
+    
+
+    $(document).on('click', '#deletemass', function (e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        console.log(id);
+
+        var x = confirm('Are you sure you want to delete this mass detail?');
+
+        if (x == true) {
+            (new http).post('OrganizationUpdate.aspx/deleteMassDetail', {
+                id: id
+            }).then(function (response) {
+                alert('Deleted!');
+                window.location.reload();
+            }).run();
+        }
     });
 
 
@@ -958,16 +996,16 @@ td {
             }
     });
 
-    $(document).on('click', '#deletemass', function (e) {
+    $(document).on('click', '#deleteBible', function (e) {
         e.preventDefault();
 
         var id = $(this).data('id');
         console.log(id);
 
-        var x = confirm('Are you sure you want to delete this mass detail?');
+        var x = confirm('Are you sure you want to delete this Bible detail?');
 
         if(x == true){
-            (new http).post('OrganizationUpdate.aspx/deleteMassDetail', {
+            (new http).post('OrganizationUpdate.aspx/deleteBibleDetail', {
                 id: id
             }).then(function (response) {
                 alert('Deleted!');
@@ -976,5 +1014,6 @@ td {
         }
     });
 
+  
 </script>
 </asp:Content>
