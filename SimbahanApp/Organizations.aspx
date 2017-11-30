@@ -566,6 +566,8 @@ Modified by:
     <!-- Insert ADS Here -->
 </div>
 </div></div>
+<script src="Scripts/validator.js"></script>
+    <script src="Scripts/sweetalert.js"></script>
 <script type="text/javascript">
     var map;
 
@@ -808,7 +810,6 @@ Modified by:
                     }
                 }).run();
             });
-
         $(document).on('click',
             '#btnPublishReview',
             function(e) {
@@ -817,10 +818,11 @@ Modified by:
                 var commentReviewPassed = $("#comment").validate(['required', 'min:3'])
                     .displayErrorOn('#errorComment');
 
+
                 var starCount = $("#eltd-rating").val();
 
-                if (titleReviewPassed && commentReviewPassed) {
-                    (new http).post('Organizations.aspx/PublishReview',
+                if (commentReviewPassed) {
+                    (new http).post('<%= ResolveUrl("Organizations.aspx/PublishReview")%>',
                         {
                             organizationId: $("#<%= OrganizationId.ClientID %>").val(),
                             rate: starCount,
@@ -954,6 +956,7 @@ Modified by:
 
         $("#view-announcement-modal").modal('show');
     });
-</script>
 
+
+</script>
 </asp:Content>
