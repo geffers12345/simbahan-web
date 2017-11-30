@@ -72,6 +72,7 @@ namespace SimbahanApp
                 worshipSched();
                 massSched();
                 bibleSched();
+                announceSched();
             }
         }
 
@@ -420,7 +421,7 @@ namespace SimbahanApp
                         dayStr = "Saturday";
                     }
 
-                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"delete\" data-id='" + id + "'></1>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"edit\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"delete\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"edit\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
                     worshipTable.Controls.Add(tr);
                 }
             }
@@ -439,6 +440,25 @@ namespace SimbahanApp
                 dbconn.Open();
 
                 string query = String.Format("UPDATE tblWorshipSchedules SET ScheduleID = '{0}', Time = '{1}', TimeStandardID = '{2}' WHERE [OrgWorshipScheduleID] = {3}", ScheduleId, Time, TimeStandard, worshipDetailsId);
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        [WebMethod]
+        public static void deleteWorshipDetail(int id)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("delete from tblWorshipSchedules where OrgWorshipScheduleID = '" + id + "'");
 
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
@@ -516,7 +536,7 @@ namespace SimbahanApp
                         dayStr = "Saturday";
                     }
 
-                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"deletemass\" data-id='" + id + "'></1>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editmass\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"deletemass\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editmass\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
                     massTable.Controls.Add(tr);
                 }
             }
@@ -535,6 +555,25 @@ namespace SimbahanApp
                 dbconn.Open();
 
                 string query = String.Format("UPDATE tblMassDetails SET ScheduleID = '{0}', Time = '{1}', TimeStandardID = '{2}' WHERE [OrgMassID] = {3}", ScheduleId, Time, TimeStandard, massDetailsId);
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        [WebMethod]
+        public static void deleteMassDetail(int id)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("delete from tblMassDetails where OrgMassID = '" + id + "'");
 
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
@@ -612,7 +651,7 @@ namespace SimbahanApp
                         dayStr = "Saturday";
                     }
 
-                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"deletebible\" data-id='" + id + "'></1>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editbible\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"deletebible\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editbible\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
                     bibleTable.Controls.Add(tr);
                 }
             }
@@ -639,7 +678,7 @@ namespace SimbahanApp
         }
 
         [WebMethod]
-        public static void deleteMassDetail(int id)
+        public static void deleteBibleDetail(int id)
         {
             using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
             {
@@ -649,7 +688,7 @@ namespace SimbahanApp
                 }
                 dbconn.Open();
 
-                string query = String.Format("delete from tblMassDetails where OrgMassID = '" + id + "'");
+                string query = String.Format("delete from tblBibleDetails where OrgBibleScheduleID = '" + id + "'");
 
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
@@ -676,5 +715,69 @@ namespace SimbahanApp
                 cmd.ExecuteNonQuery();
             }
         }
+        protected void addEvent_Click(object sender, EventArgs e)
+        {
+            int organnounceId = Convert.ToInt32(Request["id"]);
+
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string filename = "Images/Organizations/" + FileUpload1.FileName.ToString();
+                string query = String.Format("Insert into [OrganizationAnnouncements] values(" + organnounceId + ", '" + startDate.Value + "', '" + startTime.Value + "', '" + endDate.Value + "', '" + endTime.Value + "', '" + eventName.Value + "', '" + eventVenue.Value + "', '" + filename + "', '" + eventDesc.Value + "')");
+
+                SqlCommand cmd = new SqlCommand(query, dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+        private void announceSched()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT [AnnouncementID] " +
+                                                ",[OrganizationID] " +
+                                                ",[StartDate] " +
+                                                ",[StartTime] " +
+                                                ",[EndDate] " +
+                                                ",[EndTime] " +
+                                                ",[TitleContent] " +
+                                                ",[Address] " +
+                                                ",[ImagePath] " +
+                                                ",[AnnouncementDesc] " +
+                                                "FROM [OrganizationAnnouncements] where OrganizationID = " + organizationId.Value, dbconn);
+
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var tr = new HtmlGenericControl("td");
+
+
+                    int id = Convert.ToInt32(reader["AnnouncementID"].ToString());
+
+
+
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td>{5}</td><td>{6}</td><td>{7}</td><td><i class=\"fa fa-remove\" id=\"deleteann\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editann\" data-id='" + id + "'></i></td></tr>", reader["TitleContent"], reader["Address"], reader["AnnouncementDesc"], reader["ImagePath"], DateTime.Parse(reader["StartDate"].ToString()).ToString("MM-dd-yyyy"), reader["StartTime"], DateTime.Parse(reader["EndDate"].ToString()).ToString("MM-dd-yyyy"), reader["EndTime"], id);
+                    eventContainer.Controls.Add(tr);
+                }
+            }
+        }
+
+       
+
+    
     }
 }
