@@ -25,8 +25,9 @@ namespace SimbahanApp
             btnAddToFav.Src = "http://" + HttpContext.Current.Request.Url.Host + "/Images/star.png";
 
             var churchId = 0;
+            Sample();
 
-            
+
 
             if (Request["id"] == null && Page.RouteData.Values["church-id"] == null && Page.RouteData.Values["church-id"] == null)
                 return;
@@ -332,6 +333,58 @@ namespace SimbahanApp
 
             Master.GoogleMetaDescription = massDate;
             Page.Title = churches.Parish;
+        }
+
+        private void Sample()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                var id = Convert.ToInt32(Page.RouteData.Values["church-id"]);
+                SqlCommand cmd = new SqlCommand("SELECT NearbyChurches from Simbahan where SimbahanID = " + id, dbconn);
+
+                var reader = cmd.ExecuteReader();
+                
+                var arr = new List<string>();
+                while (reader.Read())
+                {
+                    var nearchurches = reader["NearbyChurches"].ToString();
+                    var church = nearchurches.ToString().Split(',');
+                    if (church.Length != 0)
+                    {
+                        for (int i = 0; i < church.Length; i++)
+                        {
+                            arr.Add(church[i]);
+                        };
+                    }
+                }
+                reader.Close();
+                foreach (string ar in arr)
+                {
+                    var parishes = new List<string>();
+                    
+                    SqlCommand cmd1 = new SqlCommand("SELECT Parish, MaskingData from Simbahan where SimbahanID = " + Convert.ToInt32(ar), dbconn);
+
+                    var reader1 = cmd1.ExecuteReader();
+                    while (reader1.Read())
+                    {
+                        var li = new HtmlGenericControl("div");
+                        var parish = reader1["Parish"].ToString();
+                        var mask = reader1["MaskingData"].ToString();
+                        parishes.Add(parish);
+
+                        li.InnerHtml = string.Format("<a href=\"/Churches/{1}/{2}\" class=\"myClass\">{0}</a>", parish, Convert.ToInt32(ar), mask);
+                        nearbychurches.Controls.Add(li);
+                    }
+                    reader1.Close();
+                }
+                
+            }
         }
 
         [WebMethod]

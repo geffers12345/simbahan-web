@@ -636,10 +636,22 @@ Modified by:
 </div>
 </div>
 </div>
+<style>
+    .myClass {
+        display: inline-block;
+        list-style: none;
+    }
+
+</style>
       <div class="row">
             <center><strong>RELATED CHURCHES: </strong>
 Do you like this Church? You also might want to check the other Churches related to this one as follows</center>
-            <center> <strong> <div class="col-md-12" id="nearbychurches"></strong>
+          <div>
+              <ul id="near" runat="server">
+
+              </ul>
+          </div>
+            <center> <strong> <div class="col-md-12" id="nearbychurches" runat="server"></strong>
                 
             </div></center>
         </div>
@@ -702,7 +714,8 @@ Do you like this Church? You also might want to check the other Churches related
     <!-- Insert ADS Here -->
 </div>
 </div>
-<script src="http://<%= HttpContext.Current.Request.Url.Host%>/Scripts/sweetalert.js"></script>
+<script src="http://<%= HttpContext.Current.Request.Url.Host%>:50845/Scripts/sweetalert.js"></script>
+<script src="http://<%= HttpContext.Current.Request.Url.Host%>:50845/Scripts/validator.js"></script>
 <script type="text/javascript">
 
     var map;
