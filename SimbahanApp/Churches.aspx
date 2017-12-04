@@ -711,9 +711,10 @@ Do you like this Church? You also might want to check the other Churches related
 
         </div>
 <div class="row">
-    <!-- Insert ADS Here -->
+    <img src='https://link.pgssl.com/adv/ap/pxb.asp?n=231&u=42728&b=13666' alt='' width='1' height='1' hspace='0' vspace='0' border='0' />		
+	<script data-cfasync="false" type="text/javascript">(function(s,o,l,v,e,d){if(s[o]==null&&s[l+e]){s[o]="loading";s[l+e](d,l=function(){s[o]="complete";s[v+e](d,l,!1)},!1)}})(document,"readyState","add","remove","EventListener","DOMContentLoaded");(function(){var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="//cdn.engine.4dsply.com/Scripts/infinity.js.aspx?guid=d1802910-7d30-47f1-92bc-71f46870c5ff";s.id="infinity";s.setAttribute("data-guid","d1802910-7d30-47f1-92bc-71f46870c5ff");s.setAttribute("data-version","async");var e=document.getElementsByTagName('script')[0];e.parentNode.insertBefore(s,e)})();</script></center>
 </div>
-</div>
+
 <script src="http://<%= HttpContext.Current.Request.Url.Host%>:50845/Scripts/sweetalert.js"></script>
 <script src="http://<%= HttpContext.Current.Request.Url.Host%>:50845/Scripts/validator.js"></script>
 <script type="text/javascript">
