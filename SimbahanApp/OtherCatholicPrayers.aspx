@@ -61,7 +61,19 @@
                             </div>
                         </div>
 
-                        <prayer-item v-for="prayer in prayers" :key="prayer.Id" :prayer="prayer"></prayer-item>
+                        <div class="item-container" style="display: -ms-flex; display: -webkit-flex; display: flex; flex-flow:column wrap; height:100%;">
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST</a></div>
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST TEST TEST TEST TEST TEST</a></div>
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST</a></div>
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST</a></div>
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST</a></div>
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST</a></div>
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST</a></div>
+                            <div class="col-md-3 prayers-ocp"><a class="aLink prayer" href="#">TEST</a></div>
+
+                            <prayer-item v-for="prayer in prayers" :key="prayer.Id" :prayer="prayer"></prayer-item>
+                        </div>
+                        
                     </div>
                     </div>
                 </div>

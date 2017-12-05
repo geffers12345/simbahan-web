@@ -124,7 +124,7 @@
                    
                     <div class="row" style="background-color: white; padding-left: 10px;"> 
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
-                        <div class="col-md-3 col-sm-2 col-xs-12">
+                        <div class="col-md-3 col-sm-2 col-xs-12 dg">
                             <div class="grid">
                                 <figure class="effect-zoe">
                                     <a href='<%= ResolveUrl("DailyGospel.aspx") %>'><img src='<%= ResolveUrl("Images/DailyGospel.png") %>' />
@@ -140,7 +140,7 @@
                                 </figure>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 dr">
                             <div class="grid">
                             <figure class="effect-zoe">
                                 <a href='<%= ResolveUrl("DailyReflection.aspx") %>'><img src='<%= ResolveUrl("Images/DailyReflection.png") %>' />
@@ -156,7 +156,7 @@
                             </figure>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 sd">
                             <div class="grid">
                             <figure class="effect-zoe">
                                 <a href='<%= ResolveUrl("SaintOfTheDay.aspx") %>'><img src='<%= ResolveUrl("Images/SaintOfTheDay.png") %>' />
@@ -213,7 +213,7 @@
                     <div class="row" style="background-color: #fafafa; padding-left: 10px;">
                         <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 bcp">
                             <div class="grid">
                                 <figure class="effect-zoe">
                                     <a href='<%= ResolveUrl("BasicCatholicPrayers.aspx") %>'><img src='<%= ResolveUrl("Images/BCPrayers.png") %>' />
@@ -227,7 +227,7 @@
                                         <p class="description mm" style="font-size: 20px; background-color: black;">Revisit the Traditional Prayers of our Catholic Religion.</p></figcaption></a>
                           </figure>
                                 </div></div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 ocp">
                             <div class="grid">
                                 <figure class="effect-zoe">
                                     <a href='<%= ResolveUrl("OtherCatholicPrayers.aspx") %>'><img src='<%= ResolveUrl("Images/OCPrayers.png") %>' />
@@ -242,7 +242,7 @@
                                 </figure>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 dev">
                             <div class="grid">
                             <figure class="effect-zoe">
                                <a href='<%= ResolveUrl("Devotions.aspx") %>'><img src='<%= ResolveUrl("Images/DTraditions.png") %>' />
@@ -334,7 +334,7 @@
                    
                      <div class="row" style="background-color: white; padding-left: 10px;">
                         <div class="col-md-1 col-sm-12 col-xs-12"></div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 bv">
                             <div class="grid">
                                 <figure class="effect-zoe">
                                     <a href='<%= ResolveUrl("BibleVerses.aspx") %>'><img class="img-responsive" src='<%= ResolveUrl("Images/BibleVerses.png") %>' />
@@ -350,7 +350,7 @@
                                 </figure>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 rq">
                             <div class="grid">
                                 <figure class="effect-zoe">
                                     <a href='<%= ResolveUrl("ReligiousQuotes.aspx") %>'><img class="img-responsive" src='<%= ResolveUrl("Images/RelQuotes.png") %>' />
@@ -366,7 +366,7 @@
                                 </figure>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-md-3 col-sm-12 col-xs-12 mi">
                             <div class="grid">
                             <figure class="effect-zoe">
                                <a href='<%= ResolveUrl("MusicalInspirations.aspx") %>'><img class="img-responsive" src='<%= ResolveUrl("Images/Musical.png") %>' />

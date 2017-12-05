@@ -505,6 +505,136 @@ h6 small,
   color: #999999;
 }
 
+ @media only screen and (max-width : 412px) {
+          .icons{
+             margin-left: 5.5%!important;
+    margin-top: 6% !important;
+     }
+             .widget_text{
+         visibility:hidden;
+     }
+         
+          .dg{
+            padding-right: 0%;
+          }
+          .dr{
+             padding-right: 0%;
+          }
+          .bcp{
+               padding-right:0%;
+          }
+          .ocp{
+               padding-right: 0%;
+          }
+          .bv{
+               padding-right: 0%;
+          }
+           .rq {
+        padding-right: 0%;
+          }
+          .sd{
+               padding-right: 0%;
+          }
+            .mi{
+               padding-right: 0%;
+          }
+    .btnfav{
+        width:15%;
+    }
+    }
+
+  @media only screen and (max-width : 1200px) {
+          .dg{
+            padding-right: 30%;
+          }
+          .dr{
+             padding-right: 30%;
+          }
+          .bcp{
+               padding-right: 30%;
+          }
+          .ocp{
+               padding-right: 30%;
+          }
+          .bv{
+               padding-right: 30%;
+          }
+          .rq{
+               padding-right: 30%;
+          }
+            .sd{
+               padding-right: 30%;
+          }
+            .mi{
+               padding-right: 30%;
+          }
+    }
+
+    @media only screen and (max-width : 1024px) {
+          .dg{
+            padding-right: 30%!important;
+          }
+
+          .dr{
+             padding-right: 30%!important;
+          }
+          .bcp{
+               padding-right: 30%!important;
+          }
+          .ocp{
+               padding-right: 30%!important;
+          }
+          .bv{
+               padding-right: 30%!important;
+          }
+          .rq{
+               padding-right: 30%!important;
+          }
+            .sd{
+               padding-right: 30%!important;
+          }
+            .mi{
+               padding-right: 30%!important;
+          }
+             .btnfav{
+        width:15%;
+    }
+    }
+
+ @media only screen and (max-width : 768px) {
+     
+          .chrome{
+            padding-left: 25%;
+     }
+          .icons{
+         margin-left: 5.5%!important;
+         margin-top: 2%!important;
+     }
+             .widget_text{
+         visibility:hidden;
+     }
+              .btnfav{
+        width:15%;
+    }
+    }
+
+  @media only screen and (max-width : 1024px) {
+     .insta{
+           color: #ffffff;
+    font-size: 18px;
+    margin: 0px 27px 0px -23px !important;
+
+     }
+     .widget_text{
+         visibility:hidden;
+     }
+      .btnfav{
+        width:15%;
+    }
+    
+    }
+    
+
 h1,
 h2,
 h3 {
@@ -984,7 +1114,7 @@ pre code {
     width: 8.333333333333332%;
   }
   .col-sm-2 {
-    width: 16.666666666666664%;
+    /*width: 16.666666666666664%;*/
   }
   .col-sm-3 {
     width: 25%;
@@ -6614,6 +6744,7 @@ button.close {
     width: 320px;
   }
 
+
     audio,
     canvas,
     video {
@@ -7280,3 +7411,9 @@ a#buttonAddToFavorite {
     color: yellow;
     font-size: 1.5em;
 }
+
+ @media all and (max-width: 640px) {
+    .div-container {
+        flex-flow:column wrap;  
+        height:40px;
+    }    
