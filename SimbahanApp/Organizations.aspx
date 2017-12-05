@@ -17,7 +17,7 @@ Modified by:
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link rel="stylesheet" href='<%= ResolveUrl("Content/cssslider_files/csss_engine1/style.css") %>'>
     <link rel="stylesheet" href='<%= ResolveUrl("Content/contact.css") %>'  />
-
+    <link rel="stylesheet" href='<%= ResolveUrl("wpStuffs/wp-content/themes/search-and-go/assets/css/listings.mine100.css") %>'/>
 <input type="hidden" id="latitude" runat="server" />
 <input type="hidden" id="longitude" runat="server" />
 <input type="hidden" id="OrganizationId" runat="server" />
@@ -457,10 +457,33 @@ Modified by:
                         </div>
                         <div class="eltd-comment-form-rating">
                             <label>Rate Here<span class="required">*</span></label>
-                            <span class="eltd-comment-rating-box">
-                                <span class="eltd-star-rating" data-value="1"></span><span class="eltd-star-rating" data-value="2"></span><span class="eltd-star-rating" data-value="3"></span><span class="eltd-star-rating" data-value="4"></span><span class="eltd-star-rating" data-value="5"></span>
-                                <input type="hidden" name="eltd_rating" id="eltd-rating" value="3"/>
-                            </span>
+                           <div class="stars">
+
+<form action="">
+
+  <input class="star star-5" id="star-5" type="radio" name="star"/>
+
+  <label class="star star-5" for="star-5"></label>
+
+  <input class="star star-4" id="star-4" type="radio" name="star"/>
+
+  <label class="star star-4" for="star-4"></label>
+
+  <input class="star star-3" id="star-3" type="radio" name="star"/>
+
+  <label class="star star-3" for="star-3"></label>
+
+  <input class="star star-2" id="star-2" type="radio" name="star"/>
+
+  <label class="star star-2" for="star-2"></label>
+
+  <input class="star star-1" id="star-1" type="radio" name="star"/>
+
+  <label class="star star-1" for="star-1"></label>
+
+</form>
+
+</div>
                         </div>
                     </div>
                     <textarea id="comment" placeholder="Your Experience" name="comment" cols="45" rows="8" aria-required="true"></textarea>
@@ -818,6 +841,25 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                     }
                 }).run();
             });
+
+        var starCount = 0;
+
+        $("label.star-1").click(function (e) {
+            starCount = 1;
+        });
+        $("label.star-2").click(function (e) {
+            starCount = 2;
+        });
+        $("label.star-3").click(function (e) {
+            starCount = 3;
+        });
+        $("label.star-4").click(function (e) {
+            starCount = 4;
+        });
+        $("label.star-5").click(function (e) {
+            starCount = 5;
+        });
+
         $(document).on('click',
             '#btnPublishReview',
             function(e) {
@@ -825,9 +867,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 var commentReviewPassed = $("#comment").validate(['required', 'min:3'])
                     .displayErrorOn('#errorComment');
-
-
-                var starCount = $("#eltd-rating").val();
 
                 if (commentReviewPassed) {
                     (new http).post('<%= ResolveUrl("Organizations.aspx/PublishReview")%>',
