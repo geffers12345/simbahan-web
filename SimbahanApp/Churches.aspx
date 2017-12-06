@@ -1060,7 +1060,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             "<span class=\"rating-inner\" style=\"width: " +
             this.CalculateStarPercentage() +
             "%;\"></span>" +
-            "<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
+            //"<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
             "</div>" +
             "<div class=\"eltd-review-title\">" +
             "<span>" +
