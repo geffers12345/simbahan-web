@@ -196,7 +196,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
     <meta name="msapplication-TileImage" content="wpStuffs/wp-content/uploads/2016/02/cropped-SimbahanLogoStickyDark-270x270.png" />
     <style type="text/css" id="wp-custom-css">
         .eltd-main-menu.eltd-sticky-nav > ul > li > a span.item_inner {
-            padding: 0 8px;
+            padding: 0 5px;
         }
 
         .eltd-page-header {
