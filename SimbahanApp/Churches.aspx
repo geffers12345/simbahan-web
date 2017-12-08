@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href='<%= ResolveUrl("Content/engine1/style.css") %>'/>
     <script type="text/javascript" src='<%= ResolveUrl("Content/engine1/jquery.js") %>'></script>
     <link rel="stylesheet" href='<%= ResolveUrl("Content/contact.css") %>'  />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href='<%= ResolveUrl("wpStuffs/wp-content/themes/search-and-go/assets/css/listings.mine100.css") %>'/>
 </asp:Content>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
@@ -594,9 +596,37 @@ Modified by:
                         </div>
                         <div class="eltd-comment-form-rating">
                             <label>Rate Here<span class="required">*</span></label>
+               
                             <span class="eltd-comment-rating-box">
-                                <span class="eltd-star-rating" data-value="1"></span><span class="eltd-star-rating" data-value="2"></span><span class="eltd-star-rating" data-value="3"></span><span class="eltd-star-rating" data-value="4"></span><span class="eltd-star-rating" data-value="5"></span>
-                                <input type="hidden" name="eltd_rating" id="eltd-rating" value="3"/>
+                                                            <div class="stars">
+
+<form action="">
+
+  <input class="star star-5" id="star-5" type="radio" name="star"/>
+
+  <label class="star star-5" for="star-5"></label>
+
+  <input class="star star-4" id="star-4" type="radio" name="star"/>
+
+  <label class="star star-4" for="star-4"></label>
+
+  <input class="star star-3" id="star-3" type="radio" name="star"/>
+
+  <label class="star star-3" for="star-3"></label>
+
+  <input class="star star-2" id="star-2" type="radio" name="star"/>
+
+  <label class="star star-2" for="star-2"></label>
+
+  <input class="star star-1" id="star-1" type="radio" name="star"/>
+
+  <label class="star star-1" for="star-1"></label>
+
+</form>
+
+</div>
+                                <%--<span class="eltd-star-rating" data-value="1"></span><span class="eltd-star-rating" data-value="2"></span><span class="eltd-star-rating" data-value="3"></span><span class="eltd-star-rating" data-value="4"></span><span class="eltd-star-rating" data-value="5"></span>
+                                <input type="hidden" name="eltd_rating" id="eltd-rating" value="3"/>--%>
                             </span>
                         </div>
                     </div>
@@ -876,7 +906,23 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                 var commentReviewPassed = $("#comment").validate(['required', 'min:3'])
                     .displayErrorOn('#errorComment');
 
-                var starCount = $("#eltd-rating").val();
+                var starCount = 0;
+
+                $("label.star-1").click(function (e) {
+                    starCount = 1;
+                });
+                $("label.star-2").click(function (e) {
+                    starCount = 2;
+                });
+                $("label.star-3").click(function (e) {
+                    starCount = 3;
+                });
+                $("label.star-4").click(function (e) {
+                    starCount = 4;
+                });
+                $("label.star-5").click(function (e) {
+                    starCount = 5;
+                });
 
                 if (commentReviewPassed) {
                     var d = new Date()
@@ -905,7 +951,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                         swal('Success!',
                             'Your review has been submitted!',
                             'success');
-                    }).run();
+                        }).run();
+                    location.reload();
                 }
             });
 
@@ -1693,6 +1740,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             })
     });
 
-            
+    
 </script>
 </asp:Content>
