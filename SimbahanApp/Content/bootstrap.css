@@ -7416,6 +7416,7 @@ a#buttonAddToFavorite {
     .div-container {
         flex-flow:column wrap;  
         height:40px;
+    }   
     
     .third {
         flex-grow:0;
