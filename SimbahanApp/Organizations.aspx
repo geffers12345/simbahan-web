@@ -888,12 +888,18 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                         $("#<%= organizationReviewsContainer.ClientID %>").append(reviewControl.render());
 
                         $("#comment").val('');
-
-                        swal('Success!',
-                            'Your review has been submitted!',
-                            'success');
+                        swal({
+                            title: 'Success!',
+                            text: 'Your review has been submitted!',
+                            type: 'success'
+                        }).then(
+                     function () {
+                         window.location.reload();
+                     }
+                 );
                         }).run();
-                    location.reload();
+                    
+                }
                 }
             });
     });
@@ -1005,6 +1011,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
         $("#view-announcement-modal").modal('show');
     });
+
+
 
 
 </script>

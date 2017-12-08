@@ -936,23 +936,36 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                             name: $("#reviewerName").val(),
 
                         }).then(function(data) {
-                        var review = data.d;
+                            var review = data.d;
 
-                        var reviewControl = new ChurchReview(review.StarCount,
-                            review.Title,
-                            review.Comment,
-                            review.UserId == 0 ? review.Name : review.User.FullName,
-                            dd);
+                            var reviewControl = new ChurchReview(review.StarCount,
+                                review.Title,
+                                review.Comment,
+                                review.UserId == 0 ? review.Name : review.User.FullName,
+                                dd);
 
-                        $("#<%= churchReviewsContainer.ClientID %>").prepend(reviewControl.render());
+                            $("#<%= churchReviewsContainer.ClientID %>").prepend(reviewControl.render());
 
-                        $("#comment").val('');
+                            $("#comment").val('');
 
-                        swal('Success!',
-                            'Your review has been submitted!',
-                            'success');
+                            //swal('Success!',
+                            //    'Your review has been submitted!',
+                            //    'success');
+                            //setTimeout(function () { window.location.reload() },500);
+
+                            swal({
+                                title: 'Success!',
+                                text: 'Your review has been submitted!',
+                                type: 'success'
+                            }).then(
+                                function () {
+                                    window.location.reload();
+                                }
+                            );
+
+                           
                         }).run();
-                    location.reload();
+                   
                 }
             });
 
@@ -1741,5 +1754,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
     });
 
     
+
+   
 </script>
 </asp:Content>
