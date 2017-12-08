@@ -17,6 +17,7 @@ Modified by:
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link rel="stylesheet" href='<%= ResolveUrl("Content/cssslider_files/csss_engine1/style.css") %>'>
     <link rel="stylesheet" href='<%= ResolveUrl("Content/contact.css") %>'  />
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href='<%= ResolveUrl("wpStuffs/wp-content/themes/search-and-go/assets/css/listings.mine100.css") %>'/>
 <input type="hidden" id="latitude" runat="server" />
 <input type="hidden" id="longitude" runat="server" />
@@ -891,7 +892,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                         swal('Success!',
                             'Your review has been submitted!',
                             'success');
-                    }).run();
+                        }).run();
+                    location.reload();
                 }
             });
     });

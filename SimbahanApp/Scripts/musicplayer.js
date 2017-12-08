@@ -228,13 +228,13 @@ $("#btnShareFacebok").click(function (e) {
 
     var message = "Currently listening to" + song.title + " by " + song.artist + " in" + " http://www.mycatholicportal.org" + currentPage;
 
-    //var ee = "s.aspx?id="
+    var ee = "s.aspx?id="
 
     window.open(
         "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/MusicalInspirations.aspx&link=http://www.mycatholicportal.org/MusicalInspiration" +
-        currentPage +
-        //song.id +
-        //"&caption=" +
+        ee +
+        song.id +
+        "&caption=" +
         encodeURI(message) +
         "&description=" +
         encodeURI(message) +
