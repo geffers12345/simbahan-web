@@ -430,9 +430,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 40px;">
-                                        <img class="eltd-normal-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logoo" />
-                                        <img class="menu-other-menu-1menu-other-menu-1 eltd-light-logo logu2" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo" />
+                                        <img class="eltd-normal-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="dark logoo" />
+                                        <img class="menu-other-menu-1menu-other-menu-1 eltd-light-logo logu2" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -526,9 +526,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="/Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo logu" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logo" />
-                                        <img class="eltd-light-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo"  />
+                                        <img class="eltd-normal-logo logu" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="dark logo" />
+                                        <img class="eltd-light-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="light logo"  />
                                     </a>
                                 </div>
 
@@ -637,7 +637,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
 
                                     <div class="eltd-mobile-logo-wrapper">
                                         <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 52px">
-                                            <img src="Images/SimbahanLogoBeta.png" alt="mobile logo" />
+                                            <img src="Images/SimbahanLogo.png" alt="mobile logo" />
                                         </a>
                                     </div>
 
@@ -800,7 +800,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
                                                 <div class="textwidget">
                                                     <div class="col-lg-10" style="margin-left:10%;">
                                                         <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx">
-                                                        <img src="Images/SimbahanLogoBeta.png" alt="logo" />
+                                                        <img src="Images/SimbahanLogo.png" alt="logo" />
                                                     </a>
                                                         <div id="text-5" class="widget eltd-footer-text widget_text">
                                                     <div class="textwidget">&copy; <%: DateTime.Now.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
