@@ -6,7 +6,7 @@
     <script src="Scripts/list.js"></script>--%>
     <input type="hidden" id="Longitude" runat="server" />
     <input type="hidden" id="Latitude" runat="server" />
-    <asp:Button ID="triggerMe" runat="server" OnClick="triggerMe_Click" />
+    <%--<asp:Button ID="triggerMe" runat="server" OnClick="triggerMe_Click" />--%>
     <div class="row">
         <div class="col-sm-5">
             <div class="map">
