@@ -7,14 +7,21 @@ namespace Simbahan.Models
     {
         public static User user()
         {
-            var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+            try
+            {
+                var authCookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
 
-            if (authCookie == null)
-                return new User();
+                if (authCookie == null)
+                    return new User();
 
-            var ticket = FormsAuthentication.Decrypt(authCookie.Value);
+                var ticket = FormsAuthentication.Decrypt(authCookie.Value);
 
-            return User.Parse(ticket.UserData);
+                return User.Parse(ticket.UserData);
+            }
+            catch (System.Exception)
+            {
+                FormsAuthentication.SignOut();
+            }
         }
 
         public static bool Check()
