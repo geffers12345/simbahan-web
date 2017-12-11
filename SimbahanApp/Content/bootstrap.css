@@ -505,101 +505,158 @@ h6 small,
   color: #999999;
 }
 
- @media only screen and (max-width : 412px) {
-          .icons{
-             margin-left: 5.5%!important;
-    margin-top: 6% !important;
-     }
-             .widget_text{
-         visibility:hidden;
-     }
-         
-          .dg{
+@media only screen and (max-width : 412px) {
+    .icons {
+        margin-left: 5.5% !important;
+        margin-top: 6% !important;
+    }
+
+    .widget_text {
+        visibility: hidden;
+    }
+
+    .btnfav {
+        width: 15%;
+    }
+    .dg{
             padding-right: 0%;
+           
           }
           .dr{
-             padding-right: 0%;
+            padding-right: 0%;
+          
           }
           .bcp{
-               padding-right:0%;
+               padding-right: 0%;
+             
           }
           .ocp{
-               padding-right: 0%;
+              padding-right: 0%;
+        
           }
           .bv{
-               padding-right: 0%;
+              padding-right: 0%;
+             
           }
-           .rq {
-        padding-right: 0%;
-          }
-          .sd{
+          .rq{
                padding-right: 0%;
+            
+          }
+            .sd{
+               padding-right: 0%;
+             
           }
             .mi{
                padding-right: 0%;
+             
           }
-    .btnfav{
-        width:15%;
-    }
-    }
+            .dev{
+                 padding-right: 0%;
+            
+            }
+           
+    
+}
 
   @media only screen and (max-width : 1200px) {
           .dg{
             padding-right: 30%;
+              padding-left: 0px ;
+                 width: 32%;
           }
           .dr{
              padding-right: 30%;
+              padding-left: 0px;
+                 width: 32%;
           }
           .bcp{
                padding-right: 30%;
+                padding-left: 0px;
+                   width: 32%;
           }
           .ocp{
                padding-right: 30%;
+                padding-left: 0px;
+                   width: 32%;
           }
           .bv{
                padding-right: 30%;
+                padding-left: 0px;
+                   width: 32%;
           }
           .rq{
                padding-right: 30%;
+                padding-left: 0px ;
+                   width: 32%;
           }
             .sd{
                padding-right: 30%;
+              padding-left: 0px ;
+                 width: 32%;
           }
             .mi{
                padding-right: 30%;
+                padding-left: 0px ;
+                   width: 32%;
           }
+            .dev{
+                 padding-right: 30%;
+                padding-left: 0px;
+                   width: 32%;
+            }
+            .mm{
+                 padding-right: 30%;
+                padding-left: 0px ;
+                   width: 32%;
+            }
+
     }
 
     @media only screen and (max-width : 1024px) {
           .dg{
-            padding-right: 30%!important;
+            padding-right: 30%;
+               width: 32%;
           }
 
           .dr{
-             padding-right: 30%!important;
+             padding-right: 30%;
+                width: 32%;
           }
           .bcp{
-               padding-right: 30%!important;
+               padding-right: 30%;
+                  width: 32%;
           }
           .ocp{
-               padding-right: 30%!important;
+               padding-right: 30%;
+                  width: 32%;
           }
           .bv{
-               padding-right: 30%!important;
+               padding-right: 30%;
+                  width: 32%;
           }
           .rq{
-               padding-right: 30%!important;
+               padding-right: 30%;
+                  width: 32%;
           }
             .sd{
-               padding-right: 30%!important;
+               padding-right: 30%;
+                  width: 32%;
           }
             .mi{
-               padding-right: 30%!important;
+               padding-right: 30%;
+                  width: 32%;
           }
              .btnfav{
         width:15%;
     }
-    }
+
+             col-md-1 col-sm-12 col-xs-12{
+                 padding-left: 18px!important;
+}
+             .col-md-3.col-sm-2.col-xs-12.dg {
+    width: 31%;
+}
+             }
 
  @media only screen and (max-width : 768px) {
      
@@ -1026,8 +1083,8 @@ pre code {
 .col-lg-11,
 .col-lg-12 {
   position: relative;
-  min-height: 1px;
-  padding-right: 15px;
+  padding-right:15px;
+
   padding-left: 15px;
 }
 

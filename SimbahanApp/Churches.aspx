@@ -1030,44 +1030,44 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
     });
 
-    $(document).on('click', '#reportSpam', function (e) {
-        e.preventDefault();
-        var id = $(this).data('id');
-        swal({
-            title: 'Does this comment bothers you?',
-            text: "Report this comment as spam?",
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes',
-            cancelButtonText: 'No',
-            showLoaderOnConfirm: true,
-            preConfirm: function () {
-                return new Promise(function (resolve, reject) {
-                    (new http).post('Churches.aspx/ReportAbusiveComment', {
-                        commentId: id
-                    }).then(function (response) {
-                        resolve();
-                    }).whenError(function (err) {
-                        reject();
-                    }).run();
-                });
-            }
-        }).then(function () {
-            swal(
-                'Comment has been reported!',
-                'Rest assured we will review this and help prevent further spamming.',
-                'success'
-            );
-        }).catch(function () {
-            swal(
-                'Something went wrong!',
-                'Please check your internet connection then try again',
-                'danger'
-            );
-        });
-    });
+    //$(document).on('click', '#reportSpam', function (e) {
+    //    e.preventDefault();
+    //    var id = $(this).data('id');
+    //    swal({
+    //        title: 'Does this comment bothers you?',
+    //        text: "Report this comment as spam?",
+    //        type: 'warning',
+    //        showCancelButton: true,
+    //        confirmButtonColor: '#3085d6',
+    //        cancelButtonColor: '#d33',
+    //        confirmButtonText: 'Yes',
+    //        cancelButtonText: 'No',
+    //        showLoaderOnConfirm: true,
+    //        preConfirm: function () {
+    //            return new Promise(function (resolve, reject) {
+    //                (new http).post('Churches.aspx/ReportAbusiveComment', {
+    //                    commentId: id
+    //                }).then(function (response) {
+    //                    resolve();
+    //                }).whenError(function (err) {
+    //                    reject();
+    //                }).run();
+    //            });
+    //        }
+    //    }).then(function () {
+    //        swal(
+    //            'Comment has been reported!',
+    //            'Rest assured we will review this and help prevent further spamming.',
+    //            'success'
+    //        );
+    //    }).catch(function () {
+    //        swal(
+    //            'Something went wrong!',
+    //            'Please check your internet connection then try again',
+    //            'danger'
+    //        );
+    //    });
+    //});
 
     function ChurchReview(id, rate, title, comment, name, date) {
         this.id = id;
@@ -1119,7 +1119,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             "<div class=\"eltd-review-rating\">" +
             "<span class=\"rating-inner\" style=\"width: " +
             this.CalculateStarPercentage() +
-            "%;\"></span>" +
+            "%;\"></span>" 
             //"<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
             "</div>" +
             "<div class=\"eltd-review-title\">" +
