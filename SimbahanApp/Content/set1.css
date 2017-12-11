@@ -1,3 +1,4 @@
+
 @font-face {
 	font-weight: normal;
 	font-style: normal;
@@ -24,12 +25,12 @@
 	position: relative;
 	float: left;
 	overflow: hidden;
-	margin: 10px 1%;
-	min-width: 310px;
+	/*margin: 10px 1%;
+	min-width: 73%;
 	max-width: 320px;
 	max-height: 360px;
 	width: 48%;
-	background: #3085a3;
+	background: #3085a3;*/
 	text-align: center;
 	cursor: pointer;
     border-radius: 50px;
@@ -1153,7 +1154,55 @@ figure.effect-chico:hover p {
 	.grid figure {
 		display: inline-block;
 		float: none;
-		margin: 10px auto;
-		width: 100%;
+		margin: 10px 10px;
+        min-width: 42%;
+        max-height: 360px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 50px;
 	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+    .content {
+        padding: 0 10px;
+        text-align: center;
+    }
+
+    .grid figure {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin: 10px 1%;
+        min-width: 42%;
+        /*max-width: 320px;*/
+        max-height: 360px;
+        width: 48%;
+        /* background: #3085a3; */
+        text-align: center;
+        cursor: pointer;
+        border-radius: 50px;
+    }
+}
+ 
+@media (max-width: 767px) {
+
+    }
+
+@media (min-width: 1920px) and (max-width: 1024px) {
+    
+    .grid figure {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        margin: 10px 1%;
+        min-width: 70%;
+        /*max-width: 320px;*/
+        max-height: 360px;
+        width: 48%;
+        /* background: #3085a3; */
+        text-align: center;
+        cursor: pointer;
+        border-radius: 50px;
+    }
 }
