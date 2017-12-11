@@ -244,10 +244,10 @@ Modified by:
 <div class="panel with-nav-tabs panel-primary">
 <div class="panel-heading">
     <ul class="nav nav-tabs">
-        <li class="active">
+        <li >
             <a href="#history" data-toggle="tab" class="about abouttabs">ABOUT THE ORG</a>
         </li>
-        <li>
+        <li class="active">
             <a href="#info" data-toggle="tab" class="gen gentabs">GENERAL INFORMATION</a>
         </li>
         <li>
@@ -263,7 +263,7 @@ Modified by:
 </div>
 <div class="panel-body">
 <div class="tab-content">
-<div class="tab-pane fade in active" id="history">
+<div class="tab-pane fade" id="history">
     <p class="church-subtitle">
         <strong>ABOUT THE ORG</strong>
     </p>
@@ -272,7 +272,7 @@ Modified by:
         
     </p>
 </div>
-<div class="tab-pane fade" id="info">
+<div class="tab-pane fade in active" id="info">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             GENERAL INFO:
@@ -1014,5 +1014,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
         });
 
 
+   
 </script>
 </asp:Content>

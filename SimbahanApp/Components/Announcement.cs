@@ -36,7 +36,7 @@ namespace SimbahanApp.Components
                         "</div>" +
                         @"<div class=""col-md-4"">
                             <p>" +
-                                _announcement.Description + "</p>" +
+                                 "</p>" +
                             "</p>" +
                         "</div>" +
                     "</div>" +
