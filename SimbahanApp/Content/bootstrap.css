@@ -616,6 +616,7 @@ h6 small,
           .dg{
             padding-right: 30%;
                width: 32%;
+
           }
 
           .dr{
@@ -650,12 +651,8 @@ h6 small,
         width:15%;
     }
 
-             col-md-1 col-sm-12 col-xs-12{
-                 padding-left: 18px!important;
-}
-             .col-md-3.col-sm-2.col-xs-12.dg {
-    width: 31%;
-}
+          
+
              }
 
  @media only screen and (max-width : 768px) {
@@ -1084,7 +1081,7 @@ pre code {
 .col-lg-12 {
   position: relative;
   padding-right:15px;
-
+    min-height: 1px;
   padding-left: 15px;
 }
 
