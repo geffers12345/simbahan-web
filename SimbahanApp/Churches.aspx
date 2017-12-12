@@ -1151,8 +1151,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             "</li>";
     };
 
-    $(document).on('click', '#annoucementItem', function (e) {
+    $("#annoucementItem").click(function (e) {
         e.preventDefault();
+     
         "<br />";
         $("#viewAnnouncementId").val($(this).data('id'));
         $("#viewAnnouncementImage").attr('src', $(this).data('image'));
@@ -1170,7 +1171,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
         }
         $("#view-announcement-modal").modal('show');
       
-       
+        alert("nice");
     });
 
     $("#<%= btnAddToFav.ClientID %>").click(function (e) {
