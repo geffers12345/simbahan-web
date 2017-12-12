@@ -34,10 +34,12 @@ namespace SimbahanApp.Components
                                 _announcement.EndTime +
                             "</p>" +
                         "</div>" +
-                        @"<div class=""col-md-4"">
-                            <p>" +
+                        @"<div class=""col-md-4""> 
+                        <p>" +
+                              _announcement.Description + "</p>" +
+                              "</br>" +
                                  "</p>" +
-                            "</p>" +
+                                
                         "</div>" +
                     "</div>" +
                 "</a>";

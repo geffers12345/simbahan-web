@@ -107,14 +107,14 @@
         </a>
     </div>
         <div class="btn-group" role="group">
-        <a type="button" id="notification" class="btn btn-default" href="#tabnotif" data-toggle="tab">
+        <a type="button" id="notification" class="btn btn-default" href="#tabnotif" data-toggle="tab" >
             <% if (SimbahanApp.Models.Auth.Check()) { %>
             <% if (SimbahanApp.Models.Auth.user().RoleID == 3) { %>
                 <% if (SimbahanApp.Models.Auth.user().HasPermission(Convert.ToInt32(simbahanID.Value))) { %>
-            <i class="fa fa-bell" aria-hidden="true"></i><label id="count1" runat="server" style="margin-bottom: 0px !important; color: red;"></label>
+            <i class="fa fa-bell" aria-hidden="true"></i><label id="count1" runat="server" style="margin-bottom: 0px !important; color: red; visibility:hidden;"></label>
              <% } %>
             <% } else if (SimbahanApp.Models.Auth.user().RoleID == 1) { %>
-            <i class="fa fa-bell" aria-hidden="true"></i><label id="count2" runat="server" style="margin-bottom: 0px !important;"></label>
+            <i class="fa fa-bell" aria-hidden="true"></i><label id="count2" runat="server" style="margin-bottom: 0px !important;visibility:hidden;"></label>
             <div class="hidden-xs">Notification</div>
         </a>
             <% } %>
