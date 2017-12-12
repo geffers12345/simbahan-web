@@ -235,9 +235,11 @@ Modified by:
 
         <!--[if IE]><link rel="stylesheet" href="cssslider_files/csss_engine1/ie.css"><![endif]-->
         <!--[if lte IE 9]><script type="text/javascript" src="cssslider_files/csss_engine1/ie.js"></script><![endif]-->
-       <div class="csslider1 autoplay " id="cssSlider" runat="server" style="width:79%">
+       <center>
+        <div class="csslider1 autoplay " id="cssSlider" runat="server" style="width:79%">
 
         </div>
+           </center>
     </div>
 </div>
 <br/>
