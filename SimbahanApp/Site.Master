@@ -11,13 +11,22 @@
     enable_page_level_ads: true
   });
 </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-97242852-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-‎97242852-1');
+</script>
    <%-- <script>(function(ins){ if ('https:'==document.location.protocol){var h='link';} else {var h='z53714-p42728-n231.pub';}
 var d = "abd"+ins, s = document.createElement('script');document.write('<div id="'+d+'"></div>');
 s.type = 'text/javascript'; s.src = '//'+h+'.pgssl.com/adv/ap/fastjsa.asp?m=i&z=53714&p=42728&n=231&s=l&rr='+d; s.async = true; s.defer = true; 
 document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - MyCatholicPortal</title>
+    <title><%= MetaTitle %> <%--- MyCatholicPortal--%></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -35,7 +44,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
     <meta property="og:description" content="<%= MetaDescription %>">
     <meta property="og:url" content="<%= MetaUrl %>">
     <meta property="og:image" content="<%= MetaImage %>">
-    <meta name="description" content="<%= GoogleMetaDescription %>">
+    <meta name="title" content="<%= MetaTitle %>">
+    <meta name="description" content="<%= MetaDescription %>"> <%--GoogleMetaDescription--%>
     <meta name="google-site-verification" content="sGQbU5TMAtd4B949g5RG2Q2yyVxHu7V86GDRx7QPMOw" />
 </asp:PlaceHolder>
 
@@ -52,7 +62,11 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
         @media only screen and (max-width:600px){
             #icon2{
                 display:none;
+                visibility:hidden;
             }
+        }
+        #icon2{
+            visibility:hidden;
         }
     </style>
 
@@ -61,14 +75,14 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
     $(document).ready(function(){
         $("#icon").click(function(){
             $(".animate").hide();
-            $("#icon").hide();
-            $("#icon2").show();
+            $("#icon").show();
+            $("#icon2").hide();
 
         });
         $("#icon2").click(function(){
-            $(".animate").show();
-            $("#icon2").hide();
-            $("#icon").show();
+            $(".animate").hide();
+            $("#icon2").show();
+            $("#icon").hide();
         });
     });
 </script>
@@ -183,7 +197,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
     <meta name="msapplication-TileImage" content="wpStuffs/wp-content/uploads/2016/02/cropped-SimbahanLogoStickyDark-270x270.png" />
     <style type="text/css" id="wp-custom-css">
         .eltd-main-menu.eltd-sticky-nav > ul > li > a span.item_inner {
-            padding: 0 8px;
+            padding: 0 5px;
         }
 
         .eltd-page-header {
@@ -417,9 +431,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 40px;">
-                                        <img class="eltd-normal-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logoo" />
-                                        <img class="menu-other-menu-1menu-other-menu-1 eltd-light-logo logu2" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo" />
+                                        <img class="eltd-normal-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="dark logoo" />
+                                        <img class="menu-other-menu-1menu-other-menu-1 eltd-light-logo logu2" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="light logo" />
                                     </a>
                                 </div>
 
@@ -513,9 +527,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
 
                                 <div class="eltd-logo-wrapper">
                                     <a href="/Default.aspx" style="height: 37px;">
-                                        <img class="eltd-normal-logo logu" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="logo" />
-                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="dark logo" />
-                                        <img class="eltd-light-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogoBeta.png" alt="light logo"  />
+                                        <img class="eltd-normal-logo logu" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="logo" />
+                                        <img class="eltd-dark-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="dark logo" />
+                                        <img class="eltd-light-logo" src="http://<%= HttpContext.Current.Request.Url.Host %>/Images/SimbahanLogo.png" alt="light logo"  />
                                     </a>
                                 </div>
 
@@ -624,7 +638,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
 
                                     <div class="eltd-mobile-logo-wrapper">
                                         <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx" style="height: 52px">
-                                            <img src="Images/SimbahanLogoBeta.png" alt="mobile logo" />
+                                            <img src="Images/SimbahanLogo.png" alt="mobile logo" />
                                         </a>
                                     </div>
 
@@ -709,20 +723,12 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
 
-            <center><!--BEGIN TRIBAL AD ADZONE DISPLAY CODE -->
-<script>(function(ins){ if ('https:'==document.location.protocol){var h='link';} else {var h='z53714-p42728-n231.pub';}
-var d = "abd"+ins, s = document.createElement('script');document.write('<div id="'+d+'"></div>');
-s.type = 'text/javascript'; s.src = '//'+h+'.pgssl.com/adv/ap/fastjsa.asp?m=i&z=53714&p=42728&n=231&s=l&rr='+d; s.async = true; s.defer = true; 
-document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
-<!--END TRIBAL AD ADZONE DISPLAY CODE -->
-	<img src='https://link.pgssl.com/adv/ap/pxb.asp?n=231&u=42728&b=13666' alt='' width='1' height='1' hspace='0' vspace='0' border='0' />		
-	<script data-cfasync="false" type="text/javascript">(function(s,o,l,v,e,d){if(s[o]==null&&s[l+e]){s[o]="loading";s[l+e](d,l=function(){s[o]="complete";s[v+e](d,l,!1)},!1)}})(document,"readyState","add","remove","EventListener","DOMContentLoaded");(function(){var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="//cdn.engine.4dsply.com/Scripts/infinity.js.aspx?guid=d1802910-7d30-47f1-92bc-71f46870c5ff";s.id="infinity";s.setAttribute("data-guid","d1802910-7d30-47f1-92bc-71f46870c5ff");s.setAttribute("data-version","async");var e=document.getElementsByTagName('script')[0];e.parentNode.insertBefore(s,e)})();</script></center>
-            <footer <%--style="background-image: url(~/searchandgo.elated-themes.com/wp-content/uploads/2016/02/footer-background.jpg);"--%>>
+<footer <%--style="background-image: url(~/searchandgo.elated-themes.com/wp-content/uploads/2016/02/footer-background.jpg);"--%>>
                 <div class="eltd-footer-inner clearfix">
                     <div class="eltd-footer-top-holder">
                         <div class="eltd-footer-top eltd-footer-top-aligment-left">
 
-                            <div class="row">
+                           <%-- <div class="row">
                                 <div class="col-xs-4"></div>
 
                              <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
@@ -741,9 +747,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                                                 <a href="#">Donation
                                                 </a>
                                             </p>--%>
-                                        </div>
+                               <%--         </div>
                                     </div>
-                                </div>
+                                </div>--%>
 
                                 <%--<div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
                                     <div class="widget eltd-footer-column widget_text">
@@ -784,8 +790,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                                     <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="http://twitter.com/" target="_blank">
                                         <img src="Images/apple.png" /></a>
                                 </div>--%>
-                                <div class="col-xs-4"></div>
-                            </div>
+                               <%-- <div class="col-xs-4"></div>
+                            </div>--%>
 
                             <div class="eltd-footer-bottom-holder">
                                 <div class="eltd-footer-bottom-holder-inner">
@@ -795,15 +801,15 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                                                 <div class="textwidget">
                                                     <div class="col-lg-10" style="margin-left:10%;">
                                                         <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Default.aspx">
-                                                        <img src="Images/SimbahanLogoBeta.png" alt="logo" />
+                                                        <img src="Images/SimbahanLogo.png" alt="logo" />
                                                     </a>
                                                         <div id="text-5" class="widget eltd-footer-text widget_text">
                                                     <div class="textwidget">&copy; <%: DateTime.Now.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
                                                 </div>
                                                     </div>
-                                                    <div class="col-lg-2  col-md-2 col-sm-12 col-xs-12" style=" margin-left: 36.5%; margin-top: 2%;">
+                                                    <div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 icons" style="margin-left: 36.5%; margin-top: 2%;">
                                     <%--<h5 style="color: snow;">FOLLOW US</h5>--%>
-                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://instagram.com/simbahanappofficial" target="_blank">
+                                    <a class="eltd-social-icon-widget-holder insta" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://instagram.com/simbahanappofficial" target="_blank">
                                         <span class="eltd-social-icon-widget social_instagram" style="background-color: white;padding: 39%;border-radius: 47%; color: black !important;"></span></a>
 
                                     <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="https://twitter.com/SimbahanApp" target="_blank">
@@ -813,7 +819,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                                         <span class="eltd-social-icon-widget social_facebook" style="background-color: white;padding: 39%;border-radius: 47%; color: black !important;"></span></a>
                                 </div>
                                                     <div class="col-lg-2">
-                                                        <img class="img-responsive chrome" src="Images/chrome.png" alt="chrome" style=" margin-left: -15%; margin-top: 7% !important;"/>
+                                                        <img class="img-responsive chrome" src="Images/chrome.png" alt="chrome" />
                                                     </div>
                                                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
                                     <div class="widget eltd-footer-column widget_text" style="margin-top:40%;">

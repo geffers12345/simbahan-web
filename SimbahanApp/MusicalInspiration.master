@@ -22,10 +22,10 @@
 <div class="row">
    
     
-    <div class="btn-group btn-breadcrumb" style="padding-left: 40px">
+    <div class="btn-group btn-breadcrumb" style="padding-left:0px;">
             <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
             <a href="#" class="btn btn-info">Inspirations</a>
-            <a href="MusicalInspirations.aspx" class="btn btn-info">Musical Inspirations</a>
+            <a href="MusicalInspirations.aspx" class="btn btn-info">Musical</a>
              <a href="#" class="btn btn-info"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></a>
           
         </div>
@@ -154,7 +154,7 @@
           
                <div class="col-md-2">
                 <div class="col-md-4">
-                    <a><img src="Images/star.png" id="buttonAddToFavoritee" runat="server" title="Add to Favorites!" style="max-width: 268% !important;"/></a>
+                    <a><img src="Images/star.png" id="buttonAddToFavoritee" class="btnfav" runat="server" title="Add to Favorites!" style="max-width: 268%;"/></a>
                 </div>
                 <div class="col-md-4">                  
                     <button  id="btnShareTwitter" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">

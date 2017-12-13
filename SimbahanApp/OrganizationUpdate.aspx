@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrganizationUpdate.aspx.cs" Inherits="SimbahanApp.OrganizationUpdate" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="OrganizationUpdate.aspx.cs" Inherits="SimbahanApp.OrganizationUpdate" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <style>
@@ -426,7 +426,7 @@ td {
                                 <thead>
                                     <tr><td>Days(Mass)</td><td>From</td><td>To</td><%--<td>Langauge</td>--%><td>Action</td></tr>
                                 </thead>
-                                <tbody id="massTable">
+                                <tbody id="massTable" runat="server">
 
                                 </tbody>
                             </table>
@@ -478,7 +478,7 @@ td {
                                 <thead>
                                     <tr><td>Days(Bible)</td><td>From</td><td>To</td><td>Action</td></tr>
                                 </thead>
-                                <tbody id="bibleTable">
+                                <tbody id="bibleTable" runat="server">
 
                                 </tbody>
                             </table>
@@ -508,28 +508,29 @@ td {
                         <h3>OTHER EVENTS</h3>
                          <div class="col-md-6">
                               <label>EVENT NAME</label>
-                              <input type="text" id="eventName" class="form-control input-lg" placeholder="Event Name" />
+                              <input type="text" id="eventName" class="form-control input-lg" runat="server" placeholder="Event Name" />
                               <label>EVENT VENUE</label>
-                              <input type="text" id="eventVenue" class="form-control input-lg" placeholder="Event Venue" />
+                              <input type="text" id="eventVenue" class="form-control input-lg" runat="server" placeholder="Event Venue" />
                               <label>DESCRIPTION</label>
-                              <textarea id="eventDesc" class="form-control input-lg" placeholder="Event Description"></textarea>
+                              <textarea id="eventDesc" class="form-control input-lg" runat="server" placeholder="Event Description"></textarea>
                               <label>ATTACH PICTURE</label>
                               <%--<input type="file" id="eventPicture" class="form-control input-lg" />--%>
                               <asp:FileUpload ID="FileUpload1" runat="server" class="form-control input-lg" />
                          </div>
                         <div class="col-md-6">
                               <label>START DATE</label>
-                              <input type="date" id="startDate" class="form-control input-lg" placeholder="Event Date" />
+                              <input type="date" id="startDate" class="form-control input-lg"  runat="server" placeholder="Event Date" />
                               <label>START TIME</label>
-                              <input type="text" id="startTime" class="form-control input-lg" placeholder="Start Time" />
+                              <input type="text" id="startTime" class="form-control input-lg" runat="server" placeholder="Start Time" />
                               <label>END DATE</label>
-                              <input type="date" id="endDate" class="form-control input-lg" placeholder="End Date" />
+                              <input type="date" id="endDate" class="form-control input-lg" runat="server" placeholder="End Date" />
                               <label>END TIME</label>
-                              <input type="text" id="endTime" class="form-control input-lg"placeholder="End Time" /><br /><br />
+                              <input type="text" id="endTime" class="form-control input-lg" runat="server" placeholder="End Time" /><br /><br />
                          </div>
                     </div>
                     <div class="col-md-12">
-                        <button id="addEvent" class="btn btn-primary btn-block" style="width: 50%; margin-left: 25%;">Add Event</button><br /><br />
+                        <%--<button id="addEvent" class="btn btn-primary btn-block" style="width: 50%; margin-left: 25%;">Add Event</button><br /><br />--%>
+                        <asp:Button id="addEvent" class="btn btn-primary btn-block" style="width: 50%; margin-left: 25%;" Text="Add event" runat="server" Onclick="addEvent_Click"/><br /><br />
                         <table>
 				            <thead>
 					            <tr class="bg-primary">
@@ -562,7 +563,7 @@ td {
 			                        </td>
 					            </tr>
 				            </thead>
-				            <tbody id="eventContainer">
+				            <tbody id="eventContainer" runat="server">
 				            </tbody>
 			            </table><br />
                         <asp:Button ID="triggerME" runat="server" style="display: none;" Text="trigger" />
@@ -581,7 +582,8 @@ td {
                         </div>
                     </div>
                     <div class="col-md-12" style="clear: both;">
-                        <button id="submit" style="width: 50%; margin-left: 25%;" class="btn btn-primary btn-block">Submit</button>
+                        <%--<button id="submit" OnClick="" style="width: 50%; margin-left: 25%;" class="btn btn-primary btn-block" >Submit</button>--%>
+                        <asp:Button ID="submit" Text="Save Changes" runat="server" style="width: 50%; margin-left: 25%;" class="btn btn-primary btn-block" OnClick="submit_Click" />
                     </div>
                 </div>
             </div>
@@ -737,6 +739,281 @@ td {
                     window.location.reload();
                 }).run();
             }
-        });
+    });
+
+    $(document).on('click', '#delete', function (e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        console.log(id);
+
+        var x = confirm('Are you sure you want to delete this mass detail?');
+
+        if (x == true) {
+            (new http).post('OrganizationUpdate.aspx/deleteMassDetail', {
+                id: id
+            }).then(function (response) {
+                alert('Deleted!');
+                window.location.reload();
+            }).run();
+        }
+    });
+
+
+    //MassSchedule
+     var editMassDetailId = 0;
+    var editMassDetail;
+    var schedIDformass = 0;
+
+    $(document).ready(function () {
+        $('#addMass').hide();
+    });
+
+    $(document).on('click', '#editmass', function (e) {
+        e.preventDefault();
+
+        $('#addMass').show('slow');
+        
+        var id = $(this).data('id');
+        editMassDetailId = id;
+
+        console.log(id);
+
+       $('#<%= massTable.ClientID %> tr[name="' + id + '"]').each(function (index, tr) {
+
+            var lines = $('td', tr).map(function (index, td) {
+                return $(td).text();
+            });
+
+            var day = lines[0];
+            console.log(day);
+            var Start = lines[1];
+            var End = lines[2];
+            console.log(Start);
+            console.log(End);
+
+            $("#masThu").prop('checked', false);
+            $("#masMon").prop('checked', false);
+            $("#masTue").prop('checked', false);
+            $("#masWed").prop('checked', false);
+            $("#masSun").prop('checked', false);
+            $("#masFri").prop('checked', false);
+            $("#masSat").prop('checked', false);
+
+            if (day == 'Sunday'){
+                schedIDformass = 1;
+                $("#masSun").prop('checked', true);
+            } else if (day == 'Monday') {
+                schedIDformass = 2;
+                $("#masMon").prop('checked', true);
+            } else if (day == 'Tuesday') {
+                schedIDformass = 3;
+                $("#masTue").prop('checked', true);
+            } else if (day == 'Wednesday') {
+                schedIDformass = 4;
+                $("#masWed").prop('checked', true);
+            } else if (day == 'Thursday') {
+                schedIDformass = 5;
+                $("#masThu").prop('checked', true);
+            } else if (day == 'Friday') {
+                schedIDformass = 6;
+                $("#masFri").prop('checked', true);
+            } else if (day == 'Saturday') {
+                schedIDformass = 7;
+                $("#masSat").prop('checked', true);
+            }
+
+               $('#<%= massFrom.ClientID%>').val(Start);
+               $('#<%= masssTo.ClientID%>').val(End);
+
+               editMassDetail = {    
+                   Start: Start,
+                   End: End,
+                   day: day,
+                   scheduleId: schedIDformass
+               }
+               console.log(editMassDetail);
+         })
+    });
+
+    //Save Changes for Mass schedule
+    $(document).on('click', '#addMass', function (e) {
+            e.preventDefault();
+            
+            var fromHour = editMassDetail.Start.split(' ')[0];
+            var fromAMorPM = editMassDetail.Start.split(':')[1].split(' ')[1];
+            var toHour = editMassDetail.End.split(' ')[0];
+            var toAMorPM = editMassDetail.End.split(':')[1].split(' ')[1];
+
+            var timeStd = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 2))
+                        timeStd = timeStandardID;
+                });
+            console.log(timeStd);
+
+            if (timeStd != 0) {
+                (new http).post('OrganizationUpdate.aspx/UpdateMassDetails', {
+                    massDetailsId: editMassDetailId,
+                    ScheduleId: schedIDformass,
+                    Time: $("#<%= massFrom.ClientID%>").val() + '-' + $("#<%= masssTo.ClientID%>").val(),
+                    OrgId: $("#<%= organizationId.ClientID %>").val(),
+                    TimeStandard: timeStd,
+                }).then(function (response) {
+                    alert('Updated!');
+                    window.location.reload();
+                }).run();
+            }
+    });
+    
+
+    $(document).on('click', '#deletemass', function (e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        console.log(id);
+
+        var x = confirm('Are you sure you want to delete this mass detail?');
+
+        if (x == true) {
+            (new http).post('OrganizationUpdate.aspx/deleteMassDetail', {
+                id: id
+            }).then(function (response) {
+                alert('Deleted!');
+                window.location.reload();
+            }).run();
+        }
+    });
+
+
+     //BibleSchedule
+     var editBibleDetailId = 0;
+    var editBibleDetail;
+    var schedIDforbible = 0;
+
+    $(document).ready(function () {
+        $('#addBible').hide();
+    });
+
+    $(document).on('click', '#editbible', function (e) {
+        e.preventDefault();
+
+        $('#addBible').show('slow');
+        
+        var id = $(this).data('id');
+        editBibleDetailId = id;
+
+        console.log(id);
+
+       $('#<%= bibleTable.ClientID %> tr[name="' + id + '"]').each(function (index, tr) {
+
+            var lines = $('td', tr).map(function (index, td) {
+                return $(td).text();
+            });
+
+            var day = lines[0];
+            console.log(day);
+            var Start = lines[1];
+            var End = lines[2];
+            console.log(Start);
+            console.log(End);
+
+            $("#bibMon").prop('checked', false);
+            $("#bibTue").prop('checked', false);
+            $("#bibWed").prop('checked', false);
+            $("#bibThu").prop('checked', false);
+            $("#bibFri").prop('checked', false);
+            $("#bibSat").prop('checked', false);
+            $("#bibSun").prop('checked', false);
+
+            if (day == 'Sunday'){
+                schedIDforbible = 1;
+                $("#bibSun").prop('checked', true);
+            } else if (day == 'Monday') {
+                schedIDforbible = 2;
+                $("#bibMon").prop('checked', true);
+            } else if (day == 'Tuesday') {
+                schedIDforbible = 3;
+                $("#bibTue").prop('checked', true);
+            } else if (day == 'Wednesday') {
+                schedIDforbible = 4;
+                $("#bibWed").prop('checked', true);
+            } else if (day == 'Thursday') {
+                schedIDforbible = 5;
+                $("#bibThu").prop('checked', true);
+            } else if (day == 'Friday') {
+                schedIDforbible = 6;
+                $("#bibFri").prop('checked', true);
+            } else if (day == 'Saturday') {
+                schedIDforbible = 7;
+                $("#bibSat").prop('checked', true);
+            }
+
+               $('#<%= bibleFrom.ClientID%>').val(Start);
+               $('#<%= bibleTo.ClientID%>').val(End);
+
+               editBibleDetail = {    
+                   Start: Start,
+                   End: End,
+                   day: day,
+                   scheduleId: schedIDforbible
+               }
+               console.log(editBibleDetail);
+         })
+    });
+
+    //Save Changes for Mass schedule
+    $(document).on('click', '#addBible', function (e) {
+            e.preventDefault();
+            
+            var fromHour = editBibleDetail.Start.split(' ')[0];
+            var fromAMorPM = editBibleDetail.Start.split(':')[1].split(' ')[1];
+            var toHour = editBibleDetail.End.split(' ')[0];
+            var toAMorPM = editBibleDetail.End.split(':')[1].split(' ')[1];
+
+            var timeStd = 0;
+
+            timestandard[fromAMorPM].forEach(
+                function (time, timeStandardID) {
+                    if (fromHour.split(':')[0] == time.substr(0, 2))
+                        timeStd = timeStandardID;
+                });
+            console.log(timeStd);
+
+            if (timeStd != 0) {
+                (new http).post('OrganizationUpdate.aspx/UpdateBibleDetails', {
+                    massDetailsId: editBibleDetailId,
+                    ScheduleId: schedIDforbible,
+                    Time: $("#<%= bibleFrom.ClientID%>").val() + '-' + $("#<%= bibleTo.ClientID%>").val(),
+                    OrgId: $("#<%= organizationId.ClientID %>").val(),
+                    TimeStandard: timeStd,
+                }).then(function (response) {
+                    alert('Updated!');
+                    window.location.reload();
+                }).run();
+            }
+    });
+
+    $(document).on('click', '#deleteBible', function (e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        console.log(id);
+
+        var x = confirm('Are you sure you want to delete this Bible detail?');
+
+        if(x == true){
+            (new http).post('OrganizationUpdate.aspx/deleteBibleDetail', {
+                id: id
+            }).then(function (response) {
+                alert('Deleted!');
+                window.location.reload();
+            }).run();
+        }
+    });
+
+  
 </script>
 </asp:Content>

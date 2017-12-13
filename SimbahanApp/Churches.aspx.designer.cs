@@ -481,6 +481,24 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl churchReviewsContainer;
         
         /// <summary>
+        /// near control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl near;
+        
+        /// <summary>
+        /// nearbychurches control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nearbychurches;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

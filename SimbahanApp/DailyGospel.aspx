@@ -17,7 +17,7 @@
         <div class="col-md-12">
      <div class="btn-group btn-breadcrumb">
             <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
-            <a href="#" class="btn btn-info">Daily Readings</a>
+            <a href="#" class="btn btn-info" style="width: 43%;">Daily Readings</a>
             <a href="#" class="btn btn-info"><strong>Gospel Reading</strong></a>
           
         </div>

@@ -70,6 +70,9 @@ namespace SimbahanApp
                 organizationId.Value = orgID.ToString();
                 OrgOtherInfo();
                 worshipSched();
+                massSched();
+                bibleSched();
+                announceSched();
             }
         }
 
@@ -83,7 +86,7 @@ namespace SimbahanApp
                 }
                 dbconn.Open();
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM[Simbahan].[dbo].[tblOrganizationVentilation] where OrganizationID = " + organizationId.Value, dbconn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [tblOrganizationVentilation] where OrganizationID = " + organizationId.Value, dbconn))
                 {
                     var reader = cmd.ExecuteReader();
 
@@ -128,7 +131,7 @@ namespace SimbahanApp
                 }
 
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [Simbahan].[dbo].[tblOrgLocation] where OrganizationID = " + organizationId.Value, dbconn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [tblOrgLocation] where OrganizationID = " + organizationId.Value, dbconn))
                 {
                     var reader = cmd.ExecuteReader();
 
@@ -177,7 +180,7 @@ namespace SimbahanApp
                     reader.Close();
                 }
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [Simbahan].[dbo].[tblOrganizationParking] where OrganizationID = " + organizationId.Value, dbconn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [tblOrganizationParking] where OrganizationID = " + organizationId.Value, dbconn))
                 {
                     var reader = cmd.ExecuteReader();
 
@@ -222,7 +225,7 @@ namespace SimbahanApp
                 }
 
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [Simbahan].[dbo].[tblOrganizationActivities] where OrganizationID = " + organizationId.Value, dbconn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [tblOrganizationActivities] where OrganizationID = " + organizationId.Value, dbconn))
                 {
                     var reader = cmd.ExecuteReader();
 
@@ -284,7 +287,7 @@ namespace SimbahanApp
                     reader.Close();
                 }
 
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [Simbahan].[dbo].[tblOrganizationAttendees] where OrganizationID = " + organizationId.Value, dbconn))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [tblOrganizationAttendees] where OrganizationID = " + organizationId.Value, dbconn))
                 {
                     var reader = cmd.ExecuteReader();
 
@@ -363,7 +366,7 @@ namespace SimbahanApp
                                                 ",[ScheduleID] " +
                                                 ",[TimeStandardID] " +
                                                 ",[Time] " +
-                                                "FROM[Simbahan].[dbo].[tblWorshipSchedules] where OrganizationID = " + organizationId.Value, dbconn);
+                                                "FROM [tblWorshipSchedules] where OrganizationID = " + organizationId.Value, dbconn);
 
                 var reader = cmd.ExecuteReader();
 
@@ -418,7 +421,7 @@ namespace SimbahanApp
                         dayStr = "Saturday";
                     }
 
-                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"delete\" data-id='" + id + "'></1>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"edit\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"delete\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"edit\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
                     worshipTable.Controls.Add(tr);
                 }
             }
@@ -443,5 +446,338 @@ namespace SimbahanApp
                 cmd.ExecuteNonQuery();
             }
         }
+
+        [WebMethod]
+        public static void deleteWorshipDetail(int id)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("delete from tblWorshipSchedules where OrgWorshipScheduleID = '" + id + "'");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void massSched()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT [OrgMassID] " +
+                                                ",[OrganizationID] " +
+                                                ",[ScheduleID] " +
+                                                ",[TimeStandardID] " +
+                                                ",[Time] " +
+                                                "FROM [tblMassDetails] where OrganizationID = " + organizationId.Value, dbconn);
+
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var tr = new HtmlGenericControl("td");
+                    var time = reader["Time"].ToString();
+
+                    var times = time.ToString().Split('-');
+                    var from = times[0].ToString();
+                    var to = "";
+                    if (times.Length > 1)
+                    {
+                        to = times[1];
+                    }
+                    else
+                    {
+                        to = (Convert.ToInt32(times[0].Split(':')[0]) + 1) + ":" + times[0].Split(':')[1];
+                    }
+
+                    int days = Convert.ToInt32(reader["ScheduleID"].ToString());
+                    int id = Convert.ToInt32(reader["OrgMassID"].ToString());
+
+                    string dayStr = "";
+
+                    if (days == 1)
+                    {
+                        dayStr = "Sunday";
+                    }
+                    else if (days == 2)
+                    {
+                        dayStr = "Monday";
+                    }
+                    else if (days == 3)
+                    {
+                        dayStr = "Tuesday";
+                    }
+                    else if (days == 4)
+                    {
+                        dayStr = "Wednesday";
+                    }
+                    else if (days == 5)
+                    {
+                        dayStr = "Thursday";
+                    }
+                    else if (days == 6)
+                    {
+                        dayStr = "Friday";
+                    }
+                    else if (days == 7)
+                    {
+                        dayStr = "Saturday";
+                    }
+
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"deletemass\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editmass\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
+                    massTable.Controls.Add(tr);
+                }
+            }
+        }
+
+        [WebMethod]
+        public static void UpdateMassDetails(int massDetailsId, int ScheduleId,
+            string Time, int OrgId, int TimeStandard)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("UPDATE tblMassDetails SET ScheduleID = '{0}', Time = '{1}', TimeStandardID = '{2}' WHERE [OrgMassID] = {3}", ScheduleId, Time, TimeStandard, massDetailsId);
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        [WebMethod]
+        public static void deleteMassDetail(int id)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("delete from tblMassDetails where OrgMassID = '" + id + "'");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        private void bibleSched()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT [OrgBibleScheduleID] " +
+                                                ",[OrganizationID] " +
+                                                ",[ScheduleID] " +
+                                                ",[TimeStandardID] " +
+                                                ",[Time] " +
+                                                "FROM [tblBibleSchedules] where OrganizationID = " + organizationId.Value, dbconn);
+
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var tr = new HtmlGenericControl("td");
+                    var time = reader["Time"].ToString();
+
+                    var times = time.ToString().Split('-');
+                    var from = times[0].ToString();
+                    var to = "";
+                    if (times.Length > 1)
+                    {
+                        to = times[1];
+                    }
+                    else
+                    {
+                        to = (Convert.ToInt32(times[0].Split(':')[0]) + 1) + ":" + times[0].Split(':')[1];
+                    }
+
+                    int days = Convert.ToInt32(reader["ScheduleID"].ToString());
+                    int id = Convert.ToInt32(reader["OrgBibleScheduleID"].ToString());
+
+                    string dayStr = "";
+
+                    if (days == 1)
+                    {
+                        dayStr = "Sunday";
+                    }
+                    else if (days == 2)
+                    {
+                        dayStr = "Monday";
+                    }
+                    else if (days == 3)
+                    {
+                        dayStr = "Tuesday";
+                    }
+                    else if (days == 4)
+                    {
+                        dayStr = "Wednesday";
+                    }
+                    else if (days == 5)
+                    {
+                        dayStr = "Thursday";
+                    }
+                    else if (days == 6)
+                    {
+                        dayStr = "Friday";
+                    }
+                    else if (days == 7)
+                    {
+                        dayStr = "Saturday";
+                    }
+
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td><i class=\"fa fa-remove\" id=\"deletebible\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editbible\" data-id='" + id + "'></i></td></tr>", dayStr, from, to, id);
+                    bibleTable.Controls.Add(tr);
+                }
+            }
+        }
+
+        [WebMethod]
+        public static void UpdateBibleDetails(int bibleDetailsId, int ScheduleId,
+            string Time, int OrgId, int TimeStandard)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("UPDATE tblBibleSchedules SET ScheduleID = '{0}', Time = '{1}', TimeStandardID = '{2}' WHERE [OrgMassID] = {3}", ScheduleId, Time, TimeStandard, bibleDetailsId);
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        [WebMethod]
+        public static void deleteBibleDetail(int id)
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("delete from tblBibleDetails where OrgBibleScheduleID = '" + id + "'");
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        protected void submit_Click(object sender, EventArgs e)
+        {
+            int organizationId = Convert.ToInt32(Request["id"]);
+
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string query = String.Format("UPDATE tblCatholicOrganization SET OrganizationName = '" + orgName.Value + "', CompleteAddress = '" + address.Value + "',  StreetName = '" + streetName.Value + "', Barangay = '" + barangay.Value + "', CityOrMunicipality = '" + City.Value + "', StateOrProvince = '" + province.Value + "', Country = '" + country.Value + "', FeastBuilderOrPreacher = '" + builder.Value + "', BranchOrLocation = '" + branch.Value + "', ParentOrganization = '" + parent.Value + "', ContactNo = '" + contact.Value + "', EmailAddress = '" + email.Value + "', Website = '" + website.Value + "', RetreatSchedule = '" + retreat.Value + "', RecollectionSchedule = '" + recollection.Value + "', TalkSchedule = '" + talks.Value + "', CampSchedule = '" + camps.Value + "', VolunteerSchedule = '" + volunteerWorks.Value + "',  Latitude = '" + latitude.Value + "', Longitude = '" + longitude.Value + "', About = '" + abouts.Value + "', LastUpdate = '" + DateTime.Now + "' FROM tblCatholicOrganization where OrganizationID = " + organizationId);
+
+                SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+        protected void addEvent_Click(object sender, EventArgs e)
+        {
+            int organnounceId = Convert.ToInt32(Request["id"]);
+
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                string filename = "Images/Organizations/" + FileUpload1.FileName.ToString();
+                string query = String.Format("Insert into [OrganizationAnnouncements] values(" + organnounceId + ", '" + startDate.Value + "', '" + startTime.Value + "', '" + endDate.Value + "', '" + endTime.Value + "', '" + eventName.Value + "', '" + eventVenue.Value + "', '" + filename + "', '" + eventDesc.Value + "')");
+
+                SqlCommand cmd = new SqlCommand(query, dbconn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+        private void announceSched()
+        {
+            using (SqlConnection dbconn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconn"].ConnectionString))
+            {
+                if (dbconn.State == ConnectionState.Open)
+                {
+                    dbconn.Close();
+                }
+                dbconn.Open();
+
+                SqlCommand cmd = new SqlCommand("SELECT [AnnouncementID] " +
+                                                ",[OrganizationID] " +
+                                                ",[StartDate] " +
+                                                ",[StartTime] " +
+                                                ",[EndDate] " +
+                                                ",[EndTime] " +
+                                                ",[TitleContent] " +
+                                                ",[Address] " +
+                                                ",[ImagePath] " +
+                                                ",[AnnouncementDesc] " +
+                                                "FROM [OrganizationAnnouncements] where OrganizationID = " + organizationId.Value, dbconn);
+
+                var reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var tr = new HtmlGenericControl("td");
+
+
+                    int id = Convert.ToInt32(reader["AnnouncementID"].ToString());
+
+
+
+                    tr.InnerHtml = string.Format("<tr name=\"{3}\"><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td>{5}</td><td>{6}</td><td>{7}</td><td><i class=\"fa fa-remove\" id=\"deleteann\" data-id='" + id + "'></i>&nbsp&nbsp<i class=\"fa fa-edit\" id=\"editann\" data-id='" + id + "'></i></td></tr>", reader["TitleContent"], reader["Address"], reader["AnnouncementDesc"], reader["ImagePath"], DateTime.Parse(reader["StartDate"].ToString()).ToString("MM-dd-yyyy"), reader["StartTime"], DateTime.Parse(reader["EndDate"].ToString()).ToString("MM-dd-yyyy"), reader["EndTime"], id);
+                    eventContainer.Controls.Add(tr);
+                }
+            }
+        }
+
+       
+
+    
     }
 }

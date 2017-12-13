@@ -94,7 +94,7 @@
                         <br />
                         <h3 class="text-center">Address</h3>
                         <br />
-                        <p class="text-center">1501C West Trade Building, West Avenue, Quezon City</p>
+                        <p class="text-center">1801 West Trade Building, West Avenue, Quezon City</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">

@@ -231,9 +231,8 @@ $("#btnShareFacebok").click(function (e) {
     var ee = "s.aspx?id="
 
     window.open(
-        "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/MusicalInspirations.aspx&link=http://www.mycatholicportal.org/MusicalInspiration" +
-        ee +
-        song.id +
+        "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/MusicalInspirations.aspx&link=http://www.mycatholicportal.org/" +
+        currentPage +
         "&caption=" +
         encodeURI(message) +
         "&description=" +

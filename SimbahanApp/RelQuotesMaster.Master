@@ -20,7 +20,7 @@
 		                <li class="active"><strong class="color-bread"><%= Page.Title.Split('-')[1].ToUpper() %></strong></li>
 	                </ol>
                 </div>--%>
-            <div class="btn-group btn-breadcrumb" style="padding-left: 40px">
+            <div class="btn-group btn-breadcrumb" style="padding-left: 0px">
             <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
             <a href="#" class="btn btn-info">Inspirations</a>
             <a href="ReligousQuotes.aspx" class="btn btn-info">Religous Quotes</a>

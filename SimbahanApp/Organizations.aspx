@@ -17,7 +17,8 @@ Modified by:
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link rel="stylesheet" href='<%= ResolveUrl("Content/cssslider_files/csss_engine1/style.css") %>'>
     <link rel="stylesheet" href='<%= ResolveUrl("Content/contact.css") %>'  />
-
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href='<%= ResolveUrl("wpStuffs/wp-content/themes/search-and-go/assets/css/listings.mine100.css") %>'/>
 <input type="hidden" id="latitude" runat="server" />
 <input type="hidden" id="longitude" runat="server" />
 <input type="hidden" id="OrganizationId" runat="server" />
@@ -234,19 +235,21 @@ Modified by:
 
         <!--[if IE]><link rel="stylesheet" href="cssslider_files/csss_engine1/ie.css"><![endif]-->
         <!--[if lte IE 9]><script type="text/javascript" src="cssslider_files/csss_engine1/ie.js"></script><![endif]-->
-        <div class="csslider1 autoplay " id="cssSlider" runat="server">
+       <center>
+        <div class="csslider1 autoplay " id="cssSlider" runat="server" style="width:79%">
 
         </div>
+           </center>
     </div>
 </div>
 <br/>
 <div class="panel with-nav-tabs panel-primary">
 <div class="panel-heading">
     <ul class="nav nav-tabs">
-        <li class="active">
+        <li >
             <a href="#history" data-toggle="tab" class="about abouttabs">ABOUT THE ORG</a>
         </li>
-        <li>
+        <li class="active">
             <a href="#info" data-toggle="tab" class="gen gentabs">GENERAL INFORMATION</a>
         </li>
         <li>
@@ -262,7 +265,7 @@ Modified by:
 </div>
 <div class="panel-body">
 <div class="tab-content">
-<div class="tab-pane fade in active" id="history">
+<div class="tab-pane fade" id="history">
     <p class="church-subtitle">
         <strong>ABOUT THE ORG</strong>
     </p>
@@ -271,7 +274,7 @@ Modified by:
         
     </p>
 </div>
-<div class="tab-pane fade" id="info">
+<div class="tab-pane fade in active" id="info">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             GENERAL INFO:
@@ -457,10 +460,33 @@ Modified by:
                         </div>
                         <div class="eltd-comment-form-rating">
                             <label>Rate Here<span class="required">*</span></label>
-                            <span class="eltd-comment-rating-box">
-                                <span class="eltd-star-rating" data-value="1"></span><span class="eltd-star-rating" data-value="2"></span><span class="eltd-star-rating" data-value="3"></span><span class="eltd-star-rating" data-value="4"></span><span class="eltd-star-rating" data-value="5"></span>
-                                <input type="hidden" name="eltd_rating" id="eltd-rating" value="3"/>
-                            </span>
+                           <div class="stars">
+
+<form action="">
+
+  <input class="star star-5" id="star-5" type="radio" name="star"/>
+
+  <label class="star star-5" for="star-5"></label>
+
+  <input class="star star-4" id="star-4" type="radio" name="star"/>
+
+  <label class="star star-4" for="star-4"></label>
+
+  <input class="star star-3" id="star-3" type="radio" name="star"/>
+
+  <label class="star star-3" for="star-3"></label>
+
+  <input class="star star-2" id="star-2" type="radio" name="star"/>
+
+  <label class="star star-2" for="star-2"></label>
+
+  <input class="star star-1" id="star-1" type="radio" name="star"/>
+
+  <label class="star star-1" for="star-1"></label>
+
+</form>
+
+</div>
                         </div>
                     </div>
                     <textarea id="comment" placeholder="Your Experience" name="comment" cols="45" rows="8" aria-required="true"></textarea>
@@ -563,9 +589,19 @@ Modified by:
 
 </div>--%>
 <div class="row">
-    <!-- Insert ADS Here -->
+<center><!--BEGIN TRIBAL AD ADZONE DISPLAY CODE -->
+<script>(function(ins){ if ('https:'==document.location.protocol){var h='link';} else {var h='z53714-p42728-n231.pub';}
+var d = "abd"+ins, s = document.createElement('script');document.write('<div id="'+d+'"></div>');
+s.type = 'text/javascript'; s.src = '//'+h+'.pgssl.com/adv/ap/fastjsa.asp?m=i&z=53714&p=42728&n=231&s=l&rr='+d; s.async = true; s.defer = true; 
+document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
+<!--END TRIBAL AD ADZONE DISPLAY CODE -->
+	<img src='https://link.pgssl.com/adv/ap/pxb.asp?n=231&u=42728&b=13666' alt='' width='1' height='1' hspace='0' vspace='0' border='0' />		
+	<script data-cfasync="false" type="text/javascript">(function(s,o,l,v,e,d){if(s[o]==null&&s[l+e]){s[o]="loading";s[l+e](d,l=function(){s[o]="complete";s[v+e](d,l,!1)},!1)}})(document,"readyState","add","remove","EventListener","DOMContentLoaded");(function(){var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="//cdn.engine.4dsply.com/Scripts/infinity.js.aspx?guid=d1802910-7d30-47f1-92bc-71f46870c5ff";s.id="infinity";s.setAttribute("data-guid","d1802910-7d30-47f1-92bc-71f46870c5ff");s.setAttribute("data-version","async");var e=document.getElementsByTagName('script')[0];e.parentNode.insertBefore(s,e)})();</script></center>
+                    
 </div>
 </div></div>
+<script src="Scripts/validator.js"></script>
+    <script src="Scripts/sweetalert.js"></script>
 <script type="text/javascript">
     var map;
 
@@ -598,10 +634,10 @@ Modified by:
     if (typeof google !== "undefined")
         google.maps.event.addDomListener(window, 'load', initialize);
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         setTimeout(initialize, 4000);
 
-        $(document).on('click', '#btnShowMoreFilter', function(e) {
+        $(document).on('click', '#btnShowMoreFilter', function (e) {
             e.preventDefault();
 
             Control.show('moreFiltersPane');
@@ -610,7 +646,7 @@ Modified by:
 
         $(document).on('click',
             '#btnShowRoute',
-            function(e) {
+            function (e) {
                 e.preventDefault();
 
                 var validationPassed = $("#startPosition").validate(['required', 'min:3'])
@@ -624,48 +660,48 @@ Modified by:
             e.preventDefault();
 
             if ($("#<%= btnAddToFav.ClientID %>").attr('src') == '/Images/starcolored.png') {
-                    $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/star.png');
-                } else {
+                $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/star.png');
+            } else {
                 $("#<%= btnAddToFav.ClientID %>").attr('src', '/Images/starcolored.png');
-                }
+            }
 
-              var id = window.location.href.includes('?')
-                  ? window.location.href.split('=')[1]
-                  : window.location.href.split('/')[window.location.href.split('/').length - 1];
-              var aID = $('#viewOrgAnnouncementId').val();
-              console.log(aID);
-              (new http).post("Organizations.aspx/OnFavoriteOrgAnnouncements",
-                  {
-                      organnouncementId: aID
-                  }).then(function (response) {
-                      if (response.d) {
-                          if ($("#<%= btnAddToFav.ClientID %>").attr('src') != '/Images/starcolored.png') {
-                                swal(
-                                    'Removed from favorites!',
-                                    'Announcement has been removed to your favorites list!',
-                                    'success'
-                                );
-                            } else {
-                                swal(
-                                    'Added to favorites!',
-                                    'Announcement has been added from your favorites list!',
-                                    'success'
-                                );
-                            }
+            var id = window.location.href.includes('?')
+                ? window.location.href.split('=')[1]
+                : window.location.href.split('/')[window.location.href.split('/').length - 1];
+            var aID = $('#viewOrgAnnouncementId').val();
+            console.log(aID);
+            (new http).post("Organizations.aspx/OnFavoriteOrgAnnouncements",
+                {
+                    organnouncementId: aID
+                }).then(function (response) {
+                    if (response.d) {
+                        if ($("#<%= btnAddToFav.ClientID %>").attr('src') != '/Images/starcolored.png') {
+                            swal(
+                                'Removed from favorites!',
+                                'Announcement has been removed to your favorites list!',
+                                'success'
+                            );
                         } else {
                             swal(
-                                'You are not be able to add it to favorites!',
-                                'You must Log-in first!',
-                                'Warning'
+                                'Added to favorites!',
+                                'Announcement has been added from your favorites list!',
+                                'success'
                             );
                         }
+                    } else {
+                        swal(
+                            'You are not be able to add it to favorites!',
+                            'You must Log-in first!',
+                            'Warning'
+                        );
+                    }
 
-                    }).run();
-          });
+                }).run();
+        });
 
         $(document).on('click',
             '#ShareTw',
-            function(e) {
+            function (e) {
                 e.preventDefault();
 
 
@@ -683,28 +719,28 @@ Modified by:
 
         $(document).on('click',
             '#ShareFb',
-            function(e) {
+            function (e) {
                 e.preventDefault();
 
-               <%--window.open(
+                <%--window.open(
                     'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organizations.aspx?id=' +
                     $("#<%= OrganizationId.ClientID %>").val(),
                     'Share To Facebook',
                     'width=500,height=300');--%>
 
-              <%-- window.open(
+                <%-- window.open(
                     'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organizations/' +
                     $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
                     'Share To Facebook',
                     'width=500,height=300');--%>
 
-               window.open(
-                    "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Organizations.aspx&link=http://www.mycatholicportal.org/Organizations/" +
-                    $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
-                    'Share To Facebook',
-                    'width=500,height=300');
+                window.open(
+                     "https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Organizations.aspx&link=http://www.mycatholicportal.org/Organizations/" +
+                     $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
+                     'Share To Facebook',
+                     'width=500,height=300');
 
-                 <%--window.open(
+                <%--window.open(
                         'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Organization/' + $("#<%= OrganizationId.ClientID %>").val() + "&description=" +
                         $("#OrganizationAbout").val(),
                         'Share To Facebook',
@@ -714,7 +750,7 @@ Modified by:
 
         $(document).on('click',
             '#<%= AddFav.ClientID %>',
-            function(e) {
+            function (e) {
                 e.preventDefault();
 
                 if (!isAuth) {
@@ -726,63 +762,63 @@ Modified by:
                 (new http).post('Organizations.aspx/AddOrganizationToFavorite',
                     {
                         organizationId: $("#<%= OrganizationId.ClientID %>").val()
-                    }).then(function(data) {
-                    if (data.d) {
-                        Control.hide('<%= AddFav.ClientID %>');
-                        Control.show('<%= RemoveFav.ClientID %>');
+                    }).then(function (data) {
+                        if (data.d) {
+                            Control.hide('<%= AddFav.ClientID %>');
+                            Control.show('<%= RemoveFav.ClientID %>');
 
-                        swal('Success!',
-                            'Organization has been added to your favorites!',
-                            'success');
-                    } else {
-                        swal('Oops!',
-                            'This organization is already in your favorite list',
-                            'error');
-                    }
-                }).run();
+                            swal('Success!',
+                                'Organization has been added to your favorites!',
+                                'success');
+                        } else {
+                            swal('Oops!',
+                                'This organization is already in your favorite list',
+                                'error');
+                        }
+                    }).run();
             });
-         $(document).on('click',
-   '#btnShareSocialTwit',
-   function (e) {
-       e.preventDefault();
+        $(document).on('click',
+  '#btnShareSocialTwit',
+  function (e) {
+      e.preventDefault();
 
-       var id = window.location.href.includes('?')
-           ? window.location.href.split('=')[1]
-           : window.location.href.split('/')[window.location.href.split('/').length - 1];
+      var id = window.location.href.includes('?')
+          ? window.location.href.split('=')[1]
+          : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
-       var message = $("#viewAnnouncementTitle").text() +
-                    'http://www.mycatholicportal.org/Organizations.aspx?id=' +
-                    id +
-                    " via " ;
+      var message = $("#viewAnnouncementTitle").text() +
+                   'http://www.mycatholicportal.org/Organizations.aspx?id=' +
+                   id +
+                   " via ";
 
-                window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
-                    "mywindow",
-                    "width=500,height=300");
-            });
+      window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
+          "mywindow",
+          "width=500,height=300");
+  });
 
-            $(document).on('click',
-                '#btnShareSocialFB',
-                function (e) {
-                    e.preventDefault();
+        $(document).on('click',
+            '#btnShareSocialFB',
+            function (e) {
+                e.preventDefault();
 
-                    var message = '';
+                var message = '';
 
-                    var org = '?id=';
-                    
-                    var id = $("#<%= OrganizationId.ClientID %>").val();
-                    window.open(
-                        'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Organizations.aspx&link=http://www.mycatholicportal.org/Organizations.aspx' +
-                        org +
-                        id,
-                        'width=500,height=300');
+                var org = '?id=';
+
+                var id = $("#<%= OrganizationId.ClientID %>").val();
+                window.open(
+                    'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Organizations.aspx&link=http://www.mycatholicportal.org/Organizations.aspx' +
+                    org +
+                    id,
+                    'width=500,height=300');
 
 
-                  
-                })
+
+            })
 
         $(document).on('click',
             '#<%= RemoveFav.ClientID %>',
-            function(e) {
+            function (e) {
                 e.preventDefault();
 
                 if (!isAuth) {
@@ -794,166 +830,192 @@ Modified by:
                 (new http).post('Organizations.aspx/RemoveChurchFromFavorite',
                     {
                         organizationId: $("#<%= OrganizationId.ClientID %>").val()
-                    }).then(function(data) {
-                    if (data.d) {
-                        Control.show('<%= AddFav.ClientID %>');
-                        Control.hide('<%= RemoveFav.ClientID %>');
-                        swal('Success!',
-                            'Organization has been removed from your favorites!',
-                            'success');
-                    } else {
-                        swal('Oops!',
-                            'We can\'t find this organization from your favorite list',
-                            'error');
-                    }
-                }).run();
+                    }).then(function (data) {
+                        if (data.d) {
+                            Control.show('<%= AddFav.ClientID %>');
+                            Control.hide('<%= RemoveFav.ClientID %>');
+                            swal('Success!',
+                                'Organization has been removed from your favorites!',
+                                'success');
+                        } else {
+                            swal('Oops!',
+                                'We can\'t find this organization from your favorite list',
+                                'error');
+                        }
+                    }).run();
             });
+
+        var starCount = 0;
+
+        $("label.star-1").click(function (e) {
+            starCount = 1;
+        });
+        $("label.star-2").click(function (e) {
+            starCount = 2;
+        });
+        $("label.star-3").click(function (e) {
+            starCount = 3;
+        });
+        $("label.star-4").click(function (e) {
+            starCount = 4;
+        });
+        $("label.star-5").click(function (e) {
+            starCount = 5;
+        });
 
         $(document).on('click',
             '#btnPublishReview',
-            function(e) {
+            function (e) {
                 e.preventDefault();
 
                 var commentReviewPassed = $("#comment").validate(['required', 'min:3'])
                     .displayErrorOn('#errorComment');
 
-                var starCount = $("#eltd-rating").val();
-
-                if (titleReviewPassed && commentReviewPassed) {
-                    (new http).post('Organizations.aspx/PublishReview',
+                if (commentReviewPassed) {
+                    (new http).post('<%= ResolveUrl("Organizations.aspx/PublishReview")%>',
                         {
                             organizationId: $("#<%= OrganizationId.ClientID %>").val(),
                             rate: starCount,
                             title: '',
                             content: $("#comment").val(),
                             name: $("#reviewerName").val()
-                        }).then(function(data) {
-                        var review = data.d;
+                        }).then(function (data) {
+                            var review = data.d;
 
-                        var reviewControl = new OrganizationReview(review.StarCount,
-                            review.Comment,
-                            review.UserId == 0 ? review.Name : review.User.FullName,
-                            review.FormattedDate);
+                            var reviewControl = new OrganizationReview(review.StarCount,
+                                review.Comment,
+                                review.UserId == 0 ? review.Name : review.User.FullName,
+                                review.FormattedDate);
 
-                        $("#<%= organizationReviewsContainer.ClientID %>").append(reviewControl.render());
+                            $("#<%= organizationReviewsContainer.ClientID %>").append(reviewControl.render());
 
-                        $("#comment").val('');
+                            $("#comment").val('');
+                            swal({
+                                title: 'Success!',
+                                text: 'Your review has been submitted!',
+                                type: 'success'
+                            }).then(
+                         function () {
+                             window.location.reload();
+                         }
+                     );
+                        }).run();
 
-                        swal('Success!',
-                            'Your review has been submitted!',
-                            'success');
-                    }).run();
                 }
-            });
+            }
+            );
     });
 
-    function OrganizationReview(rate, title, comment, name, date) {
-        this.rate = rate;
-        this.comment = comment;
-        this.name = name;
-        this.date = date;
-    }
 
-    OrganizationReview.prototype.CalculateStarPercentage = function () {
-        switch (this.rate) {
-        case "0":
-        case 0:
-            return 0;
-
-        case "1":
-        case 1:
-            return 18.2;
-
-        case "2":
-        case 2:
-            return 36.4;
-
-        case "3":
-        case 3:
-            return 54.6;
-
-        case "4":
-        case 4:
-            return 72.8;
-
-        case "5":
-        case 5:
-            return 91;
-
-        default:
-            return 0;
+        function OrganizationReview(rate, title, comment, name, date) {
+            this.rate = rate;
+            this.comment = comment;
+            this.name = name;
+            this.date = date;
         }
-    };
-    OrganizationReview.prototype.render = function () {
-        return "<li itemprop=\"review\" itemtype=\"http://schema.org/Review\">" +
-            "<div class=\"eltd-comment clearfix\">" +
-            "<div class=\"eltd-comment-image\" itemprop=\"author\" itemtype=\"http://schema.org/Person\">" +
-            "<img alt=\"\" src=\"Images\\default_avatar.png\" class=\"avatar avatar-98 photo\" height=\"98\" width=\"98\" />" +
-            "</div>" +
-            "<div class=\"eltd-comment-text\">" +
-            "<div class=\"eltd-comment-info\">" +
-            "<div class=\"eltd-review-rating\">" +
-            "<span class=\"rating-inner\" style=\"width: " +
-            this.CalculateStarPercentage() +
-            "%;\"></span>" +
-            "<a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
-            "</div>" +
-            "<div class=\"eltd-review-title\">" +
-            "<span>" +
-            this.name +
-            "</span>" +
-            "</div>" +
-            "<div class=\"eltd-review-title\">" +
-            "<span>" +
-            this.title +
-            "</span>" +
-            "</div>" +
-            "</div>" +
-            "<div class=\"eltd-text-holder\" id=\"comment-42\" itemprop=\"reviewBody\">" +
-            "<p>" +
-            this.comment +
-            "</p>" +
-            "</div>" +
-            "<div class=\"eltd-comment-bottom-info\">" +
-            "<span class=\"eltd-comment-date\" itemprop=\"datePublished\" content=\"2017 - 02 - 22T11: 36:00 + 0000\">" +
-            this.date +
-            "</span>" +
-            "</div>" +
-            "</div>" +
-            "</div>" +
-            "</li>";
-    };
 
-    $(document).on('click', '#btnCreateAnnouncement', function(e) {
-        e.preventDefault();
+        OrganizationReview.prototype.CalculateStarPercentage = function () {
+            switch (this.rate) {
+                case "0":
+                case 0:
+                    return 0;
 
-        $("#<%= announcementTitle.ClientID %>").val('');
-        $("#<%= announcementContent.ClientID %>").val('');
-        $("#<%= announcementVenue.ClientID %>").val('');
-        $("#<%= AnnouncementImage.ClientID %>").val('');
-        $("#<%= announcementStartDate.ClientID %>").val('');
-        $("#<%= announcementStartTime.ClientID %>").val('');
-        $("#<%= announcementEndDate.ClientID %>").val('');
-        $("#<%= announcementEndTime.ClientID %>").val('');
+                case "1":
+                case 1:
+                    return 18.2;
 
-        $("#create-announcement-modal").modal('show');
-    });
+                case "2":
+                case 2:
+                    return 36.4;
 
-    $(document).on('click', '#annoucementItem', function (e) {
-        e.preventDefault();
+                case "3":
+                case 3:
+                    return 54.6;
 
-        $("#viewAnnouncementImage").attr('src', $(this).data('image'));
-        $("#viewAnnouncementTitle").text($(this).data('title'));
-        $("#viewOrgAnnouncementId").val($(this).data('id'));
-        $("#viewAnnouncementVenue").text($(this).data('venue'));
-        $("#viewAnnouncementStartDate").text($(this).data('start-date'));
-        $("#viewAnnouncementStartTime").text($(this).data('start-time'));
-        $("#viewAnnouncementEndDate").text($(this).data('end-date'));
-        $("#viewAnnouncementEndTime").text($(this).data('end-time'));
-        $("#viewAnnouncementContent").text($(this).data('content'));
+                case "4":
+                case 4:
+                    return 72.8;
 
-        $("#view-announcement-modal").modal('show');
-    });
+                case "5":
+                case 5:
+                    return 91;
+
+                default:
+                    return 0;
+            }
+        };
+        OrganizationReview.prototype.render = function () {
+            return "<li itemprop=\"review\" itemtype=\"http://schema.org/Review\">" +
+                "<div class=\"eltd-comment clearfix\">" +
+                "<div class=\"eltd-comment-image\" itemprop=\"author\" itemtype=\"http://schema.org/Person\">" +
+                "<img alt=\"\" src=\"Images\\default_avatar.png\" class=\"avatar avatar-98 photo\" height=\"98\" width=\"98\" />" +
+                "</div>" +
+                "<div class=\"eltd-comment-text\">" +
+                "<div class=\"eltd-comment-info\">" +
+                "<div class=\"eltd-review-rating\">" +
+                "<span class=\"rating-inner\" style=\"width: " +
+                this.CalculateStarPercentage() +
+                "%;\"></span>" +
+                //"<a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
+                "</div>" +
+                "<div class=\"eltd-review-title\">" +
+                "<span>" +
+                this.name +
+                "</span>" +
+                "</div>" +
+                "<div class=\"eltd-review-title\">" +
+                "<span>" +
+                this.title +
+                "</span>" +
+                "</div>" +
+                "</div>" +
+                "<div class=\"eltd-text-holder\" id=\"comment-42\" itemprop=\"reviewBody\">" +
+                "<p>" +
+                this.comment +
+                "</p>" +
+                "</div>" +
+                "<div class=\"eltd-comment-bottom-info\">" +
+                "<span class=\"eltd-comment-date\" itemprop=\"datePublished\" content=\"2017 - 02 - 22T11: 36:00 + 0000\">" +
+                this.date +
+                "</span>" +
+                "</div>" +
+                "</div>" +
+                "</div>" +
+                "</li>";
+        };
+
+        $(document).on('click', '#btnCreateAnnouncement', function (e) {
+            e.preventDefault();
+
+            $("#<%= announcementTitle.ClientID %>").val('');
+            $("#<%= announcementContent.ClientID %>").val('');
+            $("#<%= announcementVenue.ClientID %>").val('');
+            $("#<%= AnnouncementImage.ClientID %>").val('');
+            $("#<%= announcementStartDate.ClientID %>").val('');
+            $("#<%= announcementStartTime.ClientID %>").val('');
+            $("#<%= announcementEndDate.ClientID %>").val('');
+            $("#<%= announcementEndTime.ClientID %>").val('');
+
+            $("#create-announcement-modal").modal('show');
+        });
+
+        $(document).on('click', '#annoucementItem', function (e) {
+            e.preventDefault();
+
+            $("#viewAnnouncementImage").attr('src', $(this).data('image'));
+            $("#viewAnnouncementTitle").text($(this).data('title'));
+            $("#viewOrgAnnouncementId").val($(this).data('id'));
+            $("#viewAnnouncementVenue").text($(this).data('venue'));
+            $("#viewAnnouncementStartDate").text($(this).data('start-date'));
+            $("#viewAnnouncementStartTime").text($(this).data('start-time'));
+            $("#viewAnnouncementEndDate").text($(this).data('end-date'));
+            $("#viewAnnouncementEndTime").text($(this).data('end-time'));
+            $("#viewAnnouncementContent").text($(this).data('content'));
+
+            $("#view-announcement-modal").modal('show');
+        });
+
+
+   
 </script>
-
 </asp:Content>
