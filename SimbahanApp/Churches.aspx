@@ -977,7 +977,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 if (!isAuth) {
                     document.cookie = "intendedRedirect=" + currentPage + ";";
-                    window.location.href = "Login.aspx";
+                    window.location.href = '<%=ResolveUrl("Login.aspx")%>';//"Login.aspx";
                     return;
                 }
 
@@ -1007,7 +1007,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 if (!isAuth) {
                     document.cookie = "intendedRedirect=" + currentPage + ";";
-                    window.location.href = "Login.aspx";
+                    window.location.href = '<%=ResolveUrl("Login.aspx")%>';
                     return;
                 }
 
