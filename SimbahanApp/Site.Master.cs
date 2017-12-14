@@ -276,7 +276,7 @@ namespace SimbahanApp
 
         protected DateTime GetCurrentTime()
         {
-            DateTime serverTime = DateTime.Now;
+            DateTime serverTime = DateTime.UtcNow;
             DateTime _localTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, TimeZoneInfo.Local.Id, "Taipei Standard Time");
             return _localTime;
         }
