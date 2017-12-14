@@ -274,8 +274,17 @@ namespace SimbahanApp
             }
         }
 
+        protected DateTime GetCurrentTime()
+        {
+            DateTime serverTime = DateTime.Now;
+            DateTime _localTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, TimeZoneInfo.Local.Id, "Taipei Standard Time");
+            return _localTime;
+        }
+
+    
         protected void Page_Load(object sender, EventArgs e)
         {
+
             // Only display notification for authenticated users.
             if (!Auth.Check())
                 return;
@@ -312,5 +321,6 @@ namespace SimbahanApp
 
             return notificationService.Get(Auth.user().Id);
         }
+
     }
 }
