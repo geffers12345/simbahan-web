@@ -355,6 +355,12 @@ namespace SimbahanApp
                 {
                     var nearchurches = reader["NearbyChurches"].ToString();
                     var church = nearchurches.ToString().Split(',');
+
+                    if (nearchurches == "") {
+                        church = null;
+                        return;
+                    }
+
                     if (church.Length != 0)
                     {
                         for (int i = 0; i < church.Length; i++)

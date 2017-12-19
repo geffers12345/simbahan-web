@@ -979,7 +979,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 if (!isAuth) {
                     document.cookie = "intendedRedirect=" + currentPage + ";";
-                    window.location.href = "Login.aspx";
+                    window.location.href = '<%=ResolveUrl("Login.aspx")%>';//"Login.aspx";
                     return;
                 }
 
@@ -1009,7 +1009,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 if (!isAuth) {
                     document.cookie = "intendedRedirect=" + currentPage + ";";
-                    window.location.href = "Login.aspx";
+                    window.location.href = '<%=ResolveUrl("Login.aspx")%>';
                     return;
                 }
 
@@ -1300,7 +1300,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                                            var churches = [];
 
                                            $.each(data.d, function (id, church) {
-                                               churches.push("<a href=\"/Churches/"+church.SimbahanID+"/" + church.MaskData + "\" class="contact">" + church.Parish + "</a>");
+                                               churches.push("<a href=\"/Churches/"+church.SimbahanID+"/" + church.MaskData + "\">" + church.Parish + "</a>");
                                            });
 
                                            $("#nearbychurches").append(churches.join(', '));
