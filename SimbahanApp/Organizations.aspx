@@ -1015,7 +1015,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             $("#view-announcement-modal").modal('show');
         });
 
-
+ 
    
 </script>
 </asp:Content>
