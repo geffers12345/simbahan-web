@@ -111,7 +111,7 @@ Modified by:
 <div id="view-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <input type="hidden" id="viewAnnouncementId" />
+         
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -119,6 +119,7 @@ Modified by:
                 <h4 class="modal-title">CHURCH ANNOUNCEMENT / EVENT</h4>
             </div>
             <div class="modal-body">
+                   <input type="hidden" id="viewAnnouncementId" />
                 <img class="img-responsive" id="viewAnnouncementImage" />
                 <h2 id="viewAnnouncementTitle"></h2>
                 <p class="lead" id="viewAnnouncementVenue"></p>
@@ -259,6 +260,7 @@ Modified by:
         </center>
     </div>
 </div>
+    </div>
 
 <br/>
 
@@ -1149,8 +1151,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             "</li>";
     };
 
-    $(document).on('click', '#annoucementItem', function (e) {
+    $("#annoucementItem").click(function (e) {
         e.preventDefault();
+     
         "<br />";
         $("#viewAnnouncementId").val($(this).data('id'));
         $("#viewAnnouncementImage").attr('src', $(this).data('image'));
@@ -1166,8 +1169,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
         else {
             $('#<%= btnAddToFav.ClientID %>').prop('src', '/Images/star.png')
         }
-
         $("#view-announcement-modal").modal('show');
+      
+        alert("nice");
     });
 
     $("#<%= btnAddToFav.ClientID %>").click(function (e) {
@@ -1309,7 +1313,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
     });
 
     
-
+  
    
 </script>
 </asp:Content>
