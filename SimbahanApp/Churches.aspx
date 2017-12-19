@@ -855,7 +855,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                 var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
                     'www.mycatholicportal.org/Churches.aspx?id=' +
-                    $("#<%= simbahanID.ClientID %>").val() + $("#<%= maskData.ClientID %>").val() +
+                    $("#<%= simbahanID.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val() +
                     '   via @SimbahanApp';
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
@@ -1234,7 +1234,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
            : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
        var message = $("#viewAnnouncementTitle").text() +
-                    'http://www.mycatholicportal.org/Churches/' +   $("#<%= simbahanID.ClientID %>").val() + $("#<%= maskData.ClientID %>").val() +
+                    'http://www.mycatholicportal.org/Churches/' +   $("#<%= simbahanID.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val() +
                     " via " ;
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
@@ -1251,7 +1251,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                     
                    
             window.open(
-                'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Churches/' + $("#<%= simbahanID.ClientID %>").val() + $("#<%= maskData.ClientID %>").val(),
+                'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Churches/' + $("#<%= simbahanID.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
                 'Share To Facebook',
                 'width=500,height=300');
 

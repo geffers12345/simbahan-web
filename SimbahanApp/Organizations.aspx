@@ -708,8 +708,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 var message = $('#<%= OrganizationName.ClientID %>').text().substr(0, 80) +
                     '\n' +
-                    'www.mycatholicportal.org/Organizations.aspx?id=' +
-                    $("#<%= OrganizationId.ClientID %>").val() +
+                    'www.mycatholicportal.org/Organizations/' +
+                  $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val() + 
                     '   via @SimbahanApp';
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
@@ -788,8 +788,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
           : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
       var message = $("#viewAnnouncementTitle").text() +
-                   'http://www.mycatholicportal.org/Organizations.aspx?id=' +
-                   id +
+                   'http://www.mycatholicportal.org/Organizations/' +
+                   $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val() +
                    " via ";
 
       window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
@@ -808,9 +808,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 var id = $("#<%= OrganizationId.ClientID %>").val();
                 window.open(
-                    'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Organizations.aspx&link=http://www.mycatholicportal.org/Organizations.aspx' +
-                    org +
-                    id,
+                    'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org/Organizations.aspx&link=http://www.mycatholicportal.org/Organizations/' +
+                    $("#<%= OrganizationId.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val(),
                     'width=500,height=300');
 
 
