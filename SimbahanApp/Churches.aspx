@@ -89,7 +89,7 @@ Modified by:
                     <div class="col-md-6">
                         <asp:FileUpload runat="server" ID="AnnouncementImage" />
                     </div>
-                </div>
+                    </div>
                 <div class="row">
                     <div class="col-md-3">
                         <label for="announcementContent">Description</label>
@@ -108,6 +108,8 @@ Modified by:
     </div>
     <!-- /.modal-dialog -->
 </div>
+
+
 <div id="view-announcement-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -132,7 +134,7 @@ Modified by:
                     To 
                     <span id="viewAnnouncementEndDate"></span> 
                     <span id="viewAnnouncementEndTime"></span>
-                </p>
+                    </p>
                 <hr />
                 <p id="viewAnnouncementContent"></p>
             </div>
@@ -155,7 +157,9 @@ Modified by:
                          <i class="fa fa-facebook-square" aria-hidden="true"></i>
                          <span aria-hidden="true"></span>
                     </button>
-                    </div></div>
+                    </div>
+
+                </div>
                 <%--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--%>
             </div>
         </div>
@@ -851,7 +855,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                 var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
                     'www.mycatholicportal.org/Churches.aspx?id=' +
-                    $("#<%= simbahanID.ClientID %>").val() +
+                    $("#<%= simbahanID.ClientID %>").val() + $("#<%= maskData.ClientID %>").val() +
                     '   via @SimbahanApp';
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
@@ -1117,14 +1121,14 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             "<div class=\"eltd-comment-image\" itemprop=\"author\" itemtype=\"http://schema.org/Person\">" +
             "<img alt=\"\" src=\"Images\\default_avatar.png\" class=\"avatar avatar-98 photo\" height=\"98\" width=\"98\" />" +
             "</div>" +
-            //"<div class=\"eltd-comment-text\">" +
-            //"<div class=\"eltd-comment-info\">" +
-            //"<div class=\"eltd-review-rating\">" +
-            //"<span class=\"rating-inner\" style=\"width: " +
-            //this.CalculateStarPercentage() +
-            //"%;\"></span>" 
-            ////"<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
-            //"</div>" +
+            "<div class=\"eltd-comment-text\">" +
+            "<div class=\"eltd-comment-info\">" +
+            "<div class=\"eltd-review-rating\">" +
+            "<span class=\"rating-inner\" style=\"width: " +
+            this.CalculateStarPercentage() +
+            "%;\"></span>" 
+            //"<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
+            "</div>" +
             "<div class=\"eltd-review-title\">" +
             "<span>" +
             this.name +
@@ -1230,8 +1234,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
            : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
        var message = $("#viewAnnouncementTitle").text() +
-                    'http://www.mycatholicportal.org/Churches.aspx?id=' +
-                    id +
+                    'http://www.mycatholicportal.org/Churches/' +   $("#<%= simbahanID.ClientID %>").val() + $("#<%= maskData.ClientID %>").val() +
                     " via " ;
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
@@ -1239,23 +1242,22 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                     "width=500,height=300");
             });
 
-            $(document).on('click',
-                '#btnShareSocialFB',
-                function (e) {
-                    e.preventDefault();
+    $(document).on('click',
+        '#btnShareSocialFB',
+        function (e) {
+            e.preventDefault();
 
-                    var message = '';
+            var message = '';
                     
                    
-                    window.open(
-                        'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Churches/' + $("#<%= simbahanID.ClientID %>").val() + "/" +
-                        $("#<%= maskData.ClientID %>").val(),
-                        'Share To Facebook',
-                        'width=500,height=300');
+            window.open(
+                'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Churches/' + $("#<%= simbahanID.ClientID %>").val() + $("#<%= maskData.ClientID %>").val(),
+                'Share To Facebook',
+                'width=500,height=300');
 
 
                   
-                })
+        });
     $(document).on('click', '#editHistory', function () {
         var history = $('#<%= churchHistory.ClientID%>').val();
         $('#<%= editChurchHistory.ClientID%>').val(history);
@@ -1289,7 +1291,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
 
 
-    <%--$(document).ready(function () {
+    $(document).ready(function () {
         var GetCoordinates = (new http).post('<%=ResolveUrl("VisitaIglesia.aspx/GetChurchesNearby")%>')
                                        .prepare(function () {
 
@@ -1309,7 +1311,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                 longitude: $("#<%=longitude.ClientID%>").val(),
                 limit: 4
             })
-    });--%>
+    });
 
     
   
