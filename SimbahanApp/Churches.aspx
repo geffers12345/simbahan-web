@@ -850,8 +850,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
-                    'www.mycatholicportal.org/Churches.aspx?id=' +
-                    $("#<%= simbahanID.ClientID %>").val() +
+                    'www.mycatholicportal.org/Churches/' $("#<%= simbahanID.ClientID %>").val() + "/" +
+                        $("#<%= maskData.ClientID %>").val() +
                     '   via @SimbahanApp';
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
@@ -1117,14 +1117,14 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             "<div class=\"eltd-comment-image\" itemprop=\"author\" itemtype=\"http://schema.org/Person\">" +
             "<img alt=\"\" src=\"Images\\default_avatar.png\" class=\"avatar avatar-98 photo\" height=\"98\" width=\"98\" />" +
             "</div>" +
-            "<div class=\"eltd-comment-text\">" +
-            "<div class=\"eltd-comment-info\">" +
-            "<div class=\"eltd-review-rating\">" +
-            "<span class=\"rating-inner\" style=\"width: " +
-            this.CalculateStarPercentage() +
-            "%;\"></span>" 
-            //"<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
-            "</div>" +
+            //"<div class=\"eltd-comment-text\">" +
+            //"<div class=\"eltd-comment-info\">" +
+            //"<div class=\"eltd-review-rating\">" +
+            //"<span class=\"rating-inner\" style=\"width: " +
+            //this.CalculateStarPercentage() +
+            //"%;\"></span>" 
+            ////"<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
+            //"</div>" +
             "<div class=\"eltd-review-title\">" +
             "<span>" +
             this.name +
@@ -1230,8 +1230,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
            : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
        var message = $("#viewAnnouncementTitle").text() +
-                    'http://www.mycatholicportal.org/Churches.aspx?id=' +
-                    id +
+                    'http://www.mycatholicportal.org/Churches/' + $("#<%= simbahanID.ClientID %>").val() + "/" +
+                        $("#<%= maskData.ClientID %>").val() +
+                    
                     " via " ;
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
@@ -1248,8 +1249,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                     
                    
                     window.open(
-                        'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Churches.aspx/' + $("#<%= simbahanID.ClientID %>").val() + "/" +
-                        $("#viewAnnouncementId").val(),
+                        'https://www.facebook.com/dialog/feed?app_id=431222653910082&redirect_uri=http://www.mycatholicportal.org&link=http://www.mycatholicportal.org/Churches/' + $("#<%= simbahanID.ClientID %>").val() + "/" +
+                        $("#<%= maskData.ClientID %>").val(),
                         'Share To Facebook',
                         'width=500,height=300');
 
