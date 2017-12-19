@@ -850,8 +850,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
-                    'www.mycatholicportal.org/Churches/' $("#<%= simbahanID.ClientID %>").val() + "/" +
-                        $("#<%= maskData.ClientID %>").val() +
+                    'www.mycatholicportal.org/Churches.aspx?id=' +
+                    $("#<%= simbahanID.ClientID %>").val() +
                     '   via @SimbahanApp';
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
@@ -1230,9 +1230,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
            : window.location.href.split('/')[window.location.href.split('/').length - 1];
 
        var message = $("#viewAnnouncementTitle").text() +
-                    'http://www.mycatholicportal.org/Churches/' + $("#<%= simbahanID.ClientID %>").val() + "/" +
-                        $("#<%= maskData.ClientID %>").val() +
-                    
+                    'http://www.mycatholicportal.org/Churches.aspx?id=' +
+                    id +
                     " via " ;
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message) + encodeURI('@SimbahanApp'),
