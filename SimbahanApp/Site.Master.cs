@@ -176,7 +176,7 @@ namespace SimbahanApp
                 }
                 else
                 {
-                    gospel = dailyGospelService.FindByDate(DateTime.Now);
+                    gospel = dailyGospelService.FindByDate(DateTime.UtcNow);
                 }
 
                 MetaDescription = gospel.FirstReadingContent;
@@ -203,7 +203,7 @@ namespace SimbahanApp
                 }
                 else
                 {
-                    reflection = reflectionService.FindByDate(DateTime.Now);
+                    reflection = reflectionService.FindByDate(DateTime.UtcNow);
                 }
 
                 MetaDescription = reflection.FirstContentTitle;
@@ -274,12 +274,12 @@ namespace SimbahanApp
             }
         }
 
-        protected DateTime GetCurrentTime()
-        {
-            DateTime serverTime = DateTime.UtcNow;
-            DateTime _localTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, TimeZoneInfo.Local.Id, "Taipei Standard Time");
-            return _localTime;
-        }
+        //protected DateTime GetCurrentTime()
+        //{
+        //    DateTime serverTime = DateTime.UtcNow;
+        //    DateTime _localTime = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(serverTime, TimeZoneInfo.Local.Id, "Taipei Standard Time");
+        //    return _localTime;
+        //}
 
     
         protected void Page_Load(object sender, EventArgs e)

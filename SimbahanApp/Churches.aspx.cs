@@ -97,7 +97,7 @@ namespace SimbahanApp
             List<MassDetailsModel> schedules;
 
 
-            switch (DateTime.Now.DayOfWeek)
+            switch (DateTime.UtcNow.DayOfWeek)
             {
                 case DayOfWeek.Sunday:
                     schedules = churches.SundayMassSchedule;
@@ -143,11 +143,11 @@ namespace SimbahanApp
                 massSchedules.Add(mass.Time);
             }
 
-            var massDate = "No Mass Schedule for " + DateTime.Now.DayOfWeek;
+            var massDate = "No Mass Schedule for " + DateTime.UtcNow.DayOfWeek;
             churchMassLanguages.Attributes.Add("style", "display: none;");
             if (massSchedules.Count > 0)
             {
-                massDate = DateTime.Now.DayOfWeek + " - " + string.Join(", ", massSchedules);
+                massDate = DateTime.UtcNow.DayOfWeek + " - " + string.Join(", ", massSchedules);
                 churchMassLanguages.Attributes.Add("style", "display: block;");
             }
 

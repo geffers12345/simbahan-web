@@ -41,7 +41,7 @@ namespace SimbahanApp.Models
         public List<OrganizationMass> Masses { get; set; }
         public List<OrganizationMass> BibleStudySchedules { get; set; }
         public List<OrganizationMass> WorshipSchedules { get; set; }
-        public List<OrganizationMass> TodayMass => Masses.Where(mass => mass.ScheduleId == (int)DateTime.Now.DayOfWeek + 1).ToList();
+        public List<OrganizationMass> TodayMass => Masses.Where(mass => mass.ScheduleId == (int)DateTime.UtcNow.DayOfWeek + 1).ToList();
         public string OrgMasking { get; set; }
 
         public Organization()

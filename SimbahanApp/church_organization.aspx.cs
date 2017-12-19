@@ -202,7 +202,7 @@ namespace SimbahanApp
             var parkings = string.Join(",", parkingList);
 
             if (selectChurchSchedule == "8")
-                switch (DateTime.Now.DayOfWeek)
+                switch (DateTime.UtcNow.DayOfWeek)
                 {
                     case DayOfWeek.Sunday:
                         selectChurchSchedule = "1";
@@ -228,7 +228,7 @@ namespace SimbahanApp
                 }
 
             if (selectChurchConfessionDay == "8")
-                switch (DateTime.Now.DayOfWeek)
+                switch (DateTime.UtcNow.DayOfWeek)
                 {
                     case DayOfWeek.Sunday:
                         selectChurchConfessionDay = "1";
@@ -298,7 +298,7 @@ namespace SimbahanApp
             var service = new AdorationService();
 
             if (day == "8")
-                switch (DateTime.Now.DayOfWeek)
+                switch (DateTime.UtcNow.DayOfWeek)
                 {
                     case DayOfWeek.Sunday:
                         day = "1";
@@ -363,7 +363,7 @@ namespace SimbahanApp
                     }
             else
                 foreach (var adoration in adorations)
-                    switch (DateTime.Now.DayOfWeek)
+                    switch (DateTime.UtcNow.DayOfWeek)
                     {
                         case DayOfWeek.Sunday:
                             adoration.Masses = adoration.SundaySchedule;

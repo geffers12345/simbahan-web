@@ -21,7 +21,7 @@ namespace SimbahanApp
                 if (Request["date"] != null)
                     reflectionDate = Convert.ToDateTime(Request["date"]);
                 else
-                    reflectionDate = DateTime.Now;
+                    reflectionDate = DateTime.UtcNow;
 
                 var reflection = GetReflection(reflectionDate);
 
@@ -99,7 +99,7 @@ namespace SimbahanApp
                 if (Request["date"] != null)
                     VerseDate = Convert.ToDateTime(Request["date"]);
                 else
-                    VerseDate = DateTime.Now;
+                    VerseDate = DateTime.UtcNow;
 
                 var verse = GetVerse(VerseDate);
 
@@ -111,7 +111,7 @@ namespace SimbahanApp
                 if (Request["date"] != null)
                     QuoteDate = Convert.ToDateTime(Request["date"]);
                 else
-                    QuoteDate = DateTime.Now;
+                    QuoteDate = DateTime.UtcNow;
 
                 var quote = GetQuote(QuoteDate);
 

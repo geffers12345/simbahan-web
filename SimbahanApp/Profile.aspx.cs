@@ -252,7 +252,7 @@ namespace SimbahanApp.Account
             FormsAuthentication.SignOut();
 
             // Next, we need to automatically log the user in.
-            var ticket = new FormsAuthenticationTicket(1, user.Email, DateTime.Now, DateTime.Now.AddDays(7), true,
+            var ticket = new FormsAuthenticationTicket(1, user.Email, DateTime.UtcNow, DateTime.UtcNow.AddDays(7), true,
                 user.ToString());
 
             var encryptedCookie = FormsAuthentication.Encrypt(ticket);

@@ -38,7 +38,7 @@ namespace SimbahanApp.Services
                     try
                     {
                         if (day == "8") 
-                            day = (int)DateTime.Now.DayOfWeek + 1 + "";
+                            day = (int)DateTime.UtcNow.DayOfWeek + 1 + "";
 
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@keyword", keyword);

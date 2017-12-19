@@ -85,8 +85,8 @@ namespace SimbahanApp
                         cmd.Parameters.AddWithValue("@StreetNo", 0);
                         cmd.Parameters.AddWithValue("@StreetName", "");
                         cmd.Parameters.AddWithValue("@Barangay", "");
-                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
-                        cmd.Parameters.AddWithValue("@LastUpdate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.UtcNow);
+                        cmd.Parameters.AddWithValue("@LastUpdate", DateTime.UtcNow);
                         cmd.Parameters.AddWithValue("@churchType", 1);
                         cmd.Parameters.AddWithValue("@Long", Long);
                         cmd.Parameters.AddWithValue("@Lat", Lat);
@@ -139,7 +139,7 @@ namespace SimbahanApp
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.UtcNow);
                         cmd.Parameters.AddWithValue("@ScheduleID", ScheduleID);
                         cmd.Parameters.AddWithValue("@Language", Language);
                         cmd.Parameters.AddWithValue("@Time", massSched);
@@ -174,7 +174,7 @@ namespace SimbahanApp
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.UtcNow);
                         cmd.Parameters.AddWithValue("@ScheduleID", ScheduleID);
                         cmd.Parameters.AddWithValue("@Text", Text);
                         cmd.Parameters.AddWithValue("@Time", confessionSched);
@@ -271,7 +271,7 @@ namespace SimbahanApp
                         
                         cmd.Parameters.AddWithValue("@text", textBapt);
                         cmd.Parameters.AddWithValue("@SimbahanID", SimbahanID);
-                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.UtcNow);
                         cmd.ExecuteNonQuery();
                     }
                     catch (Exception ex)
@@ -302,7 +302,7 @@ namespace SimbahanApp
 
                         cmd.Parameters.AddWithValue("@text", textWedd);
                         cmd.Parameters.AddWithValue("@SimbahanID", SimbahanID);
-                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@DateCreated", DateTime.UtcNow);
                         cmd.ExecuteNonQuery();
                     }
                     catch (Exception ex)

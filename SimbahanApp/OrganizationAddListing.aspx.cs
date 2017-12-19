@@ -47,7 +47,7 @@ namespace SimbahanApp
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.AddWithValue("@OrgName", name);
-                        cmd.Parameters.AddWithValue("@LastUpdate", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@LastUpdate", DateTime.UtcNow);
                         cmd.Parameters.AddWithValue("@CompleteAddress", address);
                         cmd.Parameters.AddWithValue("@StreetNo", streetNo);
                         cmd.Parameters.AddWithValue("@StreetName", streetName);

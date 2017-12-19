@@ -35,7 +35,7 @@ namespace SimbahanApp.Services
 
 
                         cmd.ExecuteNonQuery();
-                        model.DateReported = DateTime.Now;
+                        model.DateReported = DateTime.UtcNow;
                     }
                     catch (Exception)
                     {

@@ -7,8 +7,8 @@ namespace Simbahan.Models
     {
         public Notification()
         {
-            CreatedAt = DateTime.Now;
-            UpdatedAt = DateTime.Now;
+            CreatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
             HasRead = false;
         }
 
@@ -24,7 +24,7 @@ namespace Simbahan.Models
         {
             get
             {
-                var time = DateTime.Now.Subtract(CreatedAt);
+                var time = DateTime.UtcNow.Subtract(CreatedAt);
 
                 var days = "";
 

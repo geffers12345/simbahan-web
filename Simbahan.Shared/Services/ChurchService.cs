@@ -253,7 +253,7 @@ namespace Simbahan.Services
                                     TimeStandardId =
                                         massSchedule[4] == "" ? 0 : Convert.ToInt32(massSchedule[4]),
                                     DateCreated = massSchedule[5] == ""
-                                        ? DateTime.Now
+                                        ? DateTime.UtcNow
                                         : Convert.ToDateTime(massSchedule[5])
                                 };
 
@@ -304,7 +304,7 @@ namespace Simbahan.Services
                         }
                     }
 
-                    switch (DateTime.Now.DayOfWeek)
+                    switch (DateTime.UtcNow.DayOfWeek)
                     {
                         case DayOfWeek.Sunday:
                             church.MassSchedules = church.SundayMassSchedule;
@@ -434,7 +434,7 @@ namespace Simbahan.Services
                                     TimeStandardId =
                                         massSchedule[4] == "" ? 0 : Convert.ToInt32(massSchedule[4]),
                                     DateCreated = massSchedule[5] == ""
-                                        ? DateTime.Now
+                                        ? DateTime.UtcNow
                                         : Convert.ToDateTime(massSchedule[5])
                                 };
 
@@ -485,7 +485,7 @@ namespace Simbahan.Services
                         }
                     }
 
-                    switch (DateTime.Now.DayOfWeek)
+                    switch (DateTime.UtcNow.DayOfWeek)
                     {
                         case DayOfWeek.Sunday:
                             church.MassSchedules = church.SundayMassSchedule;

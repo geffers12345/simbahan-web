@@ -901,7 +901,7 @@ namespace SimbahanApp
                     hasAdo = 0;
                 }
 
-                string query = String.Format("UPDATE Simbahan SET Parish = '" + churchName.Value + "', CompleteAddress = '" + address.Value + "', City = '" + city.Value + "', StateOrProvince = '" + province.Value + "', Vicariate = '" + vicariate.Value + "', FeastDay = '" + feastDay.Value + "', ParishPriest = '" + parishPriest.Value + "', Diocese = '" + diocese.Value + "', DateEstablished = '" + dateEstablished.Value + "', ContactNo = '" + phoneNo.Value + "', EmailAddress = '" + emailAdd.Value + "', Website = '" + website.Value + "', LocationID = '" + locID + "', HasAdorationChapel = '" + hasAdo + "', OfficeHours = '" + OfficeSchedule.Value + "', DevotionSchedule = '" + SchedOfDevotion.Value + "', Latitude = '" + Latitude.Value + "', Longitude = '" + Longitude.Value + "', LastUpdate = '" + DateTime.Now + "' FROM Simbahan where SimbahanID = " + simbahanId);
+                string query = String.Format("UPDATE Simbahan SET Parish = '" + churchName.Value + "', CompleteAddress = '" + address.Value + "', City = '" + city.Value + "', StateOrProvince = '" + province.Value + "', Vicariate = '" + vicariate.Value + "', FeastDay = '" + feastDay.Value + "', ParishPriest = '" + parishPriest.Value + "', Diocese = '" + diocese.Value + "', DateEstablished = '" + dateEstablished.Value + "', ContactNo = '" + phoneNo.Value + "', EmailAddress = '" + emailAdd.Value + "', Website = '" + website.Value + "', LocationID = '" + locID + "', HasAdorationChapel = '" + hasAdo + "', OfficeHours = '" + OfficeSchedule.Value + "', DevotionSchedule = '" + SchedOfDevotion.Value + "', Latitude = '" + Latitude.Value + "', Longitude = '" + Longitude.Value + "', LastUpdate = '" + DateTime.UtcNow + "' FROM Simbahan where SimbahanID = " + simbahanId);
 
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
@@ -1310,7 +1310,7 @@ namespace SimbahanApp
 
                 var massDateTime = massStart + " - " + massEnd;
                 //var ImgPath = "Images/Churches/" + path;
-                string query = String.Format("Insert Into MassDetails values('" + DateTime.Now + "', '" + day + "', '" + lang + "', '" + massDateTime + "', '" + simbahanID + "', '" + timestandard + "')");
+                string query = String.Format("Insert Into MassDetails values('" + DateTime.UtcNow + "', '" + day + "', '" + lang + "', '" + massDateTime + "', '" + simbahanID + "', '" + timestandard + "')");
 
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
@@ -1331,7 +1331,7 @@ namespace SimbahanApp
 
                 var confessionDateTime = conStart + " - " + conEnd;
                 //var ImgPath = "Images/Churches/" + path;
-                string query = String.Format("Insert Into [ConfessionDetails] values('" + confessionDateTime + "', '" + simbahanID + "', '" + conday + "', '" + DateTime.Now + "', '" + display + "', '" + timestandard + "')");
+                string query = String.Format("Insert Into [ConfessionDetails] values('" + confessionDateTime + "', '" + simbahanID + "', '" + conday + "', '" + DateTime.UtcNow + "', '" + display + "', '" + timestandard + "')");
 
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
