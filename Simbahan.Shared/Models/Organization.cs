@@ -55,7 +55,7 @@ namespace Simbahan.Models
         public List<OrganizationMass> WorshipSchedules { get; set; }
 
         public List<OrganizationMass> TodayMass => Masses
-            .Where(mass => mass.ScheduleId == (int) DateTime.Now.DayOfWeek + 1)
+            .Where(mass => mass.ScheduleId == (int) DateTime.UtcNow.DayOfWeek + 1)
             .ToList();
     }
 }

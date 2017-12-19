@@ -21,7 +21,7 @@ namespace SimbahanApp
             string redirect = "<script>window.open('http://localhost:9164/HTMLClient/');</script>";
             if (ValidateUser(Email.Text, Password.Text, out user))
             {
-                var ticket = new FormsAuthenticationTicket(1, Email.Text, DateTime.Now, DateTime.Now.AddDays(7), true,
+                var ticket = new FormsAuthenticationTicket(1, Email.Text, DateTime.UtcNow, DateTime.UtcNow.AddDays(7), true,
                     user.ToString());
 
                 var encryptedCookie = FormsAuthentication.Encrypt(ticket);

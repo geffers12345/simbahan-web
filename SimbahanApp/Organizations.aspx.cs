@@ -42,7 +42,7 @@ namespace SimbahanApp
 
             var organization = organizationService.Find(organizationId);
             var todayMass = organization.Masses
-                .Where(mass => mass.ScheduleId == (int) DateTime.Now.DayOfWeek + 1)
+                .Where(mass => mass.ScheduleId == (int) DateTime.UtcNow.DayOfWeek + 1)
                 .ToList();
 
             maskData.Value = organization.OrgMasking;
@@ -52,7 +52,7 @@ namespace SimbahanApp
             OrganizationAddress.InnerHtml = organization.Address;
             OrgAddress.InnerHtml = organization.Address;
             var worshipScheduleString = todayMass.Count < 0 ? "No Worship Schedule Available for This Day"
-                : DateTime.Now.DayOfWeek + " " + string.Join(", ", todayMass.Select(mass => mass.Time));
+                : DateTime.UtcNow.DayOfWeek + " " + string.Join(", ", todayMass.Select(mass => mass.Time));
             WorshipScheduleToday.InnerHtml = worshipScheduleString;
             ParentOrganization.InnerHtml = organization.ParentOrganization;
             LastUpdated.InnerHtml = organization.LastUpdate.ToString("MMMM dd, yyyy");

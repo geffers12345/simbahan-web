@@ -290,7 +290,7 @@ namespace SimbahanApp.Services
                                             TimeStandardId =
                                                 massSchedule[4] == "" ? 0 : Convert.ToInt32(massSchedule[4]),
                                             DateCreated = massSchedule[5] == ""
-                                                ? DateTime.Now
+                                                ? DateTime.UtcNow
                                                 : Convert.ToDateTime(massSchedule[5])
                                         };
 
@@ -338,8 +338,8 @@ namespace SimbahanApp.Services
                                             church.SaturdayMassSchedule.Add(massDetail);
                                             break;
                                         default:
-                                            massDetail.Days = DateTime.Now.DayOfWeek.ToString();
-                                            massDetail.ScheduleId = (int)DateTime.Now.DayOfWeek + 1;
+                                            massDetail.Days = DateTime.UtcNow.DayOfWeek.ToString();
+                                            massDetail.ScheduleId = (int)DateTime.UtcNow.DayOfWeek + 1;
                                             church.MondayMassSchedule.Add(massDetail);
                                             break;
                                     }
@@ -378,7 +378,7 @@ namespace SimbahanApp.Services
                             }
                             else
                             {
-                                switch (DateTime.Now.DayOfWeek)
+                                switch (DateTime.UtcNow.DayOfWeek)
                                 {
                                     case DayOfWeek.Sunday:
                                         church.MassSchedules = church.SundayMassSchedule;
@@ -550,7 +550,7 @@ namespace SimbahanApp.Services
                                             TimeStandardId =
                                                 massSchedule[4] == "" ? 0 : Convert.ToInt32(massSchedule[4]),
                                             DateCreated = massSchedule[5] == ""
-                                                ? DateTime.Now
+                                                ? DateTime.UtcNow
                                                 : Convert.ToDateTime(massSchedule[5])
                                         };
 
@@ -601,7 +601,7 @@ namespace SimbahanApp.Services
                                 }
                             }
 
-                            switch (DateTime.Now.DayOfWeek)
+                            switch (DateTime.UtcNow.DayOfWeek)
                             {
                                 case DayOfWeek.Sunday:
                                     church.MassSchedules = church.SundayMassSchedule;

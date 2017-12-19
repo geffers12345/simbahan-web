@@ -33,13 +33,13 @@ namespace SimbahanApp
                     }
                     else
                     {
-                        dailyGospel = dailyGospelService.FindByDate(DateTime.Now);
+                        dailyGospel = dailyGospelService.FindByDate(DateTime.UtcNow);
                     }
                 }
 
                 else
                 {
-                    var date = Request["date"] != null ? Convert.ToDateTime(Request["date"]) : DateTime.Now;
+                    var date = Request["date"] != null ? Convert.ToDateTime(Request["date"]) : DateTime.UtcNow;
 
                     dailyGospel = GetReading(date);
                 }
@@ -76,7 +76,7 @@ namespace SimbahanApp
 
                 DateTime dateParam;
 
-                dateParam = Request["date"] != null ? Convert.ToDateTime(Request["date"]) : DateTime.Now;
+                dateParam = Request["date"] != null ? Convert.ToDateTime(Request["date"]) : DateTime.UtcNow;
 
                 var verse = GetVerse(dateParam);
                 var quote = GetQuote(dateParam);
