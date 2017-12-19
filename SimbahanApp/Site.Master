@@ -804,7 +804,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
                                                         <img src='<%= ResolveUrl("Images/SimbahanLogo.png") %>' alt="logo" />
                                                     </a>
                                                         <div id="text-5" class="widget eltd-footer-text widget_text">
-                                                    <div class="textwidget">&copy; <%: DateTime.Now.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
+                                                    <div class="textwidget">&copy; <%: DateTime.UtcNow.Year %> - MyCatholicPortal | Powered by: SCRIPTSMART TECHNOLOGIES, INC.</div>
                                                 </div>
                                                     </div>
                                                     <div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 icons" style="margin-left: 36.5%; margin-top: 2%;">
