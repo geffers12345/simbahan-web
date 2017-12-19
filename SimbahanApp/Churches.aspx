@@ -1171,7 +1171,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
         }
         $("#view-announcement-modal").modal('show');
       
-        alert("nice");
     });
 
     $("#<%= btnAddToFav.ClientID %>").click(function (e) {
@@ -1290,7 +1289,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
 
 
-    $(document).ready(function () {
+    <%--$(document).ready(function () {
         var GetCoordinates = (new http).post('<%=ResolveUrl("VisitaIglesia.aspx/GetChurchesNearby")%>')
                                        .prepare(function () {
 
@@ -1310,7 +1309,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
                 longitude: $("#<%=longitude.ClientID%>").val(),
                 limit: 4
             })
-    });
+    });--%>
 
     
   
