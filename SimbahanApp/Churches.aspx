@@ -854,9 +854,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 var message = $('#<%= churchName.ClientID %>').text().substr(0, 60) +
                     '\n' +
-                    'www.mycatholicportal.org/Churches.aspx?id=' +
+                    'www.mycatholicportal.org/Churches/' +
                     $("#<%= simbahanID.ClientID %>").val() + "/" + $("#<%= maskData.ClientID %>").val() +
-                    '   via @SimbahanApp';
+                    ' via @SimbahanApp';
 
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURI(message),
                     "Share to Twitter",
