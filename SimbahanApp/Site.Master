@@ -819,7 +819,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
                                         <span class="eltd-social-icon-widget social_facebook" style="background-color: white;padding: 39%;border-radius: 47%; color: black !important;"></span></a>
                                 </div>
                                                     <div class="col-lg-2">
-                                                        <img class="img-responsive chrome" src="<%= ResolveUrl("Images/chrome.png") %>'/>" alt="chrome" />
+                                                        <img class="img-responsive chrome" src='<%= ResolveUrl("Images/chrome.png") %>' alt="chrome" />
                                                     </div>
                                                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
                                     <div class="widget eltd-footer-column widget_text" style="margin-top:40%;">
