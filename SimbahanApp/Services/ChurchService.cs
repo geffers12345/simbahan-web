@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 using SimbahanApp.Models;
 using SimbahanApp.Transformers;
 
@@ -445,7 +446,7 @@ namespace SimbahanApp.Services
                                     {
                                         church.ChurchThumbnails.Add(new ChurchPhotosModel
                                         {
-                                            ChurchPhotos = @"Images\default.jpg"
+                                            ChurchPhotos = "http://" + HttpContext.Current.Request.Url.Host +  @"Images\default.jpg"
                                         });
                                     }
                                 }
