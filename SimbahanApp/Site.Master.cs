@@ -82,7 +82,7 @@ namespace SimbahanApp
                 MetaUrl = HttpContext.Current.Request.Url.Host + "/Churches/" + church.SimbahanID + "/" + church.maskingData; //URL Masking
                 MetaImage = church.ChurchPhotos.Count > 0
                     ? "http://www.mycatholicportal.org/Images/" + church.ChurchPhotos[0].ChurchPhotos
-                    : "";
+                    : "http://www.mycatholicportal.org/Images/default.jpg";
             }
 
             if (Page.RouteData.Values["organization-id"] != null)
@@ -100,7 +100,7 @@ namespace SimbahanApp
                 //MetaUrl = HttpContext.Current.Request.Url.Host + "/Organizations.aspx?id=" + organization.Id;
                 MetaImage = organization.Photos.Count > 0
                     ? "http://www.mycatholicportal.org/Images/Organizations/" + organization.Photos[0].ToString()
-                    : "http://www.mycatholicportal.org/Images/defaul-org.jpg";
+                    : "http://www.mycatholicportal.org/Images/default-org.jpg";
             }
 
             if (Page.RouteData.Values["devote-id"] != null)

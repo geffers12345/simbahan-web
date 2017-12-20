@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace SimbahanApp.Components
 {
@@ -15,6 +16,17 @@ namespace SimbahanApp.Components
         {
             var reviewerName = Review.UserId == 0 ? Review.Name : Review.User.FullName;
 
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < Review.StarCount; i++)
+            {
+                sb.Append(@"<i class='fa fa-star' style='color: yellow; font-size: 18pt'></i>");
+            }
+
+            for (int i = 0; i < 5 - Review.StarCount; i++)
+            {
+                sb.Append(@"<i class='fa fa-star-o' style='font-size: 18pt'></i>");
+            }
             return
                 "<li itemprop=\"review\" itemtype=\"http://schema.org/Review\">" +
                 "<div class=\"eltd-comment clearfix\">" +
@@ -23,9 +35,10 @@ namespace SimbahanApp.Components
                 "</div>" +
                 "<div class=\"eltd-comment-text\">" +
                 "<div class=\"eltd-comment-info\">" +
-                "<div class=\"eltd-review-rating\">" +
-                "<span class=\"rating-inner\" style=\"width: " + CalculateStarPercentage() + "%;\"></span>" +
-                "<a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
+                "<div>" +
+                //"<span class=\"rating-inner\" style=\"width: " + CalculateStarPercentage() + "%;\"></span>" +
+                //"<a href=\"#\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
+                sb.ToString() +
                 "</div>" +
                 "<div class=\"eltd-review-title\">" +
                 "<span>" + reviewerName + "</span>" +

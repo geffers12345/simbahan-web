@@ -632,7 +632,7 @@ Modified by:
 </form>
 
 </div>
-                                <%--<span class="eltd-star-rating" data-value="1"></span><span class="eltd-star-rating" data-value="2"></span><span class="eltd-star-rating" data-value="3"></span><span class="eltd-star-rating" data-value="4"></span><span class="eltd-star-rating" data-value="5"></span>
+                               <%-- <span class="eltd-star-rating" data-value="1"></span><span class="eltd-star-rating" data-value="2"></span><span class="eltd-star-rating" data-value="3"></span><span class="eltd-star-rating" data-value="4"></span><span class="eltd-star-rating" data-value="5"></span>
                                 <input type="hidden" name="eltd_rating" id="eltd-rating" value="3"/>--%>
                             </span>
                         </div>
@@ -901,6 +901,25 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
             
         //})
+
+        var starCount = 0;
+
+        $("label.star-1").click(function (e) {
+            starCount = 1;
+        });
+        $("label.star-2").click(function (e) {
+            starCount = 2;
+        });
+        $("label.star-3").click(function (e) {
+            alert("nice");
+            starCount = 3;
+        });
+        $("label.star-4").click(function (e) {
+            starCount = 4;
+        });
+        $("label.star-5").click(function (e) {
+            starCount = 5;
+        });
         
         $(document).on('click',
             '#btnPublishReview',
@@ -912,24 +931,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
 
                 var commentReviewPassed = $("#comment").validate(['required', 'min:3'])
                     .displayErrorOn('#errorComment');
-
-                var starCount = 0;
-
-                $("label.star-1").click(function (e) {
-                    starCount = 1;
-                });
-                $("label.star-2").click(function (e) {
-                    starCount = 2;
-                });
-                $("label.star-3").click(function (e) {
-                    starCount = 3;
-                });
-                $("label.star-4").click(function (e) {
-                    starCount = 4;
-                });
-                $("label.star-5").click(function (e) {
-                    starCount = 5;
-                });
 
                 if (commentReviewPassed) {
                     var d = new Date()
@@ -1126,9 +1127,9 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
             "<div class=\"eltd-review-rating\">" +
             "<span class=\"rating-inner\" style=\"width: " +
             this.CalculateStarPercentage() +
-            "%;\"></span>" 
+            "%;\"></span>" +
             //"<a href=\"#\" id=\"reportSpam\" data-id=\"" + this.id + "\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Report as abusive\"><i class=\"fa fa-exclamation 5x\" style=\"color: red;\" aria-hidden=\"true\"></i></a>" +
-            "</div>" +
+            //"</div>" +
             "<div class=\"eltd-review-title\">" +
             "<span>" +
             this.name +
@@ -1314,7 +1315,8 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>
     });
 
     
-  
+
+   
    
 </script>
 </asp:Content>
