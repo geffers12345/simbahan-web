@@ -11,6 +11,8 @@ using SimbahanApp.Services;
 using SimpleInjector;
 using SimpleInjector.Advanced;
 using SimpleInjector.Diagnostics;
+using System.Security.Cryptography;
+using System.Web.Security;
 
 namespace SimbahanApp
 {
@@ -24,6 +26,15 @@ namespace SimbahanApp
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        private void Application_Error(object sender_, EventArgs e)
+        {
+            Exception exception = Server.GetLastError();
+            if(exception is CryptographicException)
+            {
+                FormsAuthentication.SignOut();
+            }
         }
 
         private static void Bootstrap()
