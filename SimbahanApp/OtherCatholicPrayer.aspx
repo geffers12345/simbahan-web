@@ -20,6 +20,9 @@
                         <h6 runat="server" class="church-paragraph" id="prayer"></h6>
                     </div>
                     <div class="col-md-2">
+                        
+                    </div>
+                    <div>
                         <center>
                             <br/> <br/>
                             <a><input type="Image" id="btnAddToFave" runat="server" title="Add to Favorites!" width="45" height="45"/></a>

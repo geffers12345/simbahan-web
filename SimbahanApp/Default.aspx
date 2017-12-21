@@ -41,7 +41,7 @@
                                                 <div class="vc_empty_space" style="height: 30px;"><span class="vc_empty_space_inner"></span></div>
 
                                                 <div class="eltd-listing-search-field" style="text-align: left;">
-                                                    <span style="color: snow;">Find Catholic Churches or Organizations</span>
+                                                    <span style="color: snow;margin-left:10px">Find Catholic Churches or Organizations</span>
                                                 </div>
 
                                                 <%--<form method="get" action="/">--%>

@@ -446,7 +446,7 @@ namespace SimbahanApp.Services
                                     {
                                         church.ChurchThumbnails.Add(new ChurchPhotosModel
                                         {
-                                            ChurchPhotos = "http://" + HttpContext.Current.Request.Url.Host +  @"Images\default.jpg"
+                                            ChurchPhotos = Helpers.GenerateURL(@"Images\default.jpg")
                                         });
                                     }
                                 }
