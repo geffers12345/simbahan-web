@@ -5,12 +5,7 @@
 <html lang="en">
 <head runat="server">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-1360923144092964",
-    enable_page_level_ads: true
-  });
-</script>
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97242852-1"></script>
 <script>
@@ -20,13 +15,10 @@
 
   gtag('config', 'UA-‎97242852-1');
 </script>
-   <%-- <script>(function(ins){ if ('https:'==document.location.protocol){var h='link';} else {var h='z53714-p42728-n231.pub';}
-var d = "abd"+ins, s = document.createElement('script');document.write('<div id="'+d+'"></div>');
-s.type = 'text/javascript'; s.src = '//'+h+'.pgssl.com/adv/ap/fastjsa.asp?m=i&z=53714&p=42728&n=231&s=l&rr='+d; s.async = true; s.defer = true; 
-document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= MetaTitle %> <%--- MyCatholicPortal--%></title>
+    <title><%= MetaTitle %> </title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -728,71 +720,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
                     <div class="eltd-footer-top-holder">
                         <div class="eltd-footer-top eltd-footer-top-aligment-left">
 
-                           <%-- <div class="row">
-                                <div class="col-xs-4"></div>
-
-                             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
-                                    <div class="widget eltd-footer-column widget_text">
-                                        <div class="textwidget">
-                                            <h5 style="color: snow;">COMPANY</h5>
-                                            <p>
-                                                <a href="http://<%= HttpContext.Current.Request.Url.Host %>/About.aspx">About Us
-                                                </a>
-                                            </p>
-                                            <p>
-                                                <a href="http://<%= HttpContext.Current.Request.Url.Host %>/Contact.aspx">Contact Us
-                                                </a>
-                                            </p>
-                                            <%--<p>
-                                                <a href="#">Donation
-                                                </a>
-                                            </p>--%>
-                               <%--         </div>
-                                    </div>
-                                </div>--%>
-
-                                <%--<div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 ">
-                                    <div class="widget eltd-footer-column widget_text">
-                                        <div class="textwidget">
-                                            <h5 style="color: snow;">ADD LISTING</h5>
-                                            <p>
-                                                <a href="#">Catholic Churches
-                                                </a>
-                                            </p>
-                                            <p>
-                                                <a href="#">Catholic Organizations
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>--%>
-                                 <!--<div class="col-lg-2  col-md-2 col-sm-6 col-xs-12 ">
-                                    <div id="text-4" class="widget eltd-footer-column widget_text">
-                                        <div class="textwidget">
-                                            <h5 style="color: snow;">OTHERS</h5>
-                                            <p>
-                                                <a href="#">Privacy Policy
-                                                </a>
-                                            </p>
-                                             <p>
-                                                <a href="#">Terms of Use
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>-->
-                                 
-                            <%--  <div class="col-lg-2  col-md-2 col-sm-6 col-xs-12 ">
-                                   <h5 style="color: snow;">GET FREE MOBILE APP VERSION</h5>
-                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="#" target="_blank">
-                                        <img src="Images/android.png" /></a>
-                                 
-                                    <a class="eltd-social-icon-widget-holder" data-hover-color="#1ab5c1" style="color: #ffffff; font-size: 18px; margin: 0 28px 0 0" href="http://twitter.com/" target="_blank">
-                                        <img src="Images/apple.png" /></a>
-                                </div>--%>
-                               <%-- <div class="col-xs-4"></div>
-                            </div>--%>
-
                             <div class="eltd-footer-bottom-holder">
                                 <div class="eltd-footer-bottom-holder-inner">
                                     <div class="eltd-container">
@@ -847,29 +774,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
                                                         </div>
                                                         <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12"></div>
                                                     </div>
-
-                                                    <%--<div class="col-lg-2  col-md-2 col-sm-12 col-xs-12 icons" style="margin-left: 36.5%; margin-top: 2%;">
-                                  
-                                    </div>--%>
-                                                 
-                                                    <%--<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 ">
-                                    <div class="widget eltd-footer-column widget_text" style="margin-top:40%;">
-                                        <div class="textwidget">
-                                          --%>
-                                            <%--<p>
-                                                <a href="#">Donation
-                                                </a>
-                                            </p>--%>
-                                   <%--     </div>
-                                    </div>
-                                    <div class="widget eltd-footer-column widget_text" style="margin-top:-15%;">
-                                        <div class="textwidget">--%>
-                                            <%--<h5 style="color: snow;">COMPANY</h5>--%>
-                                            
-                                            <%--<p>
-                                                <a href="#">Donation
-                                                </a>
-                                            </p>--%>
                                         </div>
                                     </div>
                                 </div>
@@ -880,9 +784,6 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </footer>
 
         </div>
@@ -991,19 +892,7 @@ document.body.appendChild(s);}((++window.abd || (window.abd = 0))));</script>--%
     <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/list.js"></script>
     <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/helpers.js"></script>
     <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server">
-        <!--Start of Tawk.to Script-->
-<%--<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/595c9febe9c6d324a4738e03/default';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-    })();
-</script>--%>
-<!--End of Tawk.to Script-->
+       
         <script type='text/javascript' data-cfasync='false'>window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); } }; (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://app.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '44bf8416-da2d-47bb-b76f-485619ccf29c', f: true }); done = true; } }; })();</script>
     </asp:ContentPlaceHolder>
 
