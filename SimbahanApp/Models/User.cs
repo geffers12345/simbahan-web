@@ -29,7 +29,7 @@ namespace SimbahanApp.Models
             user.Email = data[3];
             user.Gender = data[4];
             user.DateOfBirth = data[5];
-            user.RoleID = Convert.ToInt32(data[6]);
+            user.RoleID = Convert.ToInt32(data[7]);
             return user;
         }
 
