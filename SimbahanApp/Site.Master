@@ -62,7 +62,7 @@
         }
     </style>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" defer="defer"></script>
 <script>
     $(document).ready(function(){
         $("#icon").click(function(){
@@ -157,7 +157,7 @@
         /* ]]> */
     </script>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/utils.mine100.js?ver=4.7.2'></script>
-    <script type='text/javascript' src='wpStuffs/wp-includes/js/plupload/plupload.full.mincc91.js?ver=2.1.8'></script>
+    <script type='text/javascript' src='wpStuffs/wp-includes/js/plupload/plupload.full.mincc91.js?ver=2.1.8' defer='defer'></script>
     <!--[if lt IE 8]>
     <script type='text/javascript' src='wpStuffs/wp-includes/js/json2.min.js?ver=2015-05-03'></script>
     <![endif]-->
@@ -223,7 +223,7 @@
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="MsAjaxBundle"/>
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="respond" />
@@ -886,7 +886,7 @@
         var isAuth = <%= SimbahanApp.Models.Auth.Check() ? "true" : "false" %>;
         var currentPage = '<%= HttpContext.Current.Request.Url.AbsolutePath %>';
     </script>
-    <script type='text/javascript' src='http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/bootstrap.min.js'></script>
+    <script type='text/javascript' src='http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/bootstrap.min.js' defer='defer'></script>
     <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/jssor.slider-22.2.10.min.js"></script>
     <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/validator.js"></script>
     <script src="http://<%= HttpContext.Current.Request.Url.Host %>/Scripts/list.js"></script>
