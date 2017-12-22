@@ -13,7 +13,7 @@
             <div class="map">
                 <div id="churchMap" class="height"></div>
             </div>
-
+    
             <div class="map1">
                 <div id="adorationMap" class="height"></div>
             </div>
@@ -172,7 +172,7 @@
                                     <h5 class="normalize-h5" style="font-weight: bold !important;">Church Ventilation</h5>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3" style="padding-right: 0px;">
+                                    <div class="col-md-3" style="padding-right: 0px; width:27%">
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="churchHasAirConditioned">
@@ -180,7 +180,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3" style="width:27%;">
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="churchHasCeilingFan">
@@ -188,7 +188,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3" style="width:27%">
                                         <div class="form-group">
                                             <div class="ckbox">
                                                 <input type="checkbox" id="churchHasOrdinaryFan">
