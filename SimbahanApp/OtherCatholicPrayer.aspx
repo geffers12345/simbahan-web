@@ -5,7 +5,7 @@
     <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
 
-    <div class="box-body" style='background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)'>
+    <div class="box-body" style='background-image: url(<%= ResolveUrl("Images/Background.jpg") %>); background-repeat: round'>
         <div class="row">
             <div class="col-md-12">
                 <h1 runat="server" class="moods" id="Title"></h1>

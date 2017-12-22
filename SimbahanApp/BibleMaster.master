@@ -13,7 +13,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <input type="text" style="display: none" id="mood" runat="server" />
-    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
         <%--   <div class="container">
                     <ol class="breadcrumb breadcrumb-arrow">

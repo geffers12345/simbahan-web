@@ -16,7 +16,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/demo.css" rel="stylesheet" />
 
-     <div class="bible" style="background-color: #eee;">
+     <div class="bible" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="categories">
          <div class="content">
          <div class="row">

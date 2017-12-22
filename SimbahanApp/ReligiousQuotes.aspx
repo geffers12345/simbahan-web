@@ -17,7 +17,7 @@ Modified by:
 <link href='<%= ResolveUrl("Content/demo.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
 
-<div class="bible" style="background-image: url(Images/Background.jpg)">
+<div class="bible" style="background-image: url(Images/Background.jpg); background-repeat: round">
 <div class="row">
     <br />
 <%-- <div class="container">

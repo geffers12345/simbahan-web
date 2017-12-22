@@ -17,7 +17,7 @@
     <script src ="Scripts/isotope.js"></script>
     <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
 
-    <div class="box-body" id="app" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" id="app" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">

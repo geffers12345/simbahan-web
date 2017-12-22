@@ -17,7 +17,7 @@
     <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
 
 
-    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
               
             <div class="col-md-12">

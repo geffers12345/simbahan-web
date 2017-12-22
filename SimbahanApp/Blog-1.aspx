@@ -5,7 +5,7 @@
     <link href="Content/blog-home.css" rel="stylesheet" />
 
      <!-- Page Content -->
-    <div class="container">
+    <div class="container" style="background-color: #fff">
 
       <div class="row">
           <br /><br />

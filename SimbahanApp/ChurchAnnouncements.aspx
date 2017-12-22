@@ -6,7 +6,7 @@
     <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
     <link href='<%= ResolveUrl("Content/contact.css") %>' rel="stylesheet" />
 
-    <div class="box-body-main" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body-main" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
             <h2 class="contact-header">CHURCH ANNOUNCEMENTS</h2>
            </div>

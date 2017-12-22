@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" EnableEventValidation="false" CodeBehind="ChurchAdminPageUpdate.aspx.cs" Inherits="SimbahanApp.ChurchAdminPageUpdate" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-<div class="box-body" style="background-image: url(Images/Background.jpg);">
+<div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
     <%--<link href="Content\MassScheduleStyle.css" rel="stylesheet" />--%>
 <link href="Content\timepicki.css" rel="stylesheet" />
 

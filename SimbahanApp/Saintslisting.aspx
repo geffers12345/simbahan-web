@@ -7,7 +7,7 @@
     <link href="Content/prayers.css" rel="stylesheet"/>
     <script src ="Scripts/isotope.js"></script>
 
-    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row" id="app">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 

@@ -6,7 +6,7 @@
 <link href="Content/calendar-blue.css" rel="stylesheet"/>
 <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
 
-<div class="box-body" style="background-image: url(Images/Background.jpg)">
+<div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
     <input type="hidden" value="" id="SaintsID" runat="server"/>
     <div class="row">
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
