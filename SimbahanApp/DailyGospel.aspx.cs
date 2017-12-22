@@ -7,6 +7,7 @@ using System.Configuration;
 using SimbahanApp.Services;
 using System.Data.SqlClient;
 using SimbahanApp.Transformers;
+using System.Web;
 
 namespace SimbahanApp
 {
@@ -81,9 +82,9 @@ namespace SimbahanApp
                 var verse = GetVerse(dateParam);
                 var quote = GetQuote(dateParam);
 
-
-                BibleQuote.InnerHtml = verse.BibleVerseContent;
-                BibleVerse.InnerHtml = verse.ChapterTitle;
+                //TextBox1.Text = DateTime.Now.ToString().Split(' ')[0] + " " + DateTime.Now.ToString().Split(' ')[1];
+                HttpUtility.HtmlEncode(BibleQuote.InnerHtml = verse.BibleVerseContent);
+                HttpUtility.HtmlEncode(BibleVerse.InnerHtml = verse.ChapterTitle);
 
                 RelQuote.InnerHtml = quote.Quote;
                 Author.InnerHtml = quote.Author;

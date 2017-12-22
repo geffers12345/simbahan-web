@@ -8,6 +8,7 @@
     <input type="hidden" id="Latitude" runat="server" />
     <%--<asp:Button ID="triggerMe" runat="server" OnClick="triggerMe_Click" />--%>
     <div class="row">
+        <div style="margin-top:45px"></div>
         <div class="col-sm-5">
             <div class="map">
                 <div id="churchMap" class="height"></div>

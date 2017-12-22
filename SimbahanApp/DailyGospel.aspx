@@ -129,7 +129,7 @@
         </div>
         <div class="col-lg-1  col-md-1 col-sm-6 col-xs-12 pull-right">
             <div class="eltd-listing-search-submit-holder">
-                <button id="ShareFb" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
+                <button id="ShareFb" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000" style="margin-left: -8px;">
                     <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
                     <span aria-hidden="true"></span>
                 </button>
@@ -337,6 +337,7 @@
 
     $(document).ready(function () {
 
+        
         if ($("#<%= GospelID.ClientID %>").val() == 0){
             $('#reflection').hide();
         } else {
@@ -436,7 +437,7 @@
                 success: function(response) {
                     var data = response.d;
 
-                    $("#<%= BibleQuote.ClientID %>").text(data.BibleVerseContent);
+                    $("#<%= BibleQuote.ClientID %>").text(data.BibleVerseContent.toString().replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ' '));
                     $("#<%= BibleVerse.ClientID %>").text(data.ChapterTitle);
 
                 }
@@ -450,7 +451,7 @@
                 success: function(response) {
                     var data = response.d;
 
-                    $("#<%= RelQuote.ClientID %>").text(data.Quote);
+                    $("#<%= RelQuote.ClientID %>").text(data.Quote.toString().replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, ' '));
                     $("#<%= Author.ClientID %>").text(data.Author);
 
                 }
