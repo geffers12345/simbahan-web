@@ -6,7 +6,9 @@
 <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
 
-<div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>); background-repeat: round">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)">
+
 <input type="hidden" id="ReflectionID" runat="server"/>
 <div class="row">
 <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
