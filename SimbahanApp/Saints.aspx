@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <link href="Content/carousel.css" rel="stylesheet" />
+    <%--<link href="Content/carousel.css" rel="stylesheet" />--%>
     <link href="Content/slider.css" rel="stylesheet" />
     <link href="Content/demo2.css" rel="stylesheet" />
 
@@ -22,19 +22,19 @@
 		   <!-- Slides Container -->
             <div u="slides" class = "slider-con">
 				<div>
-                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/mother_teresa.jpg" /></a>
+                    <a href="Saintslisting.aspx"><img u="image" style=" -ms-interpolation-mode: bicubic;" src="Images/Saints/mother_teresa.jpg" /></a>
 				</div>
 					
                 <div>
-                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/padre_pio.jpg" /></a>
+                    <a href="Saintslisting.aspx"><img u="image" style=" -ms-interpolation-mode: bicubic;" src="Images/Saints/padre_pio.jpg" /></a>
 					
 				</div>
                 <div>
-                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/st_jude.jpg" /></a>
+                    <a href="Saintslisting.aspx"><img u="image" style=" -ms-interpolation-mode: bicubic;" src="Images/Saints/st_jude.jpg" /></a>
 					
 				</div>
 				 <div>
-                    <a href="Saintslisting.aspx"><img u="image" src="Images/Saints/st_francis_xavier.jpg" /></a>
+                    <a href="Saintslisting.aspx"><img u="image" style=" -ms-interpolation-mode: bicubic;" src="Images/Saints/st_francis_xavier.jpg" /></a>
 					
 				</div>
                 <header class="codrops-header">

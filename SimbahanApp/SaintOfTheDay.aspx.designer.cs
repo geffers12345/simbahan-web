@@ -40,6 +40,15 @@ namespace SimbahanApp {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SaintDate;
         
         /// <summary>
+        /// ImagePath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage ImagePath;
+        
+        /// <summary>
         /// FeaturedSaint control.
         /// </summary>
         /// <remarks>
@@ -92,15 +101,6 @@ namespace SimbahanApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl CanonizedDate;
-        
-        /// <summary>
-        /// ImagePath control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage ImagePath;
         
         /// <summary>
         /// SaintBio control.
