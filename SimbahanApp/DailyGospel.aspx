@@ -229,8 +229,8 @@
 </asp:Content>
 
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
-<script src='<%= ResolveUrl("Scripts/jquery.dynDateTime.min.js") %>' type="text/javascript"></script>
-<script src='<%= ResolveUrl("Scripts/calendar-en.min.js") %>' type="text/javascript"></script>
+<script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+<script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 
