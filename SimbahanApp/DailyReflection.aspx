@@ -5,7 +5,7 @@
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)">
 <input type="hidden" id="ReflectionID" runat="server"/>
 <div class="row">

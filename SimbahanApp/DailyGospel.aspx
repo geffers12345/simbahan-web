@@ -5,7 +5,8 @@
 <link href='<%= ResolveUrl("Content/Site.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
-    <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
+<link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   
 <div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)">
 
@@ -230,6 +231,7 @@
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
 <script src='<%= ResolveUrl("Scripts/jquery.dynDateTime.min.js") %>' type="text/javascript"></script>
 <script src='<%= ResolveUrl("Scripts/calendar-en.min.js") %>' type="text/javascript"></script>
+
 <script type="text/javascript">
 
    $(document).on('click',
