@@ -5,6 +5,7 @@
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
+<link href="Content/custom.css" rel="stylesheet" />
 
 <div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)">
 
@@ -141,7 +142,7 @@
 </div>
 <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="row">
+    <div class="row-body-pane">
         <h4 class="text-center">
             <strong>Bible Verse of the Day</strong>
         </h4>

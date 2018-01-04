@@ -263,10 +263,15 @@ label.label-normal {
 .reflection {
     background-size: 100% 100%;
     height: 650px;
+    width: 100%;
     padding: 100px 25px;
     border-radius: 50px;
     box-shadow: 10px 10px #888888;
     resize:none;
+}
+
+.row-body-pane {
+    padding-right: 20px;
 }
 
 .text-reflection {
