@@ -5,9 +5,11 @@
 <link href='<%= ResolveUrl("Content/Site.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
 <link href='<%= ResolveUrl("Content/calendar-blue.css") %>' rel="stylesheet"/>
-    <link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
-  
-<div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>)">
+<link href='<%= ResolveUrl("Content/Breadcrumbs.css") %>' rel="stylesheet"/>
+<link href="Content/custom.css" rel="stylesheet" />
+
+
+<div class="box-body" style="background-image: url(<%= ResolveUrl("Images/Background.jpg") %>); background-repeat: round">
 
 <input type="hidden" value="" id="GospelID" runat="server"/>
 <div class="row">
@@ -139,7 +141,7 @@
 </div>
 <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-    <div class="row">
+    <div class="row-body-pane">
         <h4 class="text-center">
             <strong>Bible Verse of the Day</strong>
         </h4>
@@ -228,8 +230,10 @@
 </asp:Content>
 
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
-<script src='<%= ResolveUrl("Scripts/jquery.dynDateTime.min.js") %>' type="text/javascript"></script>
-<script src='<%= ResolveUrl("Scripts/calendar-en.min.js") %>' type="text/javascript"></script>
+    <script src="Scripts/jquery-1.10.2.min.js"></script>
+<script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+<script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 
    $(document).on('click',

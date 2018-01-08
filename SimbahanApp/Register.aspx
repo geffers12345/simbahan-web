@@ -9,7 +9,7 @@
         Modified by:   
         --------------------------->
 
-    <div class="box-body" style="background-image: url(Images/Background.jpg);">
+    <div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4 login-box-container">

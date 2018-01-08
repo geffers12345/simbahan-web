@@ -17,7 +17,7 @@
     <script src ="Scripts/isotope.js"></script>
     <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
 
-    <div class="box-body" id="app" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" id="app" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
@@ -57,7 +57,7 @@
                         <div id="container">
                         <div class="row">
                             <div class="col-md-3 col-md-offset-8">
-                                <input v-model="search" @keyup.enter="OnSearchChanged" @input="OnSearchChanged" type="text" class="form-control" placeholder="Search . . ."/>
+                                <center><input v-model="search" @keyup.enter="OnSearchChanged" @input="OnSearchChanged" type="text" class="form-control" placeholder="Search . . ."/></center>
                             </div>
                         </div>
 

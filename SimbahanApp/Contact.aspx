@@ -8,7 +8,7 @@
     <link href='<%= ResolveUrl("Content/magnific-popup.css") %>' rel="stylesheet" />
     <link href='<%= ResolveUrl("Content/agency.min.css") %>' rel="stylesheet" />
 
-    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
             <h1 class="moods">CONTACT US</h1>
             <br />

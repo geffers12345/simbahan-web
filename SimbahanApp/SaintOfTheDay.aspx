@@ -5,20 +5,22 @@
 <link href="Content/SimbahanStyle.css" rel="stylesheet"/>
 <link href="Content/calendar-blue.css" rel="stylesheet"/>
 <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
+<link href="Content/custom.css" rel="stylesheet" />
 
 <div class="box-body" style="background-image: url(Images/Background.jpg)">
+
     <input type="hidden" value="" id="SaintsID" runat="server"/>
     <div class="row">
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-md-12">
-                <div class="btn-group btn-breadcrumb">
+                    <div class="row">
+         <div class="btn-group btn-breadcrumb">
             <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
             <a href="#" class="btn btn-info">Daily Readings</a>
             <a href="#" class="btn btn-info"><strong>Saint Of The Day</strong></a>
-          
         </div>
-
+</div>
             <br /><br />
                        <h2>Saint of the Day &nbsp;<asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
                         <button id="MapPicker" type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon chorg" data-hover-color="#000" data-hover-border-color="#000">
@@ -26,14 +28,19 @@
                             <span aria-hidden="true"></span>
                         </button>
                     </h2>
+                      </div>
                 </div>
                 <div class="row">
-                    <div runat="server" id="SaintDate" class="text-dated"><%--Sunday, December 11, 2016--%></div>
+                    <div runat="server" id="SaintDate" class="text-dated"></div>
                 </div>
-            </div>
+          
             <br/>
+            <br />
             <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 clear-padding" style="margin-left: 35%;">
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <center><img runat="server" class="img-responsive imagepath" id="ImagePath"/></center>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 clear-padding">
                     <div class="saint-pane">
                         <div class="saint-name-pane">
                             <h3 runat="server" id="FeaturedSaint" class="church-subtitle">
@@ -76,12 +83,10 @@
                 </div>--%>
                 </div>
                 <br/>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin-left: -100%;margin-top: -3%;">
-                    <center><img runat="server" class="img-responsive imagepath" id="ImagePath"/></center>
-                </div>
+                
             </div>
             <br/>
-            <div class="row" style="margin-left: 2%;">
+            <div class="row">
                 <p class="church-subtitle">
                     <strong>BIOGRAPHY: </strong>
                 </p>
@@ -125,7 +130,7 @@
         </div>
         <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <div class="row">
+            <div class="row-body-pane">
                 <h4 class="text-center">
                     <strong>Bible Verse of the Day</strong>
                 </h4>
@@ -214,8 +219,8 @@
 </asp:Content>
 
 <asp:Content ID="ScriptsPlaceHolder" ContentPlaceHolderID="ScriptsPlaceHolder" runat="server">
-    <script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
-    <script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
+   <script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+<script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 
 

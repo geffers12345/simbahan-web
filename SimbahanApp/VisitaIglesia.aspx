@@ -12,7 +12,7 @@
                 <div id="mapContainer" class="height"></div>
             </div>
         </div>
-        <div class="col-sm-7 tab-bg" style="padding: 60px">
+        <div class="col-sm-7 bg-white" style="padding: 60px">
             <div class="row">
                 <br />
                 <h1 class="moods">VISITA IGLESIA</h1>

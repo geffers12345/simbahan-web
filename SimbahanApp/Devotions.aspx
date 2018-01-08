@@ -8,7 +8,7 @@
     <link href="Content/prayers.css" rel="stylesheet"/>
     <link href="Content/Breadcrumbs.css" rel="stylesheet"/>
 
-    <div class="box-body" style="background-image: url(Images/Background.jpg)">
+    <div class="box-body" style="background-image: url(Images/Background.jpg); background-repeat: round">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
@@ -37,7 +37,7 @@
                 <div id="container">
                     <div class="row">
                         <div class="col-md-3 col-md-offset-8">
-                            <input type="text" class="fuzzy-search form-control" placeholder="Search . . ."/>
+                            <center><input type="text" class="fuzzy-search form-control" placeholder="Search . . ."/></center>
                         </div>
                     </div>
 
