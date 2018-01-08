@@ -47,7 +47,7 @@
                 <div id="container">
                     <div class="row">
                         <div class="col-md-3 col-md-offset-8">
-                            <input type="text" class="fuzzy-search form-control" placeholder="Search . . ."/>
+                            <center><input type="text" class="fuzzy-search form-control" placeholder="Search . . ."/></center>
                         </div>
                     </div>
 
