@@ -609,6 +609,9 @@ h6 small,
                 padding-left: 0px ;
                    /*width: 32%;*/
             }
+            .codrops-demos a {
+       margin-top:0px ;
+}
 
     }
 
@@ -650,10 +653,27 @@ h6 small,
              .btnfav{
         width:15%;
     }
-
+              .codrops-demos a {
+       margin-top:400px !important ;
+}
           
 
              }
+    @media only screen and (max-width : 1280px){
+          .codrops-demos a {
+       margin-top:400px !important ;
+}
+    }
+    @media only screen and (max-width : 1440px){
+          .codrops-demos a {
+       margin-top:400px !important ;
+}
+    }
+    @media only screen and (max-width : 1600px){
+          .codrops-demos a {
+       margin-top:400px !important ;
+}
+    }
 
  @media only screen and (max-width : 768px) {
      
@@ -687,7 +707,12 @@ h6 small,
     }
     
     }
-    
+    @media only screen and (min-device-width:768px) and (max-device-width:1024px) {
+   codrops-demos a{
+      margin-top : 400px;
+   }
+    }
+
 
 h1,
 h2,
@@ -6728,23 +6753,7 @@ button.close {
         font-size: 12px;
         line-height: 24px;
     }
-    .codrops-demos a {
-        display: inline-block !important;
-        margin-top: 400px !important;
-        padding: 0.7em 1.1em;
-        outline: none;
-        border: 2px solid #1ab5c1;
-        border-radius: 60px;
-        text-decoration: none;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        width: 706px !important;
-        background-color: #1ab5c1;
-        height: 180px !important;
-        font-size: 40px !important;
-        line-height: 116px;
-        margin-left: -11%;
-    }
+  
     .row-music {
   margin-right: -10px;
   margin-left: -9px;
@@ -6839,6 +6848,8 @@ td.visible-xs {
   td.visible-xs {
     display: table-cell !important;
   }
+   .codrops-demos a {
+       margin-top:0px !important;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -6852,6 +6863,9 @@ td.visible-xs {
   td.visible-xs.visible-sm {
     display: table-cell !important;
   }
+   .codrops-demos a {
+       margin-top:0px !important;
+}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -6865,6 +6879,9 @@ td.visible-xs {
   td.visible-xs.visible-md {
     display: table-cell !important;
   }
+   .codrops-demos a {
+       margin-top:0px;
+}
 }
 
 @media (min-width: 1200px) {
@@ -6930,6 +6947,9 @@ td.visible-sm {
   td.visible-sm.visible-md {
     display: table-cell !important;
   }
+   .codrops-demos a {
+       margin-top:0px;
+}
 }
 
 @media (min-width: 1200px) {
