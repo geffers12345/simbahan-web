@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Daily Reflection Page" Language="C#" AutoEventWireup="true" CodeBehind="DailyReflection.aspx.cs" MasterPageFile="~/Site.Master" Inherits="SimbahanApp.DailyReflection" %>
-
+<%@ Import Namespace="SimbahanApp.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet"/>
@@ -22,6 +22,20 @@
             <a href="#" class="btn btn-info"><strong>Daily Reflection</strong></a>
           
         </div>
+                  <% if (Auth.Check()) { %>
+            <% if (Auth.user().RoleID == 3) { %>
+                <% if (Auth.user().HasPermission(Convert.ToInt32(ReflectionID.Value))) { %>
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= ReflectionID.Value %>">
+                        <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+                <% } %>
+            <% } else if (Auth.user().RoleID == 1) { %>
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= ReflectionID.Value %>">
+                        <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+            <% } %>
+        <% } %>
+
 	</div>
             <br />
              <h2> Daily Reflection &nbsp;<asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>

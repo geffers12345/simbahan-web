@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Daily Gospel Page" Language="C#" AutoEventWireup="true" CodeBehind="DailyGospel.aspx.cs" MasterPageFile="~/Site.Master" Inherits="SimbahanApp.DailyGospel" %>
-
+<%@ Import Namespace="SimbahanApp.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 <link href='<%= ResolveUrl("Content/Site.css") %>' rel="stylesheet"/>
@@ -21,8 +21,23 @@
             <a href="default.aspx" class="btn btn-info"><i class="glyphicon glyphicon-home"></i></a>
             <a href="#" class="btn btn-info" <%--style="width: 43%;"--%>>Daily Readings</a>
             <a href="#" class="btn btn-info"><strong>Gospel Reading</strong></a>
-          
+
+         
         </div>
+               <% if (Auth.Check()) { %>
+            <% if (Auth.user().RoleID == 3) { %>
+                <% if (Auth.user().HasPermission(Convert.ToInt32(GospelID.Value))) { %>
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= GospelID.Value %>">
+                        <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+                <% } %>
+            <% } else if (Auth.user().RoleID == 1) { %>
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= GospelID.Value %>">
+                        <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+            <% } %>
+        <% } %>
+
 
             <br /><br />
              
