@@ -642,6 +642,37 @@ td {
         $('#addWorship').hide();
     });
 
+    $(document).on('click', '#submit', function (e) {
+    e.preventDefault();
+    (new http).post('OrganizationAddListing.aspx/InsertOrganization', {
+        name: $('#orgName').val(),
+        address: $('#address').val(),
+        streetNo: $('#streetNo').val(),
+        streetName: $('#streetName').val(),
+        barangay: $('#barangay').val(),
+        city: $('#City').val(),
+        province: $('#province').val(),
+        country: 'PH',
+        dateEstablished: $('#date').val(),
+        parentorg: $('#parent').val(),
+        feastBuilder: $('#builder').val(),
+        branch: $('#branch').val(),
+        contact: $('#contact').val(),
+        email: $('#email').val(),
+        website: $('#website').val(),
+        retreat: $('#retreat').val(),
+        recollect: $('#recollection').val(),
+        talks: $('#talks').val(),
+        camp: $('#camps').val(),
+        volunteer: $('#volunteerWorks').val(),
+        latitude: parseFloat($('#latitude').val()),
+        longitude: parseFloat($('#longitude').val()),
+        about: $('#about').val()
+    }).then(function (response) {
+       
+        $('#<%= trigger.ClientID%>').trigger('click');
+
+
     $(document).on('click', '#edit', function (e) {
         e.preventDefault();
 
