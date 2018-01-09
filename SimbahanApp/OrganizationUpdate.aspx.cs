@@ -713,6 +713,39 @@ namespace SimbahanApp
                 SqlCommand cmd = new SqlCommand(query.ToString(), dbconn);
 
                 cmd.ExecuteNonQuery();
+                pictures();
+            }
+        }
+        public void pictures()
+        {
+            var orgID = HttpContext.Current.Session["orgID"];
+
+            if (FileUpload2.PostedFile != null && FileUpload2.PostedFile.FileName != "")
+            {
+                var ext = FileUpload2.FileName.Split('.')[FileUpload2.FileName.Split('.').Length - 1];
+
+                FileUpload2.SaveAs(Server.MapPath("Images/Organizations/" + orgID + ".1." + ext));
+            }
+
+            if (FileUpload3.PostedFile != null && FileUpload3.PostedFile.FileName != "")
+            {
+                var ext = FileUpload3.FileName.Split('.')[FileUpload3.FileName.Split('.').Length - 1];
+
+                FileUpload3.SaveAs(Server.MapPath("Images/Organizations/" + orgID + ".2." + ext));
+            }
+
+            if (FileUpload4.PostedFile != null && FileUpload4.PostedFile.FileName != "")
+            {
+                var ext = FileUpload4.FileName.Split('.')[FileUpload4.FileName.Split('.').Length - 1];
+
+                FileUpload4.SaveAs(Server.MapPath("Images/Organizations/" + orgID + ".3." + ext));
+            }
+
+            if (FileUpload5.PostedFile != null && FileUpload5.PostedFile.FileName != "")
+            {
+                var ext = FileUpload5.FileName.Split('.')[FileUpload5.FileName.Split('.').Length - 1];
+
+                FileUpload5.SaveAs(Server.MapPath("Images/Organizations/" + orgID + "." + ext));
             }
         }
         protected void addEvent_Click(object sender, EventArgs e)
