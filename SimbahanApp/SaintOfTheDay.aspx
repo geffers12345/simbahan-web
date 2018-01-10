@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Daily Saints Page" Language="C#" AutoEventWireup="true" CodeBehind="SaintOfTheDay.aspx.cs" MasterPageFile="~/Site.Master" Inherits="SimbahanApp.SaintOfTheDay" %>
-
+<%@ Import Namespace="SimbahanApp.Models" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 <link href="Content/Site.css" rel="stylesheet"/>
 <link href="Content/SimbahanStyle.css" rel="stylesheet"/>
@@ -20,6 +20,19 @@
             <a href="#" class="btn btn-info">Daily Readings</a>
             <a href="#" class="btn btn-info"><strong>Saint Of The Day</strong></a>
         </div>
+         <% if (Auth.Check()) { %>
+            <% if (Auth.user().RoleID == 3) { %>
+                <% if (Auth.user().HasPermission(Convert.ToInt32(SaintsID.Value))) { %>
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= SaintsID.Value %>">
+                        <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+                <% } %>
+            <% } else if (Auth.user().RoleID == 1) { %>
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= SaintsID.Value %>">
+                        <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
+                    </a>
+            <% } %>
+        <% } %>
 </div>
             <br /><br />
                        <h2>Saint of the Day &nbsp;<asp:TextBox ID="TextBox1" runat="server" ReadOnly="true"></asp:TextBox>
