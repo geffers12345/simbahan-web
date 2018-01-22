@@ -4,6 +4,7 @@
     <link href="Content/Site.css" rel="stylesheet"/>
     <link href="Content/SimbahanStyle.css" rel="stylesheet"/>
     <link href="Content/calendar-blue.css" rel="stylesheet"/>
+    
     <input type="hidden" runat="server" id="SaintID" />
     <input type="hidden" runat="server" id="simbahanID"/>
     <div id="related-churches-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -280,7 +281,7 @@
                                     : '';
 
                                 $("#church-container").append(
-                                    '<a href="Churches.aspx?id=' + church.SimbahanID + '" target="_blank" id="churchItem" data-id="' +
+                                    '<a href="Churches.aspx?id=' + church.RelatedChurch + '" target="_blank" id="churchItem" data-id="' +
                                     church.SimbahanID +
                                     '" class="churchItem">' +
                                     '<div class="row church-result">' +
@@ -330,13 +331,14 @@
                     
                     };--%>
      
-        //if ("#church-container")== null
-        if ($('#church-container').val() == '') {
-           $("#church-container").text("No church available for the selected saint")
-        } else {
+       
+        //if ($('#church-container').val() == '') {
+        //   $("#church-container").text("No church available for the selected saint")
+        //} else {
 
-        }
+        //}
         
-
+     
     </script>
+
 </asp:Content>
