@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="SimbahanApp._Default" %>
 
 <asp:Content ID="HeadContent" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
-    <script type='text/javascript' src='<%= ResolveUrl("Scripts/SearchCity.js") %>'></script>
+<%--    <script type='text/javascript' src='<%= ResolveUrl("Scripts/SearchCity.js") %>'></script>--%>
     <link href='<%= ResolveUrl("Content/SimbahanStyle.css") %>' rel="stylesheet" />
     <link href='<%= ResolveUrl("Content/set1.css") %>' rel="stylesheet" />
     <link href='<%= ResolveUrl("Content/video.css") %>' rel="stylesheet" />
