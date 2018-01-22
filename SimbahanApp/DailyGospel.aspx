@@ -27,12 +27,12 @@
                <% if (Auth.Check()) { %>
             <% if (Auth.user().RoleID == 3) { %>
                 <% if (Auth.user().HasPermission(Convert.ToInt32(GospelID.Value))) { %>
-                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= GospelID.Value %>">
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/DailyGospelAdmin.aspx?id=<%= GospelID.Value %>">
                         <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
                     </a>
                 <% } %>
             <% } else if (Auth.user().RoleID == 1) { %>
-                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/ChurchAdminPageUpdate.aspx?id=<%= GospelID.Value %>">
+                    <a href="http://<%= HttpContext.Current.Request.Url.Host %>/DailyGospelAdmin.aspx?id=<%= GospelID.Value %>">
                         <i class="fa fa-edit" style="font-size: 24pt; color: #db0c0c;"></i>
                     </a>
             <% } %>
@@ -178,7 +178,7 @@
 
         <div class="">
             <center>
-                <a href='<%= ResolveUrl("BibleVerses.aspx") %>' type="submit" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon verse" data-hover-color="#000" data-hover-border-color="#000">
+                <a href='<%= ResolveUrl("BibleVerses.aspx") %>' type="submit" id="btnSub" class="eltd-btn eltd-btn-large eltd-btn-solid eltd-btn-custom-border-hover eltd-btn-custom-hover-color eltd-btn-icon verse" data-hover-color="#000" data-hover-border-color="#000">
                     <span class="eltd-btn-text">SEE MORE BIBLE VERSES</span><span aria-hidden="true"></span>
                 </a>
             </center>
@@ -445,9 +445,21 @@
                     } else {
                         Control.show('<%= VerseBeforeGospel.ClientID %>');
                     }
+
+
+
+                        if ($("#BibleQuote").val() == "") {
+                            //$("#BibleQuote").hide();
+                            //$("#BibleVerse").hide();
+                            $("#btnSub").hide();
+
+
+                        }
                     }
                 }
             });
+
+           
             $.ajax({
                 type: "POST",
                 url: '<%= ResolveUrl("DailyReflection.aspx/GetVerse") %>',
