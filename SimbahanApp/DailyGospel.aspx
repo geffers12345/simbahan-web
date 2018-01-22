@@ -157,6 +157,7 @@
 <div class="col-lg-1 col-md-1 col-sm-12 col-xs-12"></div>
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
     <div class="row-body-pane">
+        <div class="Bible">
         <h4 class="text-center">
             <strong>Bible Verse of the Day</strong>
         </h4>
@@ -183,9 +184,11 @@
                 </a>
             </center>
         </div>
+            </div>
         <br/>
         <br/>
         <br/>
+        <div class="Inspiration">
         <h4 class="text-center">
             <strong>Inspirational Quote of the Day</strong>
         </h4>
@@ -209,6 +212,7 @@
                 </a>
             </center>
         </div>
+            </div>
     </div>
     <br/>
     <br/>
@@ -355,6 +359,13 @@
     });
 
     $(document).ready(function () {
+
+        if $("<%= BibleQuote.ClientID%>").val() == "" {
+            $(".Bible").hide();
+        }
+        if $("<%= RelQuote.ClientID%>").val()== "" {
+            $(".Inspiration").hide();
+        }
 
         
         if ($("#<%= GospelID.ClientID %>").val() == 0){
