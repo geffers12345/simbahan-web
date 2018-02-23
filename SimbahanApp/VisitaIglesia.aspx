@@ -113,7 +113,7 @@
         var churchList;
         var churchMap;
 
-        var GetCoordinates = (new http).post('VisitaIglesia.aspx/GetChurchesNearby')
+        var GetCoordinates = (new http).post('<%= ResolveUrl("VisitaIglesia.aspx/GetChurchesNearby")%>')
                                        .prepare(function () {
                                            $("#church-container").empty();
                                         })
