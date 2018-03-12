@@ -86,7 +86,7 @@
 
             mapx.centerMapIfMarkerOutOfBounds("current");
 
-            GetCoordinates.run({ latitude: coordinate.Latitude, longitude: coordinate.Longitude });
+            GetCoordinates.run({ latitude: coordinate.Latitude, longitude: coordinate.Longitude, limit: 9999 });
         }
 
         function extractCoordinates(data)
